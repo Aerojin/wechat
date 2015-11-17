@@ -1,0 +1,24 @@
+.redeem-list li {padding-left: 1.6rem;}
+.redeem_num {font: .15rem/.48rem "Microsoft YaHei";color: #6e6a68;}
+.manage-acc .redeem_num {float: left;color: #383330;}
+.redeem-list li.redeem-inp {padding-left: 0;}
+.inp-list .acc-num {color: #383330;}
+.invest_num {float: left;font: .15rem/.48rem "Microsoft YaHei";color: #383330;}
+.manage-list .txt-gray {color: #6e6a68;}
+
+.redeem_sucbox {padding: .65rem 0 .4rem .35rem;}
+.redeem_suc {position: relative;overflow: hidden;}
+.redeem_suc:before {content: "";position: absolute;left: 1.05rem;bottom: .15rem;width: .05rem;height: 100%;background:#f05a39;}
+.redeem_suc:after {content: "";position: absolute;left: .98rem;bottom: .15rem;z-index: 99;width: .19rem;height: .19rem;border-radius: 1rem;background:#f05a39;}
+.redeem_suc li {margin-bottom: .65rem;position: relative;}
+.redeem_suc li:before {content: "";position: absolute;left: .99rem;top: 0;z-index:100;width: .11rem;height: .11rem;border-radius: 1rem;background:#fff;border: .03rem solid #f05a39;}
+.redeem_suc li:last-child {margin: 0;}
+.redeem_suc li:last-child:before {display: none;}
+.redeem_date {float: left;width: 1.35rem;font-size: .14rem;color: #929292;}
+.redeem_notes {float: left;width: 2rem;color: #383330;font-size: .15rem;}
+.redeem_notes p {color: #929292;font-size: .14rem;}
+.invest_goon {margin-top: 0;}
+.invest_goon li {width: 45%;}
+.invest_goon li a {color: #383330;}
+.red-bag {padding-bottom: .35rem;text-align: center;font-size: .14rem;color: #64605e;}
+.pro_tips {padding:0 .16rem;font: .14rem/.48rem "Microsoft YaHei";color: #939393;}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="bind-process">
+			<ul>
+				<li class="zon">注册</li>
+				<li>验证手机</li>
+				<li>注册成功！</li>
+			</ul>
+			<div class="process-line ps3"><span class="zon"></span><span class="zon"></span><span class="zon"></span></div>
+		</div>
+	
+		<!-- 注册成功 -->
+		<div class="bind">
+			<span class="ico-status ico-success"></span>
+			<p>恭喜你，注册成功！</p>
+		</div>
+		<div class="limited-events">投资立返现<b>688元</b>红包<br/>充值即送<b>10元</b>现金</div>
+		<!-- 底部内容 -->
+		<div class="operate">
+			<a class="oper-btn" id="btn-submit" href="javascript:void(0);" title="">马上理财</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		require('pages/user/nw_register_result/nw_register_result');
+	</script>
+</body>
+</html>

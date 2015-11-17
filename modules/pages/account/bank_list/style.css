@@ -1,0 +1,4 @@
+.standby_tab {margin: .2rem;font: .14rem/.4rem "Microsoft YaHei";color: #333;}
+.standby_tab table td {text-align: center;}
+.standby_tab table thead,.standby_tab tbody tr:nth-child(even) {background:#fff;}
+.standby_tab .notes {text-align:left;padding: .1rem;font: .14rem/.2rem "Microsoft YaHei";}

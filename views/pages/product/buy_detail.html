@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>产品投资</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+</head>
+<body>
+	<div class="wrap">
+		<!-- 第一屏 -->
+		<section class="pro_manage" id="wrap">
+			<div class="hd-reds" id="header">
+				<div class="hd-ebox-two clearfix">天添牛90天期<span>90天期限</span></div>
+				<div class="ebox-info">预期年化收益率 9% </div>				
+			</div>
+			<div id="context">
+				<ul class="manage-list buy-list manage-b">			
+					<li class="clearfix inp-buy">
+						<input class="inp-txt txt-gray" placeholder="请输入购买金额，100元起" type="text" />
+					</li>
+				</ul>			
+				<p class="pro_tips recharge-btn">您的账户余额为0元<a href="#">充值</a></p>
+				<ul class="manage-list buy-list manage-b">
+					<li class="clearfix">
+						<a href="javascript:void(0);" class="clearfix">
+							<label class="inp-tit">使用红包</label>
+							<div class="red_num red_num_right">暂无可用</div>
+						</a>
+					</li>
+				</ul>
+				<p class="pro_tips recharge-btn">预期总收益0元</p>
+				
+				<div class="operate">
+					<a class="oper-btn" href="#" title="">购买</a>
+				</div>
+				<div class="servive-pact"><span class="pact-ico"></span><a href="#" class="text-red">《合同协议》</a></div>
+			</div>
+		</section>
+		
+		<!-- 红包弹层 -->
+		<div class="pack-mask" id="packet-wrap" style="display:none;">
+			<div class="layer-box" id="div-packet">
+				<div class="selectBar">
+					<p id="p-noSelected">未选择使用红包</p>
+					<p id="p-redTips" style="display: none;">已选择使用 <span class="text-red" id="span-redTips">“返现30元”</span></p>
+					<span id="btn-complete" class="btn-done text-red">完成</span>
+				</div>
+				<div class="scroll-boxs">
+					<div class="float-box" id="div-context">
+						<div style="font-size: 0.14rem; padding: 0.5rem; text-align: center;">
+							数据正在加载中...	
+						</div>						
+					</div>
+					<div class="float-box" id="div-empty" style="display:none;">
+						<div class="scroll-box">
+							<div class="no-records"><b></b><p>暂无红包</p></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<script type="text/javascript">
+		require('pages/product/buy_detail/buy_detail');
+	</script>
+</body>
+</html>

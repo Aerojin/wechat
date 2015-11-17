@@ -1,0 +1,215 @@
+body{font-size: .16rem;}
+.logo_hd h1{
+	padding: .2rem;
+	width: 3rem;
+	text-align: center;
+	font-size: .26rem;
+	margin:0 auto;
+	background: url(new_03.png) no-repeat .56rem center;
+	background-size:.4rem;
+}
+.banners{text-align: center;}
+.banners img{width:100%;}
+
+/******/
+.input_box{
+	width: 3.6rem;
+	margin:0 auto;
+}
+.form_box input{
+	outline: none;
+	height: .26rem;
+	width: 1.36rem;
+	border: none;
+	padding-left: .1rem;
+}
+.mobile_box{
+	padding:.12rem 0 .12rem .3rem;
+	margin: .1rem 0 0 0;
+	border-radius:.04rem;
+	background: url(new_10.png) no-repeat .1rem center #fff;
+	background-size:.2rem;
+	border: 1px solid #cdcdcd;
+}
+
+.Prompt{
+	background: url(new_14.png) no-repeat .1rem center;
+	background-size:.16rem;
+	padding:.05rem 0 .05rem .3rem;
+}
+
+.password_numb{
+	height: .4rem;
+	line-height: .4rem;
+	border: 1px solid #cdcdcd;
+	margin:0 0 .1rem 0;
+	padding:.05rem 0 .05rem .4rem;
+	border-radius:.04rem;
+	background: url(new_18.png) no-repeat .1rem center #fff;
+	background-size:.2rem;
+}
+
+.password_numb span{
+	float: right;
+	width:1rem;
+	height: .4rem;
+	border:0;
+	border-left: 1px dotted #e6e6e6;
+	background: #fff;
+	text-align: center;
+}
+
+.verification_bg{
+	float:left;
+	height: .4rem;
+	padding:.05rem 0 .05rem .4rem;
+	background: #fff;
+	border: 1px solid #cdcdcd;
+	background: url(new_21.png) no-repeat .1rem center #fff;
+	background-size:.3rem;
+	border-radius:.04rem;
+}
+.verification_numb{
+	line-height: .4rem;
+	padding:.02rem .02rem .02rem 0;
+}
+
+.verification_numb span{
+	line-height: 0.4rem;
+	height:.4rem;
+	width:1.4rem;
+	border:0;
+	background: #f35132;
+	border-radius: .04rem;
+	color: #fff;
+	float: right;
+	text-align: center;
+	margin-top:.06rem;
+}
+
+.Agree{position: relative;padding: .1rem 0;}
+.Agree p{padding-left: .4rem;}
+.Agree p span{
+	position: absolute;
+	left:.1rem;
+	top:.1rem;
+	display: block;
+	width:.2rem;
+	height: .2rem;
+	border: 1px solid #cdcdcd;
+	background: #fff;
+}
+.Agree p span.hover{
+	background:url(new_25.png) no-repeat center center #fff;
+	background-size: .18rem;
+}
+.form_box p.login{text-align: center;}
+.form_box p a{color: #f35132;text-decoration: underline;}
+
+.receive_btn{
+	width:4rem;
+	padding:.1rem 0;
+	font-size: .18rem;
+	border:0;
+	border-radius: .06rem;
+	background: #f05a39;
+	color: #fff;
+	font-weight: 800;
+	margin: 0 auto .12rem auto;
+	display: block;
+	text-align: center;
+}
+
+.dashed_line{
+	position: relative;
+	width:90%;
+	margin:.2rem  auto 0 auto; 
+	height: .3rem;
+	background: url(line_03.png) repeat-x center center;
+}
+.dashed_line p {
+	position: absolute;
+	left: 50%;
+	margin-left: -1.3rem; 
+	text-align: center;
+	background: #f2f2f2;
+	width:2.6rem;
+	font-size: .18rem;
+	height: .3rem;
+	line-height: .3rem;
+	color:#888887;
+}
+.list_btn{
+	padding:.16rem 0rem .3rem 0rem;
+
+}
+.list_btn li{
+
+	float: left;
+	width: 33.33%;
+	text-align: center;
+
+}
+.list_btn li a{display:block;}
+.list_btn li a img{width: .68rem;}
+.list_btn li p{font-size: .16rem;font-weight: 700;color: #b66d61;}
+.list_btn li span{display:block;font-size: .18rem;color: #b66d61;}
+
+
+.float_bg{
+	position: fixed;
+	top:0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.6);
+}
+
+.float_box {
+	position: relative;
+	left: 50%;
+	top:50%;
+	margin: -1.5rem 0 0 -1.7rem;
+	width: 3.4rem;
+	height:2.4rem;
+	background: url(niuniu_11.png) no-repeat .6rem .34rem #fff;
+	background-size: .8rem;
+	border-radius: .06rem;
+}
+
+.Determine_box{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left:0;
+
+}
+.Resuccess{
+	position: absolute;
+	left:50%;
+	top:.7rem;
+	margin-left: -.2rem;
+	font-size: .2rem;
+	width:1.2rem;
+	font-weight: 600;
+	color: #333;
+
+}
+.Determine_box p{
+	padding-bottom: .2rem;
+	text-align: center;
+	color: #f05a39;
+}
+.Determine_box span{
+	display: block;
+	height: .5rem;
+	line-height: .5rem;
+	background:#f05a39;
+	font-size: .2rem;
+	color: #fff;
+	text-align: center;
+	border-radius: 0 0 .06rem .06rem;
+}
+
+.form_box input{ font-size: 0.16rem;}
+
+img{ display: inline;}

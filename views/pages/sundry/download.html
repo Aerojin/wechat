@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>下载</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css  
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+</head>
+<body>
+	<div class="wrap">
+		<!-- 广告图 新用户-->
+		<div class="new-bg">
+			<div class="download-btn"><a id="btn-download" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.meetrend.moneybox">立即下载</a></div>
+			<span class="ico-gift"><img src="/views/images/download-bg.jpg" /></span>
+		</div>		
+	</div>
+	<div class="tip" id="div-tip" style="display:none;">
+		<div class="img"><img src="/views/images/little_icon.png"></div>		
+		<div style="float:left">
+			点击右上角菜单<br>
+			在浏览器中打开并安装
+		</div>
+	</div>
+	<div id="dialog" class="dialog" style="display:none;"></div>
+	<script type="text/javascript">
+		require("pages/sundry/download/download");
+	</script>
+</body>
+</html>

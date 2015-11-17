@@ -1,0 +1,75 @@
+.wrap {position:relative;/*max-width: 640px;*/margin: 0 auto;}
+.dn {display: none;}
+.mgt05 {margin-top: 0.05rem;}
+.mgt1 {margin-top: 0.77rem;}
+.mgt2 {margin-top: .2rem;}
+.mgt3 {margin-top:.3rem;}
+.mgt4 {margin-top:.1rem;}
+.mgt15 {margin-top:.15rem;}
+.mgt5 {margin-top:0.2rem;}
+
+.mgb1 {margin-bottom: .17rem;}
+.mgb2 {margin-bottom: .3rem;}
+.mgb3 {margin-bottom: .6rem;}
+.mgb4 {margin-bottom: .45rem;}
+
+.pdb2 {padding-bottom: .2rem;}
+.pd015 {padding: 0 .15rem;}
+div .text-red {color: #f16a4c;}
+div .text-gray1 {color: #b3b3b3;}
+div .bg-red {background: #e34545;}
+div .bg-white {background: #fff;}
+div .bg-deepRed {background: #d93637;}
+div .bg-gray1 {background: #e6e6e6;}
+
+/*===========end===========*/
+/*公用*/
+.tit-h3 {padding: .15rem .2rem;font-size: .14rem;line-height: .18rem;color: #9d9d9d;}
+.tit-h3 p {color: #2c2c2c;padding-bottom: .1rem;}
+.tit-h4 {padding: .2rem .0;font-size: .15rem;color: #626262;}
+.tit-h5 {font-size: .14rem;line-height: .34rem;color: #ff6000;}
+.tit-h5 a {color: #ff6000;}
+
+/*公用色值*/
+div .text-red {color: #f16a4c;}
+img {display: block;/*width: 100%;*/}
+
+.explain-txt {margin:.16rem .2rem;color:#9d9d9d;font-size: .14rem;}
+.inp-yzm{float:right;margin:.04rem .08rem 0 0;width:.96rem;height:.42rem;background:#da554e;color:#FFF;line-height:.42rem;font-size: .16rem;text-align:center;border-radius:5px}
+.inp-list{border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding-left:.2rem;background:#FFF;margin-bottom: .2rem 0;}
+.inp-list li{position:relative;border-top:1px solid #e8e8e8;padding-left:.96rem;line-height:.5rem}
+.inp-list li:first-child{border:0}
+.inp-tit{position:absolute;line-height:.5rem;font-size:.16rem;left:0rem}
+.inp-txt{position:relative;z-index:10;display:block;font-size:.16rem;height:.49rem;width:100%;border:0;vertical-align:middle;}
+.operate{margin:0 .1rem}
+.oper-btn{display:block;line-height:.48rem;background:#da554e;color:#FFF;text-align:center;font-size:.19rem;border-radius:5px}
+.oper-btn-gray {background:#ccc !important;}
+.oper-link{margin:.12rem 0;}
+.oper-link a{font-size:.15rem}
+a.oper-link-found {font-size:.14rem}
+.oper-link-l{float:left}
+.oper-link-r{float:right}
+.btn_loading {display:inline-block;height:100%;padding-right: .35rem;
+background:url(../images/loading2.gif) no-repeat right center;
+-moz-background-size: .28rem .28rem;
+-webkit-background-size: .28rem .28rem;
+-o-background-size: .28rem .28rem;
+background-size: .28rem .28rem;}
+.inp-txt-short{float:left;font-size:.16rem;height:.49rem;border:0;width:1.9rem;vertical-align:middle;}
+.repeat-btn{float:right;margin-top:.12rem;width:1.04rem;color:#9d9d9d;font: .16rem/.3rem "Microsoft YaHei";text-align:center;border-left:1px solid #d9d9d9}
+.hide-btn{float:right;margin-top:.12rem;width:1.04rem;color:#ff7537;font: .16rem/.3rem "Microsoft YaHei";text-align:center;border-left:1px solid #d9d9d9}
+.repeat-btn-short {width: .54rem;border-left: 1px dotted #d9d9d9;}
+
+.pdb2 {padding-bottom: .2rem;}
+div .text-red {color: #f16a4c;}
+div .text-gray1 {color: #b3b3b3;}
+div .bg-red {background: #e34545;}
+div .bg-deepRed {background: #d93637;}
+
+/*===========end===========*/
+/*公用*/
+.tit-h3 {padding: .15rem .2rem;font-size: .14rem;line-height: .18rem;color: #9d9d9d;}
+.tit-h3 p {color: #2c2c2c;padding-bottom: .1rem;}
+.tit-h4 {padding: .2rem .0;font-size: .15rem;color: #626262;}
+.tit-h5 {font-size: .14rem;line-height: .34rem;color: #ff6000;}
+.tit-h5 a {color: #ff6000;}

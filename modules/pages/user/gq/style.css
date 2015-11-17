@@ -1,0 +1,61 @@
+body{font-size: .14rem;}
+.wap{overflow: hidden;}
+.color-bg {position: relative;background: #feae0f;z-index: 9; overflow: hidden;}
+section{
+	position: relative;
+	height:5.3rem;
+	overflow: hidden;
+	z-index: 0;
+}
+.bg_light{
+	text-align: center;
+	position: absolute;
+	left:50%;
+	margin-left:-1.92rem;
+	width: 3.74rem;
+	height: 3.88rem;
+	top:.6rem;
+	background: url(lingt_03.png) no-repeat;
+	background-size: 100% 100%;
+	animation: light 9s linear 1s infinite;
+	-webkit-animation: light 9s linear 1s infinite;
+	-moz-animation: light 9s linear 1s infinite;
+	-o-animation: light 9s linear 1s infinite;
+
+}
+.bg_light img{width:4rem;}
+
+.logo_box{
+	position: absolute;
+	width:100%;
+}
+.logo_img{
+	font-size:.14rem;
+	padding:.1rem .1rem 0 .1rem;
+}
+.logo_img img{width:1.1rem;}
+.logo_hd{text-align: center;}
+.logo_hd img{width: 2.84rem;}
+
+.ho_box{
+	position: absolute;
+	width: 2.6rem;
+	margin-left: -1.3rem;
+	left:50%;
+	top:2rem;
+	z-index: -1;
+}
+.ho_bao{text-align: center;}
+.ho_bao img{width: 2.6rem;}
+img{display: inline-block;}
+input {border: none;}
+
+
+@keyframes light {
+	from {transform: rotate(0deg)}
+	to {transform: rotate(360deg)}
+}
+@-webkit-keyframes light {
+	from {-webkit-transform: rotate(0deg)}
+	to {-webkit-transform: rotate(360deg)}
+}

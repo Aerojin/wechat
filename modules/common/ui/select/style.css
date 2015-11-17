@@ -1,0 +1,18 @@
+.select-drop {width: 100%;float: left;height:.3rem;-moz-border-radius: 3px;border-radius: 3px;}
+
+.selectContainer{position:relative; width:100%;height:.3rem;float: left; margin-top:.1rem;display:inline-block; _display:inline; _zoom:1; z-index:11;-moz-border-radius: 3px;border-radius: 3px; background:#fff; border:1px solid #d8d8d8;border-right: none;} 
+.selectContainer .selectOption{float:left;width: 82%; text-indent: .1rem; font: .15rem/.3rem "Microsoft YaHei"; height:.3rem; white-space:nowrap; overflow:hidden;border:none; z-index:11;} 
+.selectContainer .shows{width:12%; height:100%; position:absolute; right:1px; top:0;z-index:13;border: 1px solid #d8d8d8;border-top: none;
+-moz-border-radius: 0 3px 3px 0;border-radius: 0 3px 3px 0;
+background:url(drop_ico.png) no-repeat center center #fff;
+-moz-background-size: .13rem .05rem;
+-webkit-background-size: .13rem .05rem;
+-o-background-size: .13rem .05rem;
+background-size: .13rem .05rem;
+} 
+.selectContainer ul{position:absolute; width:100%;height: 2rem; top:.3rem; left:-1px; border-bottom:1px solid #d8d8d8; display:none;overflow-y:scroll;} 
+.selectContainer ul li{text-indent: .1rem; border:1px solid #CCC; border-bottom:1px solid #eee; border-top:none; font: .15rem/.3rem "Microsoft YaHei"; background:#fff; cursor:pointer;} 
+.selectContainer ul.dis{display:block!important;} 
+.selectContainer ul.undis{display:noneimportant;} 
+.zIndex{z-index:10000!important} 
+.selectContainer .gray {color:#636363;}

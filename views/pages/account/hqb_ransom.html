@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>赎回</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="inp-list redeem-list">
+			<li>
+				<label class="inp-tit" for="">可赎回余额</label>
+				<div class="redeem_num"><span id="redeem-num">0</span>元</div>
+			</li>
+			<li class="redeem-inp"><input class="inp-txt" id="txt-money" type="number" placeholder="请输入赎回金额，最低100.00元"></li>
+			<li>
+				<label class="inp-tit" for="">预计到账日期</label>
+				<div class="redeem_num" id="redeem-date">-</div>
+			</li>
+		</ul>
+		<p class="pro_tips">若赎回后剩余的可赎回余额低于100元，需将剩余余额一并赎回</p>
+		<div class="operate">
+			<a class="oper-btn next-step" id="btn-submit" href="javascript:void(0);" title="">下一步</a>
+		</div>
+		<!-- 说明文字 -->
+		<div class="explain-txt explain-a"><strong>温馨提示</strong>
+			<p>1、如果赎回后重新购买活期宝，新的投资收益将从5.5%开始计算</p>
+			<p>2、输入赎回金额后，系统将自动匹配您的投资记录，优先赎回收益率相对较低的投资（即最近的投资）</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		require('pages/account/hqb_ransom/hqb_ransom');
+	</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<div>
+   <span class="selectOption gray selected">中国银行</span>
+   <ul class="selectMenu select-menu">
+   	{{each data}}	
+   		<li data-index='{{$index}}'>{{$value.text}}<li>
+   	{{/each}}
+   </ul>
+   <span class="shows btn-select"></span>
+ </div>

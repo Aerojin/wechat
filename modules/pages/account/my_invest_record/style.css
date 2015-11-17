@@ -1,0 +1,37 @@
+.hqb-tit {padding: .22rem .2rem .18rem .2rem;background: #da554e;}
+.hqb-tit li {float: left;font: .14rem "Microsoft YaHei";color: #fff;}
+.hqb-tit li:last-child{float: right}
+.hqb-tit li .note-num {display:block;font-size: .27rem;}
+
+.invest-main .wrap_box,.invest-main .m-box {height: 5rem;}
+.invest-tabbar {height: .52rem;line-height:.52rem;border:1px solid #d4d4d4;border-width: 1px 0;background: #fff;font-size: .162rem;}
+.invest-tabbar li {float: left;width: 50%;position: relative; text-align: center;}
+.invest-tabbar li:before {content: "";position: absolute;right: 0;top: 10%;width:0;height: 80%;border-right: 1px dotted #d7d7d7;}
+.invest-tabbar li:last-child:before {display: none;}
+.invest-tabbar li.active:after {content: "";position: absolute;left: 50%;bottom: -1px;z-index: 10;width: 70%;margin-left: -35%;height: .04rem;background: #da554e;}
+.tab-contain {margin: .07rem;-moz-border-radius: .05rem;border-radius: .05rem;}
+.invest-main .in_box {float: left;display: inline;}
+.blist {border-bottom: .06rem solid #f1f1f1;}
+.box_block1 {height: .57rem;padding:0 .17rem;border-bottom: 1px solid #f1f1f1;}
+.box_tit {padding-top: .08rem;font: .15rem "Microsoft YaHei";color: #626262;}
+.box_tit span {float: left;}
+.box_date {padding-top: .05rem;font: .14rem "Microsoft YaHei";color: #c2c2c2;}
+.box_block2 {padding: 0 .17rem;border-bottom: 1px solid #f1f1f1;}
+.box_block2 li {float: left;width: 36%;height: .62rem;margin-top:.08rem;font: .15rem/.25rem "Microsoft YaHei";color: #626262;}
+.box_block2 li span {display: block;}
+.box_block2 li:nth-child(3n) {width: 22%;}
+.box_block2 li .c_org {color: #da554e;}
+.box_block2 .last-li{float: right; width: auto;}
+
+.box_block3 {padding: 0 .17rem;font: .15rem/.42rem "Microsoft YaHei";color: #da554e;}
+.box_plan {float: left;}
+.box_transfer {float: right;}
+.box_block3 a {color: #da554e;}
+
+.waterfall-container{background: #fff;}
+/*.waterfall-empty{background: #f2f2f2;}*/
+.manage-list{border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding-left: .2rem;background:#FFF;font-size: .16rem;}
+.manage-list li,.list-copy {position:relative;border-top:1px solid #e8e8e8;line-height: .5rem;font-size: .16rem;}
+.manage-list li:first-child{border:0}
+.manage-list li a,.list-copy a {display:block;margin-right: .18rem;background:url('../images/link-icon.png') no-repeat right center;background-size:.09rem .15rem}
+

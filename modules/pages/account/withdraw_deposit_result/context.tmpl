@@ -1,0 +1,24 @@
+<div class="bind apply-result">
+	<span class="ico-status ico-apply"></span>
+	<p>您的提现申请已提交成功！</p>
+	<div class="origin">预计{{date}}到账</div>
+</div>
+<ul class="manage-list suc-list suc-list-gray mgt4 mgb1">
+	<li>
+		<label>提现金额</label>
+		<span class="suc-num">{{amount}}元</span>
+	</li>
+	<li>
+		<label>银行卡</label>
+		<span class="suc-num">{{cardText}}</span>
+		<span class="acc-img acc-bank"><img src="{{backIco}}" /></span>
+	</li>
+	<li>
+		<label>提现后账户余额</label>
+		<span class="suc-num">{{balance}}元</span>
+	</li>
+</ul>
+<ul class="code-share invest_goon">
+	<li><a href="$root$/account/trading_record.html">查看提现记录</a></li>
+	<li><a href="javascript:void(0);" id="btn-submit">立即投资</a></li>
+</ul>

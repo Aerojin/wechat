@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>找回密码</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+</head>
+<body>
+	<div class="wrap">
+		<!-- 说明文字 -->
+		<div  id="tips" class="explain-txt" style="display:none">已发送验证码短信到号码135*****816</div>
+		<!-- 输入验证码 -->
+		<ul class="inp-list mgb1 mgt2">
+			<li>
+				<label class="inp-tit txt-input" for="">手机号</label>
+				<input id="txt-mobile" class="inp-txt" type="tel" maxlength="11" placeholder="请输入手机号码">
+			</li>
+			<li class="clearfix">
+				<label class="inp-tit" for="">验证码</label>
+				<input id="txt-code" class="inp-txt-short txt-input" type="tel" maxlength="10" placeholder="请输入验证码">
+				<a id="btn-dis-send" class="repeat-btn" href="javascript:void(0);" style="display:none;">重试(60)</a>
+				<a id="btn-send" class="inp-yzm" href="javascript:void(0);" title="">发送</a>
+			</li>
+		</ul>
+		<!-- 新密码 -->
+		<ul class="inp-list">
+			<li>
+				<label class="inp-tit txt-input" for="">新密码</label>
+				<input id="txt-password1" class="inp-txt" type="password" placeholder="请输入新的登录密码">
+			</li>
+			<li>
+				<label class="inp-tit txt-input" for="">确认密码</label>
+				<input id="txt-password2" class="inp-txt" type="password" placeholder="请再次确认新的密码">
+			</li>
+		</ul>
+		<!-- 说明文字 -->
+		<div class="explain-txt">建议使用6位以上数字、字母、特殊符号组合</div>
+		<!-- 底部内容 -->
+		<div class="operate">
+			<a id="btn-submit" class="oper-btn" href="javascript:void(0);" title="">完成</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		require('pages/user/forget/forget');
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+/*我的账户*/
+/*
+.account{text-align:center;height:2.1rem;background:#da554e; overflow: hidden;}
+.account dt img{margin:0.4rem auto 0.16rem;width:1.02rem;height:1.02rem;border-radius:100%;vertical-align: top;}
+.account dd{color:#fff;font-size:0.138rem}
+.acc-total{padding:0.14rem 0;border-bottom:1px solid #dedede;background:#fff}
+.acc-total h3,.acc-total p{padding-left:0.24rem;color:#9d9d9d;font-size:.14rem}
+.acc-total p{margin-bottom:.3rem;font-size:0.46rem}
+.acc-total .assets-total li{float:left;width:33%;border-right:1px solid #e5e5e5;text-align:center}
+.acc-total .assets-total li:last-child{border-right:none;}
+.acc-total .assets-total li h4{color:#8c8c8c;font-size:.14rem}
+.acc-total .assets-total li span{display:block;margin-top:.04rem;font-size:.18rem}
+.exit-mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:999}
+.exit-mask .exit-box{position:absolute;width:3.16rem;height:1.82rem;text-align:center;background:#fff;-moz-border-radius:5px;border-radius:5px;z-index:9999}
+.exit-mask .exit-box h3{line-height:1.25rem;font-size:.18rem;border-bottom:1px solid #ccc}
+.exit-mask .exit-box li{float:left;width:50%;line-height:.56rem;font-size:.18rem;border-right:1px solid #ccc;cursor:pointer;box-sizing:border-box;}
+.exit-box li:last-child{border:0}
+.assets-btn {text-align: center;margin-top: .35rem;font-size: .184rem;}
+.assets-btn li {display: inline-block;width: 1.7rem;line-height: .42rem;text-align: center;margin: 0 .1rem;color: #fff;-moz-border-radius: .05rem;border-radius: .05rem;background: #da554e;cursor: pointer;}
+.exit-mask-white {background: rgba(255,255,255,1);}
+
+.manage-list{border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding-left: .2rem;background:#FFF;font-size: .16rem;}
+.manage-list li,.list-copy {position:relative;border-top:1px solid #e8e8e8;line-height: .5rem;font-size: .16rem;}
+.manage-list li:first-child{border:0}
+.manage-list li a,.list-copy a {display:block;margin-right: .18rem;background:url('link-icon.png') no-repeat right center;background-size:.09rem .15rem}
+*/
+
+.wrap{padding-bottom: 1rem;}
+.account{text-align:center;height:2.1rem;background:#da554e; overflow: hidden;}
+.account dt img{margin:0.4rem auto 0.16rem;width:1.02rem;height:1.02rem;border-radius:100%;vertical-align: top;}
+.account dd{color:#fff;font-size:0.138rem}
+.account dd span {display: block;}
+
+.acc-total{padding:0.14rem 0;border-bottom:1px solid #dedede;background:#fff}
+.acc-total h3,.acc-total p{padding-left:0.24rem;color:#9d9d9d;font-size:.14rem}
+.acc-total p{margin:0;font-size:0.46rem;color: #e34545;}
+.acc-total .assets-total {padding-bottom: .15rem;}
+.acc-total .assets-total li{float:left;width:33%;border-right:1px solid #e5e5e5;text-align:center}
+.acc-total .assets-total a:last-child li{border-right:none;}
+.acc-total .assets-total li h4{color:#8c8c8c;font-size:.14rem}
+.acc-total .assets-total li span{display:block;margin-top:.04rem;font-size:.18rem}
+
+.assets-btn {text-align: center;margin:0;padding-top: .15rem;font-size: .184rem;border-top: 1px solid #ccc;}
+.assets-btn li {display: inline-block;width: 1.7rem;line-height: .42rem;text-align: center;margin: 0 .1rem;color: #fff;-moz-border-radius: .05rem;border-radius: .05rem;background: #da554e;cursor: pointer;}
+.assets-btn .gray{background: #ccc;}
+.bdt1 {border-top: 1px solid #ccc;}
+.back-bind {text-align: center;font-size: .16rem;line-height: .5rem;color: #383330;border: 1px solid #ccc;border-width: 1px 0;background: #fff;}
+

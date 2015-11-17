@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>提现</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+</head>
+<body>
+	<div class="load_box wrap-box" id="wrap-loading">
+		<div class="loading"><img src="/views/images/ico-onload.gif" /><p>正在加载中···</p></div>
+	</div>
+	<div class="wrap" id="wrap" style="display: none;"></div>
+	<script type="text/javascript">
+		require('pages/account/withdraw_deposit_result/withdraw_deposit_result');
+	</script>
+</body>
+</html>

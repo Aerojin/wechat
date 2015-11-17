@@ -1,0 +1,15 @@
+<div>
+	<div class="scroll-box waterfall-container">
+		<div class="waterfall-context" style="display:none;"></div>
+		<div class="waterfall-loading">
+			<p class="waterfall-login">{{loadingText}}</p>
+		</div>
+	</div>
+	{{if emptyHtml}}
+		{{#emptyHtml}}
+	{{else}}
+	<div class="waterfall-empty" style="display:none;">
+		<div class="profit-none">{{emptyText}}</div>
+	</div>
+	{{/if}}
+</div>

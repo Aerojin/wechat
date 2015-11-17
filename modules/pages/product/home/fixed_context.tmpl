@@ -1,0 +1,48 @@
+{{ each data}}
+<a href="$root$/product/buy.html?productId={{$value.fid}}" class="waterfall-item">
+	{{if $value.isSellOut }}
+		<div class="zhishu-box zhishu-box-over vip-ture bg-white" data-index="{{$value.index}}">
+	{{else}}
+		<div class="zhishu-box vip-ture bg-white" data-index="{{$value.index}}">
+	{{/if}}
+		<div class="zhishu-tit">
+			<p>{{$value.productName}}</p>
+			{{if $value.isVipProduct && !$value.isVip}}
+				<p><span class="time-vip">会员加成</span></p>
+			{{/if}}	
+			{{ if $value.awardRateFlag == 1}}
+				<p><span class="time-vip">{{$value.addAwardNames}}</span></p>
+			{{/if}}
+		</div>
+		<div class="zhishu-vip">
+			<div class="z-txt">预期年化</div>
+			<div class="z-num">
+				<!--判断是否是固定收益-->
+				{{if $value.isFixed }}
+					<!--判断是否是天天牛产品,并且判断是否是VIP用户-->
+					{{if $value.isVipProduct && $value.isVip}}
+						<div class="vip-num-box"><b>{{$value.fixRate}}</b>%{{ if $value.vipRate > 0}} +<b>{{$value.vipRate}}</b>% <span class="vip-tag">会员</span>{{/if}}</div>
+					{{else}}
+						<div class="vip-num-box"><b>{{$value.fixRate}}</b>%</div>
+					{{/if}}
+					
+				{{else}}
+					<div class="vip-num-box"><b>{{$value.flowMinRate}}</b>%-<b>{{$value.flowMaxRate}}</b>% </div>
+				{{/if}}
+			</div>
+		</div>
+		<div class="zhishu-vip-limit"><p class="z-txt">投资期限</p><p class="z-num">{{$value.deadLineValue}}{{$value.dateUnit}}</p></div>
+		{{if $value.typeValue == 5 || $value.typeValue == 502 || $value.typeValue == 101 || $value.typeValue == 102 || $value.typeValue == 103}}
+		<div class="zhishu-datebox">
+			<div class="progressBar-box">
+				<div class="progressBar"><span class="progressBar-block per" style="width: {{$value.percent}}"></span></div>
+				<span class="progressBar-result">{{$value.percent}}</span>
+			</div>
+		</div>
+		{{/if}}
+		{{if $value.isSellOut}}
+		<div class="sold-out"><div class="scale">已售完</div></div>	
+		{{/if}}
+	</div>
+</a>
+{{/each}}

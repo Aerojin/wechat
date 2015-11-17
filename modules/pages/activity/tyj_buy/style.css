@@ -1,0 +1,46 @@
+html{background: #e6e6e6;}
+body{font-size: .16rem;}
+
+/***和新手理财共用的样式**/
+.Infor{border-top:1px solid #ccc;background: #fff;margin-top: .16rem;}
+.Infor li{position: relative;line-height: .5rem;border-bottom: 1px solid #ccc;padding:0 .2rem;}
+.Infor li label{position: absolute;left:.2rem;color: #9d9d9d;}
+.Infor li span{float: right;}
+
+
+.infor_btn a{
+  display: block;
+  line-height: .48rem;
+  background: #da554e;
+  color: #FFF;
+  text-align: center;
+  font-size: .19rem;
+  border-radius: 5px;
+}
+
+/**和新手理财共用的样式**/
+
+.buy_infor label{color: #666;}
+.buy_infor span{color: #b4b4b4;}
+.buy_infor span.buy_txt{color: #383330}
+.buy_infor span.buy_txt2{color: #bbb}
+
+.buy_red_hd{height: 1rem;background: #da554e;color: #fff;padding:.4rem .2rem 0 .2rem;}
+.buy_red_hd h1{font-size: .24rem;}
+.buy_red_hd span{
+	position: absolute;
+	right:.2rem;
+	top:.32rem;
+	padding-left: .26rem;
+	height: .4rem;
+	line-height: .4rem;
+	background: url(dataiocn.png) no-repeat left center;
+	background-size: .22rem;
+}	
+.buy_red_hd p{padding:.2rem 0;}
+
+
+
+.expect_money{padding:0 .2rem;line-height:.26rem;color: #da554e}
+
+.Expect_btn{padding:.3rem .1rem 0 .1rem;}

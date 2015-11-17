@@ -1,0 +1,16 @@
+{{each data}}
+<div class="blist waterfall-item">
+	<div class="box_block1">
+		<div class="box_tit"><span>{{$value.transTypeDesc}}</span></div>
+		<div class="box_date">{{$value.transDate}}</div>
+		<div class="box_amount">
+			{{ if $value.toInvestOp == "+"}}
+				<span class="success">+{{$value.transAmount}}</span>
+			{{else}}
+				<span class="fail">-{{$value.transAmount}}</span>
+			{{/if}}
+		</div>
+	</div>
+	<div class="box_block2">{{$value.remark}}</div>
+</div>
+{{/each}}

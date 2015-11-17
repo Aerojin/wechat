@@ -1,0 +1,47 @@
+<div class="mask firstLoginTip">
+	<div class="lvl-box light-scale">
+		<span class="closed"></span>
+		<div class="light light-on"></div>
+		<div class="lvl-ico">
+			{{if memberLevel == 1}}
+				<img src="{{qt}}" />
+			{{/if}}
+			{{if memberLevel == 2}}
+				<img src="{{by}}" />
+			{{/if}}
+			{{if memberLevel == 3}}
+				<img src="{{hj}}" />
+			{{/if}}
+			{{if memberLevel == 4}}
+				<img src="{{bj}}" />
+			{{/if}}
+		</div>
+		{{if memberLevel == 1}}
+			<p class="lvl-slogan">恭喜你升级为青铜会员！</p>
+		{{/if}}
+		{{if memberLevel == 2}}
+			<p class="lvl-slogan">恭喜你升级为白银会员！</p>
+		{{/if}}
+		{{if memberLevel == 3}}
+			<p class="lvl-slogan">恭喜你升级为黄金会员！</p>
+		{{/if}}
+		{{if memberLevel == 4}}
+			<p class="lvl-slogan">恭喜你升级为铂金会员！</p>
+		{{/if}}
+		<ul class="user-privi">
+			<li>您可以享受以下会员特权：</li>
+			<li>1、身份徽章</li>
+			{{if memberLevel >= 2}}
+			<li>2、会员红包</li>
+			{{/if}}
+			{{if memberLevel >= 2}}
+			<li>3、专享活动</li>
+			{{/if}}
+			{{if memberLevel >= 3}}
+			<li>4、收益率加成</li>
+			{{/if}}
+		</ul>
+		<p class="back-tips">请返回小牛钱罐子客户端查看特权详情</p>
+		<div class="back-btn"><a id="ok">我知道了</a></div>
+	</div>
+</div>

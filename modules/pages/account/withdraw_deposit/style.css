@@ -1,0 +1,42 @@
+.hqb-tit {padding: .22rem .2rem .18rem .2rem;background: #da554e;}
+.hqb-tit li {float: left;font: .14rem "Microsoft YaHei";color: #fff;}
+.hqb-tit li .note-num {display:block;font-size: .27rem;}
+
+.acc-img {display:block;float: right;margin-right: .2rem;line-height: 0;}
+.acc-img img {/*width: 100%;*/height: 100%;}
+img {display:inline-block;overflow:hidden;vertical-align:top;}
+
+.acc-bank {width:1.12rem;height:.2rem;margin-top:.15rem;text-align: right;}
+
+.collect-list {box-shadow: 0 0 .08rem rgba(12,51,92,.04);}
+.collect-list .acc-num {float: left;color:#b1b1b1;font: .16rem/.5rem "Microsoft YaHei";}
+.collect-list li .acc-img {float: left;width: auto;}
+.collect-list li .acc-img img {display: block;}
+.yel_tips {padding: .12rem .2rem .1rem .2rem;color: #ffc000;font-size: .14rem;}
+.pop-sure {position: fixed;left: 0;bottom: 0;z-index:100;width: 100%;padding: .08rem 0;text-align:center;border-top: 1px solid #a0a0a0;font: .17rem/.48rem "Microsoft YaHei";background: #fff;height: .48rem;overflow: hidden;}
+.pop-sure a {display: block;margin: 0 .2rem;height: .48rem;-moz-border-radius: 5px;border-radius: 5px;text-align:center;background: #fff;color: #fff;cursor: pointer;overflow: hidden;background: #da554e;}
+
+.exit-box-deal {position:absolute;width:3.16rem;text-align:center;background:#fff;border-radius: 5px;z-index:9999}
+.exit-box-deal h3 {padding: .3rem 0 .3rem 0;font: .16rem/.26rem "Microsoft YaHei";color:#363532;}
+.exit-mask .exit-box-red .exit-btn {background: #da554e !important;}
+.exit-mask .exit-box-red .exit-btn li {color: #fff;}
+.exit-box-deal .box-txt {padding-bottom:.4rem;font-size: .14rem;color: #979797;}
+.exit-box-deal h3.pd1-h3 {padding: .2rem 0;font-size: .18rem;}
+
+.deal-password-copy {height: 1rem;text-align: center;font-size: .14rem;}
+.deal-password-copy li {position:relative;float:left;width: 14%;height: .54rem;margin: 0 .03rem;border:1px solid #b5b5b5;box-sizing:border-box;}
+.deal-password-copy li:before {display:none;content: "";position: absolute;left: 50%;top: .18rem;margin-left: -.08rem;width: .16rem;height: .16rem;-moz-border-radius: 2rem;border-radius: 2rem;background: #333;}
+.deal-password-copy li:first-child {margin-left: .1rem;}
+.deal-password-copy li.z-on:before {display: block;}
+.exit-mask .exit-btn {width:3.16rem;text-align:center;background:#fff;border-top: 1px solid #d1d1d1;-moz-border-radius: 0 0 5px 5px;border-radius: 0 0 5px 5px;z-index:9999}
+.exit-mask .exit-btn li {float:left;width:50%;line-height:.54rem;font-size:.18rem;color:#da554e;border-right:1px solid #ccc;cursor:pointer;box-sizing:border-box;}
+.exit-mask .exit-btn li:last-child {border-right: none;}
+
+.found_password {position: absolute;left: 0;bottom: -.4rem;z-index:9999;width:100%;text-align: center;font-size: .14rem;color: #fff;}
+.found_password a {color: #fff;}
+.found_password_red {text-align: center;font: .14rem/.48rem "Microsoft YaHei";}
+.found_password_red a {color: #f05a39;}
+
+.load_box {position: absolute;left:0;top:0;z-index:9999;width: 100%;height: 100%;background: #fff;}
+.loading {position: absolute;left:50%;top:20%;width: 3.6rem;margin-left: -1.8rem;text-align:center;font: .16rem/.26rem "Microsoft YaHei";color: #383330;}
+.loading img {display: block;width: .6rem;height: .6rem;margin: 0  auto;}

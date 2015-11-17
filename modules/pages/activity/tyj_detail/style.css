@@ -1,0 +1,48 @@
+html{background: #e6e6e6;}
+body{font-size: .16rem; color: #454545;}
+
+
+.header_box{height: 1.3rem;background: #da554e;text-align: center;color: #feffff;}
+.header_box span{padding-top: .2rem;display: block;font-size: .16rem;}
+.header_box p{font-size: .60rem;}
+.header_box p b{font-size: .3rem;}
+.header_tb {border-bottom: 1px solid #ccc;padding:.2rem 0;background: #fff;text-align: center;}
+.header_tb p{font-size: .18rem;}
+.header_tb span{color: #999;}
+
+/**和产品投资页面共用样式**/	
+.Infor{border-top:1px solid #ccc;background: #fff;margin-top: .16rem;}
+.Infor li{position: relative;line-height: .5rem;border-bottom: 1px solid #ccc;padding:0 .2rem;}
+.Infor li label{position: absolute;left:.2rem;color: #9d9d9d;}
+.Infor li span{float: right;}
+.Infor li a{display: block;}
+
+
+.infor_btn a{
+  display: block;
+  line-height: .48rem;
+  background: #da554e;
+  color: #FFF;
+  text-align: center;
+  font-size: .19rem;
+  border-radius: 5px;
+}	
+/**和产品投资页面共用样式**/	
+
+.Infor li a span.infor_d{
+	width:.2rem;height: .5rem;
+	background: url(link-icon.png) no-repeat right center;
+	background-size: .09rem .15rem;
+}
+
+.infor_btn{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  width: 100%;
+  padding: .1rem;
+  border-top: 1px solid #949494;
+  box-sizing: border-box;
+  background: #fff;
+}

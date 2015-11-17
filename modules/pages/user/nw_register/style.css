@@ -1,0 +1,35 @@
+.new-title {padding: .08rem .1rem;position: relative;text-align: center;line-height: .42rem;font-size: .18rem;color: #21292c;background: #fff;}
+.new-title b {position: absolute;left: .1rem;top: .08rem;display:block;width: .42rem;height: .42rem;
+background: url(logo-niu.gif) no-repeat;
+-webkit-background-size: 100% 100% ;
+background-size: 100% 100% ;}
+
+.repeat-btn{float:right;margin-top:.12rem;width:1.04rem;color:#9d9d9d;font: .16rem/.3rem "Microsoft YaHei";text-align:center;border-left:1px solid #d9d9d9}
+.hide-btn{float:right;margin-top:.12rem;width:1.04rem;color:#ff7537;font: .16rem/.3rem "Microsoft YaHei";text-align:center;border-left:1px solid #d9d9d9}
+.repeat-btn-short {width: .54rem;border-left: 1px dotted #d9d9d9;}
+.get-code {float:right;margin-right:.05rem;width: .96rem;height: .42rem;margin-top:.04rem;text-align:center;font: .16rem/.42rem "Microsoft YaHei";color: #fff;border-radius: .05rem;background: #f2743a;}
+.change-link {padding: 0 .1rem;text-align: center;height:.40rem;line-height: .4rem;font-size: .14rem;}
+.change-link a.n-login {color: #f2743a;text-decoration: underline;}
+.change-link .spl {float: left;}
+.change-link .spr {float: right;}
+.copy-right {margin-top:.35rem;font:.14rem/.18rem "Microsoft YaHei";text-align:center;color: #c6c6c6;}
+.copy-right span {display: inline-block;position: relative;padding-left: .68rem;text-align:left;}
+.copy-right span b {position: absolute;left: 0;top: .02rem;width: .6rem;height: .33rem;
+background:url('picc.png') no-repeat;
+background-size: 100% 100%;
+-webkit-background-size: 100% 100%;
+-moz-background-size: 100% 100%;
+-o-background-size: 100% 100%;}
+
+.num-tips {padding: 0 .24rem;height:.3rem;line-height: .3rem;font-size: .14rem;color: #000;}
+.num-tips span {display:inline-block;padding-left: .22rem;
+background: url(closed1.png) no-repeat left center;
+-webkit-background-size: .14rem .14rem;
+background-size: .14rem .14rem;}
+
+.new-bg {width: 100%;}
+.ico-gift {display: inline-block;margin: 0 auto;width: auto; }
+.ico-gift img {display: inline-block;width: 4.14rem;height: auto; }
+
+.float-left {float: left;}
+.float-left img{float: left;}

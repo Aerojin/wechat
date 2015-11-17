@@ -1,0 +1,5 @@
+.slider-pages-tabboxs{
+	/*-webkit-transition: margin-left 0.2s linear;*/
+	transition: all .4s;
+	-webkit-transition: all .4s;
+}

@@ -1,0 +1,253 @@
+html{background: #fff;}	
+body{font-size: .16rem;color:#fff;}
+
+.fullPage-wp{   
+    -webkit-transform: translate3d(0,0,0);     
+    transform: translate3d(0,0,0);     
+}
+.fullPage-wp:after {
+    display: block;
+    content: ' ';
+    height: 0;
+    clear: both;
+}
+.fullPage-wp.anim{
+    -webkit-transition: all 500ms ease-out 0s;
+    transition: all 500ms ease-out 0s; 
+}
+.fullPage-page{
+    display: block;
+    overflow: hidden;
+}
+
+.fullPage-dir-h {
+    float: left;
+}
+
+.wp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.wrap-page{overflow: hidden;}
+img{display: block;}
+
+/***hdbaaner**/
+.sec1 ,.sec2,.sec3 ,.sec4,.sec5,header{
+	position: relative;
+}
+.sec2,.sec3{
+	background:url(bg_02.png) no-repeat center center;
+}
+.sec4{
+	background:url(bg_03.png) no-repeat center center;
+}
+.sec5{
+	background:url(bg_04.png) no-repeat center center;
+}
+
+.hdbanner img{width: 100%;height: 100%;}
+.logoimg,.dwonloadbtn,.Arrow{
+	position: absolute;
+	left: 0;
+	width: 100%;
+}
+.logoimg{
+	top:.6rem;
+}
+.logoimg img{width:1rem;margin: 0 auto;}
+
+.dwonloadbtn{
+	bottom: 1.2rem;
+}
+.dwonloadbtn a{
+	width:3rem;
+	display: block;
+	height: .5rem;
+	line-height: .5rem;
+	text-align: center;
+	border-radius: .5rem;
+	border: 1px solid  #fff;
+	background: rgba(255,255,255,.6);
+	margin: 0 auto;
+	color: #7e645b;
+	font-size: .26rem;
+}
+
+.Arrow{
+	bottom:.4rem;
+}
+.Arrow span{
+	display: block;
+	margin:0 auto;
+	width: .5rem;
+	height: .2rem;
+	background: url(ture_11_02.png) no-repeat center center;
+	background-size: .5rem;
+}
+.bannerbotn{
+	position:absolute;
+	bottom: 0;
+}
+/**向下效果***/
+.Arrow span{
+	animation: strechdelay 1.2s infinite ease-in-out ;
+	 -webkit-animation: strechdelay 1.2s infinite ease-in-out ;
+	 -o-animation: strechdelay 1.2s infinite ease-in-out ;
+	 -moz-animation: strechdelay 1.2s infinite ease-in-out ;
+	 -ms-animation: strechdelay 1.2s infinite ease-in-out ;
+}
+@-webkit-keyframes strechdelay{
+   0%,60%,100%{
+    opacity: .4;
+  }
+  20%,30%,40%{
+     opacity: 1;
+  }
+}
+
+@keyframes strechdelay{
+  0%,60%,100%{
+   
+     opacity: .4;
+     
+  }
+  20%,30%,40%{
+
+     opacity: 1;
+
+  }
+}
+
+.Arrow span.line1{
+  -webkit-animation-delay:-.7s;
+  animation-delay:-.7s;
+}
+
+.Arrow span.line2{
+  -webkit-animation-delay:-.4s;
+  animation-delay:-.4s;
+}
+.Arrow span.line3{
+  -webkit-animation-delay:-.1s;
+  animation-delay:-.1s;
+}
+/*****/
+
+header img{
+	width: 100%;
+	display: block;
+}
+header p{
+	position: absolute;
+	bottom:.26rem;
+	left: 50%;
+	width: 3.46rem;
+	margin-left:-1.73rem;
+	font-size: .26rem;
+	text-align: center;
+}
+header p span{
+	font-size: .36rem;
+	color: #ea1a1a;
+	font-weight: bold;
+}
+.main_yellow,.main_red,.footer{
+	position: relative;
+}
+.main_yellow img.bg_02,.main_red img.bg_03,.footer img.bg_04{width: 100%;display: block;}	
+
+.round_box{
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+
+}
+.round_gold {
+	position: relative;
+	width: 100%;
+	top:.2rem;
+}
+.round_gold img{
+	width:3rem;
+	margin: 0 auto;
+	display: block;
+}
+.round_gold p{
+	position: absolute;
+	left:50%;
+	bottom:-.02rem;
+	width:2.6rem;
+	margin-left:-1.3rem;
+	height: .46rem;
+	line-height: .46rem;
+	background: #e61919;
+	border-radius:.46rem;
+	text-align: center;
+	font-size: .24rem;
+}
+
+.round_gold .newb{
+	width: 3.52rem;
+	background:#ff7200;
+	font-size: .24rem;
+	margin-left: -1.76rem;
+}
+
+.round_box .txt_p{
+	padding: .6rem .1rem .4rem .1rem;
+
+}
+.round_box ul.ul_one{
+	width: 2.83rem;
+	margin: 0 auto;
+}
+.round_box ul.ul_one li{
+	background:url(gou_03.png) no-repeat 96% center #f2450d;
+	background-size: .4rem;
+	line-height: .4rem;
+	border-radius: .06rem;
+	padding-left: .1rem;
+	margin-top: .1rem;
+}
+.liuimg img{
+
+	width:3.94rem;
+	margin: .4rem auto .6rem auto;
+	display: block;
+}
+
+.round_box a{
+	height: .7rem;
+	line-height: .6rem;
+	width: 3rem;
+	margin: .3rem auto 0 auto;
+	text-align: center;
+	font-size: .26rem;
+	color:#bb0d0d;
+	display: block;
+	background:url(new2_24.png) no-repeat center center;
+	background-size: 3rem .7rem;
+	font-weight: bold;
+}
+.round_box h2{padding: .2rem}
+.round_box ul.ul_two{
+	padding:0 .1rem;
+}
+.round_box ul.ul_two li{
+	position: relative;
+	padding-top: .06rem;
+}
+.round_box ul.ul_two li p{
+	padding-left: .2rem;
+}
+.round_box ul.ul_two li span{
+	position: absolute;
+	top:.06rem;
+	left: 0;
+}

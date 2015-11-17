@@ -1,0 +1,11 @@
+.inwrap {background: #fff;}
+.mgt25 {margin-top: .25rem;}
+.step-num {height: .3rem;}
+.step-num span {float:left;display: block;height: .3rem;position: relative;padding: 0 .45rem 0 .25rem;font-size: .21rem;line-height: .3rem;color: #000;background: #fad13e;overflow: hidden;}
+.step-num span:before {content: "";position: absolute;right: 0;top: 0;width:0;height:0;border-right: .15rem solid #fff;border-top: .15rem solid transparent;border-bottom: .15rem solid transparent;}
+.inwrap h3 {padding: .15rem .25rem;font-size: .17rem;color: #333; }
+
+.f-btn {padding: .35rem .25rem .55rem .25rem;}
+.f-btn p {padding-top: .2rem;font-size: .12rem;line-height: .18rem;color: #666;}
+
+img{width: 100%;}

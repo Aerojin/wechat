@@ -1,0 +1,59 @@
+<ul class="manage-list buy-list manage-b">	
+	<li class="clearfix inp-buy">
+		<input class="inp-txt txt-gray"  id="txt-money" value="" placeholder="请输入购买金额，100元起"  type="number" />
+	</li>
+</ul>
+<p class="pro_tips recharge-btn">您的账户余额为{{ableBalance}}元<a href="javascript:void(0);" id="btn-recharge">充值</a></p>
+
+<ul class="manage-list buy-list manage-b">
+	<li class="clearfix">
+		<a href="javascript:void(0);" id="btn-packet" class="clearfix">
+			<label class="inp-tit">使用红包</label>
+			{{if redPakNum == 0}}
+				<div class="red_num red_num_right" id="div-redNumber">暂无可用</div>
+			{{else}}
+				<div class="red_num red_num_right" id="div-redNumber">未使用</div>
+			{{/if}}
+		</a>
+	</li>
+</ul>
+
+{{if isVip || awardRateSetting.length > 0 }}
+	<p class="pro_tips recharge-btn">预期总收益<span id="invest-num">0</span>元<a href="javascript:void(0);" id="btn-earnings">详情</a></p>
+{{else}}
+	<p class="pro_tips recharge-btn">预期总收益<span id="invest-num">0</span>元</p>
+{{/if}}
+
+<div class="operate">
+	<a class="oper-btn" href="javascript:void(0);" id="btn-submit">购买</a>
+</div>
+
+<div class="servive-box clearfix">
+	{{if typeValue == 102 || typeValue == 103}}
+		<div class="servive-pact">
+			<span class="pact-ico pact-draw pact-on btn-pact" data-state="1"></span>
+			<a href="{{equityUrl}}">
+				<span class="text-red">产品协议</span>
+			</a>
+		</div>
+	{{else}}
+		<div class="servive-pact">
+			<span class="pact-ico pact-draw pact-on btn-pact" data-state="1"></span>
+			<a href="$root$/agreement/credit_manage.html">
+				<span class="text-red">信用咨询与管理服务协议</span>
+			</a>
+		</div>
+		<div class="servive-pact">
+			<span class="pact-ico pact-draw pact-on btn-pact" data-state="1"></span>
+			{{ if typeValue == 2}}
+				<a href="$root$/agreement/zsn_equity_transfer.html">
+					<span class="text-red">收益权转让协议</span>
+				</a>
+			{{else}}
+				<a href="$root$/agreement/ttn_equity_transfer.html?deadLineValue={{deadLineValue}}">
+					<span class="text-red">收益权转让协议</span>
+				</a>
+			{{/if}}
+		</div>
+	{{/if}}
+</div>

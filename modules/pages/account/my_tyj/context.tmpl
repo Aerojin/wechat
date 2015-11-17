@@ -1,0 +1,84 @@
+{{each data}}
+{{if $value.status == "unused"}}
+<div class="coupons_box waterfall-item clearfix">
+	<div class="coupons_left">
+		<h4>{{$value.remark}}</h4>
+		<p>￥<span>{{$value.fExpCash}}</span></p>
+		<b>还剩{{$value.expireDate}}过期</b>
+	</div>
+	<div class="coupons_right">
+		<a href="$root$/activity/tyj_detail.html?productId={{$value.productId}}&expCashId={{$value.expCashId}}&expCash={{$value.expCash}}">立即使用</a>
+	</div>
+	<div class="coupons_line">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<a class="smiocn2" href="$root$/agreement/tyj_remark.html"></a>
+	</div>
+</div>
+
+
+{{else if $value.status == "used"}}
+<div class="coupons_box hasUsed waterfall-item clearfix">
+	<div class="coupons_left">
+		<h4>{{$value.remark}}</h4>
+		<p>￥<span>{{$value.fExpCash}}</span></p>
+		<em>计息日 {{$value.startDate}}</em>
+		<em>回款日 {{$value.endDate}}</em>
+
+	</div>
+	<div class="coupons_right">
+		{{if $value.payStatus == "0"}}
+			<span>预期收益<em>{{$value.income}}</em></span>
+		{{else}}
+			<span>已收益<em>{{$value.income}}</em></span>
+		{{/if}}
+	</div>
+	<div class="coupons_line">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<span></span>
+		<a class="smiocn1" href="$root$/agreement/tyj_remark.html"></a>
+	</div>
+</div>
+
+
+{{else if $value.status == "overdue"}}
+<div class="coupons_box hasUsed waterfall-item clearfix">
+	<div class="coupons_left">
+		<h4>{{$value.remark}}</h4>
+		<p>￥<span>{{$value.fExpCash}}</span></p>
+		<b>已于 {{$value.expireDate}} 过期</b>
+	</div>
+	<div class="coupons_right">
+		<a class="overdue">已过期</a>
+	</div>
+	<div class="coupons_line">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<a class="smiocn1" href="$root$/agreement/tyj_remark.html"></a>
+	</div>
+</div>
+
+{{/if}}
+{{/each}}

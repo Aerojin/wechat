@@ -1,0 +1,119 @@
+<section class="pro_manage" id="context">
+<div class="hd-red">
+	<div class="hd-ebox-one">
+		预期年化
+		<!--判断是否是固定收益-->
+		{{ if isFixed }}
+			<!--判断是否是天天牛产品,并且判断是否是VIP用户-->
+			{{if isVipProduct}}
+				{{ if isVip }}
+					<div class="ebox-one-num">
+						<div class="member-rate">{{fixRate}}<span>%</span>{{ if vipRate > 0}}<span>+</span>{{vipRate}}<span>%</span><em class="m-tag">会员</em>{{/if}}</div>
+					</div>
+				{{else}}
+					<div class="ebox-one-num">
+						<div class="member-rate unmember">{{fixRate}}<span>%</span> <a href="$root$/vip/vip.html"><span class="untips">会员加成></span></a></div>
+					</div>
+				{{/if}}
+			{{else}}
+				<div class="ebox-one-num"><div class="member-rate unmember">{{fixRate}}<span>%</span></div></div>
+			{{/if}}
+		{{else}}
+			<div class="ebox-one-num">{{flowMinRate}}<span>%</span>-{{flowMaxRate}}<span>%</span></div>
+		{{/if}}
+	</div>
+</div>
+{{if promotionText.length > 0}}
+	<div class="hd-first">{{promotionText}}</div>
+{{/if}}
+{{each awardRateSetting}}
+	<div class="hd-first"><a href="javascript:void(0);"> {{$value.activityName}}{{$value.awardRate}}%</a></div>
+{{/each}}
+<div class="h-box">
+	<ul class="invest-total">
+		{{if isFixed }}
+			<li>投资金额<span>{{buyMinMoney}}元起</span></li>
+		{{else}}
+			<li>投资金额<span>{{buyMinMoney}}元/份</span></li>
+		{{/if}}
+		<li>投资期限<span>{{deadLineValue}}{{dateUnit}}</span></li>
+	</ul>	
+	{{ if typeValue == 5 || typeValue == 502 || typeValue == 101 || typeValue == 102 || typeValue == 103}}
+		<div class="zhishu-datebox">
+			<div class="progressBar-box">
+				<div class="progressBar"><span class="progressBar-block per" style="width:{{percent}};"></span></div>
+				<span class="progressBar-result">{{percent}}</span>
+			</div>
+			<div class="zhi-text">
+				<span class="zhi-fl">可投额度/总额度（元）</span>
+				<span class="zhi-fr">{{remaMoney}} / {{buyTotalMoney}}</span>
+			</div>
+		</div>
+	{{/if}}
+</div>
+{{ if isCollect == 2 }}
+	<div class="time-out">剩余时间：<span class="text-red">{{collectEndTime}}</span></div>
+{{else if isQuota}}
+	{{if isLogin}}
+		<div class="time-out">每人累计可购买{{cBuyMaxMoney}}元,您还可购买{{userAvailable}}元</div>
+	{{else}}
+		<div class="time-out">每人累计可购买{{cBuyMaxMoney}}元</div>
+	{{/if}}
+{{else}}
+	<div class="time-empty">&nbsp;</div>
+{{/if}}
+
+<ul class="manage-list manage-a">
+	<li class="clearfix">
+		<label class="inp-tit">收益方式</label>
+		<span class="acc-num">到期一次性还本付息</span>
+	</li>
+	<li class="clearfix">
+		<label class="inp-tit">起息日</label>
+		<span class="acc-num">{{strBeginDate}}&nbsp;</span>
+	</li>
+	<li class="clearfix">
+		<label class="inp-tit">到期日</label>
+		<span class="acc-num">{{strEndDate}}&nbsp;</span>
+	</li>
+</ul>
+{{if !isFixed}}
+<p class="manage_tips">购买次日至起息日之间收益按固定收益<br />年化{{flowMinRate}}%计息（不含起息日当天）</p>
+{{else}}
+<div class="time-empty">&nbsp;</div>
+{{/if}}
+<ul class="manage-list">
+	<li>
+		<a href="{{detailUrl}}" title="">产品详情</a>
+	</li>
+	<li>
+		<a href="{{securityUrl}}" title="">安全保障</a>
+	</li>
+</ul>
+</section>
+		
+<div class="ft-operate-box" id="btn-tool" style="bottom: {{bottom}}px;">
+	{{if isLogin }}
+		{{ if !buyTime.isStart && buyTime.isStart != undefined}}
+			<a class="oper-btn oper-btn-gray" href="javascript:void(0);" title="">{{startBuyTime.format("MM月dd日")}}开抢</a>
+		{{ else if buyTime.isEnd }}
+			<a class="oper-btn oper-btn-gray" href="javascript:void(0);" title="">已结束</a>
+		{{ else if isSellOut}}
+			<a class="oper-btn oper-btn-gray" href="javascript:void(0);" title="">已售完</a>
+		{{else if isQuota && userAvailable == 0}}	
+			<a class="oper-btn oper-btn-gray" href="javascript:void(0);" title="">个人额度已满</a>
+		{{else}}
+			<a class="oper-btn" id="btn-submit" href="javascript:void(0);">立即购买</a>
+		{{/if}}
+	{{else}}
+		{{if !buyTime.isStart && buyTime.isStart != undefined}}
+			<a class="oper-btn oper-btn-gray" id="btn-login" href="javascript:void(0);" title="">{{startBuyTime.format("MM月dd日")}}开抢</a>
+		{{ else if buyTime.isEnd }}
+			<a class="oper-btn oper-btn-gray" id="btn-login" href="javascript:void(0);" title="">已结束</a>	
+		{{ else if isSellOut}}	
+			<a class="oper-btn oper-btn-gray" id="btn-login" href="javascript:void(0);" title="">已售完</a>	
+		{{else}}
+				<a class="oper-btn" id="btn-login" href="javascript:void(0);">立即购买</a>
+		{{/if}}
+	{{/if}}
+</div>

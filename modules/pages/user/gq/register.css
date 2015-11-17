@@ -1,0 +1,221 @@
+.ho_box .ho_bao,.money_box{
+	animation: fadeInUp .6s ease .4s both;
+	-webkit-animation: fadeInUp .6s ease .4s both;
+	-moz-animation: fadeInUp .6s ease .4s both;
+	-o-animation: fadeInUp .6s ease .4s both;
+}
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-2rem);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+	}
+}
+
+@-webkit-keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-2rem);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+	}
+}
+
+@-moz-keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-2rem);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+	}
+}
+@-o-keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-2rem);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+	}
+}
+html{background: #feae0f;}
+.section_height{height:7.8rem; }
+.second_bao img{width: 2.23rem;}
+
+.x_bao{
+	position: absolute;
+	width: 100%;top:2.4rem;
+}
+
+.x_bao div{width: 50%;float: left;height:1.8rem;}
+.x_bao div.left_bao{
+	background: url(xhb_03.png) no-repeat .2rem top;
+	background-size:.6rem;
+
+}
+.x_bao div.right_bao{
+	background: url(xhb_05.png) no-repeat 1.2rem top;
+	background-size:.65rem;
+}
+
+.sider_box{
+	position: absolute;
+	width: 100%; top:4.5rem;
+}
+.sider_box p{
+	text-align: center;
+	color: #fff;
+	font-size: 0.15rem;
+}
+.sider_box p span{
+	color: #ffec36;
+	font-size: .18rem;
+	font-weight: 700;
+}
+
+.form_box{
+
+	position: absolute;
+	width: 80%;
+	top:5rem;
+	left: 50%;
+	margin-left: -40%;
+
+}
+.form_box input{
+	outline: none;
+	height: .26rem;
+	width: 1.36rem;
+}
+.form_box label{padding:0 .1rem;}
+.mobile_box{
+	padding:.12rem 0;
+	margin-bottom: .1rem;
+	background: #fff;
+	border-radius:.06rem;
+}
+
+.verification_box{
+	background: #fff;
+	border-radius: .06rem;
+	margin-bottom: .2rem;
+}
+.verification_numb{
+	border-bottom: 1px solid #e6e6e6;
+	height: .4rem;
+	line-height: .4rem;
+	padding:.02rem .02rem .02rem 0;
+}
+.verification_numb,.password_numb {
+	
+
+}
+
+.verification_numb .get_code{
+	height:.4rem;
+	width: .9rem;
+	border:0;
+	background: #f35132;
+	border-radius: .06rem;
+	color: #fff;
+	float: right;
+	text-align: center;
+}
+.password_numb{
+	padding:.02rem 0;
+	height: .4rem;
+	line-height: .4rem;
+}
+.password_numb .show_pass{
+	float: right;
+	width:1rem;
+	height: .4rem;
+	border:0;
+	border-left: 1px solid #e6e6e6;
+	background: #fff;
+	color: #f35132;
+	text-align: center;
+}
+
+.receive_btn{
+	width: 100%;
+	padding:.1rem 0;
+	font-size: .18rem;
+	border:0;
+	border-radius: .06rem;
+	background: #ffec36;
+	color: #f35132;
+	font-weight: 800;
+	margin-bottom: .12rem;
+	display: inline-block;
+	text-align: center;
+}
+
+.form_box p span{color: #fff;}
+.form_box p a{color: #f35132;text-decoration: underline;}
+
+.bg_prompt{
+	height:100%;width:100%;position:fixed;background:rgba(0,0,0,.5);
+}
+.white_bg{
+	background:#fff;
+	height:1.6rem;width:60%;
+	position:relative;
+	left:50%;
+	margin-left:-30%;
+	top:25%;
+	border-radius:.06rem;
+}
+.white_bg p,.white_bg button{
+	position: absolute;
+	left:50%;
+	margin-left: -50%;
+	width: 100%; 
+}
+.white_bg p{
+	 
+	top:0;
+	text-align: center;
+	font-size: .2rem;
+	padding-top:.3rem;
+}
+.white_bg button{
+	height: .4rem;
+	bottom:.0;
+	border: 0;
+	border-top:1px solid #ccc;
+	border-radius:0 0 .06rem .06rem;
+	outline: none;
+
+}
+.money_box{
+	position: absolute;
+	left: 50%;
+	margin-left: -50%;
+	top: 3.5rem;
+	width: 100%;
+}
+.money_box p{
+	text-align: center;
+    font-size: .3rem;
+    font-weight: bold;
+    color: #ffec36;
+}
+.money_box p span{
+	font-size: .6rem;
+}
+
+.repeat-btn{float:right;margin-top:.08rem;width:0.97rem;color:#9d9d9d;font: .16rem/.3rem "Microsoft YaHei";text-align:center;border-left:1px solid #d9d9d9}

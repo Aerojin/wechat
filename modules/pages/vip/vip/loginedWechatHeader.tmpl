@@ -1,0 +1,38 @@
+<div class="hd-accounts bg-red">
+	<span class="img-accounts">
+		<a href="$root$/vip/grow.html"><img src="{{vipIco}}" /></a>
+	</span>
+	<div class="info-accounts">
+		<div class="info-num"><a href="$root$/vip/grow.html">{{telNum}}</a></div>
+	</div>
+</div>
+{{if currentLevel == "0"}}
+	<a href="$root$/vip/specification.html">
+		<div class="info-mission bg-deepRed">
+		<span class="tips-ico">
+			<img src="{{icoWechat}}" />
+		</span>
+		<p>只需登录微信版即可升级为{{nextLevelName}}</p>
+	</div>
+	</a>
+{{/if}}
+{{if currentLevel == "1" || currentLevel == "2" || currentLevel == "3"}}
+	<a href="javascript:void(0);" id="btn-home">
+		<div class="info-mission bg-deepRed">
+			<span class="tips-ico">
+				<img src="{{icoRmb}}" />
+			</span>
+			<p>再投资{{upgradeMoney}}元即可升级为{{nextLevelName}}</p>
+		</div>
+	</a>
+{{/if}}
+{{if currentLevel == "4"}}
+	<a href="$root$/vip/grow.html">
+		<div class="info-mission bg-deepRed">
+			<span class="tips-ico">
+				<img src="{{icoSmile}}" />
+			</span>
+			<p>您已升级为铂金会员，更高级别敬请期待</p>
+		</div>
+	</a>
+{{/if}}

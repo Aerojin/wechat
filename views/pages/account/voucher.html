@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>充值</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+</head>
+<body>
+	<div class="wrap">
+		<article>
+			<ul class="hqb-tit clearfix">
+				<li><span class="note-name">账户余额（元）</span><span class="note-num" id="span-balance">00.00</span></li>
+			</ul>
+			<div class="pay-box collect-list mgt2">
+				<ul class="inp-list pay-list">
+					<li>
+						<label class="inp-tit" for="">充值金额</label>
+						<input class="inp-txt txt-input" id="txt-money" type="number" maxlength="6" placeholder="请输入金额(1~999,999)">
+					</li>
+					<li class="clearfix" id="card-box" style="display:none">
+						<label class="inp-tit" for="">银行卡号</label>
+						<span class="acc-img acc-bank"><img class="card-ico" src="/views/images/bank_cmb.png" /></span>
+						<span class="acc-num card-number">尾号0236</span>
+					</li>
+				</ul>
+				
+			</div>
+			<div class="explain-txt explain-a div-bound"  style="display:none;">
+				<span class="span-limit"></span>
+			</div>
+			<div class="view-limit div-unbound"><a href="$root$/account/bank_list.html">查看充值支持银行及限额</a></div>
+			<div class="operate">
+				<a class="oper-btn oper-btn-gray" id="btn-submit" href="javascript:void(0);" title="">确定</a>
+			</div>
+			<!-- 说明文字 -->
+			 <div class="explain-txt explain-a"><strong>温馨提示</strong>
+				<p>为严格保障用户的资金安全，小牛钱罐子采用单张银行卡同卡进出方案。第一次充值成功后银行卡及身份信息将无法随意修改，提现资金也只能进入该银行卡。</p>
+				<p class="div-bound" style="display:none;">如需更换银行卡，<a href="tel:4006695666">请联系客服</a></p>
+			</div>
+
+		</article>
+	</div>
+
+	<div style="display:none;">
+		<form id="form-pay" name="pay" method ="post"  action="">  
+		        <input id="req-data" name="req_data">  
+		</form>  
+	</div>
+
+	<script type="text/javascript">
+		require('pages/account/voucher/voucher');
+	</script>
+</body>
+</html>

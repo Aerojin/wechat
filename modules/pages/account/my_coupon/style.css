@@ -1,0 +1,26 @@
+html{background: #e6e6e6;}
+body{font-size: .16rem;}
+
+.myoffer{margin-top: .1rem;}
+.myoffer li{position: relative;padding:0 .16rem;background: #fff;border-top:8px solid #e6e6e6;}
+.myoffer li a{display: block;}
+.myoffer li a label,.myoffer li a span{display: block;height:1rem;line-height:1rem;font-size: .22rem;}
+.myoffer li a label{position: absolute;left:.16rem; padding-left: .4rem;color: #676767;}
+.myoffer li a span{
+	float: right; 
+	padding-right: .26rem;
+	color: #ccc;
+	background: url(link-icon.png) no-repeat right center;
+	background-size: .14rem .26rem;
+}
+
+.myoffer li a label.moneyiocn1{
+	background: url(moneyiocn_2.png) no-repeat left center;
+	background-size: .36rem;
+}
+.myoffer li a label.moneyiocn2{
+	background: url(moneyiocn_1.png) no-repeat left center;
+	background-size: .36rem;
+}
+
+.myoffer em{font-style:normal}

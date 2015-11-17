@@ -1,0 +1,10 @@
+<div class="pro_text1">{{flowMinRate}}<span>%</span>-{{flowMaxRate}}<span>%</span></div>
+<div class="pro_link"><a href="javascript:void(0);">随存随取</a>|<a href="javascript:void(0);">收益每月涨0.5%</a>|<a href="javascript:void(0);">利息复投</a></div>
+{{if showEleven}}
+<div class="pro_link" style="color: red;">双11狂欢周，额外加息1%</div>
+{{/if}}
+{{if isSellOut }}
+	<div class="pro_balance">已售完</div>
+{{else}}
+	<div class="pro_balance">剩余额度：<span id="span-limit" class="c_red">{{remaMoney}}元</span></div>
+{{/if}}

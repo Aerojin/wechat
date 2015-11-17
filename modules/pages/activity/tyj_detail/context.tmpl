@@ -1,0 +1,34 @@
+<div class="header_box">
+	<span>预期年化</span>
+	<P>{{fRate}}<b>%</b></P>
+</div>
+<div class="header_tb">
+	<span>投资期限</span>
+	<p>{{horizon}}天</p>
+</div>
+<ul class="Infor">
+	<li class="clearfix">
+		<label>收益方式</label>
+		<span>到期一次性还本付息</span>
+	</li>
+	<li class="clearfix">
+		<label>起息日</label>
+		<span>{{startDate}}</span>
+	</li>
+	<li class="clearfix">
+		<label>到期日</label>
+		<span>{{endDate}}</span>
+	</li>
+</ul>
+<ul class="Infor">
+	<li class="clearfix">
+		<a href="$root$/activity/tyj_descr.html?rate={{fRate}}&days={{horizon}}">
+			<label>产品详情</label>
+			<span class="infor_d"></span>
+		</a>
+	</li>
+</ul>
+
+<div class="infor_btn">
+	<a href="javascript:void(0)" id="btn-submit">立即购买</a>
+</div>

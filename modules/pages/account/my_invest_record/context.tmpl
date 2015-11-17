@@ -1,0 +1,40 @@
+{{each data}}
+<div class="blist waterfall-item">
+	<div class="box_block1">
+		<div class="box_tit clearfix"><span>{{$value.productName}}</span></div>
+		<div class="box_date">{{$value.fBizTime}}</div>
+	</div>
+	<ul class="box_block2 clearfix">
+		<li><span>起息日</span><span>{{$value.fStartTime}}</span></li>
+		<li><span>到期日</span><span>{{$value.fEndTime}}</span></li>
+		<li><span>投资期限</span><span>{{$value.deadLineValue}}{{$value.deadLineType}}</span></li>
+		<li><span>投资本金</span><span>{{$value.fInvestAmt}}</span></li>
+		{{if $value.typeValue == 6}}
+			<li class="last-li">
+				<span>深圳电信服务页面</span>
+				<a class="c_org" href="{{$value.bs2pUrl}}">完善个人信息入口</a>
+			</li>
+		{{else}}
+			{{if state == 3}}
+				<li><span>总收益</span><span class="c_org">{{$value.fProfit}}</span></li>
+			{{else}}
+				<li><span>预期总收益</span><span class="c_org">{{$value.fProfit}}</span></li>
+			{{/if}}
+		{{/if}}
+	</ul>
+	<div class="box_block3 clearfix">
+		<span class="box_transfer">
+			{{ if $value.typeValue == 5 }}
+				<a href="{{$value.equityURL}}">产品协议</a>
+			{{else if $value.typeValue == 6}}
+				<a href="{{$value.equityURL}}">产品协议</a>
+			{{else if $value.typeValue == 102}}
+				<a href="{{$value.equityURL}}">产品协议</a>
+			{{else}}
+				<a href="{{$value.equityURL}}">收益转让权协议</a>
+			{{/if}}
+		</span>
+	</div>
+</div>
+{{/each}}
+

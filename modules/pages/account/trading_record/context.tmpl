@@ -1,0 +1,14 @@
+{{each data}}
+<div class="hqb-box process-box hqb-border waterfall-item">
+	<ul class="notes-info clearfix">
+		<li><span>{{$value.totalAmount}}</span><em>{{$value.bisTime}}</em></li>
+	</ul>
+	{{if $value.status == 5}}
+		<span class="process-status completed">成功</span>
+	{{else if $value.status == 3 || $value.status == 4 || $value.status == 7 }}
+		<span class="process-status p-fail">失败</span>
+	{{else}}
+		<span class="process-status processing">处理中</span>
+	{{/if}}
+</div>
+{{/each}}

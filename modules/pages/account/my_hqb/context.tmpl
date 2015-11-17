@@ -1,0 +1,22 @@
+{{each data}}
+<div class="hqb-box waterfall-item">
+	<div class="profit clearfix">
+		<span class="profit-sp">当前收益率：<em>{{$value.fYields}}%</em></span>
+		<span class="profit-sp">{{$value.fYieldsHint}}</span>
+	</div>
+	<ul class="profit-info clearfix">
+		<li>起息日<span>{{$value.fInterestTime}}</span></li>
+		<li>购买金额<span>{{$value.fPrincipalLeft}}</span></li>
+		<li>收益金额<span>{{$value.fProfitDueIn}}</span></li>
+	</ul>
+	<div class="profit clearfix">
+		{{if $value.fRedeemAble == 1}}
+			<span class="profit-sp">可随时赎回</span>
+		{{else}}
+			<span class="profit-sp">{{$value.fLockPeriod}}日后可赎回</span>
+		{{/if}}
+		<span class="profit-sp"><a href="$root$/agreement/hqb_invest.html">活期宝协议</a></span>
+	</div>
+</div>
+{{/each}}
+

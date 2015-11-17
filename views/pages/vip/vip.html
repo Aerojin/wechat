@@ -1,0 +1,53 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>会员特权</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+		@require views/css/global.css
+        @require views/css/style.css 
+	-->
+</head>
+<body>
+	<div class="wrap">
+		<div>
+			<article id="loading">
+				<div class="scroll-box">
+					<div>
+						<p class="waterfall-login">数据加载中...</p>
+					</div>
+				</div>
+			</article>
+			<article id="empty" style="display: none;">
+				<div class="waterfall-empty">
+					<div class="profit-none">暂无消息</div>
+				</div>
+			</article>
+		</div>
+		<section id="context">
+			<header id="headerId">
+			</header>
+			<div class="privi-box" id="privilegeBox">
+			</div>
+			<div class="privi-container pd015 mgt05">
+				<div class="privi-box">
+					<h3 class="mgt4 vipName"></h3>
+					<ul class="banlist mgt4 bannerList">
+					</ul>
+
+				</div>
+			</div>
+		</section>
+	</div>
+	<script src="libs/mod.js" data-loader></script>
+	<script type="text/javascript">
+		require("pages/vip/vip/vip");
+	</script>
+</body>
+</html>

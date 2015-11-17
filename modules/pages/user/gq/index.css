@@ -1,0 +1,153 @@
+.ho_box .ho_bao{
+	animation: bounceIn .6s ease .4s both;
+	-webkit-animation: bounceIn .6s ease .4s both;
+	-moz-animation: bounceIn .6s ease .4s both;
+	-o-animation: bounceIn .6s ease .4s both;
+}
+@keyframes bounceIn {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(.3);
+	}
+
+	50% {
+		opacity: 1;
+		-webkit-transform: scale(1.05);
+	}
+
+	70% {
+	    -webkit-transform: scale(.9);
+	}
+
+	100% {
+	    -webkit-transform: scale(1);
+	}
+}
+@-webkit-keyframes bounceIn {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(.3);
+	}
+
+	50% {
+		opacity: 1;
+		-webkit-transform: scale(1.05);
+	}
+
+	70% {
+	    -webkit-transform: scale(.9);
+	}
+
+	100% {
+	    -webkit-transform: scale(1);
+	}
+}
+@-moz-keyframes bounceIn {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(.3);
+	}
+
+	50% {
+		opacity: 1;
+		-webkit-transform: scale(1.05);
+	}
+
+	70% {
+	    -webkit-transform: scale(.9);
+	}
+
+	100% {
+	    -webkit-transform: scale(1);
+	}
+}
+@-o-keyframes bounceIn {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(.3);
+	}
+
+	50% {
+		opacity: 1;
+		-webkit-transform: scale(1.05);
+	}
+
+	70% {
+	    -webkit-transform: scale(.9);
+	}
+
+	100% {
+	    -webkit-transform: scale(1);
+	}
+}
+html{background: #fff;}
+
+.ho_boxtle{
+	position: absolute;
+	width: 100%;
+	top:3rem;
+}
+.ho_tbox p.one_star{
+	height:.44rem;
+	background:url(star_1.png) no-repeat .4rem center;
+	background-size:.5rem; 
+}
+.ho_title{
+	margin-top:.3rem;
+	padding-top:.3rem;
+	background: url(star_2.png) no-repeat 92% top;
+	background-size:.8rem; 
+}
+.ho_title p{
+	text-align: center;
+	color:#fff;
+	opacity: .9;
+}
+.ho_title p.yellow_tle{
+	font-size: .18rem;
+	opacity: 1;
+	color: #ffec36;
+}
+
+.ho_cloud{
+	position: absolute;
+	width: 100%;
+	bottom:0;
+	height: .48rem;
+}
+.ho_cloud img{width: 100%;height: .48rem;}
+
+.dashed_line{
+	position: relative;
+	width:90%;
+	margin:.6rem  auto 0 auto; 
+	height: .3rem;
+	background: url(line_03.png) repeat-x center center;
+}
+.dashed_line p {
+	position: absolute;
+	left: 50%;
+	margin-left: -1.3rem; 
+	text-align: center;
+	background: #fff;
+	width:2.6rem;
+	font-size: .18rem;
+	height: .3rem;
+	line-height: .3rem;
+	color:#888887;
+}
+.list_btn{
+	padding:.16rem 0rem .3rem 0rem;
+
+}
+.list_btn li{
+
+	float: left;
+	width: 33.33%;
+	text-align: center;
+
+}
+.list_btn li a{display:block;}
+.list_btn li a img{width: .68rem;}
+.list_btn li p{font-size: .16rem;font-weight: 700;color: #b66d61;}
+.list_btn li span{display:block;font-size: .18rem;color: #b66d61;}

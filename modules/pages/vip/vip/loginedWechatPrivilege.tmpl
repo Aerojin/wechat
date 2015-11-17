@@ -1,0 +1,10 @@
+<h3 class="privi-tit">会员特权<a href="$root$/vip/levelPrivilege.html" class="tit-more">更多</a></h3>
+<ul class="privi-list">
+	{{each vipPrivilege}}
+		{{if $value.isHave}}
+			<li class="active"><a href={{$value.detail}}><span><b></b></span><p>{{$value.vipName}}</p></a></li>
+		{{else}}
+			<li><a href={{$value.detail}}><span><b></b></span><p>{{$value.vipName}}</p></a></li>
+		{{/if}}
+	{{/each}}
+</ul>

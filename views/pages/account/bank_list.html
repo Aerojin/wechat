@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>充值支持银行</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css  
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+</head>
+<body>
+	<div class="wrap">
+		<!-- 银行支持 -->
+		<div class="standby_tab">
+			<table border="1" width="100%" bordercolor="#d7d7d7" id="bank-list">
+				<thead>
+					<tr>
+						<th>银行</th>
+						<th>单笔/单日/单月额度</th>
+					</tr>
+				</thead>
+				<tbody class="tbody">
+					<tr>
+						<td colspan="2" class="notes" style="text-align: center;">银行列表正在加载中...</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript">
+		require('pages/account/bank_list/bank_list');
+	</script>
+</body>
+</html>

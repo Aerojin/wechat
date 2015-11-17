@@ -1,0 +1,18 @@
+/*
+.careful{font-size:.13rem;color:#f05a39;text-align:center;margin-top:.2rem;}
+.careful span{display:inline-block;line-height:.18rem;padding-left:.18rem;background:url('careful.png') no-repeat left;background-size:contain}
+*/
+.ico-gift img {display: block; width: 100%; height: auto;}
+.num-tips {text-align: center;}
+div .apoint {color: #42a9fb;text-decoration: underline;}
+.repeat-btn-short {width: .96rem;}
+.get-code {position: relative;}
+.get-code i {display: block;position: absolute;left: -.25rem;top: 25%;width: .2rem;height: .2rem;background: url('ico-complete.png') no-repeat;background-size: 100% 100%;}
+.oper-text {font-size: .14rem;line-height: .34rem;}
+.s-banner li img {width: 100%;display: block;}
+.qr-share {text-align: center;font-size: .14rem;line-height: .32rem;}
+.qrimg {width: 2.08rem;margin: 0 auto;}
+.qrimg img {width: 100%;display: block;}
+.sv-tel {width: 2.1rem;margin: .5rem auto 0 auto;line-height: .28rem;text-align: center;font-size: .14rem;border-radius: .05rem;border: 1px solid #bfbfbf;}
+.picc-careful {font-size:.13rem;color:#8c8c8c;text-align:center;margin-top:.2rem;}
+.picc-careful span {display:inline-block;line-height:.18rem;padding-left:.18rem;background:url('ico-protect.png') no-repeat left;background-size:contain;}

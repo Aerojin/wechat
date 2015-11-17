@@ -1,0 +1,23 @@
+.new-title {padding: .08rem .1rem;position: relative;text-align: center;line-height: .42rem;font-size: .18rem;color: #21292c;background: #fff;}
+.new-title b {position: absolute;left: .1rem;top: .08rem;display:block;width: .42rem;height: .42rem;
+background: url(logo-niu.gif) no-repeat;
+-webkit-background-size: 100% 100% ;
+background-size: 100% 100% ;}
+
+.new-bg {width: 100%;}
+.ico-gift {display: inline-block;margin: 0 auto;width: auto; }
+.ico-gift img {display: inline-block;width: 4.14rem;height: auto; }
+
+.change-link {padding: 0 .1rem;text-align: center;height:.40rem;line-height: .4rem;font-size: .14rem;}
+.change-link a.n-login {color: #f2743a;text-decoration: underline;}
+.change-link .spl {float: left;}
+.change-link .spr {float: right;}
+
+.copy-right {margin-top:.35rem;font:.14rem/.18rem "Microsoft YaHei";text-align:center;color: #c6c6c6;}
+.copy-right span {display: inline-block;position: relative;padding-left: .68rem;text-align:left;}
+.copy-right span b {position: absolute;left: 0;top: .02rem;width: .6rem;height: .33rem;
+background:url('picc.png') no-repeat;
+background-size: 100% 100%;
+-webkit-background-size: 100% 100%;
+-moz-background-size: 100% 100%;
+-o-background-size: 100% 100%;}

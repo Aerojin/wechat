@@ -1,0 +1,10 @@
+.oper-btn-gray {background:#ccc !important;}
+.btn_loading {
+	display:inline-block;height:100%;
+	padding-right: .35rem;
+	background:url(loading.gif) no-repeat right center;
+	-moz-background-size: .28rem .28rem;
+	-webkit-background-size: .28rem .28rem;
+	-o-background-size: .28rem .28rem;
+	background-size: .28rem .28rem;
+}

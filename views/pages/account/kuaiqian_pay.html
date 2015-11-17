@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>充值验证</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css  
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+</head>
+<body>
+	<div class="load_box wrap-box" id="wrap-loading">
+		<div class="loading"><img src="/views/images/ico-onload.gif" /><p>正在加载中···</p></div>
+	</div>
+
+	<div class="wrap wrap-box" id="wrap-bind" style="display: none;">
+		<!-- 输入提示 -->
+		<p class="pay-tit" id="p-tip">使用 *小华尾号为0236的招商银行卡<br />充值 <span class="text-red">1,000元</span></p>
+		<ul class="inp-list">
+			<li class="clearfix">
+				<label class="inp-tit" for="">手机号</label>
+				<input class="inp-txt-short txt-input" id="txt-mobile" type="text" placeholder="请输入银行预留手机号"/ >
+			</li>
+			<li class="clearfix">
+				<label class="inp-tit" for="">验证码</label>
+				<input class="inp-txt-short txt-input" id="txt-code" type="text" placeholder="请输入短信验证码" />
+				<a class="inp-yzm" id="btn-sendCode" href="javascript:void(0);" title="">获 取</a>
+				<a id="btn-dis-send" class="repeat-btn" href="javascript:void(0);" style="display:none;">重试(60)</a>
+			</li>
+		</ul>
+		<div class="servive-pact"><span class="pact-ico pact-on" id="chk-agree"></span>同意<span class="text-red" id="btn-agreement">《充值服务协议》</span></div>
+		<!-- 底部内容 -->
+		<div class="operate">
+			<a class="oper-btn" id="btn-submit" href="javascript:void(0);" title="">下一步</a>
+		</div>
+	</div>
+
+	<div class="wrap wrap-box" id="wrap-success" style="display: none;">
+		<div class="bind pay-feedback">
+			<span class="ico-status ico-success"></span>
+			<p>充值成功！</p>
+		</div>
+		<ul class="manage-list suc-list mgb4">
+			<li>
+				<label>充值金额</label>
+				<span class="suc-num" id="money-order">2000.00元</span>
+			</li>
+			<li>
+				<label>银行卡</label>
+				<span class="suc-num" id="card-num">尾号0236</span>
+				<span class="acc-img acc-bank"><img id="icon-bank" src="/views/images/bank_cmb.png" width="90px" height="22px" /></span>
+			</li>
+			<li style="display:none;">
+				<label>充值后账户余额</label>
+				<span class="suc-num">2000.00元</span>
+			</li>
+		</ul>
+		<ul class="code-share invest_goon">
+			<li style="display:none"><a href="javascript:void(0);">查看提现记录</a></li>
+			<li><a id="btn-list" href="javascript:void(0);">立即投资</a></li>
+		</ul>
+	</div>
+
+	<div class="wrap wrap-box" id="wrap-fail" style="display:none;">
+		<!-- 充值失败 -->
+		<div class="bind pay-feedback">
+			<span class="ico-status ico-fail"></span>
+			<p>充值失败！</p>
+			<div class="origin" id="fail-message">失败原因：银行交易金额超限<span class="text-red">[1019]</span></div>
+		</div>
+		<!-- 底部内容 -->
+		<div class="operate">
+			<a class="oper-btn" href="$root$/account/my_account.html" title="">返   回</a>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	require('pages/account/kuaiqian_pay/kuaiqian_pay');
+</script>
+</html>

@@ -1,0 +1,43 @@
+/*充值失败*/
+.pay-feedback p {margin-top: .12rem;}
+.origin {margin-top: .1rem;font-size: .14rem;color: #9d9d9d;}
+
+/*充值验证*/
+.pay-tit {padding: .2rem;font: .14rem/.18rem "Microsoft YaHei";color: #9d9d9d;}
+.servive-pact {padding-left: .48rem;margin: .12rem 0 .32rem 0;position: relative;color: #9d9d9d;font-size: .14rem;}
+.servive-pact .pact-ico,.servive-pact .pact-on {display:block;position: absolute;left: .17rem;top:0;width: .17rem;height: .17rem;border:1px solid #d2d2d2;background: #fff;}
+.servive-pact .pact-on {box-shadow: 0 0 4px rgba(0,0,0,.2);
+background:url(sv_agree.png) no-repeat #fff;
+-moz-background-size: 100% 100%;
+-webkit-background-size: 100% 100%;
+-o-background-size: 100% 100%;
+background-size: 100% 100%;}
+
+/*充值成功*/
+.suc-list .suc-num {display: block;float: right; margin-right: .2rem;color: #383330;}
+.suc-list-gray .suc-num {color: #b1b1b1;}
+.pay-suc-btn {margin-top: .45rem;}
+.pay-suc-btn li a {color: #fff;}
+.pay-suc-btn li:first-child a {color: #383330;}
+
+.bind{text-align:center;padding:.43rem 0;}
+.bind p{font-size:.18rem;margin-top:.28rem}
+
+.load_box {position: absolute;left:0;top:0;z-index:9999;width: 100%;height: 100%;background: #fff;}
+.loading {position: absolute;left:50%;top:20%;width: 3.6rem;margin-left: -1.8rem;text-align:center;font: .16rem/.26rem "Microsoft YaHei";color: #383330;}
+.loading img {display: block;width: .6rem;height: .6rem;margin: 0  auto;}
+
+.code-share {padding: .1rem;text-align: center;margin-top: .78rem;font: .19rem/.48rem "Microsoft YaHei";display: -webkit-box;display: box;}
+.code-share li {width:50%;height: .48rem;margin: 0 .03rem;-moz-border-radius: 5px;border-radius: 5px;box-sizing:border-box;border: 1px solid #b2b2b2;background: #fff;color: #9d9d9d;-webkit-box-flex: 1;box-flex: 1;cursor: pointer;}
+.code-share li a {color: #9d9d9d;display: block;}
+.code-share li:last-child {border-color: #da554e;background: #da554e;color: #fff;}
+.code-share li:last-child a {color: #fff;}
+
+.collect-list .acc-num {float: left;color:#b1b1b1;font: .16rem/.5rem "Microsoft YaHei";}
+.collect-list li .acc-img {float: left; width: auto;}
+.collect-list li .acc-img img {display: block; width: auto;}
+.acc-img {display:block;float: right;margin-right: .2rem;line-height: 0;}
+.acc-img img {/*width: 100%;*/height: 100%;}
+img {display:inline-block;overflow:hidden;vertical-align:top;}
+
+.acc-bank {width:1.12rem;height:.2rem;margin-top:.15rem;text-align: right;}

@@ -1,0 +1,87 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>会员红包</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+		@require views/css/global.css
+        @require views/css/style.css 
+	-->
+</head>
+<body>
+	<div class="wrap">
+		<section>
+			<header>
+				<div class="hd-privi bg-white">
+					<div class="ico-privi ico-pack"></div>
+					<div class="info-name">会员红包</div>
+				</div>
+			</header>
+			<div class="privi-container pd015 mgt05">
+				<div class="privi-box">
+					<h3>特权简介</h3>
+					<p>获得会员资格将得到红包一份，会员等级越高，红包额度越大</p>
+
+					<h3 class="mgt5">享用人群</h3>
+					<p>白银会员、黄金会员、铂金会员</p>
+
+					<h3 class="mgt5">特权详情</h3>
+					<div class="tab-box tab2 mgt4">
+						<table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#ccc">
+							<thead>
+								<tr>
+									<th width="25%">会员等级</th>
+									<th>红包详情</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>白银会员</td>
+									<td class="level-text">10元投资返现红包：<br />
+										单笔投资满1000元且投资期限为90天及以上固定收益产品可用，有效期30天
+									</td>
+								</tr>
+								<tr>
+									<td>黄金会员</td>
+									<td class="level-text">35元投资返现红包：<br />
+										单笔投资满5000元且投资期限为90天及以上固定收益产品可用，有效期30天
+									</td>
+								</tr>
+								<tr>
+									<td>铂金会员</td>
+									<td class="level-text">60元投资返现红包：<br />
+										单笔投资满10000元且投资期限为90天及以上固定收益产品可用，有效期30天
+									</td>
+								</tr>
+
+							</tbody>
+
+						</table>
+					</div>
+					
+					<h4 class="mgt2">会员等级跳级时，可获得当前所处等级及跳跃等级的所有红包。如：</h4>
+					<ol class="item-text">
+						<li>从普通用户升级成白银会员，可获得10元投资返现红包</li>
+						<li>从普通用户升级成黄金会员，可获得10元、35元投资返现红包</li>
+						<li>从普通用户升级成铂金会员，可获得10元、35元、60元投资返现红包</li>
+						<li>从白银会员升级成铂金会员，可获得35元、60元投资返现红包</li>
+						<li>其他情况以此类推</li>
+					</ol>
+
+
+				</div>
+			</div>
+		</section>
+	</div>
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript">
+		require("pages/vip/levelPrivilege/levelPrivilege");
+	</script>
+</body>
+</html>

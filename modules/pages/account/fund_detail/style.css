@@ -1,0 +1,15 @@
+.hqb-tit {padding: .22rem .2rem .18rem .2rem;background: #da554e;}
+.hqb-tit li {font: .14rem "Microsoft YaHei";color: #fff;}
+.hqb-tit li .note-num {display:block;font-size: .27rem;}
+
+.invest-main .wrap_box,.invest-main .m-box {height: 5rem;}
+.tab-contain {margin: .07rem;-moz-border-radius: .05rem;border-radius: .05rem;}
+.invest-main .in_box {float: left;display: inline;}
+.blist {border-bottom: .06rem solid #f1f1f1; background: #fff;}
+.box_block1 {height: .65rem;padding:0.08rem;border-bottom: 1px solid #f1f1f1; position: relative;;}
+.box_tit {padding-top: .08rem;font: .16rem "Microsoft YaHei";color: #626262;}
+.box_date {padding-top: .05rem;font: .14rem "Microsoft YaHei";color: #c2c2c2;}
+.box_amount{position: absolute; right:0.1rem; top:0.1rem; font-size: 0.22rem; padding: 0.2rem;}
+.box_amount .success{color: #1c9633}
+.box_amount .fail{color: #da554e}
+.box_block2 {padding: 0.15rem;border-bottom: 1px solid #f1f1f1; font-size: 0.15rem;}

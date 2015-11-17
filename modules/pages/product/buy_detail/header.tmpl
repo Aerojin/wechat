@@ -1,0 +1,16 @@
+<div class="hd-ebox-two clearfix">{{productName}}<span>{{deadLineValue}}{{dateUnit}}期限</span></div>
+<div class="ebox-info">
+	预期年化收益率 {{fixRate}}% 
+	
+	{{if isVipProduct && isVip && vipRate > 0}}
+	+ {{vipRate}}%(会员)
+	{{/if}}
+	{{each awardRateSetting}}
+		+{{$value.awardRate}}%({{$value.activityName}})
+	{{/each}}
+</div>
+
+{{if typeValue == 5}}
+<div class="ebox-info">投资金额: {{copiesMoney}}元/份</div>
+{{/if}}
+

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>我的活期宝</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+</head>
+<body>
+	<div class="wrap">
+		<article>
+			<header id="header">
+				<ul class="hqb-tit clearfix">
+					<li><span class="note-name">昨日收益（元）</span><span class="note-num">0</span></li>
+				</ul>
+				<ul class="hqb-tit-copy clearfix">
+					<li><span class="note-name">活期宝余额（元）</span><span class="note-num">0</span></li>
+					<li><span class="note-name">累计收益（元）</span><span class="note-num">0</span></li>
+				</ul>
+			</header>
+			
+			<div id="context">
+				<div class="scroll-box">
+					<div>
+						<p class="waterfall-login">数据加载中...</p>
+					</div>
+				</div>	
+			</div>
+		</article>
+
+		
+		<ul class="tool-btn clearfix" id="btn-tool">
+			<li><a href="$root$/account/hqb_ransom.html">赎回</a></li>
+			<li><a id="btn-buy" href="javascript:void(0);">购买</a></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		require('pages/account/my_hqb/my_hqb');
+	</script>
+</body>
+</html>

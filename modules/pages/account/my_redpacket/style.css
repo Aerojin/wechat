@@ -1,0 +1,44 @@
+.mg07 {margin: 0 .07rem;position: relative;}
+.float{float: left; width:4rem;}
+.no-records {margin-top: 2rem; width: 100%;text-align: center;font: .14rem/.36rem "Microsoft YaHei";color: #c3c3c3;}
+.no-records b {display: block;width: .6rem;height: .6rem;margin: 0 auto;
+	background: url(ico-list.png) no-repeat;
+	background-position: -.9rem -.8rem;
+	-webkit-background-size: 4.14rem 5.59rem;
+	background-size: 4.14rem 5.59rem;
+}
+.bag-box {padding-left:.45rem;position:relative;}
+.bag-box .bag-block {border: 1px solid #bebebe;background: #bebebe;color: #f8f8f8;}
+.ico-select {position: absolute;left: .08rem;top: .5rem;width: .24rem;height: .25rem;background: url(ico-select.png) no-repeat;
+-webkit-background-size: .24rem .49rem ;background-size: .24rem .49rem ;
+-webkit-background-position: 0 -.24rem;background-position: 0 -.25rem;}
+/*.ico-zon .ico-select {background-position: 0 0;}*/
+.ico-zon .bag-block {border: 1px solid #da554e;background: #da554e;color: #fff;}
+
+.bag-block {position:relative;margin:.1rem;height: 1.24rem;border-radius: .07rem;box-sizing:border-box;overflow: hidden;}
+.used {border: 1px solid #dcdcdc;background: #fff;color: #bebebe;}
+.ico-used {display:none;position: absolute;right: -.25rem;top: .15rem;z-index: 9;width: 1rem;text-align: center;font-size: .1rem;line-height: .16rem;color:#fff;background: #bebebe;
+-webkit-transform: rotate(45deg);transform: rotate(45deg);}
+.used .ico-used {display: block;}
+.unused {border: 1px solid #da554e;background: #da554e;color: #fff;}
+
+.bag-num {float: left;padding: .1rem 0 0 .15rem;width:1.3rem;font-size: .23rem;}
+.bag-num b {font-size: .62rem;font-weight: normal;}
+.bag-info {float: right;width: 1.5rem;padding: .15rem .15rem 0 0;}
+.bag-info dt {font-size: .13rem;}
+.bag-info dt h4 {font-size: .17rem;}
+.bag-info dd p {padding-top: .1rem;font-size: .12rem;line-height: .18rem;}
+
+.invest-tabbar {height: .52rem;line-height:.52rem;border:1px solid #d4d4d4;border-width: 1px 0;background: #fff;font-size: .162rem;}
+.invest-tabbar li {float: left;width: 33.3%;position: relative; text-align: center;}
+.invest-tabbar li:before {content: "";position: absolute;right: 0;top: 10%;width:0;height: 80%;border-right: 1px dotted #d7d7d7;}
+.invest-tabbar li:last-child:before {display: none;}
+.invest-tabbar li.active:after {content: "";position: absolute;left: 50%;bottom: -1px;z-index: 10;width: 70%;margin-left: -35%;height: .04rem;background: #da554e;}
+
+/*
+@media screen and (device-width:360px) {
+  .bag-block .bag-num {width: 1.3rem;}
+  .bag-block .bag-num b {font-size: .58rem;}
+  .bag-block .bag-info {width: 1.5rem;}
+}
+*/

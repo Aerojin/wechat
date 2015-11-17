@@ -1,0 +1,35 @@
+.real-tit {margin: .18rem 0 .35rem 0;}
+.deal-tit {margin: .3rem 0;text-align: center;color: #8f8f8f;font-size: .14rem;}
+
+.explain-txt {margin:.16rem .2rem;color:#9d9d9d;font-size: .14rem;}
+.explain-txt-p p {padding: .1rem 0;}
+.card-show {width: 100%;position:relative;z-index:100;text-align: center;font: .31rem/.62rem "Microsoft YaHei";color: #f05a39;background: #fff1e4;}
+.card-show:before {content: "";position: absolute;left: 50%;top: -.1rem;z-index:11;width: 0;height: 0;border-bottom: .1rem solid #fff1e4;border-left: .12rem solid transparent;border-right: .12rem solid transparent;}
+.card-select {padding: 0 .2rem;background: #fff;}
+.card-select .select-box {padding-left:.96rem;height: .5rem;position: relative;}
+
+.code-share, .operate-share{padding: 0 .1rem;text-align: center;margin-top: .2rem;font: .19rem/.48rem "Microsoft YaHei";display: -webkit-box;display: box;}
+.code-share li, .operate-share li {width:50%;height: .48rem;margin: 0 .03rem;-moz-border-radius: 5px;border-radius: 5px;box-sizing:border-box;border: 1px solid #b2b2b2;background: #fff;color: #9d9d9d;-webkit-box-flex: 1;box-flex: 1;cursor: pointer;}
+.code-share li a {color: #9d9d9d;display: block;}
+.code-share li:last-child {border-color: #da554e;background: #da554e;color: #fff;}
+.code-share li:last-child a {color: #fff;}
+
+.operate-share li:first-child {border-color: #da554e;background: #da554e;color: #fff;}
+.operate-share li:first-child a {color: #fff;}
+
+.acc-img {display:block;float: right;margin-right: .2rem;line-height: 0;}
+.acc-img img {/*width: 100%;*/height: 100%;}
+
+.inp-list .acc-num {float: left;color:#b1b1b1;font: .16rem/.5rem "Microsoft YaHei";}
+
+.inp-list li .acc-img {float: left;width: auto;}
+.inp-list li .acc-img img {display: block;}
+.acc-bank {width:1.12rem;height:.2rem;margin-top:.15rem;text-align: right;}
+
+.picc {text-align: center;color: #939393;font-size: .14rem;}
+.picc .ico1 {display: inline-block;padding-left: .2rem;
+background:url(ico-protect.png) no-repeat left center;
+-moz-background-size: .13rem .16rem;
+-webkit-background-size: .13rem .16rem;
+-o-background-size: .13rem .16rem;
+background-size: .13rem .16rem;}

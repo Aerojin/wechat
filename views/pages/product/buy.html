@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>产品详情</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+</head>
+<body>
+	<!--天天牛-->
+	<div class="wrap" id="context">
+		<section class="pro_manage">
+			<div class="hd-red">
+				<div class="hd-ebox-one">
+					预期年化
+					<div class="ebox-one-num">0<span>%</span></div>
+				</div>
+			</div>
+			<ul class="invest-total">
+				<li>投资金额<span>0元起</span></li>
+				<li>投资期限<span>0天</span></li>
+			</ul>
+			
+			<ul class="manage-list manage-a mgt5">
+				<li class="clearfix">
+					<label class="inp-tit">收益方式</label>
+					<span class="acc-num">到期一次性还本付息</span>
+				</li>
+				<li class="clearfix">
+					<label class="inp-tit">起息日</label>
+					<span class="acc-num">--</span>
+				</li>
+				<li class="clearfix">
+					<label class="inp-tit">到期日</label>
+					<span class="acc-num">--</span>
+				</li>
+			</ul>
+			<ul class="manage-list mgt5">
+				<li>
+					<a href="javascript:void(0);" title="">产品详情</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);" title="">安全保障</a>
+				</li>
+			</ul>
+
+		</section>
+		
+		<div class="ft-operate-box" id="btn-tool">
+			<a class="oper-btn oper-btn-gray" href="javascript:void(0);">立即购买</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		require('pages/product/buy/buy');
+	</script>
+</body>
+</html>

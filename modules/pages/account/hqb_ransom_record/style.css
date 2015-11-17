@@ -1,0 +1,16 @@
+.hqb-box {margin: .07rem .07rem 0 .07rem;padding: .15rem .15rem 0 .15rem;background: #fff;box-shadow: 0 0 .08rem rgba(12,51,92,.04);}
+.hqb-box div:last-child {border:none;}
+
+.process-box {padding: 0 .15rem;position: relative;}
+.process-box .profit-info li:nth-child(3n) {float: left;width: 38%;}
+.process-box .process-status {position: absolute;right: .25rem;top: .26rem;z-index:10;font: .15rem "Microsoft YaHei";}
+.process-box .processing {color: #626262;}
+.process-box .completed {color: #1c9633;}
+.process-box .p-fail {color: #da554e;}
+
+.profit-info { padding: .15rem 0;border-bottom: 1px solid #eee;}
+.profit-info li {float: left;width: 38%;font: .15rem/.24rem "Microsoft YaHei";color: #626262;}
+.profit-info li span {display: block;}
+.profit-info li:nth-child(3n) {float: right;width: 24%;}
+.profit-info li:nth-child(3n) span {color: #f05a39;}
+.profit-info li:nth-child(2n) span {color: #3d3d3d;}

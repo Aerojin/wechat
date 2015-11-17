@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>赎回成功</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="redeem_sucbox" id="wrap">
+			<ul class="redeem_suc">
+				<li class="clearfix">
+					<span class="redeem_date end-date">-</span>
+					<div class="redeem_notes">预计到账日期</div>
+				</li>
+				<li class="clearfix">
+					<span class="redeem_date start-date">-</span>
+					<div class="redeem_notes">赎回申请提交成功<p>赎回金额<span class="amount">0</span>元</p></div>
+				</li>
+			</ul>
+		</div>
+
+		<ul class="code-share invest_goon">
+			<li><a href="javascript:void(0);" id="btn-back">返回我的活期宝</a></li>
+			<li><a href="$root$/account/hqb_ransom_record.html">查看赎回记录</a></li>
+		</ul>
+
+	</div>
+	<script type="text/javascript">
+		require('pages/account/hqb_ransom_result/hqb_ransom_result');
+	</script>
+</body>
+</html>

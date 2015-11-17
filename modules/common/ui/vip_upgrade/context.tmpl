@@ -1,0 +1,17 @@
+<div class="mask">
+	<div class="lvl-box light-scale">
+		<span class="closed btn-close"></span>
+		<div class="light light-on"></div>
+		<div class="lvl-ico"><img src="{{vipIco}}"></div>
+		<p class="lvl-slogan">恭喜你升级为{{vipName}}！</p>
+		<ul class="user-privi">
+			<li>您可以享受以下会员特权：</li>
+			{{each vipPrivilege}}
+				{{if $value.isHave}}
+					<li>{{$index + 1}}、{{$value.vipName}}</li>
+				{{/if}}
+			{{/each}}
+		</ul>
+		<div class="back-btn btn-submit"><a href="javascript:void(0);" title="">查看详情</a></div>
+	</div>			
+</div>

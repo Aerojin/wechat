@@ -1,0 +1,45 @@
+.wrap{padding-bottom: 1.4rem;}
+.pro_manage .c_red {color: #f05a39;}
+.hd-red {height: 1.35rem;padding: 0 .25rem;background: #da554e;}
+.hd-ebox-one {text-align: center;padding-top: .1rem;font-size: .14rem;line-height: .45rem;color: #fff;}
+.hd-ebox-one .ebox-one-num {font-size: .74rem;}
+.hd-ebox-one .ebox-one-num span {font-size: .42rem;}
+.hd-first a{line-height: .3rem;font-size: .12rem;text-align: center;color: #f05a39;background: #fff1e3;}
+.h-box {background: #fff;border-bottom: 1px solid #ccc;}
+.invest-total {padding: .18rem 0;display: -webkit-box;display: -moz-box;display: box;background: none;border: none;}
+.invest-total li {position:relative;text-align: center;font-size: .14rem;color: #8c8c8c;-webkit-box-flex: 1;-moz-box-flex: 1;box-flex: 1;box-sizing:border-box;}
+.invest-total li span {display: block;font-size: .18rem;color: #454545;}
+.invest-total li:first-child:before {content: "";position: absolute;right: -1px;top: 0;width: 2px;height: 100%;background: #f4f4f4;}
+.time-out {text-align: center;font-size: .14rem;line-height:.54rem;color: #939393;}
+.time-empty{text-align: center;font-size: .14rem;line-height:0.2rem;color: #939393;}
+.manage-a .acc-num {float: right;color: #454545;margin-right: .2rem;}
+.manage-a li .inp-tit {color: #9d9d9d;}
+.manage_tips {padding:.08rem .16rem;text-align:center;font: .14rem/.24rem "Microsoft YaHei";color: #939393;}
+.ft-operate-box {position: fixed;left: 0;bottom: 0rem;z-index:999;width:100%;padding: .1rem;border-top: 1px solid #949494;box-sizing:border-box; background: #fff;}
+
+.manage-list{border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding-left: .2rem;background:#FFF;font-size: .16rem;}
+.manage-list li,.list-copy {position:relative;border-top:1px solid #e8e8e8;line-height: .5rem;font-size: .16rem;}
+.manage-list li:first-child{border:0}
+.manage-list li a,.list-copy a {display:block;margin-right: .18rem;background:url('link-icon.png') no-repeat right center;background-size:.09rem .15rem}
+
+.zhi-text {padding-top: .05rem;height: .32rem;font-size: .14rem;}
+.zhi-text .zhi-fl {float: left;color: #939393;}
+.zhi-text .zhi-fr {float: right;color: #454545;}
+
+.zhishu-datebox {padding: 0 0.1rem;height: auto;position:relative;box-sizing:border-box;}
+.zhishu-datebox .day {color: #f05a39;line-height: 0.30rem;font-size: 0.11rem;}
+.progressBar-box {display: -moz-box;display: -webkit-box;display: box;}
+.progressBar {margin-top: 0.13rem;position:relative;height: 0.04rem;-moz-box-flex:1;-webkit-box-flex:1;box-flex:1;background: #c2c2c2;overflow: hidden;}
+.progressBar-block {position: absolute;left: 0;top: 0;width: 0;height: 100%;background: #f05a39;
+-webkit-transition: all .8s;transition: all .8s;}
+.progressBar .per {width: 90%;}
+.progressBar-result {display: block;margin: 0.08rem 0 0 0.05rem;width: 0.42rem;height: 0.15rem;line-height: 0.15rem;text-align:center;font-size: 0.11rem;color:#fff;background: #f05a39;
+-webkit-border-radius: 0.15rem;-moz-border-radius: 0.15rem;-o-border-radius: 0.15rem;border-radius: 0.15rem;}
+.progressBar-box .result-zero {background: #c2c2c2;}
+.z-info {margin-top:0.05rem;height: 0.25rem;line-height: 0.25rem;font-size: 0.14rem;color: #939393;}
+
+.member-rate {display: inline-block;position: relative;}
+.member-rate .m-tag {position: absolute;right: 0;top: -.05rem;display:block;font-size: .12rem;line-height: .14rem;font-style:normal;padding: 0 .05rem;border-radius:2px;border: 1px solid #f9d741;color: #f9d741;}
+
+.unmember {padding-right: .3rem;}
+.hd-ebox-one .ebox-one-num span.untips {position: absolute;right: -0.2rem;top: -.05rem;display:block;font-size: .12rem;line-height: .14rem;font-style:normal;color: #f9d741;}

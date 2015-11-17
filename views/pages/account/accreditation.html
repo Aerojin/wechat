@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>实名认证</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css  
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="explain-txt">为保障您的合法权益，请如实填写身份信息</div>
+		
+		<div id="edit">
+			<ul class="inp-list">
+				<li>
+					<label class="inp-tit" for="">姓名</label>
+					<input id="txt-name" class="inp-txt txt-input" name="name" type="text" placeholder="请输入您的真实姓名">
+				</li>
+				<li>
+					<label class="inp-tit" for="">身份证号</label>
+					<input id="txt-idcard" class="inp-txt txt-input" name="idCardNo" type="text" maxlength="18" placeholder="请输入您的真实身份证号">
+				</li>
+			</ul>
+
+			<ul class="inp-list mgt4">
+				<li class="clearfix">
+					<label class="inp-tit" for="">银行卡号</label>
+					<input class="inp-txt txt-input" id="txt-card" type="tel" maxlength="19" name="bankCardNo"  placeholder="请输入您本人的借记卡号">
+				</li>
+			</ul>
+
+			<div  id="div-card" class="card-show dn"></div>
+			<div class="card-select mgb2">
+				<div class="select-box">
+					<label class="inp-tit" for="">选择银行</label>
+					<div class="selectContainer" id="div-select"> 
+			            <span class="selectOption gray">中国银行</span> 
+			            <span class="shows"></span> 
+					 </div>
+				</div>
+			</div>
+			
+			<div class="operate ">
+				<a class="oper-btn card-type oper-btn-gray" id="btn-save" href="javascript:void(0)" title="">保存修改</a>
+			</div>	
+		</div>
+
+		<div id="views" style="display:none;">
+			<ul class="inp-list">
+				<li>
+					<label class="inp-tit">姓名</label>
+					<label class="inp-txt txt-input lbl-name" id></label>
+				</li>
+				<li>
+					<label class="inp-tit" for="">身份证号</label>
+					<label class="inp-txt txt-input lbl-idcard"></label>
+				</li>
+			</ul>
+
+			<ul class="inp-list mgt4">
+				<li class="clearfix">
+					<label class="inp-tit" for="">银行卡号</label>
+					<label class="inp-txt txt-input lbl-cardno"></label>
+				</li>
+
+				<li class="clearfix">
+					<label class="inp-tit" for="">银行</label>
+					<span class="acc-img acc-bank"><img class="card-ico" src="/views/images/bank_cmb.png" /></span>
+					<span class="acc-num card-number">&nbsp;</span>
+				</li>
+			</ul>
+			
+			<ul class="code-share">
+				<li><a href="javascript:void(0);" id="btn-change">修改资料</a></li>
+				<li><a href="javascript:void(0);" id="btn-recharge">去充值</a></li>
+			</ul>
+		</div>
+		
+
+		
+		
+		<div class="explain-txt explain-a"><strong>温馨提示</strong>
+			<p>为严格保障用户的资金安全，小牛钱罐子采用单张银行卡同卡进出方案。第一次充值成功后银行卡及身份信息将无法随意修改，提现资金也将只能进入该银行卡。</p>
+		</div>
+
+		<div class="picc mgt3"><span class="ico1">账户资金安全由中国人民保险提供100%承保</span></div>
+	</div>
+	
+	<script type="text/javascript">
+		require('pages/account/accreditation/accreditation');
+	</script>
+</body>
+
+</html>

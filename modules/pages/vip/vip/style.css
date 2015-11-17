@@ -1,0 +1,31 @@
+.hd-accounts {padding: .15rem;display: -webkit-box;display: box;box-orient: vertical;-webkit-box-orient: vertical;}
+.hd-accounts .img-accounts {display: block;width: .66rem;height: .66rem;margin: 0 auto;}
+.info-num {padding-top: .1rem;font-size: .14rem;text-align:center;color: #fff;box-flex: 1;-webkit-box-flex: 1;}
+.info-num a {color: #fff;}
+
+.info-mission {padding: .12rem;position: relative;font-size: .15rem;color: #fff;display: -webkit-box;display: box;}
+.info-mission .tips-ico {display: block;width: .36rem;height: .36rem;margin-right: .1rem;}
+.info-mission p {line-height: .36rem;box-flex: 1;-webkit-box-flex: 1;}
+
+.privi-tit {padding: 0 .12rem;height: .36rem;line-height: .36rem;font-size: .15rem;color: #666;}
+.privi-tit a.tit-more {float: right;padding-right: .15rem;background: url(ico-arr.png) no-repeat right center;
+	background-size: .12rem .19rem;-webkit-background-size: .12rem .19rem;}
+.privi-list {padding: .12rem .1rem;display: -webkit-box;display: box;}
+.privi-list li {width: 15%;box-flex: 1;-webkit-box-flex: 1;color: #cdcdcd;}
+.privi-list li p {text-align: center;padding-top: .1rem;font-size: .15rem;}
+.privi-list li span {display: block;width: .66rem;height: .66rem;margin: 0 auto;border-radius: .7rem;-webkit-border-radius: .7rem;background: #ccc;}
+.privi-list li b {display: block;width:100%;height:100%;border-radius: .7rem;-webkit-border-radius: .7rem;
+	background: url(member-list.png) no-repeat;background-size: 4.14rem 2.6rem;-webkit-background-size: 4.14rem 2.6rem;}
+.privi-list li:nth-child(1) b {background-position: 0 0;}
+.privi-list li:nth-child(2) b {background-position: -.97rem 0;}
+.privi-list li:nth-child(3) b {background-position: -1.94rem 0;}
+.privi-list li:nth-child(4) b {background-position: -2.91rem 0;}
+.privi-list li.active p {color: #666;}
+.privi-list li:nth-child(1).active span {background: #f9d741;}
+.privi-list li:nth-child(2).active span {background: #ff7070;}
+.privi-list li:nth-child(3).active span {background: #96c7ff;}
+.privi-list li:nth-child(4).active span {background: #ff7d9f;}
+
+.privi-box h3 {font-size: .18rem;color: #666;}
+.banlist li {margin-bottom: .15rem;}
+img{width: 100%;}

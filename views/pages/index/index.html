@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+	
+</head>
+<body>
+	<div class="wrap">
+		<!-- 广告图 新用户-->
+
+		<div class="new-bg">
+			<div class="cnt" id="btn-item"></div>
+			<div id="slider-container">
+				<img src="/views/images/h-ban1.png" />
+			</div>
+		</div>	
+		
+		<div class="ban-side">
+			<h3 class="ban-h3"><span>热门产品</span></h3>
+			<div class="index-ban" id="div-hqb">
+				<div class="ban-name"><span>活期宝</span></div>
+				<div class="ban-num">5.5<em>%</em>-11.0<em>%</em></div>
+				<div class="ban-note"><span>随存随取</span>|<span>当日计息</span></div>
+				<div class="ban-btn"><a href="$root$/product/home.html" class="btn-buy">立即购买</a></div>
+				<div class="picc-careful"><span>由中国人保100%承保  小牛资本旗下产品</span></div>
+			</div>
+			<h3 class="ban-h3"><span>最新活动</span></h3>
+			<ul class="s-banner s-li" id="ul-activity"></ul>
+		</div>
+		<div class="picc-careful"><span>由中国人保100%承保  小牛资本旗下产品</span></div>
+	</div>
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript">
+		require('pages/index/index');
+	</script>
+</body>
+</html>

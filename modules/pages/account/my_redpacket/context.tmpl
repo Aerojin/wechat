@@ -1,0 +1,23 @@
+{{each data}}
+<div class="bag-block waterfall-item {{$value.stateCls}}" data-originmoney="{{$value.fOriginMoney}}">
+	<div class="ico-used">{{$value.stateText}}</div>
+	<div class="bag-num">￥<b>{{$value.fMoney}}</b></div>
+	<dl class="bag-info">
+		<dt>
+			{{if $value.fName.length > 0}}
+				<h4>{{$value.fName}}</h4>
+			{{else}}
+				<h4>投资返现红包</h4>
+			{{/if}}
+			{{if $value.expireDay > 0}}
+				<p>还剩{{$value.fExpireDay}}过期</p>
+			{{else}}
+				<p>有效期至{{$value.fExpireDay}}</p>
+			{{/if}}
+		</dt>
+		<dd>
+			<p>{{$value.fRemark}}</p>
+		</dd>
+	</dl>
+</div>
+{{/each}}

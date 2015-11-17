@@ -1,0 +1,21 @@
+.wrap { position: relative; margin: 0 auto; padding-bottom: 1rem;}
+.ico-gift img {display: block; width: 100%; height: auto;}
+.num-tips {text-align: center;padding: 0 .24rem; height: .3rem; line-height: .3rem; font-size: .14rem; color: #000;}
+.num-tips span {display: inline-block; padding-left: .22rem; background: url(closed1.png) no-repeat left center; -webkit-background-size: .14rem .14rem; background-size: .14rem .14rem;}
+div .apoint {color: #42a9fb;text-decoration: underline;}
+.repeat-btn-short {width: .96rem;}
+.repeat-btn{float:right;margin-top:.12rem;width:1.04rem;color:#9d9d9d;font: .16rem/.3rem "Microsoft YaHei";text-align:center;border-left:1px solid #d9d9d9}
+.get-code {position: relative; float: right; margin-right: .05rem; width: .96rem; height: .42rem; margin-top: .04rem; text-align: center; font: .16rem/.42rem "Microsoft YaHei"; color: #fff; border-radius: .05rem; background: #f2743a;}
+.get-code i {display: block;position: absolute;left: -.25rem;top: 25%;width: .2rem;height: .2rem;background: url(ico-complete.png) no-repeat;background-size: 100% 100%;}
+.oper-text {font-size: .14rem;line-height: .34rem;}
+.s-banner li img {width: 100%;display: block;}
+.qr-share {text-align: center;font-size: .14rem;line-height: .32rem;}
+.qrimg {width: 2.08rem;margin: 0 auto;}
+.qrimg img {width: 100%;display: block;}
+.sv-tel {width: 2.1rem;margin: .5rem auto 0 auto;line-height: .28rem;text-align: center;font-size: .14rem;border-radius: .05rem;border: 1px solid #bfbfbf;}
+.picc-careful {font-size:.13rem;color:#8c8c8c;text-align:center;margin-top:.2rem;}
+.picc-careful span {display:inline-block;line-height:.18rem;padding-left:.18rem;background:url('ico-protect.png') no-repeat left;background-size:contain;}
+
+.servive-pact {padding-left: .48rem;margin: .12rem 0 .32rem 0;position: relative;color: #9d9d9d;font-size: .14rem;}
+.servive-pact .pact-ico,.servive-pact .pact-on {display:block;position: absolute;left: .17rem;top:0;width: .17rem;height: .17rem;border:1px solid #d2d2d2;}
+.servive-pact .pact-on {box-shadow: 0 0 4px rgba(0,0,0,.2); background:url(sv_agree.png) no-repeat #fff; -moz-background-size: 100% 100%; -webkit-background-size: 100% 100%; -o-background-size: 100% 100%;background-size: 100% 100%;}

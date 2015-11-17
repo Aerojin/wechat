@@ -1,0 +1,10 @@
+.pop-mask {position:absolute;width:3.16rem;padding-top:.3rem;text-align:center;background:#fff;border-radius: 0.05rem;z-index:9999}
+.pop-mask h3 {padding: .1rem 0 .3rem 0;font: .16rem/.26rem "Microsoft YaHei";color:#363532;}
+.ico-status {display: block;margin: 0 auto;width: .62rem;height: .62rem;background:url('ico-list.png') no-repeat; background-size: 4.14rem 5.15rem;}
+.ico-success {background-position: 0rem 0rem;background-size: 4.14rem 5.15rem;}
+.ico-warn {background-position: -.7rem 0;background-size: 4.14rem 5.15rem;}
+.ico-fail {background-position: -1.4rem 0;background-size: 4.14rem 5.15rem;}
+
+.exit-mask .exit-btn {width:3.16rem;text-align:center;background:#fff;border-top: 1px solid #d1d1d1;-moz-border-radius: 0 0 5px 5px;border-radius: 0 0 5px 5px;z-index:9999}
+.exit-mask .exit-btn li {float:left;width:50%;line-height:.54rem;font-size:.18rem;border-right:1px solid #ccc;cursor:pointer;box-sizing:border-box;}
+.exit-mask .exit-btn li:last-child {border-right: none;}

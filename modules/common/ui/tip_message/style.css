@@ -1,0 +1,2 @@
+.exit-tips {position: fixed;left:10%;bottom: 28%;width: 80%;text-align:center; z-index: 9999}
+.tips-text {display: inline-block;padding: .1rem .15rem;border-radius: 3rem;font: .16rem/.2rem "Microsoft YaHei";color: #fff;background: rgba(0,0,0,.7);}

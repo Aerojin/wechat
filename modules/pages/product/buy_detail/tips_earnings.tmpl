@@ -1,0 +1,13 @@
+<div class="exit-main">
+	<ul class="e-ul">
+		<li><span class="e-name">产品收益：</span><span class="e-num">{{earnings}}元</span></li>
+		{{if isVip}}
+			<li><span class="e-name">会员加成：</span><span class="e-num">+{{vipEarnings}}元</span></li>
+		{{/if}}
+		{{each awardRate}}
+			<li><span class="e-name">{{$value.text}}：</span><span class="e-num">+{{$value.value}}元</span></li>
+		{{/each}}
+		<li><span class="e-name"><b>预期总收益：</b></span><span class="e-num">{{result}}元</span></li>
+	</ul>
+	<span class="exit-sure btn-submit">确定</span>
+</div>

@@ -1,0 +1,53 @@
+.bind{text-align:center;padding:.43rem 0;}
+.bind p{font-size:.18rem;margin-top:.28rem}
+
+.collect-list {box-shadow: 0 0 .08rem rgba(12,51,92,.04);}
+.collect-list .acc-num {float: left;color:#b1b1b1;font: .16rem/.5rem "Microsoft YaHei";}
+.collect-list li .acc-img {float: left;width: auto;}
+.collect-list li .acc-img img {display: block;}
+.acc-bank {width:1.12rem;height:.2rem;margin-top:.15rem;text-align: right;}
+
+.suc-list .suc-num {display: block;float: right; margin-right: .2rem;color: #383330;}
+.suc-list-gray .suc-num {color: #b1b1b1;}
+
+.acc-img {display:block;float: right;margin-right: .2rem;line-height: 0;}
+.acc-img img {/*width: 100%;*/height: 100%;}
+img {display:inline-block;overflow:hidden;vertical-align:top;}
+
+.origin {margin-top: .1rem;font-size: .14rem;color: #9d9d9d;}
+
+.ico-status {display: block;margin: 0 auto;width: .62rem;height: .62rem;background:url('ico-list.png') no-repeat;background-size: 4.14rem 5.15rem;}
+.ico-success {background-position: 0rem 0rem;background-size: 4.14rem 5.15rem;}
+.ico-warn {background-position: -.7rem 0;background-size: 4.14rem 5.15rem;}
+.ico-fail {background-position: -1.4rem 0;background-size: 4.14rem 5.15rem;}
+.pop-loading .ico-status {background:url('ico-onload.gif') no-repeat center center;
+background-size: 100% 100%;
+-webkit-background-size: 100% 100%;
+-moz-background-size: 100% 100%;
+-o-background-size: 100% 100%;}
+.ico-apply {background-position: 0 -1rem;width: .76rem;height: .86rem;background-size: 4.14rem 5.15rem;}
+
+.apply-result {text-align:center;padding:.3rem 0;background: #da554e;color: #fff;}
+.apply-result img {vertical-align:top;width:.78rem;height:.88rem;display: block;margin: 0 auto;}
+.apply-result p {font-size:.18rem;margin-top:.15rem;}
+.apply-result .origin {color: #fff;}
+
+.manage-list{border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding-left: .2rem;background:#FFF;font-size: .16rem;}
+.manage-list li,.list-copy {position:relative;border-top:1px solid #e8e8e8;line-height: .5rem;font-size: .16rem;}
+.manage-list li:first-child{border:0}
+.manage-list li a,.list-copy a {display:block;margin-right: .18rem;background:url('link-icon.png') no-repeat right center;background-size:.09rem .15rem}
+
+.code-share {padding: .1rem;text-align: center;margin-top: .78rem;font: .19rem/.48rem "Microsoft YaHei";display: -webkit-box;display: box;}
+.code-share li {width:50%;height: .48rem;margin: 0 .03rem;-moz-border-radius: 5px;border-radius: 5px;box-sizing:border-box;border: 1px solid #b2b2b2;background: #fff;color: #9d9d9d;-webkit-box-flex: 1;box-flex: 1;cursor: pointer;}
+.code-share li a {color: #9d9d9d;display: block;}
+.code-share li:last-child {border-color: #da554e;background: #da554e;color: #fff;}
+.code-share li:last-child a {color: #fff;}
+
+.invest_goon {margin-top: 0;}
+.invest_goon li {width: 45%;}
+.invest_goon li a {color: #383330;}
+
+
+.load_box {position: absolute;left:0;top:0;z-index:9999;width: 100%;height: 100%;background: #fff;}
+.loading {position: absolute;left:50%;top:20%;width: 3.6rem;margin-left: -1.8rem;text-align:center;font: .16rem/.26rem "Microsoft YaHei";color: #383330;}
+.loading img {display: block;width: .6rem;height: .6rem;margin: 0  auto;}
