@@ -87,6 +87,7 @@ app登录web必传参数列表
 	/pages/account/my_coupon.html
 	
 19.好友关系链红包入口
+	/pages/activity/relationRedpacket/postMoney.html
 
 20.宝箱入口
 
