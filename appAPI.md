@@ -90,6 +90,7 @@ app登录web必传参数列表
 	/pages/activity/relationRedpacket/postMoney.html
 
 20.宝箱入口
+	http://mact.xiaoniuapp.com/activity/baoxiang/index.html 
 
 21.今日预期收益入口
 	/pages/account/my_income_today.html
