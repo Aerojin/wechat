@@ -103,6 +103,7 @@ app登录web必传参数列表
 	/pages/product/buy_detail.html?productId=
 
 24.咨询页面
+	/pages/sundry/information_app.html
 ```
 
 #H5调原生API参数说明
