@@ -100,6 +100,7 @@ app登录web必传参数列表
 
 23.活期宝购买页面
 	productId: 产品ID
+	isHqb: 1   是否是活期宝产品
 	/pages/product/buy_detail.html?productId=
 
 24.咨询页面
