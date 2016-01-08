@@ -55,7 +55,7 @@ app登录web必传参数列表
 	
 11.产品购买	
 	fid: 产品ID
-	/pages/product/buy.html?fid=
+	/pages/product/product_buy.html?fid=
 	
 12.picc
 	/pages/agreement/picc.html
@@ -68,7 +68,7 @@ app登录web必传参数列表
 	
 15.产品购买详情页
 	fid: 产品ID
-	/pages/product/buy_detail.html?fid=
+	/pages/product/product_detail.html?fid=
 	
 16.消息页面
 	msgId: 消息ID
@@ -99,7 +99,7 @@ app登录web必传参数列表
 
 23.活期宝购买页面
 	fid: 产品ID
-	/pages/product/buy_detail.html?fid=
+	/pages/product/product_buy.html?fid=
 
 24.咨询页面
 	/pages/sundry/information_app.html
@@ -109,11 +109,11 @@ app登录web必传参数列表
 	
 26.转让产品详情页
 	fid: 产品ID
-	/pages/product/transfer_buy.html?fid=
+	/pages/product/transfer_detail.html?fid=
 	
 26.转让产品购买页
 	fid: 产品ID
-	/pages/product/transfer_detail.html?fid=
+	/pages/product/transfer_buy.html?fid=
 
 ```
 
