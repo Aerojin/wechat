@@ -98,6 +98,7 @@ app登录web必传参数列表
 	/pages/account/my_income_list.html
 
 23.活期宝购买页面
+<<<<<<< HEAD
 	fid: 产品ID
 	/pages/product/buy_detail.html?fid=
 
@@ -112,6 +113,14 @@ app登录web必传参数列表
 	
 26.转让产品购买页
 	/pages/product/transfer_detail.html
+=======
+	productId: 产品ID
+	typeValue: 1   产品类型
+	/pages/product/buy_detail.html?productId=&typeValue=
+
+24.咨询页面
+	/pages/sundry/information_app.html
+>>>>>>> origin/master
 ```
 
 #H5调原生API参数说明
