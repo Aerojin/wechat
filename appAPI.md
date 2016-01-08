@@ -51,7 +51,7 @@ app登录web必传参数列表
     /pages/account/bank_list.html
 
 10.赎回记录   
-	/pages/account/hqb_ransom_record.html
+	/pages/account/my_hqb.html?index=1
 	
 11.产品购买	
 	fid: 产品ID
