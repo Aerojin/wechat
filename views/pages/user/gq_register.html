@@ -5,7 +5,6 @@
 	<title>新手福利领红包</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
 	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
@@ -14,6 +13,7 @@
         @require views/css/style.css 
     -->
 	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
 	<div class="wap">
@@ -32,11 +32,11 @@
 					<div class="right_bao"></div>
 				</div>
 				<div class="money_box">
-					<p><span>10000</span>元</p>
+					<p><span>688</span>元</p>
 				</div>
 				<div class="sider_box">
-					<p>马上注册，领取万元体验金</p>
-					<p>更有<span class="yellow_tle">388元</span>现金红包等你拿</p>
+					<p>马上注册，领取现金红包</p>
+					<p><span style="color:#ffec36;">PICC</span>100%保本保息计划</p>
 				</div>
 				<div class="form_box">
 					<form>
@@ -45,8 +45,13 @@
 						    <input id="txt-mobile" type="tel" maxlength="11" autocomplete="off" placeholder="请输入手机号码">
 						</div>
 						<div class="verification_box">
+							<div class="verification_numb images_code clearfix">
+								<label>图形验证码</label>
+						        <input id="txt-imgCode" style="width:1rem;" type="text" autocomplete="off" maxlength="10" placeholder="请输入验证码">
+						        <img id="btn-code" src="http://m.xiaoniuapp.com/api/wap/randomImageCode?appVersion=1&moduleId=REGISTERIMAGE&source=web">
+							</div>
 							<div class="verification_numb clearfix">
-								<label>验证码</label>
+								<label>手机验证码</label>
 						        <input id="txt-code" type="tel" autocomplete="off" maxlength="10" placeholder="请输入验证码">
 								<a id="btn-dis-send" class="repeat-btn" href="javascript:void(0);"  style="display:none;">重试(60)</a>
 								<a id="btn-send" class="get_code" href="javascript:void(0);">发送验证码</a>

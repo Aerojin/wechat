@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>新手奖励</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+    <script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
+</head>
+<body>
+	<div class="mainwarp">
+		<section>
+			<div class="head">
+				<p>完成以下攻略，即可体验理财收益！</p>
+				<h4>24小时内完成以下任务再送大礼包</h4>
+			</div>
+			<div class="load_box">
+				 <div class="progress-radial progress-0">
+				 	<i></i>
+				 	<b></b>
+				 	<span class="lefttime">00:00:00</span>
+				 </div>
+			</div>
+			<div class="info_hd">
+				<ul>
+					<li class="hvoer">
+						<span></span>
+						<i></i>
+						<b></b>
+					</li>
+					<li class="jindu ativeshow">
+						<span></span>
+						<i></i>
+						<b class="nextText">注册</b>
+					</li>
+					<li class="jindu">
+						<span></span>
+						<i></i>
+						<b class="nextText"></b>
+					</li>
+					<li class="jindu">
+						<span></span>
+						<i></i>
+						<b class="nextText"></b>
+					</li>
+					<li class="jindu">
+						<span></span>
+						<i></i>
+						<b class="nextText"></b>
+					</li>
+					<li><span></span></li>
+				</ul>
+			</div>
+			<div class="info_box">
+				<ul>
+					<li class="clearfix">
+						<div class="left_silde">
+							<div class="red_box redBox1 red_box1"><span id="redMoney1"></span></div>
+						</div>
+						<div class="right_silde">
+							<h1 class="color1">完成注册<i></i></h1>
+							<P class="btn btn1 nofinish1">未完成</P>
+							<p class="btn btn2 gotRedpaper1 dn">已领取</p>
+							<span class="color1">1</span>
+						</div>
+					</li>
+					<li class="clearfix">
+						<div class="left_silde">
+							<div class="red_box redBox2 red_box1"><span id="redMoney2"></span></div>
+						</div>
+						<div class="right_silde">
+							<h1 class="color2">实名认证<i></i></h1>
+							<P class="btn btn1 nofinish2">未完成</P>
+							<p class="btn btn2 gotRedpaper2 dn">已领取</p>
+							<span class="color2">2</span>
+							<i></i>
+						</div>
+					</li>
+					<li class="clearfix">
+						<div class="left_silde">
+							<div class="red_box redBox3 red_box1"><span id="redMoney3"></span></div>
+						</div>
+						<div class="right_silde">
+							<h1 class="color3">绑卡充值<i></i></h1>
+							<P class="btn btn1 nofinish3">去充值</P>
+							<p class="btn btn2 gotRedpaper3 dn">已领取</p>
+							<span class="color3">3</span>
+						</div>
+					</li>
+					<li class="clearfix">
+						<div class="left_silde">
+							<div class="red_box redBox4 red_box1"><span id="redMoney4"></span></div>
+						</div>
+						<div class="right_silde">
+							<h1 class="color4">1.首次投资1000元以上。<br><b class="clor_span">(90天期以上产品)</b><br>2.在24小时内完成投资，还能再送10元现金!<br><b class="clor_span">(仅限2015.12.31后注册的用户)</b><i></i></h1>
+							<span class="color4">4</span>
+							<strong></strong>
+							<div class="prou_box">
+								<h2>天添牛A款90天期</h2>
+								<div class="prou_info clearfix">
+									<div class="left_prou">
+										<h3>7.8 <b>%</b></h3>
+										<p>90天期限 次日计息</p>
+									</div>
+									<div class="right_prou toInvest">
+										去投资
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<footer class="clearfix">
+			<div class="vip_new"><p>升级会员</p></div>
+			<div class="vip_info">
+				<h1>享受更多特权，更多好礼</h1>
+				<p>1.绑定微信版钱罐子</p>
+				<p>2.成为会员可以参加特权活动，享受会员红包和投资加息。</p>
+				<ul class="clearfix">
+					<li><span class="icon1"></span><i>身份徽章</i></li>
+					<li><span class="icon2"></span><i>会员红包</i></li>
+					<li><span class="icon3"></span><i>专享活动</i></li>
+					<li><span class="icon4"></span><i>收益率加成</i></li>
+				</ul>
+				<div class="xinbtn" id="doneBind"><span class="bindWX">绑定微信版</span> <a href="javascript:void(0);" id="privilegeId">查看特权＞</a> </div>
+			</div>
+		</footer>
+		<!-- 弹出浮动层 -->
+		<div class="float_box floatBox dn">
+			<!-- 现金提示层 -->
+			<div class="msg_box guideCash dn">
+				<div class="msg_info">
+					<img src="../views/images/t01_03.png">
+					<p id="cashMoney"></p>
+				</div>
+				<div class="yesbtn ok">确定</div>
+			</div>
+			<!-- 红包提示层 -->
+			<div class="msg_box guideHb dn">
+				<div class="msg_info">
+					<img src="../views/images/t01_06.png">
+					<p id="hbMoney"></p>
+				</div>
+				<div class="yesbtn ok">确定</div>
+			</div>
+			<!-- 输入提示层 -->
+			<div class="msg_box improveInfo dn">
+				<div class="msg_info">
+					<h4>完善个人信息</h4>
+					<form>
+						<div class="xinm">
+							<label>姓名</label> 
+							<input type="text" placeholder="请输入您的真实姓名" id="txtName"/>
+						</div>
+						<div class="nmbox">
+							<label>身份证号</label> 
+							<input type="text" placeholder="请输入您的真实身份证号" id="txtIdCard"/>
+						</div>		
+					</form>
+				</div>
+				<div class="yesbtn submitUserInfo">确定</div>
+			</div>
+			<!-- 微信提示层 -->
+			<div class="msg_box toGuanzhu dn">
+				<div class="msg_info">
+					<h4 class="weixh4">关注官方微信</h4>
+					<p>您可以在微信-公众号中搜索：<br>xn-qianguanzi 后关注</p>
+				</div>
+				<div class="yesbtn ok">确定</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript">
+		require("pages/activity/guide/guide");
+	</script>
+</body>
+</html>

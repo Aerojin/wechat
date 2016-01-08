@@ -2,8 +2,10 @@
  * @require style.css  
  */
 var $ 				= require("zepto");
+var validate 	= require("kit/validate");
 var queryString 	= require("kit/query_string");
 var registerViews 	= require("register_views");
+
 
 var register = {
 	init: function () {
@@ -22,14 +24,22 @@ var register = {
 		this.ui.btnShowPass 	= $("#btn-showpass");
 		this.ui.login 			= $(".a-login");
 		this.ui.btnPact			= $("#btn-pact");
+		this.ui.txtImgCode		= $("#txt-imgCode");
+		this.ui.btnCode			= $("#btn-code");
 		
 
 		this.queryString = queryString() || {};
-		this.ui.txtMobile.val(this.queryString.mobile || "");
-		this.ui.txtRecommend.val(this.queryString.referrer || "");
+
+		if(!validate.isEmpty(this.queryString.mobile)){
+			this.ui.txtMobile.val(this.queryString.mobile || "");
+		}
+
+		if(!validate.isEmpty(this.queryString.mobile)){
+			this.ui.txtRecommend.val(this.queryString.referrer || "");
+		}
 
 		this.views = new registerViews({
-			param: this.queryString,
+			param: this.queryString,			
 			redirect: this.queryString.redirect,
 			txtCode: this.ui.txtCode,
 			txtMobile: this.ui.txtMobile,
@@ -39,7 +49,9 @@ var register = {
 			btnSubmit: this.ui.btnSubmit,
 			btnSend: this.ui.btnSend,
 			btnDisSend: this.ui.btnDisSend,
-			btnShowPass: this.ui.btnShowPass
+			btnShowPass: this.ui.btnShowPass,
+			txtImgCode: this.ui.txtImgCode,
+			btnCode: this.ui.btnCode
 		});
 
 		this.views.onCheckMobile = function (result) {

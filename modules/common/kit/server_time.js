@@ -23,7 +23,8 @@ module.exports = {
 	getDateActivity: function (start, end) {
 		var obj = {
 			isStart: false,
-			isEnd: true
+			isEnd: true,
+			result: false
 		};
 
 		var nowDate = this.getServerTime();
@@ -42,6 +43,10 @@ module.exports = {
 
 		if(end){
 			obj.isEnd = nowDate.getTime() > end.getTime();
+		}
+
+		if(obj.isStart && !obj.isEnd){
+			obj.result = true;
 		}
 		
 		return obj;

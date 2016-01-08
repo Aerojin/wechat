@@ -1,15 +1,16 @@
 /**
  * @require style.css  
  */
- var $ 				= require("zepto");
- var api			= require("api/api");
- var moneyCny		= require("kit/money_cny");
- var xnData			= require("kit/xn_data");
- var validate 		= require("kit/validate");
- var voucherResult  = require("voucher_result");
- var queryString 	= require("kit/query_string");
- var loading 		= require("ui/loading_button/loading_button");
- var tipMessage		= require("ui/tip_message/tip_message");
+var $ 				= require("zepto");
+var api				= require("api/api");
+var moneyCny		= require("kit/money_cny");
+var xnData			= require("kit/xn_data");
+var validate 		= require("kit/validate");
+var voucherResult  	= require("voucher_result");
+var queryString 	= require("kit/query_string");
+var loading 		= require("ui/loading_button/loading_button");
+var tipMessage		= require("ui/tip_message/tip_message");
+var loadingPage		= require("ui/loading_page/loading_page");
 
 var kuaiqianPay = {
 
@@ -29,7 +30,6 @@ var kuaiqianPay = {
 		this.ui.btnSubmit 		= $("#btn-submit");
 		this.ui.btnSendCode 	= $("#btn-sendCode");
 		this.ui.wrapBin			= $("#wrap-bind");
-		this.ui.loading			= $("#wrap-loading");
 		this.ui.btnDisSend 		= $("#btn-dis-send");
 		this.ui.btnAgreement 	= $("#btn-agreement");
 		this.ui.txtInput		= $(".txt-input");
@@ -46,8 +46,7 @@ var kuaiqianPay = {
 		if(this.queryString.isBound){
 			this.step3();
 		}else{
-			this.ui.loading.hide();
-			this.ui.wrapBin.show();
+			loadingPage.hide();
 		}
 	},
 	regEvent: function () {
@@ -125,7 +124,7 @@ var kuaiqianPay = {
 				returnUrl: this.queryString.returnUrl,
 			};
 			
-			voucherResult.init(data);
+			voucherResult.init(data, loadingPage);
 		};
 
 		options.error = function (e) {
@@ -135,7 +134,7 @@ var kuaiqianPay = {
 			};
 
 			this.loading.close();
-			voucherResult.init(data);
+			voucherResult.init(data, loadingPage);
 		};
 		
 		api.send(api.ACCOUNT, "firstBindCardPay", options, this);		
@@ -154,7 +153,7 @@ var kuaiqianPay = {
 				returnUrl: this.queryString.returnUrl,
 			};
 
-			voucherResult.init(data);
+			voucherResult.init(data, loadingPage);
 		};
 
 		options.error = function (e) {
@@ -163,7 +162,7 @@ var kuaiqianPay = {
 				message: encodeURIComponent(e.msg)
 			};
 
-			voucherResult.init(data);
+			voucherResult.init(data, loadingPage);
 		};
 		
 		api.send(api.ACCOUNT, "directPay", options, this);
@@ -235,4 +234,5 @@ var kuaiqianPay = {
 	} 
 };
 
+loadingPage.show();
 kuaiqianPay.init();

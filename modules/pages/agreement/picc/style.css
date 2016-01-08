@@ -1,0 +1,64 @@
+html{background: #3ca0df;}	
+body{font-size: .14rem;color:#fff;}
+section{
+	background: #3ca0df;
+	padding-bottom: .4rem;
+}
+
+header{position: relative;}
+header img{width: .88rem;position: absolute;left:.2rem;top:.4rem;}
+header .picc_title{padding:.6rem 0 0 1rem;}
+header .picc_title p{font-size: .18rem;text-align: center;}
+header .picc_title p.picc_zh{font-size: .24rem;}
+
+.picc_tbox{
+	margin:.6rem .1rem 0 .1rem;
+	background: #2189ca;
+	border-radius: .06rem;
+	overflow: hidden;
+	padding:.2rem 0 .3rem 0;
+}
+
+.picc_tbox h2{
+	width: 2.7rem;margin: .1rem  auto;
+	border:1px solid #fff;
+	border-radius: .06rem;
+	font-size: .18rem;
+	text-align: center;
+
+}
+
+.picc_tbox h2.pic_an{
+	width: 3.4rem;
+	background: #fff;
+	color: #2189ca;
+}
+
+.list_box{padding: .2rem 0}
+.list_box li{
+	width: 33.33%;
+	float: left;
+	text-align: center;
+}
+.list_box li img{
+	width: .82rem;
+}
+.list_box li p{
+	padding:.1rem 0;
+	color: #eaf2f9;
+}
+
+.pic_antext{text-indent: .4rem;padding:.2rem .1rem;line-height: .26rem;color: #eaf2f9;}
+.picc_imgbox{text-align:center;padding: .2rem 0;}
+.picc_imgbox img{width: 3.5rem;}
+
+.explain_box{padding:0 .1rem;}
+.explain_box h3{
+	font-size: .18rem;
+	
+	background: url(piccxin_23.png) no-repeat left center;
+	background-size:.26rem;
+	padding: .1rem 0 .1rem .3rem;
+}
+.explain_box p{line-height: .26rem;color: #eaf2f9;}
+.explain_box .explain_list{padding: .1rem 0; }

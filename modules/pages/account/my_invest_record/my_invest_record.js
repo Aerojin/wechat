@@ -5,13 +5,14 @@ var $ 			= require("zepto");
 var api 		= require("api/api");
 var artTemplate = require("artTemplate");
 var moneyCny	= require("kit/money_cny");
+var validate 	= require("kit/validate");
 var smartbar	= require("ui/smartbar/smartbar");
 var queryString = require("kit/query_string");
-var agreement	= require("kit/agreement_url");
-var slider 		= require("ui/slider_page/slider_page");
+var sliderTrans	= require("ui/slider_transition/views");
 
-var buy 		= require("buy");
-var complete 	= require("complete");
+var holding 			= require("holding");
+var holding_calendar	= require("holding_calendar");
+var finished 			= require("finished");
 
 var DATE_UNIT = {
 	"1": "天",
@@ -23,13 +24,6 @@ var BS2P = {
 	"6S64G": "1161175",
 	"6SPLUS16G": "1161176",
 	"6SPLUS64G": "1161177"
-};
-
-var BS2P_PROTOCOL = {
-	"1161174": "$root$/agreement/bs2p_product_01.html",
-	"1161175": "$root$/agreement/bs2p_product_02.html",
-	"1161176": "$root$/agreement/bs2p_product_03.html",
-	"1161177": "$root$/agreement/bs2p_product_04.html"
 };
 
 var my_record = {
@@ -45,7 +39,8 @@ var my_record = {
 		this.ui.header 		= $("#header");
 		this.ui.context 	= $("#context");
 		this.ui.menu 		= $("#ul-menu li");
-		this.ui.list 		= this.ui.context.find(".wrap-item");
+		this.ui.list 		= this.ui.context.find(".ui-item");
+
 
 		this.template = {};
 		this.template.header  = artTemplate.compile(__inline("header.tmpl"));
@@ -54,33 +49,69 @@ var my_record = {
 		this.smartbar = smartbar.create();
 		this.queryString = queryString();
 
-		slider.create({
+		/*
+		sliderTrans.create({
 			activeClass: "active",
 			menu: this.ui.menu,
 			list: this.ui.list,
-			context: this.ui.context
+			context: this.ui.context,
+			allowTouch: false
 		});
+*/
 
-		buy.create({
+		this.slider = new sliderTrans.create({
+   			element: this.ui.list,
+   			context: this.ui.context,
+   			header: $("header").height(),
+   			onChange: function (index) {
+   				_this.ui.menu.removeClass("active");
+   				_this.ui.menu.eq(index).addClass("active");
+   			}
+   		});
+
+		
+		holding.create({
 			format: function (data) {
 				return _this.format(data);
 			},
-			padding: this.smartbar.getHeight(),
+			padding: this.smartbar.getHeight() + 5,
 			container: this.ui.list.eq(0),
 			proType:this.queryString.proType
 		});
 
-		complete.create({
+		holding_calendar.create({
 			format: function (data) {
 				return _this.format(data);
 			},
-			padding: this.smartbar.getHeight(),
-			container: this.ui.list.eq(1),
+			padding: this.smartbar.getHeight() + 5,
+			container: this.ui.list.eq(1), 
 			proType:this.queryString.proType
 		});
 
+		finished.create({
+			format: function (data) {
+				return _this.format(data);
+			},
+			padding: this.smartbar.getHeight() + 5,
+			container: this.ui.list.eq(2),
+			proType:this.queryString.proType
+		});
+		
+
+		this.regEvent();
 		this.getHeader();
 	},
+
+	regEvent: function () {
+		var _this = this;
+
+		this.ui.menu.click(function(event) {
+			var index = _this.ui.menu.index($(this));
+
+			_this.slider.setIndex(index);
+		});
+	},
+
 
 	getHeader: function () {
 		var options = {
@@ -91,13 +122,9 @@ var my_record = {
 			var result 	= e.data;
 			var data = {};
 
-			if(Number(this.queryString.proType) == 2){
-				data.profitAmount  = moneyCny.toFixed(result.floatProfitAmount);
-				data.productAmount = moneyCny.toFixed(result.floatProductAmount);
-			}else{
-				data.profitAmount  = moneyCny.toFixed(result.fixedProfitAmount);
-				data.productAmount = moneyCny.toFixed(result.fixedProductAmount);
-			}
+			data.fixTotal 	= moneyCny.toFixed(result.sumDueBackAmount);
+			data.fixIncome 	= moneyCny.toFixed(result.sumFixProProfit);
+			data.fixAmount 	= moneyCny.toFixed(result.sumInvestAmount);
 
 			this.ui.header.html(this.template.header(data));
 		};
@@ -106,17 +133,16 @@ var my_record = {
 			
 		};
 
-		api.send(api.PRODUCT, "getProductInvest", options, this);
+		api.send(api.ACCOUNT, "getFixProductProfitInfo", options, this);
 	},
 
 
  	format: function (data) {
  		for(var i = 0; i < data.length; i++){
  			var result  	= data[i];
- 			var param 		= this.getParam(result);
  			var fEndTime 	= result.fEndTime.parseDate();
  			var fBizTime 	= result.fBizTime.parseDate();
- 			var fStartTime 	= result.fStartTime.parseDate();
+ 			var fStartTime 	= result.fStartTime.parseDate();			
 
  			result.fEndTime		 = fEndTime.format("yyyyMMdd");
  			result.fBizTime		 = fBizTime.format("yyyy-MM-dd hh:mm:ss");
@@ -125,12 +151,8 @@ var my_record = {
 			result.deadLineType  = DATE_UNIT[result.deadLineType];
 			result.fProfit		 = moneyCny.toFixed(result.fProfit);
 			result.fInvestAmt	 = moneyCny.toFixed(result.fInvestAmt);
-			result.equityURL 	 = agreement.get([result.typeValue || 1]).equityUrl + "?" + param;
+			result.equityURL 	 = this.getEquityURL(result);
 			result.bs2pUrl 		 = this.getBs2pUrl(result);
-
-			if(result.typeValue == 6){
-				result.equityURL = this.getBs2pEquityURL(result);
-			}
 
 			data[i] = result;
 		}
@@ -146,12 +168,6 @@ var my_record = {
 		}
 
 		return "";
- 	},
-
- 	getBs2pEquityURL: function (data) {
- 		var type = this.getBs2pType(data);
-
- 		return BS2P_PROTOCOL[type] || "";
  	},
 
  	getBs2pType: function (data) {
@@ -179,6 +195,22 @@ var my_record = {
  		param.typeValue  	= data.typeValue;
 
 		return $.param(param);
+ 	},
+
+ 	getEquityURL: function (data) {
+ 		var result = data.productAd;
+
+ 		if(validate.isEmpty(result)){
+ 			return {
+				title: "收益权转让协议",
+				content: "收益权转让协议",
+				redirectUrl: "javascript:void(0);"
+			};
+ 		}
+
+ 		result.redirectUrl += "?" + this.getParam(data);
+
+ 		return result;
  	}
 };
 

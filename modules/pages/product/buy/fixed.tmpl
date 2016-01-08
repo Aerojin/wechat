@@ -1,0 +1,76 @@
+<div>
+	<header>
+		<div class="hd-white">
+			<div class="hd-detail">
+				<p class="p-name">预期年化</p>
+				<div class="p-num">
+					<div class="viper">
+						{{fixRateShow}}<span class="ft22">%</span>
+						{{if vipInfo.isVipProduct && vipInfo.isVip}}
+							+{{vipInfo.awardRate}}<span class="ft22">%</span><span class="mark-vip">会员</span>
+						{{/if}}					
+					</div>
+				</div>
+				<span class="deadline">{{deadLineValue}}{{dateUnit}}期限</span>
+			</div>
+			{{if percentInfo.isShow}}
+				<div class="invest-box">
+					<div class="progressBar-box">
+						<div class="progressBar"><span class="progressBar-block per" style="width: {{percentInfo.value}};"></span></div>
+						<span class="progressBar-result ">{{percentInfo.value}}</span>
+					</div>
+					<div class="invest-timing">
+						<p>可投额度/总额度 (元):</p>
+						<p>{{remaMoney}}/{{buyTotalMoney}}</p>
+					</div>
+				</div>
+			{{/if}}
+		</div>
+	</header>
+	<section>
+		{{if activityInfo.length > 0}}
+			<ul class="news-activity">
+				{{each activityInfo}}
+					<a href="{{$value.redirectUrl}}">
+						<li>
+							{{if $value.isVip}}
+								<span class="ico ico-member">会员</span>
+							{{else}}
+								<span class="ico ico-activity">活动</span>
+							{{/if}}
+							<span class="news-tri">{{$value.content}}</span>
+						</li>
+					</a>
+				{{/each}}
+			</ul>
+		{{/if}}
+		<ul class="ul-picc">
+			<li><a href="$root$/agreement/secure_detail.html"><span class="ico ico-picc1">风险备用金</span></a></li>
+			<li><a href="$root$/agreement/picc.html"><span class="ico ico-picc2">PICC承保</span></a></li>
+		</ul>
+		<ul class="pro-info-detail mgt05">
+			<li>投资金额：<span class="txt-strong">{{buyMinMoney}}元起</span></li>
+			<li>收益方式：<span class="txt-strong">到期一次性还本付息</span></li>
+			<li>起息日：<span class="txt-strong">{{strBeginDate}}</span></li>
+			<li>到期日：<span class="txt-strong">{{strEndDate}}</span></li>
+		</ul>
+		<ul class="manage-list mgt05">
+			<li>
+				<a href="{{uri.detailUrl.redirectUrl}}" title="">{{uri.detailUrl.title}}</a>
+			</li>
+			<li>
+				<a href="{{uri.securityUrl.redirectUrl}}" title="">{{uri.securityUrl.title}}</a>
+			</li>
+			<li>
+				<a href="$root$/product/buy_record.html?productId={{productId}}" title="">购买记录<span class="record-num">{{buyedTotalPeople}}</span></a>
+			</li>
+		</ul>
+	</section>
+	<div class="ft-operate-boxs">
+		{{if state == 0}}
+			<a class="oper-btns"  id="btn-submit" href="javascript:void(0);" title="">{{stateText}}</a>
+		{{else}}
+			<a class="oper-btns oper-btn-gray" href="javascript:void(0);" title="">{{stateText}}</a>
+		{{/if}}
+	</div>
+</div>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>总资产</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
+</head>
+<body>
+	<div class="wrap" id="wrap">
+		
+		<article>
+			<section>
+				<ul class="total-assets">
+					<a href="$root$/account/fund_detail.html"><li>
+						<h3>账户余额</h3>
+						<dl>
+							<dd><span class="text-red js_balance">0.00</span><span>活期宝余额(元)</span></dd>
+						</dl>
+					</li></a>
+					<a href="$root$/account/my_hqb.html"><li>
+						<h3>活期投资</h3>
+						<dl>
+							<dd><span class="text-red js_floatBalance">0.00</span><span>活期宝余额(元)</span></dd>
+							<dd><span class="text-red js_floatIncome">0.00</span><span>累计收益(元)</span></dd>
+						</dl>
+					</li></a>
+					<a href="$root$/account/my_invest_record.html"><li>
+						<h3>定期投资</h3>
+						<dl>
+							<dd><span class="text-red js_fixBalance">0.00</span><span>投资中本金(元)</span></dd>
+							<dd><span class="text-red js_fixIncome">0.00</span><span>累计收益(元)</span></dd>
+						</dl>
+					</li></a>
+				</ul>
+				
+				<div class="tips-picc"><span class="ico1">账户资金安全由中国人民保险提供100%承保</span></div>
+			</section>
+		</article>
+
+	</div>
+
+	<script type="text/javascript">
+		require('pages/account/my_assets/my_assets');
+	</script>
+</body>
+</html>

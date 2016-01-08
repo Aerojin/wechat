@@ -5,6 +5,7 @@ var $ 				= require("zepto");
 var getDefaultUri	= require("kit/default_uri");
 var queryString 	= require("kit/query_string");
 var sliderBar 		= require("ui/slider_bar/slider_bar");
+var tipMessage		= require("ui/tip_message/tip_message");
 var registerViews 	= require("pages/user/register/register_views");
 
 var register = {
@@ -12,7 +13,6 @@ var register = {
 		var _this = this;
 
 		this.ui = {};
-		this.ui.tips 			= $("#tips");
 		this.ui.txtMobile		= $("#txt-mobile");
 		this.ui.txtCode			= $("#txt-code");
 		this.ui.txtPassword1 	= $("#txt-password1");
@@ -25,6 +25,8 @@ var register = {
 		this.ui.login 			= $(".a-login");
 		this.ui.btnPact			= $("#btn-pact");
 		this.ui.tipDialogs 		= $("#tip-dialogs");
+		this.ui.txtImgCode		= $("#txt-imgCode");
+		this.ui.btnCode			= $("#btn-code");
 
 		this.queryString = queryString() || {};
 		this.ui.txtMobile.val(this.queryString.mobile || "");
@@ -41,12 +43,14 @@ var register = {
 			btnSubmit: this.ui.btnSubmit,
 			btnSend: this.ui.btnSend,
 			btnDisSend: this.ui.btnDisSend,
-			btnShowPass: this.ui.btnShowPass
+			btnShowPass: this.ui.btnShowPass,
+			txtImgCode: this.ui.txtImgCode,
+			btnCode: this.ui.btnCode
 		});
 
 		this.views.onCheckMobile = function (result) {
 			if(result){
-				_this.ui.tips.show();
+				tipMessage.show("该号码已注册，请直接登录", {delay: 2000});
 			}
 		};
 
@@ -61,8 +65,6 @@ var register = {
 	regEvent: function () {
 
 		this.ui.txtMobile.on("input", $.proxy(function () {
-			this.ui.tips.hide();
-
 			var mobile = this.ui.txtMobile.val().trim();
 
 			if(mobile.length > 0){

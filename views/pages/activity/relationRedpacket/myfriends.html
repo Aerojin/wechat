@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>我的好友</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+    @require views/css/global.css
+    @require views/css/style.css 
+  -->
+  <script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
+</head>
+<body>
+  <div class="search_box searchFriends">
+    <div class="search_one">搜索好友</div>
+  </div>
+  <div class="myCircleBox postHbInfo">
+    <h3>我的圈子</h3> 
+      <ul class="myCircle">
+         <li>
+            <p><span></span> 我已为好友贡献红包<em class="postHbCount">0</em>次</p>
+         </li>
+         <li>
+             <p><span></span> 我一共收到好友红包<em class="shareHbCount">0</em>次</p>
+         </li>
+      </ul>
+  </div>
+  <div class="myCircleBox tbTxl">
+      <div class="myfriend_hd">
+         <h3>通讯录中的好友</h3>
+      </div>
+      <div class="no_firends">
+          <p>您的好友列表空空如也,试试<a href="javascript:void(0);" class="tbList">同步通讯录查看</a></p>
+      </div>
+  </div>
+  <div class="myCircleBox qgzFriends dn">
+      <div class="myfriend_hd">
+         <h3>钱罐子中的好友</h3>
+         <p class="refreshText">立即刷新</p>
+         <p class="refresh refreshJindu dn"><span class="jindu"></span></p>
+      </div>
+      <div class="FriendOverflow">
+        <ul class="Friend_list qgzList">
+           <!--<li>
+              <p class="hdimg"><img src="./images/lit_05.png"></p>
+              <p class="hdname"><span>某某某</span><i>138****9898</i></p>
+              <p class="after_nmb"><em>已发362次</em></p>
+           </li>
+           <li>
+              <p class="hdimg"><img src="./images/weisha_03.png"></p>
+              <p class="hdname"><span>[匿名用户]</span><i>***********</i></p>
+              <p class="after_nmb"><em>已发3次</em></p>
+           </li>-->
+        </ul>
+      </div>
+   </div>
+   <div class="myCircleBox unQgzFriends dn">
+      <div class="myfriend_hd">
+         <h3>未登录过钱罐子<br><span class="inviteFriendText">通过您邀请成功投资的新用户，额外获现金5元</span></h3>
+      </div>
+      <div class="FriendOverflow">
+        <ul class="Friend_list unQgzList">
+           <!--<li>
+              <p class="hdimg"><img src="./images/weisha_06.png"></p>
+              <p class="hdname"><span>某某某</span><i>138****9898</i></p>
+              <p class="yaoBtn"><a href="#">短信邀请</a></p>
+           </li>
+           <li>
+              <p class="hdimg"><img src="./images/weisha_06.png"></p>
+              <p class="hdname"><span>[匿名用户]</span><i>***********</i></p>
+              <p class="yaoBtn"><a href="#">短信邀请</a></p>
+           </li>-->
+        </ul>
+      </div>
+   </div>
+   <div class="myCircleBox mysharebottom">
+      <div class="myfriend_hd">
+         <h3>邀请更多好友</h3>
+      </div>
+       <div class="myshare">
+          <p class="shuom inviteFriendText">通过您邀请成功投资的新用户，额外获现金5元</p>
+          <ul class="sharelist clearfix">
+             <li>
+               <a href="javascript:void(0);"><img src="../views/images/weisha_13.png" class="shareAppMessage"></a>
+               <p>微信好友</p>
+             </li>
+             <li>
+               <a href="javascript:void(0);"><img src="../views/images/weisha_10.png" class="shareTimeline"></a>
+               <p>朋友圈</p>
+            </li>
+          </ul>
+       </div>  
+   </div>
+   <!-- 搜索浮动层 -->
+   <div class="search_bg searchFriendLayer dn">
+      <div class="search_write">
+        <div class="search_two">
+          <input type="text" placeholder="搜索好友" class="inputFriendName" />
+          <span class="clearInput"></span>
+          <a href="javascript:void(0);" class="cancel">取消</a>
+        </div>
+      </div>
+      <ul class="sear_list searList">
+          <!--<li>某某</li>
+          <li>某某</li>
+          <li>某某</li>
+          <li>某某</li>-->
+      </ul>
+   </div>
+   <!-- 搜索浮动层end -->
+   <!-- 浮动层 -->
+   <div class="float_bg floateLayer dn">
+    <div class="flaot_box">
+      <div class="white_bg sqTip dn">
+        <div class="explain_box androidTip dn">
+          <h3>授权提示</h3>
+          <div class="explain_txt titpadding ">
+               <p>请在手机自带权限管理工具，或安全管理软件中，解除对小牛钱罐子的联系人读取权限限制。</p>
+          </div>
+          <div class="clearBtn"><a href="javascript:void(0);">我知道了</a></div>
+        </div>
+        <div class="explain_box iosTip dn">
+          <h3>授权提示</h3>
+          <div class="explain_txt titpadding ">
+               <p>请进【设置】，找到“小牛钱罐子”，开启通讯录权限后继续使用红包功能。</p>
+          </div>
+           <div class="explainImgTo">
+            <div class="ipone_hd">
+              <div class="iponeSet">设置</div>
+              <div class="iponehead">小牛钱罐子</div>
+            </div>
+            <div class="iponeinfor">允许“小牛钱罐子”访问</div>
+            <ul class="MailList">
+              <li>
+                <i class="Notice"></i>
+                <p>通知<br><span>标记、声音、横幅</span></p>
+              </li>
+              <li>
+                <i class="addresslist"></i>
+                <p>通讯录</p>
+              </li>
+            </ul>
+           </div>
+          <div class="clearBtn goStart"><a href="javascript:void(0);">去开启</a></div>
+        </div>
+      </div>
+    </div>
+   </div>
+
+   <script type="text/javascript" src="libs/mod.js" data-loader></script>
+   <script type="text/javascript">
+      require("pages/activity/relationRedpacket/myfriends/myfriends");
+   </script>
+</body>
+</html>

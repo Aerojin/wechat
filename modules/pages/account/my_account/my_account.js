@@ -12,9 +12,10 @@ var bindCardState	= require("kit/bindcard_state");
 var replaceMobile	= require("kit/replace_mobile");
 var vipConfig 		= require("ui/vip_config/vip_config");
 var tipMessage  	= require("ui/tip_message/tip_message");
+var loadingPage		= require("ui/loading_page/loading_page");
+
 
 var TIPS = {
-	CONFIRM_EXIT: "确定要退出吗?",
 	BIND_CARD_TIPS: "绑卡后才能提现, 确定要进行绑卡?"
 };
 
@@ -23,43 +24,26 @@ var account = {
 		
 		this.ui = {};
 		this.ui.wrap 		= $("#wrap");
-		this.ui.photo 		= $("#photo");
-		this.ui.vipName		= $("#lbl-vipname");
-		this.ui.account 	= $("#lbl-account");
-		this.ui.btnExit 	= $("#btn-exit");
-		this.ui.btnChange 	= $("#btn-change");
+		this.ui.vipimg 		= $("#vipimg");
+		this.ui.hbaoFlag	= $("#js_hbao_flag");
 		this.ui.btnRecharge = $("#btn-recharge");
 		this.ui.btnWithdraw = $("#btn-withdraw");
 
 		this.queryString = queryString() || {};
 		this.queryString.mobile = user.get("loginName");
 		
+		loadingPage.show();
 		this.smartbar 	= smartbar.create();
 		this.cardState 	= bindCardState({});
 		
 		this.regEvent();
 		this.getMyAsset();
+		this.getUnreadFlag();
+
 	},
 	regEvent: function () {
 		var _this = this;
 
-		this.ui.btnExit.on("tap", $.proxy(function () {
-			confirm(TIPS.CONFIRM_EXIT, {
-				callback: function(result) {
-					if(result){
-						_this.logout();
-					}
-				}
-			});
-
-			return false;
-		}, this));
-
-		this.ui.btnChange.on("tap", $.proxy(function () {
-			window.location.href = "$root$/account/change_pwd.html?" + $.param(this.queryString);
-
-			return false;
-		}, this));
 
 		this.ui.btnWithdraw.on("tap", $.proxy(function () {
 			if(_this.cardState.getIsBindCard()){
@@ -83,28 +67,6 @@ var account = {
 			return false 
 		}, this));
 	},
-	logout: function () {
-		var options = {};
-
-		options.data = {
-			userId: user.get("userId"),
-			token: user.get("token")
-		};
-
-		options.success = function (e) {
-			localStorage.clear();
-			sessionStorage.clear();
-			
-			window.location.href = "$root$/user/login.html?" + $.param(this.queryString);
-		};
-
-		options.error = function (e) {
-			user.clear();
-			window.location.href = "$root$/user/login.html?" + $.param(this.queryString);
-		};
-		
-		api.send(api.USER, "logout", options, this);
-	},
 	getMyAsset: function () {
 		var options = {};
 
@@ -116,25 +78,56 @@ var account = {
 			var result = e.data;
 
 			user.set("memberLevel", result.memberLevel);
+			this.ui.vipimg.attr("src", vipConfig.getVipIco(result.memberLevel || 0));
 
-			this.ui.account.parent().show();
-			this.ui.account.text(replaceMobile(user.get("loginName")));
-			this.ui.vipName.text(vipConfig.getVipName(result.memberLevel));
-			this.ui.wrap.find(".total").text(moneyCny.toFixed(result.totalAmount));
-
-			//我的投资
-			this.ui.wrap.find(".invest").text(moneyCny.toFixed(result.fixedProductAmount + result.floatProductAmount));
-			// 活期宝
-			this.ui.wrap.find(".deposit").text(moneyCny.toFixed(result.currentProductAmount));
+			//总收益
+			this.ui.wrap.find(".js_total").text(moneyCny.toFixed(result.totalAmount));
 			// 账户余额
-			this.ui.wrap.find(".balance").text(moneyCny.toFixed(result.toInvestAmount));
+			this.ui.wrap.find(".js_balance").text(moneyCny.toFixed(result.ableBalance));
+			//今日预期收益
+			this.ui.wrap.find(".js_dayIncome").text("+" + moneyCny.toFixed(result.currentDayProfit));
+			//投资累积收益
+			this.ui.wrap.find(".js_income").text(moneyCny.toFixed(result.sumInvestAmount));
+			//活期投资今日收益
+			this.ui.wrap.find(".js_floatDayIncome").text(moneyCny.toFixed(result.cProDayProfit));
+			//定期投资待收收益
+			this.ui.wrap.find(".js_fixIncome").text(moneyCny.toFixed(result.fixProDueProfit));
+			//红包个数
+			this.ui.wrap.find(".js_hbao").text(result.redPacketCount);
+			//会员等级
+			this.ui.wrap.find(".js_vipname").text(vipConfig.getVipName(result.memberLevel || 0));
+			//提现中金额
+			this.ui.wrap.find(".js_withdraw").text(moneyCny.toFixed(result.withdrawBlockedAmount));
+
+			loadingPage.hide();
 		};
 
-		options.error = function () {
+		options.error = function (e) { 
 
 		};
 		
-		api.send(api.ACCOUNT, "getUserTreasure", options, this);
+		api.send(api.ACCOUNT, "getUserAccountInfo", options, this);
+	},
+	getUnreadFlag: function(){
+		var options = {};
+
+		options.data = {
+			userId: user.get("userId")
+		};
+
+		options.success = function (e) {
+			var result = e.data || {};
+
+			if(result.experienceMark || result.redPackMark){
+				this.ui.hbaoFlag.addClass("ico-new");
+			}
+		};
+
+		options.error = function (e) {
+
+		};
+
+		api.send(api.ACCOUNT, "getUnReadExperienceAndRedMark", options, this);
 	}
 
 };

@@ -61,15 +61,20 @@ $.extend(select.prototype, {
 	regEvent: function () {
 		var _this = this;
 
-		this.ui.body.on("click", $.proxy(function () {
-			if(this.isShowMenu){
+		this.ui.body.on("tap", $.proxy(function (e) {
+			var event = e || event;
+			var obj = event.srcElement ? event.srcElement : srcElement.target;
+
+			if($(obj).hasClass("selectContainer") || $(obj).parents(".selectContainer").size() > 0){
+            	return;
+            }
+
+            if(this.isShowMenu){
 				this.hide();
 			}
-
-			//return false;
 		}, this));
 
-		this.ui.wrap.on("touchstart click", $.proxy(function () {
+		this.ui.wrap.on("tap", $.proxy(function () {
 			if(!this.isShowMenu){
 				this.show();
 			}else{
@@ -79,7 +84,7 @@ $.extend(select.prototype, {
 			return false;
 		}, this));
 
-		this.ui.selectMenu.delegate("li", "touchstart click", function () {
+		this.ui.selectMenu.delegate("li", "tap", function () {
 			_this.change(parseInt($(this).data("index")));
 
 			return false;

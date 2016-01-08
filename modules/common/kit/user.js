@@ -73,15 +73,17 @@ var user = {
 	},
 
 	isLogin: function () {
-		var isLogin = false;
 		var data = this.getData();
 		
-		for(var key in data){
-			isLogin = true;
-			break;
+		if(validate.isEmpty(data.token)){
+			return false;
+		}
+		
+		if(validate.isEmpty(data.userId)){
+			return false;
 		}
 
-		return isLogin;
+		return true;
 	}
 
 

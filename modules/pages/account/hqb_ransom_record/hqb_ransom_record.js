@@ -108,3 +108,4 @@ var ransomRecord = {
 };
 
 ransomRecord.init();
+//module.exports = ransomRecord;

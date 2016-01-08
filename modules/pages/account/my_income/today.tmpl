@@ -1,0 +1,33 @@
+
+		<article>
+			<section>
+				<div class="profit-list">
+						<div class="item-li">
+							<h3 class="tit-words">活期宝</h3>
+							<div class="line-box">
+								<h4>今日预期收益：<span class="text-red">+{{floatIncome.profit | moneyFormat}}</span></h4>
+								<div class="h-tips">（将作为本金复投，赎回时到账）</div>
+							</div>
+						</div>
+						<div class="item-li">
+							<h3 class="tit-words">定期投资</h3>
+							<div class="line-box">
+								<h4>今日预期收益：<span class="text-red">+{{fixIncome.profit | moneyFormat}}</span></h4>
+								<div class="h-tips">（根据当前持有的定期投资对应的年化收益率计算。总收益将在投资到期时回款。）</div>
+							</div>
+
+						</div>
+						{{if otherList.length > 0}}
+						<div class="item-li">
+							<h3 class="tit-words">其他收益</h3>
+							{{each otherList}}
+								<div class="line-box">
+									<h4>{{$value.profitName}}<br />
+									收益金额：<span class="text-red">{{$value.profit | moneyFormat}}</span></h4>
+								</div>
+							{{/each}}
+						</div>
+						{{/if}}
+				</div>
+			</section>
+		</article>

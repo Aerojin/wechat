@@ -2,76 +2,109 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>我的账户</title>
+	<title>我的财富</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<meta name="format-detection"content="telephone=no, email=no" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
 	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
-	
 	<!--
         @require views/css/global.css
         @require views/css/style.css 
     -->
 	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
-<div class="wrap" id="wrap">
-		<dl class="account">
-			<dt><img id="photo" src="/views/images/acc_img.png" alt="" title=""></dt>
-			<dd style="display: none;"><span id="lbl-account">185****6050</span>尊敬的<label id="lbl-vipname"></label>，您好！</dd>
-		</dl>
-		<section class="acc-total">
-			<h3>总资产</h3>
-			<p class="total">0</p>
-		</section>
-
-		<section class="acc-total mgt4 bdt1">
-			<ul class="assets-total clearfix">
-				<a href="my_invest_record.html">
+	<div class="wrap" id="wrap">
+		<header>
+			<div class="head-box bg-red">
+				<a href="$root$/account/my_assets.html" class="dp-block"><div class="viper-view pos-r dp-box">
+					<span class="viper-img"><img id="vipimg" /></span>
+					<div class="total-info box-flex">
+						<p class="fs-16">总资产(元)</p>
+						<p class="num js_total">0.00</p>
+					</div>
+					<span class="tri pos-a"></span>
+				</div></a>
+				<div class="balance pos-r bg-red2 fs-16">
+					<a href="$root$/account/fund_detail.html" class="dp-block">账户余额(元)
+						<span class="bala-num fl-r js_balance">0.00</span>
+						<span class="tri pos-a"></span>
+					</a>
+				</div>
+			</div>
+		</header>
+		<article>
+			<section>
+				<div class="today-info dp-box">
+					<div class="profit-antic box-flex pos-r">
+						<a href="$root$/account/my_income_today.html" class="dp-block">
+							今日收益(元)<span class="num js_dayIncome">+0.00</span></a>
+					</div>
+					<div class="profit-real box-flex">
+						<a href="$root$/account/my_income_list.html" class="dp-block">
+							累计收益(元)<span class="num js_income">0.00</span></a>
+					</div>
+				</div>
+				<ul class="asset-menu">
 					<li>
-						<h4>我的投资</h4>
-						<span class="invest">0</span>
+						<div class="asset-item">
+							<a href="$root$/account/my_hqb.html" class="dp-block asset-a">
+								<span class="ico-mu ico-current"></span>
+								<p class="fis-p">活期投资</p>
+								<p>今日收益</p>
+								<p class="js_floatDayIncome">0.00</p>
+							</a>
+						</div>
+						<div class="asset-item">
+							<a href="$root$/account/my_invest_record.html" class="dp-block asset-a">
+								<span class="ico-mu ico-regular"></span>
+								<p class="fis-p">定期投资</p>
+								<p>待收收益</p>
+								<p class="js_fixIncome">0.00</p>
+							</a>
+						</div>
 					</li>
-				</a>
-				<a href="$root$/account/my_hqb.html">
 					<li>
-						<h4>活期宝</h4>
-						<span class="deposit">0</span>
+						<div class="asset-item">
+							<a href="$root$/account/my_coupon.html" class="dp-block asset-a">
+								<span class="ico-mu ico-favour"></span>
+								<p class="fis-p">我的优惠</p>
+								<p><span id="js_hbao_flag" class=""><label class="js_hbao">0</label>个可用</span></p>
+							</a>
+						</div>
+						<div class="asset-item">
+							<a href="$root$/vip/vip.html" class="dp-block asset-a">
+								<span class="ico-mu ico-privil"></span>
+								<p class="fis-p">会员特权</p>
+								<p class="js_vipname"></p>
+							</a>
+						</div>
 					</li>
-				</a>
-				<a href="$root$/account/fund_detail.html">
 					<li>
-						<h4>账户余额</h4>
-						<span class="balance">0</span>
+						<div class="asset-item">
+							<a id="btn-recharge" class="dp-block asset-a"><span class="ico-mu ico-recharge"></span><p class="fis-p">我要充值</p><p>0手续费</p></a>
+						</div>
+						<div class="asset-item">
+							<a id="btn-withdraw" class="dp-block asset-a">
+								<span class="ico-mu ico-withdraw"></span>
+								<p class="fis-p">我要提现</p>
+								<p><label class="js_withdraw">0.00</label>提现中</p>
+							</a>
+						</div>
 					</li>
-				</a>
-			</ul>
-			<ul class="assets-btn">
-				<li id="btn-recharge">充    值</li>
-				<li id="btn-withdraw">提    现</li>
-			</ul>
+				</ul>
 
-		</section>
+				<div class="tips-picc"><span class="ico1">账户资金安全由中国人民保险提供100%承保</span></div>
 
-		<ul class="manage-list mgt4">
-			<li>
-				<a href="$root$/vip/vip.html" title="">会员特权</a>
-			</li>
-			<li>
-				<a href="$root$/account/my_redpacket.html" title="">我的优惠</a>
-			</li>
-			<li>
-				<a id="btn-change" href="javascript:void(0);" title="">修改密码</a>
-			</li>
-		</ul>
+			</section>
 
-		<a id="btn-exit" href="javascript:void(0);"><div class="back-bind mgt5">退出绑定</div></a>
+		</article>
+
+
 	</div>
+
 	<script type="text/javascript">
 		require('pages/account/my_account/my_account');
 	</script>

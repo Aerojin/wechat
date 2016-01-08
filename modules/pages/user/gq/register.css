@@ -73,7 +73,7 @@ html{background: #feae0f;}
 
 .sider_box{
 	position: absolute;
-	width: 100%; top:4.5rem;
+	width: 100%;top:4.4rem;
 }
 .sider_box p{
 	text-align: center;
@@ -99,6 +99,7 @@ html{background: #feae0f;}
 	outline: none;
 	height: .26rem;
 	width: 1.36rem;
+	font-size: 0.16rem;
 }
 .form_box label{padding:0 .1rem;}
 .mobile_box{
@@ -218,4 +219,6 @@ html{background: #feae0f;}
 	font-size: .6rem;
 }
 
+.images_code {height: 0.45rem; padding-top: 0.05rem;}
+.images_code img{height: .4rem; width: 1.2rem; float: right;}
 .repeat-btn{float:right;margin-top:.08rem;width:0.97rem;color:#9d9d9d;font: .16rem/.3rem "Microsoft YaHei";text-align:center;border-left:1px solid #d9d9d9}

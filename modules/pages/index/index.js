@@ -7,6 +7,7 @@
  var artTemplate 	= require("artTemplate");
  var smartbar 		= require("ui/smartbar/smartbar");
  var sliderBar 		= require("ui/slider_bar/slider_bar");
+ var loadingPage	= require("ui/loading_page/loading_page");
 
 var index = {
 	init: function () {
@@ -50,13 +51,14 @@ var index = {
  			if(data.length > 0){
 	 			this.ui.ulActivity.html(this.template.activity({
 	 				data: data
-	 			}));
-
-	 			return;
+	 			}));	 			
 	 		}
+
+	 		loadingPage.hide();
  		};
 
  		options.error = function (e) {
+ 			loadingPage.hide();
  		};
 
  		api.send(api.ACTIVITY, "findAdvertiseList", options, this);
@@ -73,7 +75,6 @@ var index = {
  		options.success = function (e) {
  			var result 	= e.data;
  			var data 	= this.formatBanner(result.list); 
-
 
  			this.createSlider(data);
  		};
@@ -96,6 +97,8 @@ var index = {
 			var result = e.data;
 
 			var html = this.template.hqb({
+				productId: result.productId,
+				typeValue: result.typeValue,
 				flowMinRate: result.flowMinRateDisplay,
 				flowMaxRate: result.flowMaxRateDisplay,
 			});
@@ -167,4 +170,5 @@ var index = {
 
 };
 
+loadingPage.show();
 index.init();

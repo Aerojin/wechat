@@ -19,6 +19,7 @@ var waterfall = function (options) {
 	this.pageSize  		= options.pageSize || 5;
 	this.container 		= options.container;
 	this.selector   	= options.selector;
+	this.header			= options.header;
 	this.emptyHtml 		= options.emptyHtml;
 	this.emptyText 		= options.emptyText || TIPS.EMPTY_TEXT;
 	this.onLoad 		= options.onLoad || this.onLoad;
@@ -32,11 +33,13 @@ waterfall.prototype.init = function () {
 	this.ui.wrap 		= $(this.getTemplate());
 	this.ui.empty 		= this.ui.wrap.find(".waterfall-empty");
 	this.ui.container 	= this.ui.wrap.find(".waterfall-container");
+	this.ui.header	 	= this.ui.container.find(".waterfall-header");
 	this.ui.context 	= this.ui.container.find(".waterfall-context");
 	this.ui.loading 	= this.ui.container.find(".waterfall-loading");
 
 	this.rezise();
  	this.container.empty().append(this.ui.wrap);
+ 	(this.header && this.ui.header.append(this.header));
 
 	//this.scroll();
 	this.regEvent();
@@ -50,7 +53,7 @@ waterfall.prototype.regEvent = function () {
 	}, this));
 
 	this.ui.container.on("scroll", $.proxy(function () {
-		this.scroll();
+		this.scroll();		
 	}, this));
 };
 
@@ -58,7 +61,6 @@ waterfall.prototype.rezise = function () {
 	if(!this.noScroll){
 		var offset 	= this.container.offset();
 		var height 	= document.documentElement.clientHeight - offset.top - this.padding;
-
 		
 	 	this.ui.container.height(height);
 	 }
@@ -69,7 +71,7 @@ waterfall.prototype.scroll = function () {
     var pageCount = this.pageCount;
 	var last = this.ui.context.find(this.selector).eq(-1);
 
-	 if(this.isLoading || !last){
+	 if(this.isLoading || last.size() == 0){
         return;
     }
 
@@ -85,7 +87,7 @@ waterfall.prototype.scroll = function () {
 
 waterfall.prototype.getTemplate = function (result) {
 	var template = artTemplate.compile(__inline("context.tmpl"));
-		
+
 	return template({
 		emptyText: this.emptyText,
 		emptyHtml: this.emptyHtml,
@@ -97,9 +99,18 @@ waterfall.prototype.setLoading = function (result) {
 	this.isLoading = result;
 };
 
+waterfall.prototype.reloading = function (result) {
+	this.ui.context.empty();
+	this.ui.loading.show();
+
+};
+
 waterfall.prototype.showEmpty = function () {
-	this.ui.container.hide();
+	this.ui.context.hide();
+	this.ui.loading.hide();
 	this.ui.empty.show();
+	
+	(this.header && this.ui.empty.children().eq(0).addClass("top1"));
 };
 
 waterfall.prototype.showLoading = function () {
@@ -114,19 +125,19 @@ waterfall.prototype.setPageCount = function (pageCount) {
 	this.pageCount = pageCount;
 };
 
-waterfall.prototype.appendContext = function (html) {
+waterfall.prototype.appendContext = function (html, noEmpty) {
 	var _this = this;
 
-	if(this.pageIndex == 1){
+	if(this.pageIndex == 1 && !noEmpty){
 		this.hideLoading();
 		this.ui.context.empty();
+
 	}
 
 	this.ui.context.show();
 	this.ui.loading.hide();
 
 	this.ui.empty.hide();
-	this.ui.container.show();
 	this.ui.context.append(html);
 
 	//dom渲染完成后再重新处理是否要继续加载数据

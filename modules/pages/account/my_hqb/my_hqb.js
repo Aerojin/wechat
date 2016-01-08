@@ -10,25 +10,31 @@ var eventFactory 	= require("base/event_factory");
 var waterfall 		= require("ui/waterfall/waterfall");
 var smartbar		= require("ui/smartbar/smartbar");
 var tipMessage  	= require("ui/tip_message/tip_message");
-
+var loadingPage		= require("ui/loading_page/loading_page");
+var ransomRecord    = require("hqb_ransom_record");
 var myHqb = {
 
 	pageIndex: 1,
 
 	pageSize: 10,
 
-	init: function () {
+	buyUrl: "$root$/product/home.html",
+
+	init: function (index) {
 		
 		this.ui = {};
 		this.ui.header 		= $("#header");
 		this.ui.context 	= $("#context");
 		this.ui.btnTool 	= $("#btn-tool");
 		this.ui.btnBuy		= $("#btn-buy");
-
+		this.ui.menu        = $("#ul-menu li");
 		this.template = {};
 		this.template.header  = artTemplate.compile(__inline("header.tmpl"));
 		this.template.context = artTemplate.compile(__inline("context.tmpl"));
 
+		if( index != 0 || index == undefined){
+			loadingPage.show();
+		}
 		this.smartbar = smartbar.create();
 		this.ui.btnTool.css({
 			bottom: this.smartbar.getHeight()
@@ -37,12 +43,15 @@ var myHqb = {
 
 		this.getData();
 		this.getHeader();
+		this.getHqb();
 
 		this.regEvent();
 	},
 
 	regEvent: function () {
+		var _this = this;
 		this.ui.btnBuy.on("click", $.proxy(function () {
+			/*
 			eventFactory.exec({
 				"wap": function () {
 					window.location.href = "$root$/product/home.html";
@@ -51,10 +60,22 @@ var myHqb = {
 					window.location.href = appApi.getProductList({type: 3});
 				}
 			});
-			
+			*/
+			window.location.href = this.buyUrl;			
 		}, this));
-	},
-
+		this.ui.menu.on("click",function(){
+			var index = $(this).index();
+			switch (index){
+				case 0 :
+					_this.init(0);
+					break;
+				case 1 :
+					ransomRecord.init();
+					break;
+			};
+			$(this).addClass("active").siblings().removeClass("active");
+	    })
+    },
 	getHeader: function () {
 		var options = {
 			data: {}
@@ -90,6 +111,8 @@ var myHqb = {
 			var result 	= e.data;
 			var data 	= this.format(result.list || []);
 
+			loadingPage.hide();
+
  			if(result.list.length > 0){ 				
 	 			this.waterfall.setPageCount(result.pageCount);
 	 			this.waterfall.appendContext(this.template.context({data: data}));
@@ -103,9 +126,30 @@ var myHqb = {
 			this.waterfall.showEmpty();
 		};
 
-		this.waterfall.showLoading();		
+		this.waterfall.showLoading();
 		api.send(api.PRODUCT, "queryInvestRecordsByHqb", options, this);
 	},
+
+	getHqb: function () {
+ 		var options = {};
+
+		options.data = {
+
+		};
+
+		options.success = function (e) {
+			var result 	= e.data;
+			var url 	= "$root$/product/buy_detail.html?productId={0}&typeValue={1}";
+
+			this.buyUrl = url.format(result.productId, result.typeValue);
+		};
+
+		options.error = function () {
+
+		};
+
+		api.send(api.PRODUCT, "queryProductInfo", options, this);
+ 	},
 
 	createWaterfall: function (data) {
  		var _this = this;

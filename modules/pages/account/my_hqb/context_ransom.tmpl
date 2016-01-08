@@ -1,0 +1,11 @@
+{{each data}}
+<div class="hqb-box process-box waterfall-item">
+	<ul class="profit-info clearfix">
+		<li>赎回日期<span>{{$value.fRequestTime}}</span></li>
+		<li>赎回金额<span>{{$value.fMoneyAmount}}</span></li>
+	</ul>
+	<span class="process-status {{$value.fStatusClass}}">{{$value.fStatusText}}</span>
+</div>
+{{/each}}
+
+

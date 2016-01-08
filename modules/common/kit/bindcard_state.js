@@ -2,7 +2,7 @@ var $ 				= require("zepto");
 var api 			= require("api/api");
 var user 			= require("kit/user");
 var appApi 		 	= require("kit/app_api");
-var xnData 			= require("kit/xn_data");
+var redirect 		= require("kit/redirect");
 var eventFactory 	= require("base/event_factory");
 
 var state = function (options) {
@@ -17,10 +17,6 @@ var state = function (options) {
 		this.isAuthentication 	= user.get("authentication");
 
 		this.getData();
-
-		this.xnData = xnData.create({
-			key: xnData.STATE.RECHARGE_KEY
-		});
 	};
 
 	this.redirect = function (param) {
@@ -40,8 +36,7 @@ var state = function (options) {
 		param = param || {};
 
 		//设置充值成功后, 回跳的页面;
-		this.xnData.clear();
-		this.xnData.set("redirect", window.location.href);
+		redirect.set(window.location.href);
 
 		if(!this.isSetPayPwd){
 			window.location.href = "$root$/account/pay_password.html?redirect=" + this.getPayPwdRedirect() + $.param(param);

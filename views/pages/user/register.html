@@ -5,7 +5,6 @@
 	<title>用户注册</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
 	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
@@ -14,6 +13,7 @@
         @require views/css/style.css 
     -->
 	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
 	<div class="wrap">
@@ -40,7 +40,12 @@
 				<span id="btn-showpass" class="repeat-btn repeat-btn-short" data-show="0" style="cursor: pointer;">显示密码</span>
 			</li>
 			<li class="clearfix">
-				<label class="inp-tit" for="">验证码</label>
+				<label class="inp-tit" for="">图形验证码</label>
+				<input id="txt-imgCode" class="inp-txt-short" type="text" placeholder="请输入验证码" style="width: 1.7rem;">
+				<img id="btn-code" class="img_code" src="http://m.xiaoniuapp.com/api/wap/randomImageCode?appVersion=1&moduleId=REGISTERIMAGE&source=web">
+			</li>
+			<li class="clearfix">
+				<label class="inp-tit" for="">手机验证码</label>
 				<input id="txt-code" class="inp-txt-short" type="tel" autocomplete="off" maxlength="10" placeholder="请输入验证码">
 				<a id="btn-dis-send" class="repeat-btn" href="javascript:void(0);"  style="display:none;">重试(60)</a>
 				<a id="btn-send" class="get-code">获取验证码</a>

@@ -54,8 +54,8 @@ app登录web必传参数列表
 	/pages/account/hqb_ransom_record.html
 	
 11.产品购买	
-	productId: 产品ID
-	/pages/product/buy.html?productId=
+	fid: 产品ID
+	/pages/product/buy.html?fid=
 	
 12.picc
 	/pages/agreement/picc.html
@@ -63,13 +63,12 @@ app登录web必传参数列表
 13.钱罐子用户服务协议
 	/pages/agreement/qgz_server_protocol.html
 	
-14.产品购买选择红包
-	productId: 产品ID
-	/pages/product/my_packet.html?productId=
+14.我要转让	
+	/pages/account/attorn.html
 	
 15.产品购买详情页
-	productId: 产品ID
-	/pages/product/buy_detail.html?productId=
+	fid: 产品ID
+	/pages/product/buy_detail.html?fid=
 	
 16.消息页面
 	msgId: 消息ID
@@ -87,8 +86,10 @@ app登录web必传参数列表
 	/pages/account/my_coupon.html
 	
 19.好友关系链红包入口
+	/pages/activity/relationRedpacket/postMoney.html
 
 20.宝箱入口
+	/activity/baoxiang/index.html 
 
 21.今日预期收益入口
 	/pages/account/my_income_today.html
@@ -97,10 +98,20 @@ app登录web必传参数列表
 	/pages/account/my_income_list.html
 
 23.活期宝购买页面
-	productId: 产品ID
-	/pages/product/buy_detail.html?productId=
+	fid: 产品ID
+	/pages/product/buy_detail.html?fid=
 
 24.咨询页面
+	/pages/sundry/information_app.html
+	
+25.转让专区
+	/pages/product/transfer_list.html
+	
+26.转让产品详情页
+	/pages/product/transfer_buy.html
+	
+26.转让产品购买页
+	/pages/product/transfer_detail.html
 ```
 
 #H5调原生API参数说明

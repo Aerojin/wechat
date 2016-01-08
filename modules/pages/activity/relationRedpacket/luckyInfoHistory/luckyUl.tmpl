@@ -1,0 +1,21 @@
+{{each luckUl}}
+<li>
+	<p class="hdimg"><img src="{{$value.lit_05}}"></p>
+	<p class="hdname">
+		<span>
+			{{$value.receiveMobile}}
+		</span>
+		<i>{{$value.receiveDate}}</i>
+	</p>	
+	<p class="hdmoney">
+		<em>{{$value.money}}元</em>
+		<i class="tright">
+			{{if $value.shartRedpaperType == 1}}
+				现金
+			{{else}}
+				投资返现红包
+			{{/if}}
+		</i>
+	</p>
+</li>
+{{/each}}

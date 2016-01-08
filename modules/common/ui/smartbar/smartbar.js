@@ -10,7 +10,8 @@ var KEY = "_SMARTBAR_STATE_";
 var STATE = {
 	INDEX: "index",
 	HOME: "home",
-	ACCOUNT: "account"
+	ACCOUNT: "account",
+	SETTING: "setting"
 };
 
 var smartbar = function (options) {
@@ -24,20 +25,26 @@ var smartbar = function (options) {
 smartbar.prototype.init = function () {
 
 	if(versions.isApp()){
+		
 		return;
 	}
 
 	this.ui = {};
+	this.ui.body 		= $("body");
 	this.ui.wrap 		= $(__inline("smartbar.tmpl"));
 	this.ui.li 			= this.ui.wrap.find("li");
 	this.ui.btnIndex 	= this.ui.wrap.find(".btn-index");
 	this.ui.btnHome 	= this.ui.wrap.find(".btn-home");
 	this.ui.btnAccount 	= this.ui.wrap.find(".btn-account");
-
+	this.ui.btnSetting 	= this.ui.wrap.find(".btn-setting");
+	
 	this.regEvent();
 	this.setState(this.state);
 
 	this.container.append(this.ui.wrap);
+	
+	//app不需要显示底部导航, 所以需要将主容器底部置空
+	this.ui.body.css({"padding-bottom": this.getHeight() + 10});
 };
 
 smartbar.prototype.regEvent = function () {
@@ -60,6 +67,13 @@ smartbar.prototype.regEvent = function () {
 		this.setState(STATE.ACCOUNT);
 
 		window.location.href = "$root$/account/my_account.html";
+		return false;
+	}, this));
+
+	this.ui.btnSetting.on("tap", $.proxy(function () {
+		this.setState(STATE.SETTING);
+
+		window.location.href = "$root$/account/my_setting.html";
 		return false;
 	}, this));
 };
@@ -96,6 +110,9 @@ smartbar.prototype.setFocus = function () {
 		},
 		"account": function () {
 			return this.ui.btnAccount.parent();
+		},
+		"setting": function () {
+			return this.ui.btnSetting.parent();
 		}
 	};
 

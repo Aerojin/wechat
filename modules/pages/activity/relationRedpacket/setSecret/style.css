@@ -1,0 +1,45 @@
+body{background: #e6e6e6;font-size: .16rem;}
+
+  .no_name{
+    padding: 0 .1rem;
+  }
+   .no_name li{
+      float: left;
+      width: 50%;
+      height: .6rem;
+      line-height: .6rem;
+      position: relative;
+   }
+    .no_name li h3{
+      color: #666;
+      font-size: .2rem;
+    }
+   .no_name li p{
+      width: .8rem;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      
+   }
+   .no_name li p.btn1{
+
+      background: url(anniu_03.png) no-repeat center center;
+      background-size: .7rem .4rem;
+
+   }
+   .no_name li p.btn2{
+
+      background: url(anniu_06_01.png) no-repeat center center;
+      background-size: .7rem .4rem;
+
+   }
+   .noName_box .no_sh{
+      padding:.24rem .1rem;
+      line-height: .26rem;
+      border-top:1px solid #e6e6e6;
+      color: #b3b3b3;
+   }
+   .noName_box{
+      background: #FFF;
+      margin-top: .1rem;
+   }

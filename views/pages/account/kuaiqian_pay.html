@@ -5,10 +5,6 @@
 	<title>充值验证</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<meta name="format-detection"content="telephone=no, email=no" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
 	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
@@ -18,13 +14,10 @@
         @require views/css/style.css  
     -->
 	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
-	<div class="load_box wrap-box" id="wrap-loading">
-		<div class="loading"><img src="/views/images/ico-onload.gif" /><p>正在加载中···</p></div>
-	</div>
-
-	<div class="wrap wrap-box" id="wrap-bind" style="display: none;">
+	<div class="wrap wrap-box" id="wrap-bind">
 		<!-- 输入提示 -->
 		<p class="pay-tit" id="p-tip">使用 *小华尾号为0236的招商银行卡<br />充值 <span class="text-red">1,000元</span></p>
 		<ul class="inp-list">
@@ -54,20 +47,20 @@
 		<ul class="manage-list suc-list mgb4">
 			<li>
 				<label>充值金额</label>
-				<span class="suc-num" id="money-order">2000.00元</span>
+				<span class="suc-num" id="money-order">0.00</span>
 			</li>
 			<li>
 				<label>银行卡</label>
 				<span class="suc-num" id="card-num">尾号0236</span>
 				<span class="acc-img acc-bank"><img id="icon-bank" src="/views/images/bank_cmb.png" width="90px" height="22px" /></span>
 			</li>
-			<li style="display:none;">
+			<li>
 				<label>充值后账户余额</label>
-				<span class="suc-num">2000.00元</span>
+				<span class="suc-num" id="span-balance">0.00</span>
 			</li>
 		</ul>
 		<ul class="code-share invest_goon">
-			<li style="display:none"><a href="javascript:void(0);">查看提现记录</a></li>
+			<li><a href="$root$/account/fund_detail.html">查看充值记录</a></li>
 			<li><a id="btn-list" href="javascript:void(0);">立即投资</a></li>
 		</ul>
 	</div>

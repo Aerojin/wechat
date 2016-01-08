@@ -17,7 +17,7 @@
 	var isApp = function () {
 		var renValue = false;
 		var host = location.host;
-		var array = ["mapp.xiaoniuapp.com", "testapp.xiaoniuapp.com"];
+		var array = ["mapp.xiaoniuapp.com", "testapp.xiaoniuapp.com", "mappx.xiaoniuapp.com"];
 
 		for(var i = 0; i < array.length; i++){
 			if(array[i].trim() == host){

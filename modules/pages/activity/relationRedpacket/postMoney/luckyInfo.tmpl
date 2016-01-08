@@ -1,0 +1,53 @@
+{{each luckyDatas}}
+	{{if $value.status == 1}}
+		{{if $value.num == 0}}
+			{{if $value.count == 0}}
+				<li class="waterfall-item">
+					<img src="{{$value.hongbao3}}">
+					<p><b class="luckyShareName">{{$value.shareName}}</b>为您带来了红包<br><i>[已领完]</i>手慢了，红包派完了</p>
+					<span>{{$value.hbDate}}</span>
+				</li>
+			{{else}}
+				<li class="waterfall-item">
+					<img src="{{$value.hongbao1}}">
+					<p><b class="luckyShareName">{{$value.shareName}}</b>为您带来了红包<br><em>[未拆取]</em></p>
+					<span>{{$value.hbDate}}</span>
+				</li>
+			{{/if}}			
+		{{else if $value.num == 1}}
+			<li class="waterfall-item">
+				<img src="{{$value.hongbao2}}">
+				<p><b class="luckyShareName">{{$value.shareName}}</b>为您带来了红包<br><i>[已拆]</i>您获得了<em>{{$value.hbCash}}</em></p>
+				<span>{{$value.hbDate}}</span>
+			</li>
+		{{/if}}
+	{{else if $value.status == 2}}
+		{{if $value.num == 0}}
+			<li class="waterfall-item">
+				<img src="{{$value.hongbao3}}">
+				<p><b class="luckyShareName">{{$value.shareName}}</b>为您带来了红包<br><i>[已领完]</i>手慢了，红包派完了</p>
+				<span>{{$value.hbDate}}</span>
+			</li>
+		{{else if $value.num == 1}}
+			<li class="waterfall-item">
+				<img src="{{$value.hongbao2}}">
+				<p><b class="luckyShareName">{{$value.shareName}}</b>为您带来了红包<br><i>[已拆]</i>您获得了<em>{{$value.hbCash}}</em></p>
+				<span>{{$value.hbDate}}</span>
+			</li>
+		{{/if}}
+	{{else if $value.status == 3}}
+		{{if $value.num == 0}}
+			<li class="waterfall-item">
+				<img src="{{$value.hongbao3}}">
+				<p><b class="luckyShareName">{{$value.shareName}}</b>为您带来了红包<br><i>[已过期]</i></p>
+				<span>{{$value.hbDate}}</span>
+			</li>
+		{{else if $value.num == 1}}
+			<li class="waterfall-item">
+				<img src="{{$value.hongbao2}}">
+				<p><b class="luckyShareName">{{$value.shareName}}</b>为您带来了红包<br><i>[已拆]</i>您获得了<em>{{$value.hbCash}}</em></p>
+				<span>{{$value.hbDate}}</span>
+			</li>
+		{{/if}}
+	{{/if}}
+{{/each}}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>好友定时红包</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	    <!--
+        @require views/css/global.css
+        @require views/css/style.css 
+      -->
+      <script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
+    </head>
+    <body>
+     <div class="lineHdBox baseInfo">
+      <!--<img src="./images/lit_02.png">
+      <p class="fost">某某的红包</p>
+      <p><span>100.00</span>元<br>现金</p>
+      <p><a href="javascript:void(0);" class="goInvest">任意在投金额≥100元  即可领取</a></p>-->
+    </div>
+    <div class="this_money moneyReferInfo">
+      <h3>当前已被好友塞了<span class="moneyCount">3</span>次钱</h3>
+      <div class="FriendOverflowbox">
+        <ul class="Friend_list moneyUl">
+            <!--<li>
+              <p class="hdimg"><img src="./images/lit_05.png"></p>
+              <p class="hdname"><span>某某某</span></p>
+              <p class="hdmoney"><i>09-05</i></p>
+           </li>
+            <li>
+              <p class="hdimg"><img src="./images/lit_05.png"></p>
+              <p class="hdname"><span>某某某</span></p>
+              <p class="hdmoney"><i>09-05</i></p>
+           </li>
+           <li>
+              <p class="hdimg"><img src="./images/lit_05.png"></p>
+              <p class="hdname"><span>某某某</span></p>
+              <p class="hdmoney"><i>09-05</i></p>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+      <div class="this_money moneyHistoryInfo">
+        <h3>历史获得</h3>
+        <ul class="Friend_list history historyUl">
+          <!--<li>
+            <p class="hdname"><span>2015-09-05</span></p>
+            <p class="hdmoney"><em>1.00元现金</em></p>
+         </li>
+          <li>
+            <p class="hdname"><span>2015-09-05</span></p>
+            <p class="hdmoney"><em>12.00元现金</em></p>
+         </li>
+         <li>
+            <p class="hdname"><span>2015-09-05</span></p>
+            <p class="hdmoney"><em>120.00元现金</em></p>
+          </li>-->
+        </ul>
+      </div>
+       <script type="text/javascript" src="libs/mod.js" data-loader></script>
+       <script type="text/javascript">
+          require("pages/activity/relationRedpacket/fixedInfo/fixedInfo");
+       </script>
+    </body>
+    </html>

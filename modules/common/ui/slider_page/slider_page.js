@@ -9,6 +9,7 @@ var slider = function (options) {
 	this.index 		 = options.index || 0;
 	this.width 		 = document.documentElement.clientWidth;  //$(window).width()  在小米手机获取的宽度有问题
 	this.activeClass = options.activeClass;
+	this.allowTouch  = options.allowTouch === undefined ? true : options.allowTouch;
 
 	this.ui = {};
 	this.ui.menu 	= options.menu;
@@ -55,7 +56,9 @@ slider.prototype.regEvent = function () {
 
 	this.ui.context.on("touchstart", function (event) {
 		//event.preventDefault();                                     // 阻止触摸事件的默认动作,即阻止滚屏
-	 
+
+	 	if(!_this.allowTouch) return;
+
 	   _this.start(event.touches[0]);
 	});
 };
@@ -79,9 +82,24 @@ slider.prototype.start = function (touch) {
 	    var absX = Math.abs(pageX - _this.startPos.x);
 	    var absY = Math.abs(pageY - _this.startPos.y);
 
-	    if (absX > absY){
-	    	event.preventDefault();
-	    }
+	    //第一次移动时锁定滚动的方向
+	   	/*
+	    if(!_this.isLock()){
+	    	_this.setScroll(absX > absY ? "X" : "Y", true);
+		}
+		*/
+
+		//X轴滚动时阻止系统滚动条的默认行为
+		if(absX > absY){
+			event.preventDefault();
+		}
+
+		//Y轴滚动时放开系统滚动条默认行为并且终止后续操作
+		/*
+		if(_this.getScroll('Y')){
+			return;
+		}
+		*/
 
         // 当屏幕有多个touch或者页面被缩放过，就不执行move操作
         if (event.touches.length > 1 || event.scale && event.scale !== 1) {

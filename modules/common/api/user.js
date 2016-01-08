@@ -86,8 +86,24 @@ api.register = function (data) {
 api.sendSmsCodeByRegister = function (data) {
 	return {
 		requestBody: data,
-		requestUrl: "/api/user/sendSmsCodeByRegister"
+		requestUrl: "/api/wap/user/registerSmsCode"
 	};
+};
+
+/*
+    *注册发送验证码(需要图形验证码)
+    *@param {data} data 初始化参数集
+    *@param {String} data.apiVersion    API版本
+    *@param {String} data.moduleId      业务类型：REGISTERIMAGE=注册, RESETLOGINIMAGE=找回登录密码
+    *@param {String} data.mobile        用户帐户,当前为手机号码
+    *@param {String} data.imageCode     图形验证码
+    
+*/
+api.sendSmsCode = function (data) {
+    return {
+        requestBody: data,
+        requestUrl: "/api/wap/sendSmsCode"
+    };
 };
 
 /*

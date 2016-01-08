@@ -32,7 +32,7 @@ var HttpClient = function () {};
  */
 HttpClient.prototype.request = function (options) {
 	var This = this;
-	this.requestOptions = options;
+	this.requestOptions = options || {};
     
     if (this.xhr) {
         throw "一个HTTPClient实例只能执行一次request操作";
@@ -99,6 +99,10 @@ HttpClient.prototype.request = function (options) {
                     responseText: xhr.responseText
                 });                       
             }
+        }
+
+        if(This.requestOptions.onStateChange){
+            This.requestOptions.onStateChange(xhr.readyState);
         }
     };
 

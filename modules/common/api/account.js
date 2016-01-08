@@ -47,6 +47,19 @@ api.getUserBindCard = function (data) {
 };
 
 /*
+    *查询用户绑卡信息(支持切换渠道)
+    *@param {data} data 初始化参数集
+    *@param {String} data.apiVersion    API版本
+    *@param {String} data.userId        用户id
+*/
+api.getUserBindCardNew = function (data) {
+    return {
+        requestBody: data,
+        requestUrl: "/api/payment/getUserBindCardNew.do"
+    };
+};
+
+/*
     *查询银行卡信息
     *@param {data} data 初始化参数集
     *@param {String} data.apiVersion    API版本
@@ -244,6 +257,107 @@ api.queryUserBalanceLogByPage = function (data) {
         requestUrl: "/api/account/queryUserBalanceLogByPage.do"
     };
 };
+
+
+/*
+    *我的账户(新收益模块)
+    *@param {data} data 初始化参数集
+    *@param {String} data.apiVersion    API版本
+    *@param {String} data.userId        用户id
+*/
+api.getUserAccountInfo = function (data) {
+    return {
+        requestBody: data,
+        requestUrl: "/api/profit/getUserAccountInfo.do"
+    };
+};
+
+
+/*
+    *总资产信息(新收益模块)
+    *@param {data} data 初始化参数集
+    *@param {String} data.apiVersion    API版本
+    *@param {String} data.userId        用户id
+*/
+api.getUserAssetInfo = function (data) {
+    return {
+        requestBody: data,
+        requestUrl: "/api/profit/getUserAssetInfo.do"
+    };
+};
+
+
+/*
+    *今日预计收益列表(新收益模块)
+    *@param {data} data 初始化参数集
+    *@param {String} data.apiVersion    API版本
+    *@param {String} data.userId        用户id
+*/
+api.queryCurrentDayProfit = function (data) {
+    return {
+        requestBody: data,
+        requestUrl: "/api/profit/queryCurrentDayProfit.do"
+    };
+};
+
+
+/*
+    *累计收益列表(新收益模块)
+    *@param {data} data 初始化参数集
+    *@param {String} data.apiVersion    API版本
+    *@param {String} data.userId        用户id
+    *@param {String} data.profitDate    收益日期 YYYY-mm-dd
+*/
+api.querySumProfit = function (data) {
+    return {
+        requestBody: data,
+        requestUrl: "/api/profit/querySumProfit.do"
+    };
+};
+
+
+/*
+    *定期投资收益(新收益模块)
+    *@param {data} data 初始化参数集
+    *@param {String} data.apiVersion    API版本
+    *@param {String} data.userId        用户id
+*/
+api.getFixProductProfitInfo = function (data) {
+    return {
+        requestBody: data,
+        requestUrl: "/api/profit/getFixProductProfitInfo.do"
+    };
+};
+
+
+/*
+    *回款时间(新收益模块)
+    *@param {data} data 初始化参数集
+    *@param {String} data.apiVersion    API版本
+    *@param {String} data.userId        用户id
+    *@param {String} data.backDateFlag  1/按月,2/按天
+*/
+api.getBackAmountDate = function (data) {
+    return {
+        requestBody: data,
+        requestUrl: "/api/profit/getBackAmountDate.do"
+    };
+};
+
+
+/*
+    *红包体验金未读标识(新收益模块)
+    *@param {data} data 初始化参数集
+    *@param {String} data.apiVersion    API版本
+    *@param {String} data.userId        用户id
+*/
+api.getUnReadExperienceAndRedMark = function (data) {
+    return {
+        requestBody: data,
+        requestUrl: "/api/user/getUnReadExperienceAndRedMark.do"
+    };
+};
+
 
 
 module.exports = {

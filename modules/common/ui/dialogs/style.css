@@ -9,8 +9,8 @@
 .exit-mask .exit-btn {width:3.16rem;text-align:center;border-top: 1px solid #d1d1d1;z-index:9999}
 .exit-mask .exit-btn li {float:left;width:50%;line-height:.54rem;font-size:.18rem; background: #da554e; color:#fff;border-right:1px solid #ccc;cursor:pointer;box-sizing:border-box;}
 .exit-mask .exit-btn li:last-child {border-right: none;}
-.exit-mask .exit-btn li:nth-child(1) {border-radius: 0 0 0 5px;}
-.exit-mask .exit-btn li:nth-child(2) {border-radius: 0 0 5px 0;}
+.exit-mask .exit-btn li:nth-child(1) {border-radius: 0 0 0 0.04rem;}
+.exit-mask .exit-btn li:nth-child(2) {border-radius: 0 0 0.04rem 0;}
 .exit-mask .exit-btn li.btn-gray {background: #ccc;}
 
 .found_password_red {text-align: center;font: .14rem/.48rem "Microsoft YaHei";padding-top: 0.1rem;}
@@ -18,8 +18,3 @@
 
 .deal-password-box {position: relative;z-index: 10;}
 .password-input {position: absolute;left: 0;top: 1px;z-index: 10;width: 100%;height: .54rem;text-indent:-99999rem;color:#fff;font: .16rem/.54rem "Microsoft YaHei";border:none;background: none;}
-.deal-password {/*padding: 0 0.5%;*/border:1px solid #d0d0d0;border-width: 1px 0;box-shadow: 0 0 .5rem rgba(12,51,92,.1);background: #fff;}
-.deal-password li {float: left; position: relative; width: 16.65%;height: .54rem;border-right: 1px solid #d0d0d0;box-sizing:border-box;}
-.deal-password li:after {display:none;content: "";position: absolute;left: 50%;top: .2rem;z-index:11;margin-left: -0.075rem;width: .15rem;height: .15rem;-moz-border-radius: 2rem;border-radius: 2rem;background: #000;}
-.deal-password li:last-child {border:none;}
-.deal-password li.z-on:after {display: block;}

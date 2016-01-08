@@ -132,7 +132,7 @@ var share = {
 	},
 
 	getUrl: function () {
-		//wx40d5184e05d61899 测试
+		//wx0b2f357a1ee329e0 测试
 		//wx7193cd3aad46ab2c 线上
 		var redirectUri = encodeURIComponent(window.location.protocol + "//m.xiaoniuapp.com/activity/redpacket/pages/index.html?investId={0}".format(this.investId));
 		var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7193cd3aad46ab2c&redirect_uri={0}&response_type=code&scope=snsapi_userinfo&state=state#wechat_redirect";

@@ -8,7 +8,7 @@ var SOURCE = {
 };
 
 //根据host来确定是否是app应用
-var HOST = [ "m.xiaoniuapp.com", "test.xiaoniuapp.com", "m3.xiaoniuapp.com", "127.0.0.1:8001", "127.0.0.1:8080" ];
+var HOST = ["mapp.xiaoniuapp.com", "mappx.xiaoniuapp.com"];
 
 var v = {
 	getVersions: function () {
@@ -38,9 +38,11 @@ var v = {
 			return SOURCE.WECHAT;
 		}
 
-		//if(versions.mobile){
+		/*
+		if(versions.mobile){
 			return SOURCE.WAP;
 		//}
+		*/
 
 		//if(versions.ios){
 		//	return SOURCE.IOS;
@@ -50,7 +52,7 @@ var v = {
 		//	return SOURCE.ANDROID;
 		//}
 
-		//return SOURCE.WEB;
+		return SOURCE.WAP;
 	},
 
 	getSystem: function () {
@@ -70,11 +72,10 @@ var v = {
 		var sysHost = window.location.host;
 
 		if(strHost.indexOf(sysHost) > -1){
-			return this.getSource();
+			return this.getSystem();	
 		}
 
-		return this.getSystem();
-
+		return this.getSource();
 	},
 
 	getConstant: function () {

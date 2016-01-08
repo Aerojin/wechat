@@ -1,0 +1,63 @@
+<a href="javascript:void(0);" class="btn-detail">
+{{if state == 300}}
+	<div class="zhishu-box zhishu-box-over vip-ture">
+		<div class="zhishu-tit">
+			<p>{{productName}}</p>		
+		</div>
+		<div class="zhishu-vip">
+			<div class="z-txt">预期年化</div>
+			<div class="z-num">
+				<div class="vip-num-box">
+					<b>{{fixRateShow}}</b>%
+					{{if vipInfo.isVipProduct && vipInfo.isVip}}
+						+<b>{{vipInfo.awardRate}}</b>% <span class="vip-tag">会员</span>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+		<div class="zhishu-vip-limit"><p class="z-txt">投资期限</p><p class="z-num">{{deadLineValue}}{{dateUnit}}</p></div>
+		<a href="javascript:void(0);" class="btn-buy btn-submit">{{stateText}}</a>
+	</div>
+{{else}}
+	<div class="zhishu-box vip-ture">
+		<div class="zhishu-tit">
+			<p>{{productName}}</p>
+			{{if vipInfo.isVipProduct && !vipInfo.isVip}}
+				<span class="time-vip ">会员加成</span>
+			{{/if}}
+
+			{{each activityInfo}}
+				<span class="time-vip time-yel">{{$value.text}}</span>
+			{{/each}}		
+		</div>
+		<div class="zhishu-vip">
+			<div class="z-txt">预期年化</div>
+			<div class="z-num">
+				<div class="vip-num-box">
+					<b>{{fixRateShow}}</b>%
+					{{if vipInfo.isVipProduct && vipInfo.isVip}}
+						+<b>{{vipInfo.awardRate}}</b>% <span class="vip-tag">会员</span>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+		<div class="zhishu-vip-limit"><p class="z-txt">投资期限</p><p class="z-num">{{deadLineValue}}{{dateUnit}}</p></div>
+		<a href="javascript:void(0);" class="btn-buy btn-submit">{{stateText}}</a>
+		
+		{{if percentInfo.isShow}}
+			<div class="zhishu-datebox">
+				<div class="progressBar-box">
+					<div class="progressBar">
+						<span class="progressBar-block per" style="width: {{percentInfo.value}};"></span>
+					</div>
+					<span class="progressBar-result">{{percentInfo.value}}</span>
+				</div>
+			</div>
+		{{/if}}
+
+		{{if hotInfo.isShow }}
+			<div class="sold-hot"><div class="scale">{{hotInfo.value}}</div></div>
+		{{/if}}
+	</div>
+{{/if}}
+</a>

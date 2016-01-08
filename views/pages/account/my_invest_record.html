@@ -2,53 +2,41 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>我的投资</title>
+	<title>定期投资</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<meta name="format-detection"content="telephone=no, email=no" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
 	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
-	
 	<!--
-        @require views/css/global.css
-        @require views/css/style.css 
-    -->
+		@require views/css/global.css
+		@require views/css/style.css
+	-->
 	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
-	<div class="wrap">
-		<div class="capital-tit" id="header">
+	<header>
+		<div class="head-box bg-red" id="header">
 			<ul class="hqb-tit clearfix">
-				<li><span class="note-name">投资中本金（元）</span><span class="note-num">0</span></li>
-				<li><span class="note-name">已回款总收益（元）</span><span class="note-num">0</span></li>
-			</ul>			
+				<li><span class="note-name">总计待回款金额(元)</span><span class="note-num">0.00</span></li>
+			</ul>
+			<div class="balance pos-r bg-red2 fs-16">投资本金(元)<span class="bala-num fl-r">0.00</span></div>
 		</div>
-
 		<article class="invest-main j-slide-not">
 			<ul class="invest-tabbar m-cnt" id="ul-menu">
-				<li  class="active" data-index="0">已购买</li>
-				<li data-index="1">回款完成</li>
+				<li class="active" data-index="0">持有中</li>
+				<li data-index="1">回款日历</li>
+				<li data-index="2">已回款</li>
 			</ul>
-
-			<div class="tab-contain">
-				<div style="overflow: hidden; width: 100%;">
-					<div id="context" class="clearfix" style="width:8.28rem;">
-						<div class="in_box wrap-item" style="width: 4.14rem;">
-							<div  id="fixed-container" class="scroll-box">
-								<div id="fixed-loading">
-									<p class="waterfall-login">数据加载中...</p>
-								</div>
-							</div>
-						</div>
-						<div class="in_box wrap-item" style="width: 4.14rem;"></div>
-					</div>
-				</div>
-			</div>
 		</article>
+	</header>
+	<div class="ui-viewport">
+		<div class="ui-scroller" id="context">
+			<div class="in_box ui-item"></div>
+			<div class="in_box ui-item"></div>
+			<div class="in_box ui-item"></div>
+		</div>
 	</div>
 	<script type="text/javascript">
 		require('pages/account/my_invest_record/my_invest_record');

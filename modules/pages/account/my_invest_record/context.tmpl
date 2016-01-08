@@ -1,5 +1,5 @@
 {{each data}}
-<div class="blist waterfall-item">
+<div class="blist iscroll-item">
 	<div class="box_block1">
 		<div class="box_tit clearfix"><span>{{$value.productName}}</span></div>
 		<div class="box_date">{{$value.fBizTime}}</div>
@@ -24,15 +24,7 @@
 	</ul>
 	<div class="box_block3 clearfix">
 		<span class="box_transfer">
-			{{ if $value.typeValue == 5 }}
-				<a href="{{$value.equityURL}}">产品协议</a>
-			{{else if $value.typeValue == 6}}
-				<a href="{{$value.equityURL}}">产品协议</a>
-			{{else if $value.typeValue == 102}}
-				<a href="{{$value.equityURL}}">产品协议</a>
-			{{else}}
-				<a href="{{$value.equityURL}}">收益转让权协议</a>
-			{{/if}}
+			<a href="{{$value.equityURL.redirectUrl}}">{{$value.equityURL.title}}</a>
 		</span>
 	</div>
 </div>

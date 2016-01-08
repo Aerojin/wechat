@@ -1,0 +1,64 @@
+<div>
+	<div class="hd-reds" id="header">
+		<div class="hd-ebox-two clearfix">{{productName}}<span>{{deadLineValue}}{{dateUnit}}期限</span></div>
+		<div class="ebox-info">
+			<span>预期年化收益率 {{fixRateShow}}% </span>			
+			{{if vipInfo.isVipProduct && vipInfo.isVip}}
+			+ {{vipInfo.awardRate}}%(会员)
+			{{/if}}			
+			{{each activityInfo}}
+				+{{$value.awardRate}}%({{$value.activityName}})
+			{{/each}}
+			
+		</div>	
+	</div>
+	<div>
+		<ul class="manage-list buy-list manage-b">	
+			<li class="clearfix inp-buy">
+				<input class="inp-txt txt-gray"  id="txt-money" value="" placeholder="请输入购买金额，{{buyMinMoney}}元起"  type="tel" />
+			</li>
+		</ul>
+		<p class="pro_tips recharge-btn">您的账户余额为{{balance}}元<a href="javascript:void(0);" id="btn-recharge">充值</a></p>
+		<ul class="manage-list buy-list manage-b">
+			<li class="clearfix">
+				<a href="javascript:void(0);" id="btn-packet" class="clearfix">
+					<label class="inp-tit">使用红包</label>
+					<div class="red_num red_num_right" id="div-redNumber">
+						{{if redPakNum == 0}}
+							暂无可用
+						{{else}}
+							未使用
+						{{/if}}
+					</div>
+				</a>
+			</li>
+		</ul>		
+		<p class="pro_tips recharge-btn">
+			<span>预期总收益<span id="invest-num">0</span>元</span>
+			{{if isShowEarnings }}
+				<a href="javascript:void(0);" id="btn-earnings">详情</a>
+			{{/if}}
+		</p>
+		<div class="operate">
+			{{if state == 0}}
+				<a class="oper-btn"  id="btn-submit" href="javascript:void(0);" title="">购买</a>
+			{{else}}
+				<a class="oper-btn oper-btn-gray" href="javascript:void(0);" title="">{{stateText}}</a>
+			{{/if}}			
+		</div>
+		<div class="servive-box clearfix">
+			{{each protocolUri}}
+				<div class="servive-pact">
+					{{if $value.checked}}
+						<span class="pact-ico pact-draw pact-on btn-pact" data-index="{{$index}}"></span>
+					{{else}}
+						<span class="pact-ico pact-draw btn-pact" data-index="{{$index}}"></span>	
+					{{/if}}
+					<a href="{{$value.redirectUrl}}?deadLineValue={{deadLineValue}}">
+						<span class="text-red">{{$value.title}}</span>
+					</a>
+				</div>
+			{{/each}}			
+		</div>
+	</div>
+</div>

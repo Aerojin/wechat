@@ -1,0 +1,15 @@
+.fix-header{position: fixed; left: 0px; top: 0px; z-index: 2; width: 100%;}
+.pt9{padding-top: 0.9rem;}
+.hqb-tit {padding: .2rem;background: #da554e;}
+.hqb-tit li {float: left;font-size: .16rem;color: #fff;}
+.hqb-tit li .note-num {display:block;font-size: .28rem;}
+
+/*主内容区*/
+.profit-list {padding: .05rem .12rem .1rem .12rem;font-size: .16rem;color: #666;}
+.which-day {padding: .1rem .08rem .05rem .08rem;font-weight:bold;}
+.profit-list .which-day:nth-child(1) {padding-top: 0.05rem;}
+.profit-list .item-li {margin-top: .1rem;border-radius: .05rem;background: #fff;}
+.profit-list .item-li .tit-words {padding: 0 .08rem;line-height: .48rem;font-size: .18rem;}
+.profit-list .item-li .line-box {padding: .15rem 0;border-top: 1px solid #e6e6e6;}
+.profit-list .item-li h4 {padding: 0 .08rem;line-height: .3rem;font-size: .16rem;}
+.profit-list .item-li .h-tips {padding: 0 .08rem;line-height: .23rem;font-size: .14rem;color: #b2b2b2;}

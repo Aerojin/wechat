@@ -1,0 +1,10 @@
+		/*密码管理*/
+		.manage-list{border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding-left: .2rem;background:#FFF;font-size: .16rem;}
+		.manage-list li,.list-copy {position:relative;border-top:1px solid #e8e8e8;line-height: .5rem;font-size: .16rem;}
+		.manage-list li:first-child{border:0}
+		.manage-list li a,.list-copy a {display:block;margin-right: .18rem;background:url('../images/link-icon.png') no-repeat right center;background-size:.09rem .15rem}
+
+		.operate{margin:0 .1rem}
+		.oper-btn{display:block;line-height:.48rem;background:#da554e;color:#FFF;text-align:center;font-size:.19rem;border-radius:5px;}
+		.oper-btn-gray {background:#ccc !important;}
+		.fix-operate-box {position: fixed;left: 0;bottom: 1rem;z-index:999;width: 100%;}

@@ -1,7 +1,5 @@
-;define('modules/libs/zepto/zepto', function(require, exports, module) {
 /* Zepto 1.1.6 - zepto event data ajax form ie detect fx fx_methods data selector touch - zeptojs.com/license */
-
-var Zepto = (function() {
+;var Zepto = (function() {
   var undefined, key, $, classList, emptyArray = [], concat = emptyArray.concat, filter = emptyArray.filter, slice = emptyArray.slice,
     document = window.document,
     elementDisplay = {}, classCache = {},
@@ -2285,9 +2283,10 @@ window.$ === undefined && (window.$ = Zepto)
     })
 })(Zepto);
 
-window.Zepto = Zepto
-window.$ === undefined && (window.$ = Zepto)
+;define('modules/libs/zepto/zepto', function(require, exports, module) {
+  window.Zepto = Zepto;
+  window.$ === undefined && (window.$ = Zepto);
 
-module.exports = Zepto;
+  module.exports = Zepto;
 
 });

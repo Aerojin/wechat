@@ -1,0 +1,23 @@
+<li>
+	<div class=""></div>
+	<img src="{{hongbao4}}">
+	{{if (isGotFixed == 3) || (isGotFixed == 1 && isStart !== "0天0时0分")}}
+		<p>距离下次领取还有：<em class="hbMonth">{{leftTime}}</em><br>	
+	{{else}}
+		<p><b class="hbMonth">{{hbDate}}</b><br>
+		{{if isGotFixed == 4}}
+			<em>[已延期]</em>
+		{{else if isGotFixed == 1}}
+			{{if fcounts != 0}}
+				<em>[未拆取]</em>
+			{{else}}
+				<em>[未获得]</em>
+			{{/if}}
+		{{/if}}
+	{{/if}}
+	{{if fcounts != 0}}
+		已经被好友{{fcounts}}次塞钱</p>
+	{{else}}
+		暂无好友塞钱</p>
+	{{/if}}
+</li>

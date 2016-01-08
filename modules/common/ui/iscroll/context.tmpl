@@ -1,0 +1,14 @@
+<div class="iscroll-container">
+	<div class="iscroll-header" style="display:none;"></div>
+	<div class="iscroll-context" style="display:none;"></div>
+	<div class="iscroll-loading">
+		<p>{{loadingText}}</p>
+	</div>
+	{{if emptyHtml}}
+		{{#emptyHtml}}
+	{{else}}
+	<div class="iscroll-empty" style="display:none;">
+		<div class="iscroll-none">{{emptyText}}</div>
+	</div>
+	{{/if}}
+</div>	

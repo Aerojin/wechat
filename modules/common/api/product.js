@@ -136,6 +136,8 @@ api.queryInvestRecordsByHqb = function (data) {
     *@param {String} data.userId        产品FID
     *@param {String} data.state         (可选)状态2:投资;3:回款
     *@param {String} data.proType       (可选)产品类型 (1/固定产品,2/浮动产品)
+    *@param {String} data.investDate    (可选)投资时间
+    *@param {String} data.dateType      (可选)时间类型 (1/月, 2/天)
     *@param {String} data.pageIndex     当前页    
     *@param {String} data.pageSize      每页显示记录数
 */
@@ -204,7 +206,6 @@ api.queryRedeemRecords = function (data) {
     };
 };
 
-
 /*
     *查询产品协议
     *@param {data} data 初始化参数集
@@ -217,6 +218,35 @@ api.getProtocol = function (data) {
     return {
         requestBody: data,
         requestUrl: "/api/product/getProtocol"
+    };
+};
+
+/*
+    *查询产品协议
+    *@param {data} data 初始化参数集
+    *@param {String} data.apiVersion  API版本
+    *@param {String} data.userId      用户ID
+*/
+api.queryProductListByNew = function (data) {
+    return {
+        requestBody: data,
+        requestUrl: "/api/product/queryProductListByNew"
+    };
+};
+
+/*
+    *产品购买记录查询
+    *@param {data} data 初始化参数集
+    *@param {String} data.apiVersion    API版本
+    *@param {String} data.userId        用户ID
+    *@param {String} data.productId     产品FID
+    *@param {String} data.pageSize      （可选）每页记录数
+    *@param {String} data.pageIndex     （可选）当前页
+*/
+api.queryProductInvest = function (data) {
+    return {
+        requestBody: data,
+        requestUrl: "/api/product/queryProductInvest.do"
     };
 };
 

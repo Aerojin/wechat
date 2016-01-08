@@ -1,0 +1,44 @@
+
+/*键盘输入*/
+/*common*/
+.pro_manage .c_red {color: #f05a39;}
+.bg-white {background: #fff}
+
+/*common end*/
+
+.masks {width: 100%;height: 100%;position: absolute;left:0;top:0;z-index:999;background: rgba(0,0,0,.5);}
+.key-box {position: absolute;left: 0;bottom: 0;width: 100%;background: #fff;}
+/*输入交易密码*/
+.deal-tits {position:relative;padding: .24rem 0;text-align: center;color: #666;font-size: .22rem;}
+.d-closed {display:block;position: absolute;right: 0;top: 0;width: .7rem; height: 0.7rem;}
+.d-closed {background: url(closed2.png) no-repeat center center; background-size: 0.24rem 0.24rem;}
+
+.deal-password-box {position: relative;z-index: 10;}
+.deal-password {margin: 0 .2rem;border:1px solid #d0d0d0; box-shadow: 0 0 .5rem rgba(12,51,92,.1);background: #fff; border-width: 1px;}
+.deal-password li {float: left; position: relative; width: 16.65%; height: .54rem;border-right: 1px solid #d0d0d0;box-sizing:border-box;}
+.deal-password li:after {display:none;content: "";position: absolute;left: 50%;top: .2rem;z-index:11;margin-left: -0.075rem;width: .15rem;height: .15rem;-moz-border-radius: 2rem;border-radius: 2rem;background: #000;}
+.deal-password li:last-child {border:none;}
+.deal-password li.z-on:after {display: block;}
+.forgot-psw {padding: 0 .2rem;text-align: right;line-height: .48rem;font-size: .18rem;color: #e34545;}
+.forgot-psw a {color: #e34545;}
+
+/*键盘输入*/
+.keyboard_pwd {width: 100%;border-top:1px solid #b5bdc9;}
+.keyboard_pwd li {float: left;width: 33.333%;height:.7rem;text-align:center;box-sizing:border-box; font-size: .34rem;line-height: .7rem;color:#333;border:1px solid #b5bdc9;border-width: 0 1px 1px 0;overflow: hidden;}
+.keyboard_pwd li:nth-child(3n) {border-right: none;}
+.keyboard_pwd li.dropdown,.keyboard li.backspace {background: #bcc0c5;} 
+.keyboard_pwd li.backspace span {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url(del.png) no-repeat center center;
+	-webkit-background-size: .3rem .22rem;
+	background-size: .3rem .22rem;
+}
+.keyboard_pwd li.active {background: #d5d9df;}
+.keyboard_pwd li.dropdown.active,.keyboard li.backspace.active {background: #e3e3e3;}
+
+.deal-password li:after {display:none;content: "";position: absolute;left: 50%;top: .2rem;z-index:11;margin-left: -0.075rem;width: .15rem;height: .15rem;-moz-border-radius: 2rem;border-radius: 2rem;background: #000;}
+.deal-password li:last-child {border:none;}
+.deal-password li.z-on:after {display: block;}
+.pwd_loading{background: url(loading.gif) no-repeat center center; font-size: 0.14rem; width: 100%; text-align: center; padding-top: 0.6rem;}

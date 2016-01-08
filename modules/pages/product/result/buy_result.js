@@ -12,6 +12,7 @@ var redpacket 		= require("redpacket");
 
 var result = {
 	init: function () {
+		var _this = this;
 
 		this.ui = {};
 		this.ui.wrap 		= $("#wrap");
@@ -39,10 +40,6 @@ var result = {
 			this.ui.redNum.text(this.queryString.redAmount);
 		}
 
-		if(Number(this.queryString.isActivity)){
-			this.ui.activityBox.show();
-		}
-
 		this.smartbar = smartbar.create();
 
 		//红包分享
@@ -54,7 +51,10 @@ var result = {
 
 		if(memberOldLevel != memberNewLevel && memberNewLevel > 0){
 			vipUpgrade.create({
-				vipLevel: memberNewLevel
+				vipLevel: memberNewLevel,
+				onClose: function () {
+					_this.showActivity();
+				}
 			});
 
 			user.set("memberLevel", memberNewLevel);
@@ -67,6 +67,8 @@ var result = {
 					window.location.href = appApi.getVipUpgrade();
 				}
 			});
+		}else{
+			this.showActivity();
 		}
 
 		this.regEvent();
@@ -83,6 +85,29 @@ var result = {
 			});
 			
 		}, this));
+
+		$("#div-activity").find(".btn-close").on("touchstart", function () {
+			$("#div-activity").hide();
+
+			return false;
+		});
+
+		$("#div-activity").find(".btn-activity").on("touchstart", function () {
+			var userId 	= user.get("userId");
+			var token 	= user.get("token");
+			var url 	= "https://mact.xiaoniuapp.com/activity/1212/index.html?userId={0}&token={1}";
+
+			window.location.href = url.format(userId, token);
+			return false;
+		});
+	},
+
+	showActivity: function () {
+		var result = this.queryString.isShowActivity;
+
+		if(result && result.trim() == "true"){
+			$("#div-activity").show();
+		}
 	}
 };
 

@@ -50,7 +50,9 @@ buy.prototype.showDialogsPwd = function (callback) {
 	var _this = this;
 
 	if(this.dialogsPwd){
-		this.dialogsPwd.close();
+		this.dialogsPwd.show();
+
+		return;
 	}
 
 	this.dialogsPwd = dialogsPwd.create({
@@ -58,7 +60,9 @@ buy.prototype.showDialogsPwd = function (callback) {
 			if(callback){
 				callback(result);
 			}
-			_this.dialogsPwd.close();
+
+			_this.dialogsPwd.hide();
+			_this.dialogsPwd.resetValue();
 		}
 	});
 

@@ -1,6 +1,6 @@
 /*--底部工具栏----rem--*/
 .tool_tab {position: fixed;left: 0;bottom: 0;z-index:100;width: 100%;line-height: .18rem;border-top: 1px solid #a0a0a0;font-size: .12rem;background: #fff;}
-.tool_tab li {float: left;width: 25%;margin: 0 4.167%;padding:.06rem 0;text-align: center;color: #929292;box-sizing:border-box;cursor: pointer;}
+.tool_tab li {float: left;width: 25%;padding:.06rem 0;text-align: center;color: #929292;box-sizing:border-box;cursor: pointer;}
 .tool_tab li em {display: block;width: .4rem;height: .32rem;margin: 0 auto;
 background:url('tool_ico.png') no-repeat;-webkit-background-size: 4.14rem 1.95rem;background-size: 4.14rem 1.95rem;}
 .tool_tab li span {display: block;text-align: center;}
@@ -11,3 +11,5 @@ background:url('tool_ico.png') no-repeat;-webkit-background-size: 4.14rem 1.95re
 .tool_tab li:nth-child(2).z-on em {background-position: -1.36rem -1.62rem;}
 .tool_tab li:nth-child(3) em {background-position: -2.4rem -1.28rem;}
 .tool_tab li:nth-child(3).z-on em {background-position: -2.4rem -1.62rem;}
+.tool_tab li:nth-child(4) em {background-position: -3.44rem -1.28rem;}
+.tool_tab li:nth-child(4).z-on em {background-position: -3.44rem -1.62rem;}

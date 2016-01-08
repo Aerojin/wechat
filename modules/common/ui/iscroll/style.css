@@ -1,0 +1,7 @@
+html, body{width: 100%;}
+.iscroll-loading,.iscroll-empty{font-size: 0.16rem;}
+.iscroll-loading{text-align: center; padding: 0.1rem 0;}
+.iscroll-none {padding-top: 2rem;font-size: .2rem;color: #999;text-align: center;}
+.ui-viewport{overflow: hidden; width: 100%;}
+.iscroll-empty .top1{padding: .6rem 0 !important;}
+.ui-scroll{display: -webkit-box; display: -ms-flexbox; display: flex; width: 100%; flex-direction: column;}

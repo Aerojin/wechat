@@ -5,6 +5,6 @@
 .ico-warn {background-position: -.7rem 0;background-size: 4.14rem 5.15rem;}
 .ico-fail {background-position: -1.4rem 0;background-size: 4.14rem 5.15rem;}
 
-.exit-mask .exit-btn {width:3.16rem;text-align:center;background:#fff;border-top: 1px solid #d1d1d1;-moz-border-radius: 0 0 5px 5px;border-radius: 0 0 5px 5px;z-index:9999}
+.exit-mask .exit-btn {width:3.16rem;text-align:center;background:#fff;border-top: 1px solid #d1d1d1;-moz-border-radius: 0 0 0.05rem 0.05rem;border-radius: 0 0 0.05rem 0.05rem;z-index:9999}
 .exit-mask .exit-btn li {float:left;width:50%;line-height:.54rem;font-size:.18rem;border-right:1px solid #ccc;cursor:pointer;box-sizing:border-box;}
 .exit-mask .exit-btn li:last-child {border-right: none;}

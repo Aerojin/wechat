@@ -3,26 +3,50 @@
  */
  var $ 				= require("zepto");
  var api			= require("api/api");
+ var xnData			= require("kit/xn_data");
  var validate 		= require("kit/validate");
  var select 		= require("ui/select/select");
  var idCardValidate	= require("kit/idcard_validate");
  var queryString 	= require("kit/query_string");
+ var moneyCny 		= require("kit/money_cny");
+ var redirect 		= require("kit/redirect");
  var smartbar		= require("ui/smartbar/smartbar");
  var backConfig		= require("ui/bank_config/bank_config");
  var loading 		= require("ui/loading_button/loading_button");
  var tipMessage		= require("ui/tip_message/tip_message");
+ var loadingPage	= require("ui/loading_page/loading_page");
+ var pay 			= require("pages/account/voucher/pay");
 
 var TIPS = {
 	SAVE_SUCCESS: "保存成功",
+	RECHARGE: "充值金额{0}元",
 	IDCARD_ERROR: "身份证格式错误",
-	SYS_ERROR: "网络异常,请稍后重试"
+	SYS_ERROR: "网络异常,请稍后重试",
+	LIMIT_TIPS: "该银行充值最高限额: 单笔{0}/单日{1}/{2}"
 };
 
 var accreditation = {
 
 	data: {},
 
-	isEdit: true,
+	STATE: {
+		"lian_lian": "lianlian",
+		"kuai_qian": "kuaiqian",
+		"1": "lianlian",
+		"2": "kuaiqian"
+	},
+
+	PAY_METHOD: {
+		"lianlian": "mobile_wap",
+		"kuaiqian": "quick_pay"
+	},
+
+	PAY_TYPE: {
+		"lianlian": "card_front",
+		"kuaiqian": "direct"
+	},
+
+	minAmount: 1,
 
 	init: function () {
 
@@ -31,17 +55,19 @@ var accreditation = {
 		this.ui.txtName 	= $("#txt-name");
 		this.ui.txtIdCard 	= $("#txt-idcard");
 		this.ui.txtCard 	= $("#txt-card");
+		this.ui.txtAmount	= $("#txt-amount");
 		this.ui.txtInput 	= $(".txt-input");
 		this.ui.btnSave		= $("#btn-save");
-		this.ui.btnChange	= $("#btn-change");
-		this.ui.btnRecharge	= $("#btn-recharge");
+		this.ui.divLimit  	= $("#div-limit");
+
 		this.ui.divSelect 	= $("#div-select");
 		this.ui.divCard 	= $("#div-card");
-		this.ui.edit 		= $("#edit");
-		this.ui.views 		= $("#views");
 		this.ui.btnCancel 	= $("#btn-cancel");
 
-		this.smartbar = smartbar.create();
+		this.smartbar 	 = smartbar.create();
+		this.voucherData = xnData.create({
+			key: xnData.STATE.DETAULT_KEY
+		});
 		
 		this.regEvent();
 		this.getBank();
@@ -60,25 +86,6 @@ var accreditation = {
 			return false;
 		}, this));
 
-		this.ui.btnChange.on("touchstart click", $.proxy(function () {
-			this.ui.edit.show();
-			this.ui.views.hide();
-
-			return false;
-		}, this));
-
-		this.ui.btnCancel.on("touchstart click", $.proxy(function () {
-			this.ui.edit.hide();
-			this.ui.views.show();
-
-			return false;
-		}, this));
-
-		this.ui.btnRecharge.on("touchstart click", $.proxy(function () {
-			window.location.href = "$root$/account/voucher.html";
-
-			return false;
-		},this));
 
 		this.ui.txtInput.on("input", function () {
 			_this.toggleButton();
@@ -100,6 +107,7 @@ var accreditation = {
 			this.ui.divCard.hide();
 		}, this));
 	},
+
 	check: function () {
 		var card = this.ui.txtIdCard.val().trim();
 
@@ -114,12 +122,14 @@ var accreditation = {
 
 		return true;
 	},
+
 	toggleButton: function () {
 		var name = this.ui.txtName.val().trim();
 		var card = this.ui.txtCard.val().trim();
 		var idCard = this.ui.txtIdCard.val().trim();
+		var amount = Number(this.ui.txtAmount.val().trim());
 
-		if(name.length >= 2 && card.length >= 15 && idCard.length >= 18){
+		if(name.length >= 2 && card.length >= 15 && idCard.length >= 18 && amount >= this.minAmount){
 			this.ui.btnSave.removeClass('oper-btn-gray');
 			return false;
 		}
@@ -132,30 +142,35 @@ var accreditation = {
 		};
 
 		options.success = function (e) {
-			var result = e.data;		
+			var result = e.data;
+				result.userName = result.userName.replace(/\d+/g,'');
 
-			result.userName = result.userName.replace(/\d+/g,'');
+			this.data.name  		= result["userName"];
+			this.data.idCardNo  	= result["identityCard"];
+			this.data.mobile 		= result["userMobile"];
+			this.data.bankCardNo	= result["bankCardNo"];
+			this.data.bankName 		= result["bankName"];
+			this.data.bankCode 		= result["bankCode"];
+			this.state 				= this.STATE[result["provider"]];
 
-			this.setDataByUI(result);
 			this.toggleButton();
-
-			if(this.check()){
-				this.ui.edit.hide();
-				this.ui.views.show();
-			}else{
-				this.ui.edit.show();
-				this.ui.views.hide();
-			}
+			this.setDataByUI(result);
 
 			//实名认证后,姓名,身份证不能修改
 			if(result.authentication){
 				this.ui.txtName.attr("readonly", "readonly");
 				this.ui.txtIdCard.attr("readonly", "readonly");
 			}
-			
+
+			if(validate.isEmpty(this.data.mobile)){
+				this.getMobileByUser();
+			}
+
+			loadingPage.hide();
 		};
 
 		options.error = function (e) {
+			loadingPage.hide();
 			this.toggleButton();
 		};
 
@@ -176,18 +191,11 @@ var accreditation = {
 		options.success = function (e) {
 			var result = e.data;
 
-			var data = $.extend(options.data,{
-				userName: options.data.name,
-				identityCard: options.data.idCardNo
-			});
-
-			this.setDataByUI(data);
-			tipMessage.show(TIPS.SAVE_SUCCESS, {delay: 1800});
-
-			this.ui.edit.hide();
-			this.ui.views.show();
-
-			this.loading.close();
+			this.data.bankCardNo	= options.data["bankCardNo"];
+			this.data.bankName 		= options.data["bankName"];
+			this.data.bankCode 		= options.data["bankCode"];
+			
+			this.submitInfo();
 		};
 
 
@@ -197,6 +205,24 @@ var accreditation = {
 		};
 
 		api.send(api.USER,"improveIdentityInfo", options, this);
+	},
+
+	getMobileByUser: function () {
+		var options = {
+			data: {}
+		};
+
+		options.success = function (e) {
+			var result = e.data || {};
+
+			this.data.mobile = result || "";
+		};
+
+		options.error = function (e) {
+
+		};
+		
+		api.send(api.USER, "getMobileByUser", options, this);
 	},
 
 	checkAccount: function () {
@@ -248,6 +274,7 @@ var accreditation = {
 			_this.data.bankcode = obj.bank_code;
 		};
 	},
+
 	getBank: function () {
 		var options = {
 			data: {}
@@ -269,28 +296,76 @@ var accreditation = {
 
 		api.send(api.ACCOUNT, "queryBankList", options, this);
 	},
+
 	setDataByUI: function(result) {
 		if(!validate.isEmpty(result.userName)){
 			this.ui.txtName.val(result.userName);	
-			this.ui.views.find(".lbl-name").text(result.userName);
 		}
 
 		if(!validate.isEmpty(result.identityCard)){
 			this.ui.txtIdCard.val(result.identityCard);	
-			this.ui.views.find(".lbl-idcard").text(result.identityCard);
 		}
 
 		if(!validate.isEmpty(result.bankCardNo)){
 			this.ui.txtCard.val(result.bankCardNo);	
-			this.ui.views.find(".lbl-cardno").text(result.bankCardNo);
 		}
 
 		if(!validate.isEmpty(result.bankCode)){
 			this.setSelect(result.bankCode);
-			this.ui.views.find(".card-ico").attr({src: backConfig.getBankIco(result.bankCode)});
 		}
+
+		this.ui.divLimit.text(this.getLimitText(result)).show();
+	},
+
+	submitInfo: function () {
+		var _this = this;
+		/*
+	        *获取支付信息
+	  		*@param {data} data 初始化参数集
+		    *@param {String} data.apiVersion    API版本
+		    *@param {String} data.userId        用户id
+		    *@param {String} data.name          用户真实姓名
+		    *@param {String} data.idCardNo      身份证号码
+		    *@param {String} data.mobile        手机号码
+		    *@param {String} data.totalAmount   充值金额
+		    *@param {String} data.bankCardNo    银行卡号
+		    *@param {String} data.bankCode      银行编码
+		    *@param {String} data.payMethod     支付渠道 快钱(wap、app) : quick_pay 连连wap : mobile_wap 连连app : mobile_app
+		    *@param {String} data.payType       支付类型 direct-快钱支付; card_front-连连支付
+		    *@param {String} data.itemName      商品描述
+		*/
+
+		var data = $.extend(this.data, {
+			isBound: false,
+			itemName: TIPS.RECHARGE.format(this.ui.txtAmount.val()),
+			payType: this.PAY_TYPE[this.state],
+			payMethod: this.PAY_METHOD[this.state],
+			totalAmount: moneyCny.toHao(this.ui.txtAmount.val()),
+			returnUrl: redirect.get()
+		});
+
+		if(this.data.mobile){
+			data.mobile = this.data.mobile;
+		}
+
+		redirect.clear();
+		this.voucherData.setData(data);
+		pay[window.state || this.state].pay.call(this, this.loading);		
+	},
+
+	getLimitText: function (result) {
+		var amount 		= moneyCny.toUnit(result.recordLimitAmount);
+		var dayAmount 	= moneyCny.toUnit(result.dayLimitAmount);
+		var monthAmount = Number(result.monthLimitAmount) > 0 ? moneyCny.toUnit(result.monthLimitAmount) : "单月无限额";
+
+		if(result.recordLimitAmount){
+			this.maxAmount = moneyCny.toYuan(result.recordLimitAmount);
+		}
+
+		return TIPS.LIMIT_TIPS.format(amount, dayAmount, monthAmount);
 	}
 
 };
 
+loadingPage.show();
 accreditation.init();

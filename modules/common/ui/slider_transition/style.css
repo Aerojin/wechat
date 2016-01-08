@@ -1,0 +1,22 @@
+.ui-scroller{
+	display: -webkit-box; 
+	display: -ms-flexbox; 
+	display: flex;
+	width: 100%;	
+	transform: translate3d(0px, 0px, 0px); 
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.ui-transition{
+	transition-property: transform;
+	-webkit-transition-property: transform;
+	/*transition-timing-function: cubic-bezier(0, 0, 0.25, 1);*/
+	transition-timing-function: cubic-bezier(0, 0, 0.25, 1);
+	-webkit-transition-timing-function: cubic-bezier(0, 0, 0.25, 1);
+	transition-duration: 350ms;
+	-webkit-transition-duration: 350ms;
+}
+
+.ui-item{min-width: 100%; max-width: 100%;display: block;}
+.ui-viewport{overflow: hidden; width: 100%;}

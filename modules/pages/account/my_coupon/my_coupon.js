@@ -14,14 +14,30 @@ var coupon = {
 	init: function () {
 		
 		this.ui = {};
+		this.ui.btnTyj		= $("#btn-tyj");
+		this.ui.btnHbao		= $("#btn-hbao");
 		this.ui.tyj 		= $("#lbl-tyj");
 		this.ui.redPacket 	= $("#lbl-redpacket");
+		this.ui.ulCoupon	= $("#ul-coupon");
 
 		this.queryString = queryString() || {};
 
 		this.smartbar 	= smartbar.create();
 
+		this.regEvent();
 		this.getData();
+		this.getUnreadFlag();
+	},
+
+	regEvent:function(){
+		this.ui.btnHbao.on("tap",function(){
+			location.replace("$root$/account/my_redpacket.html");
+		});
+
+		this.ui.btnTyj.on("tap",function(){
+			location.replace("$root$/account/my_tyj.html");
+		});
+
 	},
 
 	getData:function(){
@@ -44,6 +60,33 @@ var coupon = {
 		};
 
 		api.send(api.ACTIVITY, "getUserAbleReawards", options, this);
+	},
+
+	getUnreadFlag: function(){
+		var options = {};
+
+		options.data = {
+			userId: user.get("userId")
+		};
+
+		options.success = function (e) {
+			var result = e.data || {};
+
+			if(result.redPackMark){
+				this.ui.ulCoupon.children().eq(0).addClass("active");
+			}
+
+			if(result.experienceMark){
+				this.ui.ulCoupon.children().eq(1).addClass("active");
+			}
+
+		};
+
+		options.error = function (e) {
+
+		};
+
+		api.send(api.ACCOUNT, "getUnReadExperienceAndRedMark", options, this);
 	}
 
 

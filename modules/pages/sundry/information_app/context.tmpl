@@ -1,0 +1,20 @@
+{{each data}}
+	{{if $index == 0}}
+		<div class="hd-img">
+			<a href="{{$value.redirectUrl}}">
+				<p class="tit-img">{{$value.title}}</p>
+				<img src="{{$value.imgUrl}}" style="width: 3.74rem; height: 1.8rem;" alt="" />
+			</a>
+		</div>
+	{{else}}
+		<div class="sub_msg_list">
+			<a href="{{$value.redirectUrl}}" class="sub_msg_item">
+			<span class="thumb"><img src="{{$value.imgUrl}}" style="width: 0.9rem; height: 0.45rem;" alt="" /></span>
+			<div class="news-info">
+				<h4>{{$value.title}}</h4>
+				<p>{{$value.date}}</p>
+			</div>
+			</a>
+		</div>
+	{{/if}}
+{{/each}}

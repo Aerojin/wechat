@@ -8,13 +8,13 @@
 .manage-list li,.list-copy {position:relative;border-top:1px solid #e8e8e8;line-height: .5rem;font-size: .16rem;}
 .manage-list li:first-child{border:0}
 .manage-list li a,.list-copy a {display:block;margin-right: .18rem;background:url('link-icon.png') no-repeat right center;background-size:.09rem .15rem}
+.manage-list li .record-num {float: right;margin-right: .2rem;color: #454545;}
 .buy-list li {padding-left: 1.6rem;}
 .pro_tips {padding:0 .16rem;font: .14rem/.48rem "Microsoft YaHei";color: #939393;}
 .buy-list li.inp-buy {padding-left: 0;}
 .recharge-btn a {display: inline-block;padding: 0 .2rem;color: #72b5fe;}
 
-
-.hd-reds {height: 1rem;padding: 0.15rem .35rem .05rem .35rem;background: #da554e;}
+.hd-reds {height: 1rem;padding: 0.15rem .35rem .05rem .2rem;background: #da554e;}
 .hd-ebox-two {padding: .06rem 0;font-size: .18rem;color: #fff;}
 .hd-ebox-two span {float: right;display: block;position: relative;padding-left: .24rem;font-size: .14rem;}
 .hd-ebox-two span:before {content: "";position: absolute;left: 0;top: 0;width: .22rem;height: .22rem;
@@ -112,3 +112,33 @@ background-size: 100% 100%;}
 	-webkit-background-size: 4.14rem 5.59rem;
 	background-size: 4.14rem 5.59rem;
 }
+
+/*common*/
+.manage-a .acc-num {float: right;color: #454545;margin-right: .2rem;}
+.manage-a li .inp-tit {color: #9d9d9d;}
+.operate{margin:0 .1rem}
+.oper-btn{display:block;line-height:.48rem;background:#da554e;color:#FFF;text-align:center;font-size:.19rem;border-radius:5px;}
+.oper-btn-gray {background:#ccc !important;}
+.ft-operate-box {position: fixed;left: 0;bottom: 0;z-index:999;width:100%;}
+.ft-operate-box .oper-btn {border-radius: 0;}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+input[type="number"]{-moz-appearance:textfield;}
+/*common end*/
+
+.hqb-buy {position: relative;padding: .15rem .1rem;background: #da554e;}
+.hqb-buy .hqb-h3 {padding-bottom: .12rem;font-size: .24rem;font-weight: bold;color: #fff;}
+.hqb-buy p {font-size: .16rem;line-height: .28rem;color: #fff;}
+.hqb-buy .ico-check {display:block;position: absolute;right: .1rem;top: .2rem;padding-left: .26rem;font-size: .16rem;line-height: .22rem;color: #fff;}
+.hqb-buy .ico-check:before {content: "";position: absolute;left: 0;top: 0;width: .22rem;height: .22rem;
+background:url('ico-check.png') no-repeat;background-size: 100% 100%;-webkit-background-size: 100% 100%;}
+.cash-input {position:relative;padding: .1rem .2rem;border: 1px solid #ccc;border-width: 1px 0;background: #fff;}
+.cash-input input {display: block;width: 100%;height: .3rem;vertical-align: middle;font-size: .15rem;color: #333;border: none;background: none;}
+.cash-input p {position: absolute;left: 0;bottom: -.32rem;padding: 0 4.8%;width: 91.4%;color:#f05a39;font-size: .14rem;}
+
+.t-tips {padding: .1rem;font-size: .14rem;color: #666;}
+.cash-input .b-tips {padding: 0 .1rem;color: #666;}
+

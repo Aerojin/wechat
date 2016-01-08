@@ -1,101 +1,80 @@
+/**
+ * @require style.css
+ */
 var $ 				= require("zepto");
 var appApi 		 	= require("kit/app_api");
+var redirect 		= require("kit/redirect");
 var eventFactory 	= require("base/event_factory");
-var dialogs 		= require("ui/dialogs/dialogs");
-var keyboard 		= require("ui/keyboard/keyboard");
 
-
-var dialogsPwd = function (options) {
-
+var keyboard = function (options) {
+	this.isShow 	= false;
+	this.value 		= options.value || [];
+	this.maxLength 	= options.maxLength || 6;
 	this.container 	= options.container || $("body");
-	this.onClose 	= options.onClose || this.onClose;
-	this.onUpdate 	= options.onUpdate || this.onUpdate;
+	this.onClose 	= options.onClose || function () {};
+	this.onUpdate 	= options.onUpdate || function () {};
 
-	this.init();
-};
+	this.init = function () {
+		this.ui = {};
+		this.ui.wrap 			= $(__inline("context.tmpl"));
+		this.ui.btnClose 		= this.ui.wrap.find(".btn-close");
+		this.ui.btnBackspace 	= this.ui.wrap.find(".btn-backspace");
+		this.ui.btnNumber   	= this.ui.wrap.find(".btn-number");
+		this.ui.btnForget   	= this.ui.wrap.find(".btn-forget");
+		this.ui.loading 	 	= this.ui.wrap.find(".loading-wrap");
+		this.ui.context 	 	= this.ui.wrap.find(".loading-context");
+		this.ui.keyboard   		= this.ui.wrap.find(".keyboard-wrap");		
+		this.ui.pwdLi 	 		= this.ui.wrap.find(".div-context li");
+		this.ui.btnLi 			= this.ui.wrap.find("li");
+		this.ui.input 			= $("input");
 
-dialogsPwd.prototype.init = function () {
-	this.ui = {};
-	this.ui.body 	= $("body");
-	this.ui.html 	= $("#html");
-	this.ui.input 	= $("input");
+		this.regEvent();
+		this.ui.wrap.appendTo(this.container);	
+		this.show();		
 
-	this.template = {};
-	this.template.context = __inline("context.tmpl");
+		return this;
+	};	
 
-	//隐藏系统滚动条, 解决自定义键盘定位问题
-	this.ui.body.scrollTop(0);
-	this.ui.html.css({overflow: "hidden"});
+	this.regEvent = function () {
+		var _this = this;
 
-	this.removeBlur();
 
-	setTimeout($.proxy(function () {
-		this.createDialogs();	
-	}, this), 100);
-	
-};
+		this.ui.btnLi.on("touchstart", function () {
+			$(this).addClass('active');
 
-dialogsPwd.prototype.removeBlur = function () {
-	for(var i = 0; i < this.ui.input.length; i++){
-		this.ui.input.get(i).blur();
-	}
-};
+			//return false;
+		});
 
-dialogsPwd.prototype.createDialogs = function () {
-	var _this = this;
-	var context = this.template.context;
+		this.ui.btnLi.on("touchend", function () {
+			$(this).removeClass('active');
 
-	this.dialogs = dialogs.create({
-		context: context,
-		onReady: function (dom) {
-			
-			_this.ui.wrap 		= dom;
-			_this.ui.li 		= dom.find("li");
-			_this.ui.context 	= dom.find('.div-context');
-			_this.ui.btnCancel 	= dom.find(".btn-cancel");
-			_this.ui.btnSubmit 	= dom.find(".btn-submit");
-			_this.ui.btnForget 	= dom.find(".btn-forget");
+			//return false;
+		});
 
-			_this.keyboard = new keyboard({
-				onChange: function (result) {
-					_this.change(result);
-				}
-			});
+		this.ui.btnNumber.on("touchstart", function () {
+			_this.push($(this).data("number"));
 
-			_this.regEvent();
-			_this.keyboard.show();
-		}
-	});
-};
+			return false;
+		});
 
-dialogsPwd.prototype.regEvent = function () {
-	var _this = this;
+		this.ui.btnClose.on("touchstart click", $.proxy(function () {
+			this.hide();
+			this.onClose();
 
-	this.ui.context.on("touchstart", $.proxy(function () {
-		this.keyboard.show();
+			return false;
+		}, this));
 
-		return false;
-	}, this));
+		this.ui.btnBackspace.on("touchstart", $.proxy(function () {
+			this.pop();
 
-	this.ui.btnCancel.on("touchstart", $.proxy(function () {
-		this.close();
+			return false;
+		}, this));
 
-		return false;
-	}, this));
-
-	this.ui.btnSubmit.on("touchstart", $.proxy(function () {
-		if(this.check()){
-			this.onUpdate(this.keyboard.getValue());
-		}
-
-		return false;
-	}, this));
-
-	//防止用户误点
-	setTimeout(function () {
-		_this.ui.btnForget.on("touchstart", $.proxy(function () {			
+		this.ui.btnForget.on("touchstart", $.proxy(function () {			
 			eventFactory.exec({
 				wap: function () {
+					//设置交易密码后, 回跳的页面;
+					redirect.set(window.location.href);
 					window.location.href = "$root$/account/findpay_password1.html";
 				},
 				app: function () {
@@ -103,60 +82,130 @@ dialogsPwd.prototype.regEvent = function () {
 				}
 			});
 		}, _this));
-	}, 1200);
-};
+	};
 
-dialogsPwd.prototype.close = function (result) {
-	this.dialogs.close();
-	this.keyboard.close();
-	this.ui.html.css({"overflow": ""});
+	this.showLoading = function () {
+		this.ui.loading.show();
+		this.ui.context.hide();
+	};
 
-	this.onClose();
-};
+	this.hideLoading = function () {
+		this.ui.loading.hide();
+		this.ui.context.show();
+	};
 
-dialogsPwd.prototype.show = function () {
-	this.ui.wrap.show();
-	this.keyboard.show();
-};
+	this.show = function () {
+		var _this = this;
 
-dialogsPwd.prototype.change = function (result) {
-	this.ui.li.removeClass('z-on');
+		if(this.isShow){
+			return;
+		}
+		
+		this.removeBlur();
+		this._show();
 
-	for(var i = 0; i < result.length ; i++){
-		this.ui.li.eq(i).addClass('z-on');
+		return this;
+	};
+
+
+	this._show = function () {		
+		this.hideLoading();
+		this.ui.wrap.show();
+		this.ui.keyboard.css({
+			bottom: -this.ui.keyboard.height()
+		});
+
+		this.ui.keyboard.animate({
+			bottom: "0px"
+		}, 200, function () {
+			//		
+		});
+
+		this.isShow = true;
+		this.ui.loading.css({height: this.ui.keyboard.height()});
+	};
+
+	this.hide = function (callback) {
+		var _this = this;
+
+		if(!this.isShow){
+			return ;
+		}
+
+		this.ui.keyboard.css({
+			bottom: "0px"
+		});
+
+		this.ui.keyboard.animate({
+			bottom: -this.ui.keyboard.height()
+		}, 200, function () {
+			_this.ui.wrap.hide();
+
+			if(callback){
+				callback();
+			}
+		});
+
+		this.isShow = false;
+	};
+
+	this.removeBlur = function () {
+		for(var i = 0; i < this.ui.input.length; i++){
+			this.ui.input.get(i).blur();
+		}
+	};
+
+	this.close = function () {
+		var _this = this;
+
+		this.isShow = true;
+		this.hide(function () {
+			_this.ui.wrap.remove();			
+		});
+	},
+
+	this.push = function (number) {
+		if(this.value.length < this.maxLength){
+			this.value.push(number);
+		}
+
+		this.change(this.getValue());
+	};
+
+	this.pop = function () {
+		this.value.pop();
+
+		this.change(this.getValue());
 	}
 
-	this.toggleButton();
-};
+	this.getValue = function () {
+		return this.value.join("");
+	};
 
-dialogsPwd.prototype.toggleButton = function () {
-	if(this.keyboard.getValue().length >= 6){
-		this.ui.btnSubmit.removeClass("btn-gray");
+	this.resetValue = function () {
+		this.value = [];
+		this.change(this.getValue());
+	};
 
-		return;
-	}
+	this.change = function (value) {
+		this.ui.pwdLi.removeClass('z-on');
 
-	this.ui.btnSubmit.addClass("btn-gray");
-};
+		for(var i = 0; i < value.length ; i++){
+			this.ui.pwdLi.eq(i).addClass('z-on');
+		}
 
-dialogsPwd.prototype.check = function () {
-	if(this.ui.btnSubmit.hasClass('btn-gray')){
-		return false;
-	}
+		if(value.length >= this.maxLength){
+			//this.ui.context.hide();
+			//this.ui.loading.show();
+			this.onUpdate(value);
+		}
+	};
 
-	return true;
-};
-
-dialogsPwd.prototype.onUpdate = function () {
-
-};
-
-dialogsPwd.prototype.onClose = function () {
-
-};
+	return this.init();
+}
 
 module.exports = { 
 	create: function (options) {
-		return new dialogsPwd(options || {});
+		return new keyboard(options || {});
 	}	
 };

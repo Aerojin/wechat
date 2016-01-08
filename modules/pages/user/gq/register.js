@@ -29,6 +29,8 @@ var register = {
 		this.ui.btnDisSend 		= $("#btn-dis-send");
 		this.ui.btnShowPass 	= $("#btn-showpass");
 		this.ui.sliderContainer	= $("#slider-container");
+		this.ui.txtImgCode		= $("#txt-imgCode");
+		this.ui.btnCode			= $("#btn-code");
 		
 		this.queryString = queryString() || {};
 		this.ui.txtMobile.val(this.queryString.mobile || "");
@@ -45,7 +47,9 @@ var register = {
 			btnSubmit: this.ui.btnSubmit,
 			btnSend: this.ui.btnSend,
 			btnDisSend: this.ui.btnDisSend,
-			btnShowPass: this.ui.btnShowPass
+			btnShowPass: this.ui.btnShowPass,
+			txtImgCode: this.ui.txtImgCode,
+			btnCode: this.ui.btnCode
 		});
 
 		this.views.onCheckMobile = function (result) {

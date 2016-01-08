@@ -1,4 +1,5 @@
 // npm install [-g] fis3-hook-module
+
 /*
 ****************基础配置****************
 {
@@ -66,19 +67,10 @@ fis.match('/views/images/icon/*.*', {
 });
 
 /*设置js压缩插件*/
-
 fis.match('*.js', {
   // fis-optimizer-uglify-js 插件进行压缩，已内置
   optimizer: fis.plugin('uglify-js')
 });
-
-
-
-
-
-
-
-
 
 
 
@@ -146,6 +138,13 @@ fis.match('views/(**.html)', {
 fis.match('views/pages/index.html', {
     release: 'index.html'
 });
+
+/*配置domain*/
+/*
+fis.match('*', {
+    domain: '/app'
+});
+*/
 
 /*
 fis.match('*.{html,tmpl}', {

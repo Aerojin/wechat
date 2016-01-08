@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>新手福利</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
+</head>
+<body>
+	<div class="wrap">
+		<ul class="toplogo dp-box">
+			<li><img src="/views/images/yy/logo-qgz.png"></li>
+			<li><img src="/views/images/yy/logo-baidu.png"></li>
+		</ul>
+		<div class="ban"><a href="javascript:void(0);"><img src="/views/images/yy/banner1.jpg" alt=""/></a></div>
+		
+		<div class="form-box">
+			<ul class="reglist mgt2">
+				<li class="ico-cellphone clearfix">
+					<div class="border-box">
+						<span class="ico"></span>
+						<input id="txt-mobile" type="tel" class="inp" placeholder="请输入手机号码" />
+					</div>
+				</li>
+				<li class="ico-password clearfix">
+					<div class="border-box">
+						<span class="ico"></span>
+						<input id="txt-password1" class="inp" type="password" maxlength="15" placeholder="请设置您的登录密码">
+						<input id="txt-password2" class="inp" type="text" placeholder="请设置您的登录密码" style="display:none;">
+						<a id="btn-showpass" href="javascript:void(0);" data-show="0" class="btn-show">显示</a>						
+					</div>
+				</li>
+				<li class="ico-security clearfix">
+					<div class="border-box">
+						<span class="ico"></span>						
+						<input id="txt-imgCode" class="inp" type="text" maxlength="11" autocomplete="off" placeholder="输入右侧验证码">
+						<span class="img-security">
+							<img id="btn-code" class="img_code" src="http://m.xiaoniuapp.com/api/wap/randomImageCode?appVersion=1&moduleId=REGISTERIMAGE&source=web">
+						</span>
+					</div>
+				</li>
+				<li class="ico-sms clearfix">
+					<div class="border-box">
+						<span class="ico"></span>
+						<input id="txt-code" type="text" class="inp" maxlength="10" autocomplete="off" placeholder="请输入验证码" />
+					</div>
+					<a id="btn-dis-send" href="javascript:void(0);" class="btn-get oper-btn-gray" style="display:none;">重试(60)</a>
+					<a id="btn-send" href="javascript:void(0);" class="btn-get">获取验证码</a>
+				</li>
+				<li class="ico-cellphone clearfix" style="display:none;">
+					<div class="border-box">
+						<span class="ico"></span>
+						<input id="txt-recommend" class="inp" type="tel" maxlength="11" autocomplete="off" placeholder="请输入推荐人手机号">
+					</div>
+				</li>
+			</ul>
+			<div class="servive-pact mgt2">
+				<span  id="btn-pact" class="hover pact-ico" data-state="1"></span>同意<a href="$root$/agreement/qgz_server_protocol.html" class="text-blue">《小牛钱罐子用户服务协议》</a>
+			</div>
+			<a  id="btn-submit" class="oper-btn mgt2" href="javascript:void(0)">立即注册</a>
+			<div class="reLogin mgt2">已有账号？<a href="login.html">立即登录</a></div>
+
+		</div>
+		
+		<div class="content-box mgt2">	
+			<h3 class="item-h3"><span>投资项目</span></h3>
+			<div class="item-block">
+				<div class="zhishu-box zhishu-hot">
+					<div class="zhishu-tit clearfix"><p>活期宝<p></div>
+					<div class="zhishu-cont">
+						<div class="zhishu-vip">
+							<div class="z-txt">预期年化收益率</div>
+							<div class="z-num"><div class="vip-num-box">5.5%~11%</div></div>
+						</div>
+						<div class="zhishu-vip-limit"><p class="z-txt">起投金额</p><p class="z-num">100元起投</p></div>
+						<div class="sold-hot"><div class="scale">hot</div></div>
+					</div>
+				</div>
+				
+				<div class="zhishu-box">
+					<div class="zhishu-tit clearfix"><p>天添牛A款90天期<p></div>
+					<div class="zhishu-cont">
+						<div class="zhishu-vip">
+							<div class="z-txt">预期年化收益率</div>
+							<div class="z-num"><div class="vip-num-box">7.8%</div></div>
+						</div>
+						<div class="zhishu-vip-limit"><p class="z-txt">起投金额</p><p class="z-num">100元起投</p></div>
+					</div>
+				</div>
+			
+			</div>
+			<div class="text-privacy mgt2 text-c fs-16 ">
+				<p>小牛资本旗下<span class="text-red">百亿</span>规模<span class="text-red">百万</span>用户选择平台</p>
+				<p class="mgt1 fs-14 text-gray">所有投资或活动  以实际收入为准</p>
+				<p class="mgt1 fs-14 text-gray">小牛钱罐子版权所有 客服电话: 400-998-9090 </p>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		require('pages/user/nw_register/channel');
+		require('pages/user/yy/views');
+	</script>
+	<script type="text/javascript">
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?695745be5945955b87bc170eed465fe5";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</body>
+</html>

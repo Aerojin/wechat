@@ -1,0 +1,131 @@
+body{background: #e6e6e6;font-size: .16rem;}
+/*好友红包1--和好友红包2--公用* 
+*start*/
+
+/****打开手气红包*start**/
+
+.lineHdBox {
+   background: #fff;
+   text-align: center;
+   padding-bottom: .2rem;
+}
+.lineHdBox img{
+   width: 100%;
+   display:block;
+}
+.lineHdBox p{
+   padding: .2rem 0 0 0;
+}
+.lineHdBox p.fost{
+   font-size: .2rem;
+}
+.lineHdBox p span{
+   font-size: .36rem;
+}
+.lineHdBox p a{
+
+   color: #7cbce4;
+}
+/**打开手气红包*end**/
+
+
+
+/**红包规则说明部分***/
+.red_rates{
+   background: #fff;
+   padding: 0 .1rem .3rem .1rem;
+}
+.red_rates h5{
+   padding: .1rem 0;
+   font-size: .18rem;
+   color: #333;
+}
+.red_rates ul li{
+   position: relative;
+   color: #999;
+
+}
+.red_rates ul li span{
+   position: absolute;
+   left: 0;top:.04rem;
+}
+.red_rates ul li p{
+
+   padding-left:.8rem;
+   line-height: .26rem;
+
+}
+/**
+*好友红包1和好友红包2公用*
+*end*/
+
+
+/**好友列表**/
+
+.FriendPadding{
+   padding: .1rem 0;
+}
+.Friend_list li{
+   position: relative;
+   padding: .3rem 0;
+   background: #fff;
+   border-bottom: 1px solid #e6e6e6;
+}
+
+.Friend_list li .hdimg{
+   position: absolute;
+   left: .2rem;
+   top:.14rem;
+
+}
+.Friend_list li p span,.Friend_list li p em,.Friend_list li p i{
+   display: block;
+   font-style: normal;
+}
+.Friend_list li p i.tright{
+   text-align: right;
+}
+.Friend_list li p span{
+   font-size: .18rem;
+}
+.Friend_list li p em{
+   font-size: .26rem;
+   color: #e34545;
+   text-align: right;
+}
+
+.Friend_list li .hdimg img{
+   width:.6rem;
+}
+
+.Friend_list li .hdname{
+   padding-left: 1rem;
+}
+.Friend_list li .hdmoney,.Friend_list li .after_nmb,.Friend_list li .yaoBtn{
+   position: absolute;
+   right:.2rem;
+   top:.26rem;
+}
+.Friend_list li .after_nmb{
+   top:.36rem;
+}
+.Friend_list li .after_nmb em{
+   font-size: .2rem;
+}
+.Friend_list li .yaoBtn{
+   top:.38rem;
+}
+.Friend_list li .yaoBtn a{
+   background: #e34545;
+   padding:.06rem .1rem;
+   border-radius: .06rem;
+   color: #fff;
+}
+
+
+
+.Friendborder{
+   border-top: .1rem solid #e6e6e6;
+    border-bottom: .1rem solid #e6e6e6;
+}
+

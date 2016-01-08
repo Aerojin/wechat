@@ -5,7 +5,6 @@
 	<title>消息中心</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
 	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
@@ -14,12 +13,18 @@
 	-->
 	<style type="text/css">
 		.scroll-box {overflow-y: scroll;}
-		.profit-none {padding-top: 2rem;font-size: .2rem;color: #999;text-align: center;}
+		.profit-none {padding-top: 2rem;font-size: .2rem;color: #999;}
 		.waterfall-login {font-size: 0.16rem; text-align: center;padding-top: 0.20rem; padding-bottom: 0.20rem;}
+
+		.context{padding: .1rem 0.2rem; display: none;}
+		.title{margin: .1rem 0;font-size: .20rem;color:#333;  padding: 0.1rem 0;}
+		.time{margin: 0 0 .1rem 0;font-size: .15rem;color:#333; text-align: left; border-bottom: solid 1px #ccc; padding-bottom: 0.1rem;}
+		.content{color:#555;font-size: .12rem; margin-top: 0.25rem; line-height: 0.3rem;}
 	</style>
+	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
-	<div class="wrap">
+	<div class="wrap" style="padding-bottom: 0px;">
 		<article id="loading">
 			<div class="scroll-box">
 				<div>
@@ -33,14 +38,14 @@
 			</div>
 		</article>
 	</div>
-	<div id="context" style="padding: .1rem; display: none;" class="wrap-item">
+	<div id="context" class="wrap-item context">
 		<!-- 标题 -->
-		<h3 style="margin: .1rem 0;font-size: .14rem;color:#333;" id="titleId"></h3>
+		<h3 class="title" id="titleId"></h3>
 		
 		<!-- 时间 -->
-		<h4 style="margin: 0 0 .1rem 0;font-size: .12rem;color:#333;" ><span id="dateId"></span> 来源： <span style="color:#e3a869" id="sourceId"></span></h4>
+		<h4 class="time"><span id="dateId"></span> 来源： <span style="color:#e3a869" id="sourceId"></span></h4>
 		<!-- 正文 -->
-		<p style="color:#555;font-size: .12rem" id="contentId">
+		<p class="content" id="contentId">
 		</p>
 	</div>
 	<script type="text/javascript" src="libs/mod.js" data-loader></script>

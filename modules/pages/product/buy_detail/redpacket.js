@@ -5,7 +5,7 @@ var artTemplate 	= require("artTemplate");
 var moneyCny 		= require("kit/money_cny");
 var appApi 		 	= require("kit/app_api");
 var tipMessage		= require("ui/tip_message/tip_message");
-var scroll 			= require("scroll");
+var scroll 			= require("kit/scroll");
 
 var STATUS = {
 	OVERDUE: "OVERDUE",

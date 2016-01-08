@@ -12,9 +12,11 @@
  		this.ui.pageWrap = $("#pageWrap");
  		//this.ui.pageWrap.height(document.documentElement.clientHeight);
 
+ 		/*
  		fullpage.create(this.ui.pageWrap.get(0), {
  			loop:true
  		});
+		*/
  		
  		this.regEvent(); 		
  	},

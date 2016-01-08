@@ -17,6 +17,20 @@ api.getNewsInfo = function (data) {
 	};
 };
 
+/**
+ * 新闻信息查询
+ * @param {data} data 初始化参数集
+ * @param {String} data.apiVersion    API版本
+ * @param {String} data.pageSize      每页显示多少
+ * @param {String} data.pageIndex     当前页
+ */
+api.queryNewsMedia = function (data) {
+	return {
+		requestBody: data,
+		requestUrl: "/api/news/queryNewsMedia"
+	};
+};
+
 module.exports = {
 	api: api,
 	moduleName: moduleName

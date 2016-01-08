@@ -12,10 +12,11 @@ var pay = {
 
 			options.success = function (e) {
 				var result = e.data;
-
+				
+				loading.close();
 				this.voucherData.clear();
 
-				loading.close();
+				
 				$("#req-data").val(result.payParaMap.req_data);
 				$("#form-pay").attr("action", result.payUrl);
 
@@ -31,7 +32,7 @@ var pay = {
 		}
 	},
 	kuaiqian: {
-		pay: function (loading) {			
+		pay: function (loading) {
 			window.location.href = "$root$/account/kuaiqian_pay.html";
 		}
 	}

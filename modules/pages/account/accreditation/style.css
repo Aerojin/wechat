@@ -26,6 +26,9 @@
 .inp-list li .acc-img img {display: block;}
 .acc-bank {width:1.12rem;height:.2rem;margin-top:.15rem;text-align: right;}
 
+.view-limit {padding-left: .18rem ;text-align: left;font-size: .16rem;}
+.view-limit a {color: #7C9CFB;}
+
 .picc {text-align: center;color: #939393;font-size: .14rem;}
 .picc .ico1 {display: inline-block;padding-left: .2rem;
 background:url(ico-protect.png) no-repeat left center;

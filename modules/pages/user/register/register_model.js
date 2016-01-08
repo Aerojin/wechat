@@ -41,7 +41,9 @@ model.prototype.sendCode = function (param, context) {
 	var options = {};
 
 	options.data = {
-		mobile: param.mobile
+		mobile: param.mobile,
+		moduleId: "REGISTERIMAGE",
+		imageCode: param.imageCode
 	};
 
 	options.success = function (e) {
@@ -58,7 +60,7 @@ model.prototype.sendCode = function (param, context) {
 		}
 	};
 
-	api.send(api.USER, "sendSmsCodeByRegister", options, this);
+	api.send(api.USER, "sendSmsCode", options, this);
 };
 
 model.prototype.checkMobile = function (param, context) {

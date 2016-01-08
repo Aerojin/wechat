@@ -1,11 +1,18 @@
-.hqb-tit {padding: .22rem .2rem .18rem .2rem;background: #da554e;}
-.hqb-tit li {float: left;font: .14rem "Microsoft YaHei";color: #fff;}
-.hqb-tit li:last-child{float: right}
-.hqb-tit li .note-num {display:block;font-size: .27rem;}
+
+header{position: fixed; width: 100%; left: 0px; top: 0px; z-index: 2;}
+.ui-viewport{padding-top: 2.02rem; background: #fff;}
+.hqb-tit {padding: .2rem .15rem;background: #da554e;}
+.hqb-tit li {float: left;font-size: .16rem;color: #fff;}
+.hqb-tit li .note-num {display:block;font-size: .28rem;}
+.hqb-tit li.h-profit-total {float: right;padding-top: .3rem;}
+.head-box .balance {padding: 0 .15rem;height: .5rem;line-height: .5rem;color: #fff;overflow: hidden;background:#c9504a;}
+.head-box .balance .tri {right: .2rem;top: 50%;margin-top: -.09rem;width: .1rem;height: .18rem;}
+.head-box .balance a.dp-block {color: #fff;} 
+
 
 .invest-main .wrap_box,.invest-main .m-box {height: 5rem;}
 .invest-tabbar {height: .52rem;line-height:.52rem;border:1px solid #d4d4d4;border-width: 1px 0;background: #fff;font-size: .162rem;}
-.invest-tabbar li {float: left;width: 50%;position: relative; text-align: center;}
+.invest-tabbar li {float: left;width: 33.33%;position: relative; text-align: center;}
 .invest-tabbar li:before {content: "";position: absolute;right: 0;top: 10%;width:0;height: 80%;border-right: 1px dotted #d7d7d7;}
 .invest-tabbar li:last-child:before {display: none;}
 .invest-tabbar li.active:after {content: "";position: absolute;left: 50%;bottom: -1px;z-index: 10;width: 70%;margin-left: -35%;height: .04rem;background: #da554e;}
@@ -28,10 +35,17 @@
 .box_transfer {float: right;}
 .box_block3 a {color: #da554e;}
 
-.waterfall-container{background: #fff;}
+/*.iscroll-container{background: #fff;}*/
 /*.waterfall-empty{background: #f2f2f2;}*/
 .manage-list{border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding-left: .2rem;background:#FFF;font-size: .16rem;}
 .manage-list li,.list-copy {position:relative;border-top:1px solid #e8e8e8;line-height: .5rem;font-size: .16rem;}
 .manage-list li:first-child{border:0}
 .manage-list li a,.list-copy a {display:block;margin-right: .18rem;background:url('../images/link-icon.png') no-repeat right center;background-size:.09rem .15rem}
 
+body{
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  -ms-user-select:none;
+  -khtml-user-select:none;
+  user-select:none;
+}

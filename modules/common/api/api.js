@@ -9,7 +9,7 @@ var userApi     = require("user");
 var productApi  = require("product");
 var accountApi  = require("account");
 var activityApi = require("activity");
-var sundryApi     = require("sundry");
+var sundryApi   = require("sundry");
 
 var api = {
 	call: function (api, data, options, context) {
@@ -55,6 +55,7 @@ var api = {
             url: url,
             method: httpMethod,
             data: this.addVersion(data),
+            onStateChange: options.onStateChange,
             timeout: 20000
         });
 	},

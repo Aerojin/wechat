@@ -1,0 +1,36 @@
+
+<div class="waterfall-item">
+	<div class="which-day">{{datetime}}</div>
+	
+	{{if currentInvestProfit && currentInvestProfit.profitName}}
+	<div class="item-li">
+		<h3 class="tit-words">{{currentInvestProfit.profitName}}</h3>
+		<div class="line-box">
+			<h4>收益回款：<span class="text-red">+{{currentInvestProfit.profit | moneyFormat}}</span></h4>
+			<div class="h-tips"></div>
+		</div>
+	</div>
+	{{/if}}
+
+	{{if fixInvestProfit && fixInvestProfit.profitName}}
+	<div class="item-li">
+		<h3 class="tit-words">{{fixInvestProfit.profitName}}</h3>
+		<div class="line-box">
+			<h4>预期收益：<span class="text-red">+{{fixInvestProfit.profit | moneyFormat}}</span></h4>
+			<div class="h-tips">(根据当前持有的定期投资对应的年化收益率计算。总收益将在投资到期时回款。）</div>
+		</div>
+	</div>
+	{{/if}}
+
+	{{if otherProfit && otherProfit.length > 0}}
+	<div class="item-li">
+		<h3 class="tit-words">其他收益</h3>
+		{{each otherProfit as other}}
+		<div class="line-box">
+			<h4>{{other.profitName}}<br />收益金额：<span class="text-red">{{other.profit | moneyFormat}}</span></h4>
+		</div>
+		{{/each}}
+	</div>
+	{{/if}}
+
+</div>

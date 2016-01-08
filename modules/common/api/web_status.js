@@ -43,7 +43,8 @@ webStatus.prototype.getMsgByCode = function(data) {
         	if(this.isLoginRedirect){
 				eventFactory.exec({
 					wap: function () {
-						window.location.href = "$root$/user/login.html";
+						//记录当前页面, 当登录成功后跳回到此页
+						window.location.href = "$root$/user/login.html?redirect=" + encodeURIComponent(window.location.href);
 					},
 					app: function () {
 						window.location.href = appApi.getLogin();

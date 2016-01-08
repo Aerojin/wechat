@@ -8,8 +8,6 @@ module.exports = {
 			return str;
 		}
 
-
-
 		var num = str.substring(0, index)
 		var tmp = str.substring(index + 1);
 
@@ -21,6 +19,6 @@ module.exports = {
 			return num;
 		}
 
-		return num + "." + tmp.substring(0, len);		
+		return num + "." + tmp.substring(0, len);	
 	}
 };

@@ -1,0 +1,31 @@
+		/*日历*/
+		.calendar-box {margin: .05rem 0;background: #f8f8f8;border-bottom:.06rem solid #f1f1f1;margin-right:.1rem;}
+		.cld-tit {position: relative;z-index: 99;height: .52rem;background: #fff;font-size: .2rem;color: #666;}
+		.cld-tit .prev,.cld-tit .next {position: absolute;top: 0;width: .43rem;height: .52rem;
+		background:url('link-tri1.png') no-repeat center center;-webkit-background-size: .13rem .22rem;background-size: .13rem .22rem;}
+		.cld-tit .prev {left: 0;-webkit-transform: rotate(180deg);transform: rotate(180deg);}
+		.cld-tit .next {right: 0;}
+			.date-cur {position: relative;margin: 0 1rem;text-align:center;line-height: .52rem;}
+		.date-cur:before {content: "";position: absolute;left: 50%;top: .4rem;width: 0;height: 0;margin-left: -.04rem;border-top: .08rem solid #666;border-left: .08rem solid transparent;border-right: .08rem solid transparent;}
+		.date-cur .point {display: inline-block;position: relative;}
+		.date-cur .point:before {content: "";position: absolute;right: -.12rem;top: 50%;margin-top: -.05rem;width: .1rem;height: .1rem;border-radius: .1rem;background: #e34545;}
+		.date-box {position: absolute;left: 49%;top: .42rem;margin-left: -.8rem;width: 1.6rem;height: 2.6rem;overflow: hidden;background: #fff;border: 1px solid #b3b3b3;}
+		.date-scroll {text-align: center;line-height: .4rem;}
+		.date-scroll li {position: relative;color: #666;border-bottom: 1px solid #e6e6e6;}
+		.date-scroll li:last-child {border: none;}
+		.date-scroll li.dot-red:before {content: "";position: absolute;right: .12rem;top: 50%;margin-top: -.05rem;width: .1rem;height: .1rem;border-radius: .1rem;background: #e34545;}
+
+		.cld-cont {padding: 0 .12rem;}
+		.tab-cld {width: 100%;font-size: .16rem; }
+		.datepickerWeek {border-bottom: 1px solid #d9d9d9;color: #666;font-size: .14rem;}
+		.datepickerWeek th {width: 14.285%;font-weight: normal;}
+		.datepickerWeek span {display:block;height: .25rem;line-height: .25rem;text-align: center;}
+		.datepickerWeek .on {color: #e34545;}
+		.datepickerDays {font-family: Arial, Helvetica, sans-serif;}
+		.datepickerDays td {width: 14.285%;}
+		.datepickerDays a {display: block;position: relative;padding: .05rem 0;text-align: center;color: #666;}
+		.datepickerDays a span {display: inline-block;width: .36rem;height: .36rem;line-height: .36rem;border-radius: 100%;}
+		.datepickerDays .grey a {color: #b2b2b2;}
+		.datepickerDays .defaultpicker span {color: #fff;background: #e34545;}
+		.datepickerDays .item a {font-weight: bold;color: #e34545;}
+

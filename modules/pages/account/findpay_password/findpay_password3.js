@@ -3,6 +3,7 @@
  */
 var $ 				= require("zepto");
 var api				= require("api/api");
+var redirect		= require("kit/redirect");
 var getDefaultUri	= require("kit/default_uri");
 var validate 		= require("kit/validate");
 var queryString 	= require("kit/query_string");
@@ -120,7 +121,7 @@ var findPay = {
 			};
 
 			options.success = function (e) {
-				window.location.href = getDefaultUri();
+				redirect.goto();
 			};
 
 			options.error = function (e) {

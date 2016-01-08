@@ -7,6 +7,7 @@ var artTemplate 	= require("artTemplate");
 var moneyCny		= require("kit/money_cny");
 var smartbar		= require("ui/smartbar/smartbar");
 var waterfall 		= require("ui/waterfall/waterfall");
+var loadingPage		= require("ui/loading_page/loading_page");
 
  var record = {
  	
@@ -23,6 +24,7 @@ var waterfall 		= require("ui/waterfall/waterfall");
 		this.template = {};
 		this.template.context = artTemplate.compile(__inline("context.tmpl"));
 
+		loadingPage.show();
 		this.smartbar = smartbar.create();
 		this.createWaterfall();
 
@@ -40,6 +42,7 @@ var waterfall 		= require("ui/waterfall/waterfall");
 			var amount = moneyCny.toFixed(result, 2)
 
 			this.ui.header.find(".span-amount").text(amount);
+			loadingPage.hide();
 		};
 
 		options.error = function () {

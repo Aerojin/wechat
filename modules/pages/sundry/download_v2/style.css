@@ -51,7 +51,7 @@ img{display: block;}
 }
 
 .hdbanner img{width: 100%;height: 100%;}
-.logoimg,.dwonloadbtn,.Arrow{
+.logoimg,.dwonloadbtn,.Arrow,.tip_text{
 	position: absolute;
 	left: 0;
 	width: 100%;
@@ -63,6 +63,11 @@ img{display: block;}
 
 .dwonloadbtn{
 	bottom: 1.2rem;
+}
+.tip_text{
+	bottom: 0.8rem;
+	text-align: center;
+	color: #fff;
 }
 .dwonloadbtn a{
 	width:3rem;

@@ -1,48 +1,60 @@
-/*我的账户*/
-/*
-.account{text-align:center;height:2.1rem;background:#da554e; overflow: hidden;}
-.account dt img{margin:0.4rem auto 0.16rem;width:1.02rem;height:1.02rem;border-radius:100%;vertical-align: top;}
-.account dd{color:#fff;font-size:0.138rem}
-.acc-total{padding:0.14rem 0;border-bottom:1px solid #dedede;background:#fff}
-.acc-total h3,.acc-total p{padding-left:0.24rem;color:#9d9d9d;font-size:.14rem}
-.acc-total p{margin-bottom:.3rem;font-size:0.46rem}
-.acc-total .assets-total li{float:left;width:33%;border-right:1px solid #e5e5e5;text-align:center}
-.acc-total .assets-total li:last-child{border-right:none;}
-.acc-total .assets-total li h4{color:#8c8c8c;font-size:.14rem}
-.acc-total .assets-total li span{display:block;margin-top:.04rem;font-size:.18rem}
-.exit-mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:999}
-.exit-mask .exit-box{position:absolute;width:3.16rem;height:1.82rem;text-align:center;background:#fff;-moz-border-radius:5px;border-radius:5px;z-index:9999}
-.exit-mask .exit-box h3{line-height:1.25rem;font-size:.18rem;border-bottom:1px solid #ccc}
-.exit-mask .exit-box li{float:left;width:50%;line-height:.56rem;font-size:.18rem;border-right:1px solid #ccc;cursor:pointer;box-sizing:border-box;}
-.exit-box li:last-child{border:0}
-.assets-btn {text-align: center;margin-top: .35rem;font-size: .184rem;}
-.assets-btn li {display: inline-block;width: 1.7rem;line-height: .42rem;text-align: center;margin: 0 .1rem;color: #fff;-moz-border-radius: .05rem;border-radius: .05rem;background: #da554e;cursor: pointer;}
-.exit-mask-white {background: rgba(255,255,255,1);}
 
-.manage-list{border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding-left: .2rem;background:#FFF;font-size: .16rem;}
-.manage-list li,.list-copy {position:relative;border-top:1px solid #e8e8e8;line-height: .5rem;font-size: .16rem;}
-.manage-list li:first-child{border:0}
-.manage-list li a,.list-copy a {display:block;margin-right: .18rem;background:url('link-icon.png') no-repeat right center;background-size:.09rem .15rem}
-*/
+		/*头部*/
+		img {display: block;width: 100%;}
+		.viper-view {padding: .3rem .4rem .3rem .3rem;color: #fff;}
+		.viper-view .viper-img {display: block;width: .95rem;margin-right: .2rem;}
+		.viper-view .tri {right: .2rem;top: 50%;margin-top: -.19rem;width: .2rem;height: .38rem;
+		background: url(acc-tri1.png) no-repeat;
+		-webkit-background-size: 100% 100%;
+		background-size: 100% 100%;}
+		.total-info {padding-top: .1rem;}
+		.total-info .num {margin-top: .2rem;font-size: .32rem;}
+		.head-box .balance {padding: 0 .4rem 0 .2rem;height: .5rem;line-height: .5rem;color: #fff;overflow: hidden;}
+		.head-box .balance .tri {right: .2rem;top: 50%;margin-top: -.09rem;width: .1rem;height: .18rem;
+		background: url(acc-tri2.png) no-repeat;
+		-webkit-background-size: 100% 100%;
+		background-size: 100% 100%;}
+		.head-box .balance a.dp-block {color: #fff;} 
+		/*头部 end*/
+		
+		/*主内容区*/
+		.today-info {padding: .2rem 0;border: 1px solid #b3b3b3;border-width: 1px 0;background: #fff;}
+		.today-info > div {margin-left: .2rem;width: 50%;font-size: .16rem;line-height: .27rem;color: #4c4c4c;}
+		.today-info > div:first-child:before {content: "";position: absolute;right: 0;top: 0;width: 1px;height: 100%;background: #eaeaea;}
+		.today-info > div .num {display: block;font-size: .19rem;color: #e34545;}
+		.today-info a.dp-block {color: #4c4c4c;} 
 
-.wrap{padding-bottom: 1rem;}
-.account{text-align:center;height:2.1rem;background:#da554e; overflow: hidden;}
-.account dt img{margin:0.4rem auto 0.16rem;width:1.02rem;height:1.02rem;border-radius:100%;vertical-align: top;}
-.account dd{color:#fff;font-size:0.138rem}
-.account dd span {display: block;}
+		.asset-menu {margin-top: .1rem;overflow: hidden;}
+		.asset-menu li {display: box;display:-webkit-box;height: .9rem;border: 1px solid #b3b3b3;border-width: 1px 0;background: #fff;}
+		.asset-menu li:nth-child(2) {margin-top: -1px;}
+		.asset-menu li:nth-child(3) {margin-top: .1rem;}
+		.asset-item {position: relative;box-flex: 1;-webkit-box-flex: 1;width: 50%;margin-left: .2rem;padding-top: .2rem;font-size: .14rem;}
+		.asset-item:first-child:before {content: "";position: absolute;right: 0;top: 15%;width: 1px;height: 70%;background: #eaeaea;}
+		.asset-item a.asset-a {padding-left: .68rem;position: relative;color: #999999;}
+		.asset-item .fis-p {font-size: .16rem;color: #4c4c4c;}
+		.asset-item span.ico-new {display: inline-block;position: relative;}
+		.asset-item span.ico-new:before {display: block;content: "";position: absolute;right: -.35rem;top: .04rem;width: .27rem;height: .14rem;
+		background: url(ico-new.png) no-repeat ;
+		-webkit-background-size: 100% 100%;
+		background-size: 100% 100%;}
 
-.acc-total{padding:0.14rem 0;border-bottom:1px solid #dedede;background:#fff}
-.acc-total h3,.acc-total p{padding-left:0.24rem;color:#9d9d9d;font-size:.14rem}
-.acc-total p{margin:0;font-size:0.46rem;color: #e34545;}
-.acc-total .assets-total {padding-bottom: .15rem;}
-.acc-total .assets-total li{float:left;width:33%;border-right:1px solid #e5e5e5;text-align:center}
-.acc-total .assets-total a:last-child li{border-right:none;}
-.acc-total .assets-total li h4{color:#8c8c8c;font-size:.14rem}
-.acc-total .assets-total li span{display:block;margin-top:.04rem;font-size:.18rem}
+		.asset-item .ico-mu {position:absolute;left:0;top: 0;display: block;width: .48rem;height: .48rem;
+		background: url(frofit_icolist.png) no-repeat ;
+		-webkit-background-size: 4.14rem 1.95rem;
+		background-size: 4.14rem 1.95rem;}
+		.asset-item .ico-current {background-position: 0 0;}
+		.asset-item .ico-regular {background-position: -.65rem 0;}
+		.asset-item .ico-favour {background-position: 0 -.65rem;}
+		.asset-item .ico-privil {background-position: -.65rem -.65rem;}
+		.asset-item .ico-recharge {background-position: 0 -1.3rem;}
+		.asset-item .ico-withdraw {background-position: -.65rem -1.3rem;}
 
-.assets-btn {text-align: center;margin:0;padding-top: .15rem;font-size: .184rem;border-top: 1px solid #ccc;}
-.assets-btn li {display: inline-block;width: 1.7rem;line-height: .42rem;text-align: center;margin: 0 .1rem;color: #fff;-moz-border-radius: .05rem;border-radius: .05rem;background: #da554e;cursor: pointer;}
-.assets-btn .gray{background: #ccc;}
-.bdt1 {border-top: 1px solid #ccc;}
-.back-bind {text-align: center;font-size: .16rem;line-height: .5rem;color: #383330;border: 1px solid #ccc;border-width: 1px 0;background: #fff;}
+		.tips-picc {padding: .2rem 0;text-align: center;color: #939393;font-size: .14rem;}
+		.tips-picc .ico1 {display: inline-block;padding-left: .2rem;
+		background:url(ico-protect.png) no-repeat left center;
+		-moz-background-size: .13rem .16rem;
+		-webkit-background-size: .13rem .16rem;
+		-o-background-size: .13rem .16rem;
+		background-size: .13rem .16rem;}
 
+	

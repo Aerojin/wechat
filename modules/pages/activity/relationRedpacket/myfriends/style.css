@@ -1,0 +1,499 @@
+body{background: #e6e6e6;font-size: .16rem;}
+
+
+/***邀请好友 ----和---我的好友---公用**start**/
+.myCircleBox{
+  margin: .1rem 0;
+  background: #fff;
+  overflow: hidden;
+}
+.myCircleBox h3{
+  padding:.1rem 0 .1rem .1rem;
+  border-bottom: 1px solid #e6e6e6;
+  font-size: .2rem;
+}
+.myCircle{
+  
+  padding: .1rem 0;
+
+}
+.myCircle li{
+  position: relative;
+
+}
+.myCircle li span{
+  width: .16rem;
+  height: .16rem;
+  border-radius: 50%;
+  position: absolute;
+  left:.1rem;
+  top:22%;
+  background: #e34545;
+
+}
+.myCircle li p{
+  padding-left: .3rem;
+  height: .3rem;
+  line-height: .3rem;
+  font-size: .18rem;
+}
+.myCircle li p em{
+  font-style: normal;
+  color: #e34545;
+}
+
+
+.myfriend_hd h3 span{
+  font-size: .16rem;
+  color: #e34545;
+}
+.myfriend_hd{
+  position: relative;
+}
+.myfriend_hd p{
+  position: absolute;
+  right:.1rem;
+  width:.8rem;
+  height: .3rem;
+  line-height: .3rem;
+  top:50%;
+  margin-top: -.15rem;
+  color: #5faeff;
+}
+
+.myfriend_hd p.refresh{
+  background: #e6e6e6;
+  height:.06rem; 
+  margin-top: -.03rem;
+
+}
+.myfriend_hd p.refresh span{
+  display: block;
+  height: 100%;
+  background: #5faeff;
+  /**width: 75%;**/
+}
+
+.myshare p.shuom{
+  padding: .1rem 0 .1rem .1rem;
+  color: #e34545;
+}
+.sharelist li{
+  width: 50%;
+  float: left;
+  text-align: center;
+  padding:.2rem 0 .4rem 0;
+}
+.sharelist li a{
+  display: block;
+}
+.sharelist li a img{
+  width: .6rem;
+  height: .6rem;
+  display: inline;
+}
+
+.mysharebottom{
+  margin-bottom: 0;
+}
+/***邀请好友---和--我的好友---公用***/
+
+
+/***下面是本页特有的的***/
+  .no_firends{
+    padding: 1rem 0;
+    text-align: center;
+  }
+.no_firends p a{
+   color: #1d8ce9;
+}
+.search_box{overflow: hidden;}
+.search_one{
+  height: .4rem;
+  line-height: .4rem;
+  border: 1px solid #b3b3b3;
+  width: 3.8rem;
+  margin: .1rem auto 0 auto;
+  border-radius: .08rem;
+}
+.search_one{
+  text-align: center;
+  color: #b3b3b3;
+  background: url(search_03.png) no-repeat 1.3rem center #fff;
+  background-size: .2rem;
+}
+
+
+.search_bg{
+  position: fixed;
+  top:0;
+  height: 100%;
+  width: 100%;
+  background:rgba(0,0,0,.6);
+}
+
+.search_write{
+  overflow: hidden;
+  background: #e6e6e6;
+  position: relative;
+}
+.search_two{
+  width:3rem;
+  margin: .1rem 0 .1rem .1rem;
+  padding-left: .4rem;
+  background: url(search_03.png) no-repeat .1rem center #fff;
+  background-size: .2rem;
+  position: relative;
+  border-radius: .08rem;
+}
+
+.search_two span{
+  width: .2rem;
+  height: .2rem;
+  line-height: .2rem;
+  text-align: center;
+  top:50%;
+  margin-top: -.1rem;
+  position: absolute;
+  left:3.16rem;
+  background:url(xx_03.png) no-repeat center center;
+  background-size: .2rem;
+  z-index: 999;
+  
+}
+.search_two a{
+  position: absolute;
+  right: -.5rem;
+  color: #007aff;
+  top:20%;
+}
+
+.search_two input{
+  color: #b3b3b3;
+  padding: .1rem 0;
+  width: 2.06rem;
+  outline: none;
+  border: 0;
+}
+
+
+.sear_list{
+  padding: 0 .1rem;
+  background: #fff;
+  overflow-x: hidden;
+  max-height: 6.76rem;
+}
+.sear_list li{
+  padding: .1rem 0;
+  border-bottom:1px solid #e6e6e6;
+}
+/***下面是本页特有的的***/
+
+
+/**好友列表**/
+
+.FriendPadding{
+   padding: .1rem 0;
+}
+.Friend_list li{
+   position: relative;
+   padding: .3rem 0;
+   background: #fff;
+   border-bottom: 1px solid #e6e6e6;
+}
+
+.Friend_list li .hdimg{
+   position: absolute;
+   left: .2rem;
+   top:.14rem;
+
+}
+.Friend_list li p span,.Friend_list li p em,.Friend_list li p i{
+   display: block;
+   font-style: normal;
+}
+.Friend_list li p i.tright{
+   text-align: right;
+}
+.Friend_list li p span{
+   font-size: .18rem;
+}
+.Friend_list li p em{
+   font-size: .26rem;
+   color: #e34545;
+}
+
+.Friend_list li .hdimg img{
+   width:.6rem;
+}
+
+.Friend_list li .hdname{
+   padding-left: 1rem;
+}
+.Friend_list li .hdmoney,.Friend_list li .after_nmb,.Friend_list li .yaoBtn{
+   position: absolute;
+   right:.2rem;
+   top:.26rem;
+}
+.Friend_list li .after_nmb{
+   top:.36rem;
+}
+.Friend_list li .after_nmb em{
+   font-size: .2rem;
+}
+.Friend_list li .yaoBtn{
+   top:.38rem;
+}
+.Friend_list li .yaoBtn a{
+   background: #e34545;
+   padding:.06rem .1rem;
+   border-radius: .06rem;
+   color: #fff;
+}
+
+/***浮动层***/
+.float_bg{
+   position: fixed;
+   top: 0;
+   height: 100%;
+   width: 100%;
+   background: rgba(0,0,0,.8);
+}
+.flaot_box{
+   position: relative;
+   height: 100%;
+   width: 100%;
+}
+
+.delete,.red_bg,.img_hd,.white_bg{
+   position:absolute;
+}
+.red_bg{
+   top:10%; left:50%;
+   margin-left:-1.8rem; 
+   width:3.6rem;
+   height:4.6rem;
+   background:#c54242;
+   border-radius: .06rem;
+}
+
+.delete{
+   right: 0;
+   width: .6rem;
+   height: .6rem;
+   background: url(delete_03.png) no-repeat center center;
+   background-size: .3rem;
+   z-index: 99;
+}
+
+.img_hd{
+   width: 3.6rem;
+   height: 2.2rem;
+   background: url(hongt_03.png) no-repeat center center;
+   background-size:3.6rem 2.2rem;
+}
+.img_hd img{
+   width: 100%;
+}
+
+.text_box{
+   position: absolute;
+   z-index: 90;
+   top: 0;
+   width: 100%;
+   text-align: center;
+}
+.txtname{
+   position:absolute;
+   width: 100%;
+   top:.8rem;
+}
+.txtname p{
+   color: #fff;
+   font-size: .26rem;
+}
+.txtname span{
+   color: #ffa6a6;
+}
+
+.cha_bg{
+   position:absolute;
+   left: 50%;
+   top:1.6rem;
+   margin-left: -.6rem;
+   border-radius: 50%;
+   line-height: 1.2rem;
+   width:1.2rem;
+   height:1.2rem;
+   background:rgba(255,171,52,1);
+   box-shadow: 2px 2px 2px #af3838;
+   color: #fff;
+   font-size: .18rem;
+}
+
+.textinfor{
+   top:2.4rem;
+}
+.liantext{
+   top:4rem;
+   
+}
+.liantext a{
+   color: #ffae5e;
+}
+
+.timebaoImg{
+   top:1rem;
+}
+.timebaoImg img{width: .68rem;}
+
+
+.white_bg{
+   top:10%; left:50%;
+   margin-left:-1.9rem; 
+   width:3.8rem;
+   height-:4.6rem;
+   background:#fff;
+   border-radius: .06rem;
+   padding-bottom: .2rem;
+}
+
+.explain_box h2{
+   height: .7rem;
+   line-height: .7rem;
+   text-align: center;
+   font-size: .24rem;
+   color: #e34545;
+   border-bottom: 1px solid #e6e3e3;
+}
+
+.explain_txt{
+   padding:0 .1rem;
+   color: #666;
+}
+.explain_txt p{
+   line-height: .26rem;
+   
+}
+.explain_txt1{
+   padding: .2rem 0 .4rem 0;
+}
+.explain_txt2 p{
+   position: relative;
+   padding: 0 0 0 .1rem;
+   color: #e34545;
+}
+.explain_txt2 p.exhd{
+   padding: 0;
+   color: #666;
+}
+.explain_txt2  span{
+   position: absolute;
+   left: 0;
+}
+
+.explain_box h3{
+   padding: .2rem 0 .1rem .1rem;
+   font-size: .2rem;
+}
+
+.titpadding{
+   padding:.1rem .1rem .2rem .1rem;
+}
+.clearBtn{
+   padding:0 .1rem;
+   overflow: hidden;
+   border-top: 1px solid #e6e3e3;
+}
+.clearBtn a{
+   display: block;
+   line-height: .6rem;
+   text-align: center;
+   font-size: .22rem;
+   color: #fff;
+   background: #e34545;
+   border-radius: .06rem;
+   margin: .2rem 0 0 0;
+}
+.explainImgTo{
+   width:3.6rem;
+   margin: 0 auto;
+   border-radius: .06rem;
+   border:1px solid #7b7b7b;
+   margin-bottom: .1rem;
+}
+.ipone_hd{
+   position: relative;
+   background: #f8f8fa;
+   border-radius: .06rem .06rem 0 0
+}
+.iponeSet{
+   width:.5rem;
+   padding-left: .2rem;
+   position:absolute;
+   left: 0;
+   top:0;
+   height: .4rem;
+   line-height: .4rem;
+   text-align: center;
+   background: url(ios_03.png) no-repeat .1rem center;
+   background-size: .16rem;
+
+}
+.iponehead{
+   text-align: center;
+   height: .4rem;
+   line-height: .4rem;
+   font-size: .2rem;
+   font-weight: 600;
+}
+.iponeinfor{
+   padding:.26rem 0 .06rem .16rem;
+   background: #f1f0f8;
+   border-top: 1px solid #bebdc5;
+   border-bottom: 1px solid #bebdc5;
+   color:#98979d;
+}
+
+
+.MailList{
+   padding-left: .6rem;
+}
+.MailList li{
+   position: relative;
+}
+.MailList li:nth-child(1){
+   padding: .1rem 0 .05rem 0;
+   border-bottom: 1px solid #bebdc5;
+   background: url(ios_10.jpg) no-repeat 96% center;
+   background-size: .12rem;
+}
+.MailList li:nth-child(2){
+   padding: .05rem 0 .1rem 0;
+   height: .42rem;
+   line-height: .42rem;
+   background: url(ios_15.png) no-repeat 96% center;
+   background-size: .4rem;
+}
+.MailList li i{
+   width: .5rem;
+   height: .5rem;
+   position: absolute;
+   left: -.54rem;
+   top:.05rem;
+}
+.MailList li i.Notice{
+   background: url(ios_07.png) no-repeat center center; 
+   background-size:.40rem;
+}
+.MailList li i.addresslist{
+   background: url(ios_17.png) no-repeat center center; 
+   background-size:.40rem;
+}
+.MailList li p{
+   font-size: .16rem;
+}
+.MailList li p span{
+   font-size:.12rem;
+}
+/*浮动层end*/

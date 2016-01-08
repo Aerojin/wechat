@@ -96,7 +96,7 @@ var findPay = {
 
 			if(number == 0){
 				clearInterval(_this.timer);
-				_this.ui.tips.hide()
+				//_this.ui.tips.hide()
 				_this.ui.btnSend.show();
 				_this.ui.btnDisSend.hide();
 			}	

@@ -25,20 +25,24 @@ module.exports = {
 		return amount;
 	},
 
-	toUnit: function (amount) {
-		amount = Number(this.toYuan(amount));
-
-		if(amount >= 1000 && amount < 10000){
-			return  amount.div(1000) + "千";
+	toUnit: function (amount, len, noToYuan) {
+		if(!noToYuan){
+			amount = Number(this.toYuan(amount));
 		}
 
+		//if(amount >= 1000 && amount < 10000){
+		//	return  amount.div(1000) + "千";
+		//}
+
 		if(amount >= 10000 && amount < 100000000){
-			return amount.div(10000) + "万";
+			return this.toDecimal(amount.div(10000), len) + "万";
 		}
 
 		if(amount >= 100000000){
-			return amount.div(100000000) + "亿";
+			return this.toDecimal(amount.div(100000000), len) + "亿";
 		}
+
+		return amount;
 	},
 
 	toFixed: function (amount, len) {

@@ -11,6 +11,7 @@ var vip = function (options) {
 	this.max 			= 4;
 	this.vipLevel 		= options.vipLevel || 0;
 	this.container 		= options.container || $("body");
+	this.onClose 		= options.onClose || function () {};
 
 	this.init();
 };
@@ -59,6 +60,7 @@ vip.prototype.regEvent = function () {
 
 vip.prototype.close = function () {
 	this.ui.wrap.remove();
+	this.onClose();
 };
 
 /*vip.prototype.getContext = function () {

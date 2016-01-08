@@ -1,0 +1,132 @@
+html {background: #f2f2f2;}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+input[type="number"]{-moz-appearance:textfield;}
+fieldset,img{max-width: 100%; display: block;}
+.wrap {margin:0 auto;padding-bottom: .6rem;}
+
+.toplogo, .toplogos {padding: .1rem .75rem;text-align: center;}
+.toplogos{padding: .1rem .20rem;}
+.toplogo li, .toplogos li {position: relative;width: 1.24rem;}
+.toplogo li:first-child {margin-right: .2rem;}
+.toplogo li:first-child:before {content: "";position: absolute;right: -.1rem;top: 0;width: 1px;height: 100%;background-color: #c9c9c9;}
+
+.slider-nav {left:0;bottom: .1rem;z-index: 9;width: 100%;text-align: center;vertical-align: top;overflow: hidden; font-size: 12px;}
+.slider-nav li {display: inline-block;width: 7px;height: 7px;margin: 0 2px;border: 2px solid #fff;border-radius: 8px;}
+.slider-nav li.selected {background-color: #fff;}
+
+/*登录模块*/
+.form-box {padding: 0 .25rem;}
+.reglist li {position: relative;padding-bottom: .05rem;font-size: .16rem;}
+.reglist li .border-box {position: relative;padding-left: .56rem;min-height: .5rem;border-radius: 3px;border: 1px solid #ddd;background: #fff;}
+.reglist li .border-box .ico {display: block;position: absolute;left: 0;top: 0;width: .53rem;height: .5rem;
+background-image: url(icolist-reg.png);-webkit-background-size: 4.14rem 1.6rem;background-size: 4.14rem 1.6rem;}
+.reglist li.ico-cellphone .ico {background-position: 0 0;}
+.reglist li.ico-password .ico {background-position: -.53rem 0;}
+.reglist li.ico-security .ico {background-position: -1.06rem 0;}
+.reglist li.ico-sms .ico {background-position: -1.59rem 0;}
+.reglist li .border-box .inp {display: block;width: 100%;border: 0;background: none;height: .5rem;font-size: .16rem;vertical-align: middle;color: #333; font-family: "Microsoft YaHei","Helvetica Neue", Helvetica, Arial, sans-serif;}
+.reglist li a.btn-show {position: absolute;right:0;top: 50%;display: block;width: .64rem;margin-top: -.12rem;line-height: .24rem;text-align: center;color: #cdcdcd;border-left: 1px dotted #cdcdcd;}
+.reglist li.ico-password .border-box,.reglist li.ico-security .border-box {padding-right: 1.3rem;}
+.reglist li .img-security {position: absolute;right: .05rem;top: 50%;display: block;width: 1.2rem;margin-top: -.2rem;height: .4rem;}
+.reglist li.ico-sms .border-box {width: 1.5rem;}
+.reglist li a.btn-get {position: absolute;right:0;top: 0;display: block;width: 1.48rem;line-height: .5rem;text-align: center;color: #fff;border-radius: 3px;background: #e34545;border: 1px solid #e34545;}
+.reglist li a.oper-btn-gray{border-width: 0px;}
+
+.servive-pact {padding-left: .3rem;position: relative;color: #9d9d9d;font-size: .14rem;}
+.servive-pact .pact-ico,.servive-pact .hover {display:block;position: absolute;left: 0;top:0;width: .17rem;height: .17rem;border:1px solid #d2d2d2;background: #fff;}
+.servive-pact .hover {box-shadow: 0 0 4px rgba(0,0,0,.2);
+background:url(sv_agree.png) no-repeat #fff;
+-moz-background-size: 100% 100%;
+-webkit-background-size: 100% 100%;
+-o-background-size: 100% 100%;
+background-size: 100% 100%;}
+
+.operate{margin:0 .1rem}
+.oper-btn{display:block;line-height:.48rem;background:#da554e;color:#FFF;text-align:center;font-size:.19rem;border-radius:5px;}
+.oper-btn-gray {background:#ccc !important;}
+.reLogin {text-align: center;font-size: .16rem;color: #666;}
+.reLogin a {color: #e34545;text-decoration: underline;}
+
+/*投资项目*/
+.content-box {padding: 0 .25rem;}
+.item-h3 {position: relative;font-size: .16rem;line-height: .24rem;text-align: center;}
+.item-h3:before {content: "";position: absolute;left: 0;top: 50%;width: 100%;height: 1px;background: #ccc;}
+.item-h3 span {position: relative;z-index: 9;display: inline-block;padding: 0 .05rem;background: #f2f2f2;}
+
+.zhishu-box {color: #8c8c8c;position:relative;padding: 0 0 .1rem 0;margin-top: .15rem;border-radius: .05rem;background: #fff;overflow: hidden;}
+.zhishu-cont {padding: 0 .15rem;}
+.zhishu-tit {padding: 0 .15rem;border-bottom: 1px solid #f2f2f2;}
+.zhishu-tit p {padding: .1rem 0;float: left;font: .2rem "Microsoft YaHei";color: #666;}
+.time-limit {float:left;display: block;margin: .05rem 0 0 .1rem;padding:0 .08rem;height: .16rem;font: .11rem/.16rem "Microsoft YaHei";border: 1px solid #f05a39;overflow: hidden;
+-webkit-border-radius: .16rem;-moz-border-radius: .16rem;-o-border-radius: .16rem;border-radius: .16rem;}
+.sold-hot {position: absolute;right: -.3rem;top: .1rem;z-index: 9;width: 1rem;text-align: center;font-size: .1rem;line-height: .16rem;color:#fff;background: #e34545;
+-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);-o-transform: rotate(45deg);transform: rotate(45deg);}
+.sold-hot .scale {-webkit-transform:scale(0.875);}
+.zhishu-vip {padding-top: .1rem;font-size: .16rem;}
+.zhishu-vip .z-num {font-size: .28rem;color: #e34545;}
+.zhishu-vip .z-num b {font-size: .36rem;font-weight: normal;}
+.zhishu-vip .z-txt,.zhishu-vip-limit .z-txt {color: #999;}
+.zhishu-vip-limit {position: absolute;left: 1.9rem;top: .56rem;font-size: .16rem;}
+.zhishu-vip-limit .z-num {padding-top: .12rem;color: #333;}
+.vip-num-box {position: relative;float: left;padding-right: .3rem;}
+
+/*hot*/
+.zhishu-hot .sold-hot {display: block;}
+.text-privacy .text-red {color: #e34545;}
+
+
+/*注册弹层*/
+.overlayer {position: fixed;left: 0;top: 0;z-index: 999;width: 100%;height: 100%;background: rgba(0,0,0,.7);}
+.overlayer-box {position: absolute;left: 0;top: 20%;width: 100%;}
+.overlayer-radius {position: relative;margin: .1rem;padding: .4rem .1rem .2rem .1rem;border-radius: .05rem;background: #fff;}
+.overlayer-radius .closed {position: absolute;right: 0;top: 0;width: .39rem;height: .39rem;
+background:url(i_closed.png) no-repeat center center;
+-webkit-background-size: .19rem .19rem;
+background-size: .19rem .19rem;}
+
+h3.protype-name {padding: 0 .15rem;line-height: .4rem;font-size: .16rem;}
+.bus-box {background: #fff;}
+.bus-box li {padding: .15rem;padding-left: .6rem;position: relative;border-bottom: 1px solid #f2f2f2;}
+.bus-box li .ico {position: absolute;left: .15rem;top: .2rem;width: .39rem;}
+.bus-box li .tit-name {line-height: .24rem;font-size: .18rem;color: #666;}
+.bus-box li .tit-name .i_hot {position: relative;display: inline-block;padding-right: .36rem;}
+.tit-name .i_hot:before {content: "";position: absolute;right: 0;top: 50%;margin-top: -.08rem;width: .31rem;height: .16rem;
+background:url(i_hot.png) no-repeat ;
+-webkit-background-size: contain;
+background-size: contain;}
+.bus-box li .tit-file {padding-top: .08rem;font-size: .12rem;color: #b2b2b2;}
+.tit-profit {position: absolute;right: .15rem;top: .15rem;text-align: right;font-size: .14rem;color: #666;}
+.tit-profit .num {font-size: .24rem;color: #e34545;}
+.tit-profit .num em {font-style: normal;font-size: .14rem;}
+
+.brand {margin-top: .15rem;padding: 0 .25rem .2rem .2rem;background: #5d9cec;overflow: hidden;}
+.brand li {position: relative;padding-left: .8rem;margin-top: .2rem;}
+.brand li .ico {position: absolute;left: 0;top: 50%;margin-top: -.31rem;width: .62rem;height: .62rem;border-radius: .62rem;
+background-image: url(icolist-reg.png);-webkit-background-size: 4.14rem 1.6rem;background-size: 4.14rem 1.6rem;	
+background-color: #4a89dc;}
+.brand li:nth-child(1) .ico {background-position: .05rem -.48rem;}
+.brand li:nth-child(2) .ico {background-position: -.48rem -.48rem;}
+.brand li:nth-child(3) .ico {background-position: -1.01rem -.48rem;}
+.brand li:nth-child(4) .ico {background-position: -1.54rem -.48rem;}
+.brand li .text-box {padding: .05rem .25rem;border-radius: .6rem;border: 2px solid #4a89dc;box-sizing: border-box;color: #fff;}
+.brand li .text-box h3 {font-size: .16rem;}
+.brand li .text-box p {margin-top: .05rem;font-size: .12rem;line-height: .16rem;color: #c4deff;}
+
+.operate-fixed {position: fixed;left: 0;bottom: 0;width: 100%;background: #fff;}
+.operate-bg {padding: .1rem;}
+.img_code{width: 1.2rem; height: 0.38rem;}
+.mgt1 {margin-top: .1rem;}
+
+div .text-orange {color: #fd9149;}
+div .text-blue {color: #4fa6ff;}
+div .text-gray {color: #b2b2b2;}
+
+.ico-gift {display: inline-block;margin: 0 auto;width: auto; }
+.ico-gift img {display: inline-block;width: 4.14rem;height: auto; }
+
+.float-left {float: left;}
+.float-left img{float: left;}

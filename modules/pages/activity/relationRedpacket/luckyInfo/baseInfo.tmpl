@@ -1,0 +1,19 @@
+<img src="{{lit_02}}">
+<p class="fost">{{hbRefer}}给您带来的红包</p>
+<p>
+	<span>{{hbMoney}}</span>元<br>
+	{{if status == 1}}
+		现金
+	{{else}}
+		投资返现红包
+	{{/if}}
+</p>
+<p>
+	<a href="javascript:void(0);" class="luckyGo">
+		{{if status == 1}}
+			已放入账户余额，可投资或提现
+		{{else}}
+			已放入“我的红包”，可于投资时使用
+		{{/if}}
+	</a>
+</p>

@@ -5,10 +5,6 @@
 	<title>购买成功</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<meta name="format-detection"content="telephone=no, email=no" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
 	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
@@ -17,7 +13,20 @@
         @require views/css/global.css
         @require views/css/style.css 
     -->
+    <style type="text/css">
+		/*购买成功体检金提示浮层*/
+
+		.float_bg{font-size: .15rem; position: fixed; left: 0; bottom:0; z-index: 9999; width: 100%; background: rgba(0,0,0,.8);}
+		.layer-box{padding: .15rem; color: #fff;}
+		.tit-h3{padding: .3rem 0;text-align: center;font-size: .18rem;color: #ffd11a;line-height: .36rem;}
+		.dp-box{display: -webkit-box; display: box; display: -webkit-flex; display: flex;}
+		.s-btn{text-align: center;font-size: .19rem;}
+		.s-btn li{display: inline-block; width: 1.36rem; margin: 0 .25rem;line-height: .36rem;text-align: center;border-radius: .05rem; -webkit-box-flex: 1; box-flex: 1;-webkit-flex: 1;flex: 1;background: #e34544;}
+		.s-btn li.hover{background-color: #b3b3b3;}
+		.s-btn li a{color: #fff;}
+    </style>
 	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
 	<div class="wrap">
@@ -60,6 +69,18 @@
 				</ul>
 			</div>
 		</article>
+	</div>
+	<!-- 浮动层添加 -->
+	<div class="float_bg" id="div-activity" style="display:none;">
+		<div class="mask-layer">
+			<div class="layer-box">					
+				<h3 class="tit-h3">猜拳闯关活动火热进行中!<br>最高可得100倍体验金</h3>
+				<ul class="s-btn dp-box mgt2 mgb1">
+					<li class="hover btn-close"><a href="javascript:void(0);">关闭</a></li>
+					<li class="btn-activity"><a href="javascript:void(0);">我要闯关</a></li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<script type="text/javascript">
 		var script = document.createElement("script");

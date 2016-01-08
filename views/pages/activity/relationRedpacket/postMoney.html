@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>互抢圈</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+   <!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+    <script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
+</head>
+<body>
+	<ul class="head  clearfix">
+		<li>
+			<img src="../views/images/icon_06.png">
+			<a class="first" href="myfriends.html">我的好友</a>
+		</li>
+		<li>
+			<img src="../views/images/icon_03.png">
+			<a href="setSecret.html">隐私设置</a>
+		</li>
+	</ul>
+	<div class="list_box">
+		<div class="list_hd fdshb">
+			<h2>好友定时红包</h2>
+		</div>
+		<ul class="fixedList" id="fixedList">
+			<li class="tbList">
+				<div class=""></div>
+				<img src="../views/images/hongbao4.png">
+				<p>已有1名好友给您的定时红包塞了钱,<br/><a href="javascript:void(0);">同步通讯录查看</a></p>
+			</li>
+	   		<!--<li>
+	   			<div class=""></div>
+	   			<img src="./images/hongbao4.png">
+				<p>距离下次领取还有：<em>12天18时10分</em><br>你已经被好友3次塞钱</p>
+			</li>-->
+		</ul>
+		<div class="list_hd fsqhb">
+			<h2>好友手气红包</h2>
+		</div>
+		<ul class="luckyList">
+			<li class="tbList">
+				<img src="../views/images/hongbao1.png">
+				<p>已有1名好友给您发了手气红包,<br/><a href="javascript:void(0);">同步通讯录查看</a></p>
+			</li>
+	   		<!--<li>
+	   			<img src="./images/hongbao1.png">
+				<p>李俊龙为您带来了红包<br><em>[未拆取]</em></p>
+				<span>12-12</span>
+	   		</li>
+	   		<li>
+	   			<img src="./images/hongbao2.png">
+				<p>李俊龙为您带来了红包<br><i>[已拆]</i>您获得了<em>2.1元</em></p>
+				<span>12-12</span>
+	   		</li>
+	   		<li>
+	   			<img src="./images/hongbao3.png">
+				<p>李俊龙为您带来了红包<br><i>[已过期]</i></p>
+				<span>12-12</span>
+			</li>-->
+		</ul>
+		<div class="clickGetMore dn" href="javascript:void(0);">点击加载更多</div>
+	</div>
+	<!-- 浮动层 -->
+	<div class="float_bg floateLayer dn">
+		<div class="flaot_box">
+			<div class="red_bg chb dn">
+				<div class="delete"></div>
+				<div class="img_hd"></div>
+				<div class="text_box chbD dn">
+					<div class="txtname">
+						<p class="chbP">李俊龙</p>
+						<span class="chbS">给你带来了红包</span>
+					</div>
+					<div class="cha_bg doChb">
+						<span class="t-text deleteText">拆红包</span>
+					</div>
+				</div>
+				<div class="text_box noHb dn">
+					<div class="txtname">
+						<p class="chbP">李俊龙</p>
+						<span class="chbS">给你带来了红包</span>
+					</div>
+					<div class="txtname textinfor">
+						<p>啊哦，红包派完了</p>
+					</div>
+					<div class="txtname liantext">
+						<a href="javascript:void(0);" class="otherLucky">查看大家的手气></a>
+					</div>
+				</div>
+				<div class="text_box sllow dn">
+					<div class="txtname">
+						<p class="chbP">李俊龙</p>
+						<span class="chbS">给你带来了红包</span>
+					</div>
+					<div class="txtname textinfor">
+						<p>来晚了，该红包已过期</p>
+					</div>
+				</div>
+				<div class="text_box sllowNone dn">
+					<div class="txtname">
+						<p class="chbP">李俊龙</p>
+						<span class="chbS">给你带来了红包</span>
+					</div>
+					<div class="txtname textinfor">
+						<p>来晚了，该红包已领完</p>
+					</div>
+					<div class="txtname liantext">
+						<a href="javascript:void(0);" class="otherLucky">查看大家的手气></a>
+					</div>
+				</div>
+				<div class="text_box cantChb0 dn">
+					<div class="txtname">
+						<p class="chbP">李俊龙</p>
+						<span class="chbS">给你带来了红包</span>
+					</div>
+					<div class="txtname textinfor">
+						<p>本次红包总金额不足0.1元<br>已为您累计下一轮红包</p>
+					</div>
+					<div class="txtname liantext">
+						<a href="javascript:void(0);" class="fixedHistory">查看历史</a>
+					</div>
+				</div>
+				<div class="text_box cantChb1 dn">
+					<div class="txtname">
+						<p class="chbP">李俊龙</p>
+						<span class="chbS">给你带来了红包</span>
+					</div>
+					<div class="txtname textinfor">
+						<p>任意在投金额≥100元<br>即可领取</p>
+					</div>
+					<div class="txtname liantext">
+						<a href="javascript:void(0);" class="goInvest">投资活期宝><br>（随存随取收益高达11%）</a>
+					</div>
+				</div>
+				<div class="text_box chbLeftTime dn">
+					<div class="txtname timebaoImg"><img src="../views/images/time_03.png"></div>
+					<div class="txtname textinfor">
+						<span>距离领红包还剩</span>
+						<p class="leftTime">5天21小时</p>
+					</div>
+					<div class="txtname liantext">
+						<a href="javascript:void(0);" class="fixedHistory">查看历史</a>
+					</div>
+				</div>
+				<!--<div class="text_box chbD dn">
+					<div class="txtname">
+						<p class="chbP">2015-10</p>
+						<span class="chbS">好友定时红包</span>
+					</div>
+					<div class="cha_bg">拆红包</div>
+				</div>-->
+			</div>
+			<div class="white_bg hbTip dn">
+				<div class="delete"></div>
+				<div class="explain_box luckyTip dn">
+					<h2>好友手气红包</h2>
+					<div class="explain_txt">
+						<div class="explain_txt1">
+							<p>现金来源：</p>
+							<p>每当好友购买任意金额定期产品时，钱罐子将替好友向您发送红包</p>
+						</div>
+						<div class="explain_txt2">
+							<p class="exhd">红包额度：</p>
+							<p><span>* </span>总额不设上限！</p>
+							<p><span>* </span> 包含现金红包和投资返现红包</p>
+							<p><span>* </span>任意好友每购买一笔定期产品，钱罐子将替好友向您发红包</p>
+							<p><span>* </span>单笔好友购买额度越大，红包越大。</p>
+							<p><span>* </span>每个红包的领取有效期为3天</p>
+						</div>
+					</div>
+				</div>
+				<div class="explain_box fixedTip dn">
+					<h2>好友定时红包</h2>
+					<div class="explain_txt">
+						<div class="explain_txt1">
+							<p>领取时间：每月5日领取一次</p>
+							<p>现金来源：</p>
+							<p>每当好友购买任意金额活期宝时，钱罐子将替好友为您向此红包内随机存入现金</p>
+						</div>
+						<div class="explain_txt2">
+							<p class="exhd">红包额度：</p>
+							<p><span>* </span>总额不设上限！</p>
+							<p><span>* </span> 任意好友每购买一笔活期宝，钱罐子都将替好友为您加钱</p>
+							<p><span>* </span>单笔好友购买额度越大，钱罐子存入金额则越大。</p>
+							<p><span>* </span>每次领取时总额需大于0.1元</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="white_bg sqTip dn">
+				<div class="explain_box androidTip dn">
+					<h3>授权提示</h3>
+					<div class="explain_txt titpadding ">
+						<p>请在手机自带权限管理工具，或安全管理软件中，解除对小牛钱罐子的联系人读取权限限制。</p>
+					</div>
+					<div class="clearBtn"><a href="javascript:void(0);">我知道了</a></div>
+				</div>
+				<div class="explain_box iosTip dn">
+					<h3>授权提示</h3>
+					<div class="explain_txt titpadding ">
+						<p>请进【设置】，找到“小牛钱罐子”，开启通讯录权限后继续使用红包功能。</p>
+					</div>
+					<div class="explainImgTo">
+						<div class="ipone_hd">
+							<div class="iponeSet">设置</div>
+							<div class="iponehead">小牛钱罐子</div>
+						</div>
+						<div class="iponeinfor">允许“小牛钱罐子”访问</div>
+						<ul class="MailList">
+							<li>
+								<i class="Notice"></i>
+								<p>通知<br><span>标记、声音、横幅</span></p>
+							</li>
+							<li>
+								<i class="addresslist"></i>
+								<p>通讯录</p>
+							</li>
+						</ul>
+					</div>
+					<div class="clearBtn goStart"><a href="javascript:void(0);">去开启</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript">
+		require("pages/activity/relationRedpacket/postMoney/postMoney");
+	</script>
+</body>
+</html>

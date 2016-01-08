@@ -23,11 +23,11 @@ var register = {
 		this.ui.btnShowPass 	= $("#btn-showpass");
 		this.ui.login 			= $(".a-login");
 		this.ui.ad 				= $("#img-ad");
+		this.ui.txtImgCode		= $("#txt-imgCode");
+		this.ui.btnCode			= $("#btn-code");
 		this.ui.sliderContainer	= $("#slider-container");
 
 		this.queryString = queryString() || {};
-		this.ui.txtMobile.val(this.queryString.mobile || "");
-		this.ui.txtRecommend.val(this.queryString.referrer || "");
 
 		this.views = new registerViews({
 			param: this.queryString,
@@ -40,7 +40,9 @@ var register = {
 			btnSubmit: this.ui.btnSubmit,
 			btnSend: this.ui.btnSend,
 			btnDisSend: this.ui.btnDisSend,
-			btnShowPass: this.ui.btnShowPass
+			btnShowPass: this.ui.btnShowPass,
+			txtImgCode: this.ui.txtImgCode,
+			btnCode: this.ui.btnCode
 		});
 
 		this.views.onCheckMobile = function (result) {
@@ -74,11 +76,15 @@ var register = {
 		var data = [];
 
 		data.push({
-			src: __uri("/views/images/nw/nw_register1.png")
+			src: __uri("/views/images/nw/nw_register4.jpg")
 		});
 
 		data.push({
-			src: __uri("/views/images/nw/nw_register3.png")
+			src: __uri("/views/images/nw/nw_register2.jpg")
+		});
+
+		data.push({
+			src: __uri("/views/images/nw/nw_register3.jpg")
 		});
 
 		this.slider = new sliderBar.create({

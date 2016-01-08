@@ -5,33 +5,64 @@
 	<title>picc承保</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
 	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
 	<!--
         @require views/css/global.css
-        @require views/css/style.css 
-    -->
-	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+        @require views/css/style.css
+        @require modules/pages/agreement/picc/style.css
+    -->	
+	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
-	<div class="wrap bg-white">
-		<div class="app-ban"><img src="/views/images/app-picc.png"></div>
-		<div class="events-cont">		
-			<div class="commend-tit clearfix"><span>保险责任</span></div>
-			<div class="c-tetx">在小牛钱罐子APP应用平台上的资金转入、留存、转出过程中，遭受黑客攻击、木马中毒、他人盗取盗用、电信运营商系统、线路的故障、调整、升级或电力中断/终断等情况，导致的资金损失，保险人按照保险协议及保单约定负责赔偿，投资收益风险不在保障范围之列，具体责任以保险条款及协议为准。</div>
-			
-			<div class="commend-tit clearfix"><span>保险期限</span></div>
-			<div class="c-tetx">购买：自每笔交易通过网络提交小牛钱罐子订单之时起到支付请求至平台方指定账户之时止<br />
-提现：自每笔交易通过网络提交小牛钱罐子提现之时起到接收到提现成功信息之时止</div>
+	<section class="clearfix">
+		<header>
+			<img src="/views/images/picc/piccshow_03.png">
+			<div class="picc_title">
+				<p>小牛钱罐子携手中国人民保险集团</p>
+				<p class="picc_zh">为账户资金安全保驾护航</p>
+			</div>
+		</header>
+		<div class="picc_tbox">
+			<h2>权威承保方  中国人民保险集团</h2>
+			<ul class="list_box clearfix">
+				<li>
+					<img src="/views/images/picc/piccshow_13.png">
+					<p>世界500强企业</p>
+				</li>
+				<li>
+					<img src="/views/images/picc/piccshow_10.png">
+					<p>稳居亚洲财险第一</p>
+				</li>
+				<li>
+					<img src="/views/images/picc/piccshow_07.png">
+					<p>中国最受信赖财险公司</p>
+				</li>
+			</ul>
+			<h2 class="pic_an">小牛钱罐子签约“PICC账户资金安全险”</h2>
+			<p class="pic_antext">
+				在小牛钱罐子APP应用平台上的资金转入、留存、转出过程中，遭受黑客攻击、木马中毒、他人盗取盗用、电信运营商系统、线路的故障、调整、升级或电力中断/终断等情况，导致的资金损失，保险人按照保险协议及保单约定负责赔偿，投资收益风险不在保障范围之列，具体责任以保险条款及协议为准。
+			</p>
+			<h2>小牛钱罐子用户如何获得理赔？</h2>
+			<div class="picc_imgbox">
+				<img src="/views/images/picc/piccshow_19.png">
+			</div>
 
-			<div class="c-tetx nobd">我司承保单号为：PJBD201544030000000004<br />PICC人民保险客服专线：<span class="text-red">95518</span></div>
-			<div class="letter"><a href="$root$/agreement/picc_detail.html">查看确认函</a></div>
+			<div class="explain_box">
+				<h3>小牛钱罐子用户理赔所需资料：</h3>
+				<div class="explain_list">
+					<p>1.  平台用户身份证明文件。</p>
+					<p>2.  个人账户挂失或冻结时间证明等—银行提供。</p>
+					<p>3.  有关损失资金的流向记录，和收款方姓名及帐号等—银行提供。</p>
+					<p>4.  平台用户盗刷交易记录—银行提供。</p>	
+					<p>5.  索赔申请书和保险单 。</p>
+					<p>6.  公关机关出具的其他必要说明。</p>	
+				</div>
+				<P>我司承保单号为：PJBD201544030000000004</P>
+				<P>PICC人民保险客服专线：95518</P>
+			</div>
 		</div>
-	</div>
-	<script type="text/javascript">
-		require('pages/product/agreement/agreement');
-	</script>
+	</section>
 </body>
 </html>

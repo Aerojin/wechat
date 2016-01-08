@@ -1,0 +1,27 @@
+.record-tit {
+	padding: 0 .2rem;
+	display: box;
+	display: -webkit-box;
+	line-height: .42rem;
+	font-size: .14rem;
+	color: #333;
+	border-bottom: 1px solid #ccc;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	background: #fff;
+}
+.record-tit span {display:block; box-flex: 1;-webkit-box-flex: 1;}
+.record-tit span:nth-child(1) {width: 25%;}
+.record-tit span:nth-child(2) {width: 30%;}
+.record-tit span:nth-child(3) {width: 40%;text-align: center;}
+
+.record-list {font-size: .14rem;color: #666;}
+.record-list li {display: box;display: -webkit-box;padding: .15rem .2rem;border-bottom: 1px solid #ccc; width: 3.7rem;}
+.record-list li span {display:block;box-flex: 1;-webkit-box-flex: 1;line-height: .24rem;}
+.record-list li span:nth-child(1) {width: 25%;font-size: .18rem;}
+.record-list li span:nth-child(2) {width: 30%;}
+.record-list li span:nth-child(3) {width: 40%;color: #c2c2c2;text-align: right;}
+.record-list li .time {display: inline-block;padding-left: .05rem;white-space: nowrap;font-style: normal;}
+.ui-viewport{padding-top: 0.43rem;}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>今日收益</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
+</head>
+<body>
+	<header class="header fix-header">
+		<ul class="hqb-tit clearfix">
+			<li><span class="note-name">今日收益(元)</span><span id="js-span-income" class="note-num">+0.00</span></li>
+		</ul>
+	</header>
+	<div class="wrap pt9" id="wrap">	
+		<article>
+			<section>
+				<div class="profit-list">
+						<div class="item-li">
+							<h3 class="tit-words">活期宝</h3>
+							<div class="line-box">
+								<h4>今日收益：<span class="text-red">+0.00</span></h4>
+								<div class="h-tips">(将作为本金复投，赎回时到账）</div>
+							</div>
+						</div>
+						<div class="item-li">
+							<h3 class="tit-words">定期投资</h3>
+							<div class="line-box">
+								<h4>今日收益：<span class="text-red">+0.00</span></h4>
+								<div class="h-tips">(根据当前持有的定期投资对应的年化收益率计算。总收益将在投资到期时回款。）</div>
+							</div>
+
+						</div>
+				</div>
+			</section>
+		</article>
+	</div>
+	<script type="text/javascript">
+		require('pages/account/my_income/my_income_today');
+	</script>
+</body>
+</html>

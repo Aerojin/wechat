@@ -1,3 +1,4 @@
+var redirect 		= require("kit/redirect");
 var getDefaultUri	= require("kit/default_uri");
 var tipMessage		= require("ui/tip_message/tip_message");
 var loading 		= require("ui/loading_button/loading_button");
@@ -27,6 +28,18 @@ views.prototype.init = function () {
 };
 
 views.prototype.regEvent = function () {
+	this.ui.txtPassword.keydown($.proxy(function(event){
+	  	if(event.keyCode == 13){
+			var account  = this.ui.txtMobile.val().trim();
+			var loginPwd = this.ui.txtPassword.val().trim();
+			
+			if(this.model.check(account, loginPwd)){
+				this.loading = loading(this.ui.btnSubmit);
+				this.login(account, loginPwd);
+			}
+	  	}
+	}, this));
+
 	this.ui.btnSubmit.on("touchstart click", $.proxy(function () {
 		var account  = this.ui.txtMobile.val().trim();
 		var loginPwd = this.ui.txtPassword.val().trim();
@@ -41,6 +54,7 @@ views.prototype.regEvent = function () {
 
 views.prototype.login = function (account, loginPwd) {
 	var options = {};
+	var href 	= redirect.get();
 		
 	options.data = $.extend(this.param, {
 		account: account,
@@ -60,7 +74,11 @@ views.prototype.login = function (account, loginPwd) {
 		}
 
 		/*change 已关联跳转至产品首页*/
-		window.location.href = getDefaultUri();
+		try{
+			window.location.href = href;
+		}catch(e){
+			window.location.href = getDefaultUri();
+		}
 	};
 
 	options.error = function (result) {
@@ -71,8 +89,20 @@ views.prototype.login = function (account, loginPwd) {
 	this.model.login(options, this);
 };
 
-views.prototype.getRedirect = function (param) {
-	return decodeURIComponent(this.redirect) + "?" + $.param(param);
+views.prototype.getRedirect = function (obj) {
+	var path 	= "";
+	var param 	= "";
+	var url 	= decodeURIComponent(this.redirect);
+
+	if(url.indexOf("?") > -1){
+		param 	= url.substring(url.indexOf("?") + 1);
+		path 	= url.substring(0, url.indexOf("?"));
+
+		return  path + "?" + param + "&" + $.param(obj);
+	}
+
+	return url + "?" + $.param(obj);
+	
 };
 
 module.exports = views;

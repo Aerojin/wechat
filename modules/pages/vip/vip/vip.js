@@ -12,6 +12,7 @@ var eventFactory 	= require("base/event_factory");
 var tipMessage	  	= require("ui/tip_message/tip_message");
 var upgradeTip    	= require("ui/upgradeTip/privilegeTip");
 var vipConfig     	= require("ui/vip_config/vip_config");
+var loadingPage		= require("ui/loading_page/loading_page");
 var TIPS = {
 	SYS_ERROR: "网络异常,请稍后重试"
 };
@@ -61,7 +62,8 @@ var vip = {
 			var currentLevel     = +result.memberLevel;
 			var nextLevelName    = result.nextLevelDesc;
 			var upgradeMoney     = result.needInvest;
-			upgradeMoney         = moneyCny.toYuan(upgradeMoney,0);
+			upgradeMoney         = moneyCny.toYuan(upgradeMoney,1);
+			upgradeMoney         = Math.ceil(upgradeMoney);
 			var vipConf          = vipConfig.getVipConfig(currentLevel);
 			if(result.wxuser){
 				this.ui.header.html(this.template.loginHeader($.extend(vipConf,{
@@ -111,6 +113,8 @@ var vip = {
 		options.success = function(e){
 			var result = e.data;
 			this.renderBaseInfo(result || {});
+
+			loadingPage.hide();
 		};
 		options.error = function(e){
 			tipMessage.show(e.msg || TIPS.SYS_ERROR, {delay : 2000});
@@ -171,5 +175,7 @@ var vip = {
 		});
 	}
 };
+
+loadingPage.show();
 
 vip.init();

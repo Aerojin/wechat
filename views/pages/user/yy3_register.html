@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>新手福利</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
+</head>
+<body>
+	<div class="wrap">
+		<!-- 注册弹层 -->
+		<div class="overlayer" style="display:none;" id="div-reg">
+			<div class="overlayer-box">
+				<div class="overlayer-radius">
+					<span class="closed" id="btn-close"></span>
+					<ul class="reglist">
+						<li class="ico-cellphone clearfix">
+							<div class="border-box">
+								<span class="ico"></span>
+								<input id="txt-mobile" type="tel" class="inp" placeholder="请输入手机号码" />
+							</div>
+						</li>
+						<li class="ico-password clearfix">
+							<div class="border-box">
+								<span class="ico"></span>
+								<input id="txt-password1" class="inp" type="password" maxlength="15" placeholder="请设置您的登录密码">
+								<input id="txt-password2" class="inp" type="text" placeholder="请设置您的登录密码" style="display:none;">
+								<a id="btn-showpass" href="javascript:void(0);" data-show="0" class="btn-show">显示</a>	
+							</div>
+						</li>
+						<li class="ico-security clearfix">
+							<div class="border-box">
+								<span class="ico"></span>
+								<input id="txt-imgCode" class="inp" type="text" maxlength="11" autocomplete="off" placeholder="输入右侧验证码">
+								<span class="img-security">
+									<img id="btn-code" class="img_code" src="http://m.xiaoniuapp.com/api/wap/randomImageCode?appVersion=1&moduleId=REGISTERIMAGE&source=web" alt="" />
+								</span>
+							</div>
+						</li>
+						<li class="ico-sms clearfix">
+							<div class="border-box">
+								<span class="ico"></span>								
+								<input id="txt-code" type="text" class="inp" maxlength="10" autocomplete="off" placeholder="请输入验证码" />
+							</div>							
+							<a id="btn-dis-send" href="javascript:void(0);" class="btn-get oper-btn-gray" style="display:none;">重试(60)</a>
+							<a id="btn-send" href="javascript:void(0);" class="btn-get">获取验证码</a>
+						</li>
+						<li class="ico-cellphone clearfix" style="display:none;">
+							<div class="border-box">
+								<span class="ico"></span>
+								<input id="txt-recommend" class="inp" type="tel" maxlength="11" autocomplete="off" placeholder="请输入推荐人手机号">
+							</div>
+						</li>
+					</ul>
+					<div class="servive-pact mgt2">
+						<span id="btn-pact" class="hover pact-ico" data-state="1"></span>
+						同意<a href="$root$/agreement/qgz_server_protocol.html" class="text-blue">《小牛钱罐子用户服务协议》</a>
+					</div>
+					<a class="oper-btn mgt2" id="btn-submit" href="javascript:void(0)" title="">立即注册</a>
+					<div class="reLogin mgt2">已有账号？<a href="login.html">立即登录</a></div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="ban"><a href="javascript:void(0);"><img src="/views/images/yy/banner1.jpg" alt=""/></a></div>
+		
+		<div class="business-wrap">
+			<h3 class="protype-name">活期收益</h3>
+			<ul class="bus-box">
+				<li>
+					<span class="ico"><img src="/views/images/yy/i_new.png" alt=""/></span>
+					<h4 class="tit-name"><span class="i_hot">新手专区</span></h4>
+					<p class="tit-file">新手投资专享通道</p>
+				</li>
+				<li>
+					<span class="ico"><img src="/views/images/yy/i_pro.png" alt=""/></span>
+					<h4 class="tit-name">活期宝</h4>
+					<p class="tit-file">活期理财 | 随存随取 | 逐月+0.5%</p>
+					<div class="tit-profit">
+						<p class="num">5.5<em>%</em>~11<em>%</em></p>
+						<p>预期年化收益</p>
+					</div>
+				</li>
+				<li>
+					<span class="ico"><img src="/views/images/yy/i_pro2.png" alt=""/></span>
+					<h4 class="tit-name">天添牛</h4>
+					<p class="tit-file">定期理财 | 锁定利润 | 稳健理财</p>
+					<div class="tit-profit">
+						<p class="num">7.8<em>%</em>~9.8<em>%</em></p>
+						<p>预期年化收益</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<ul class="brand">
+			<li>
+				<span class="ico"></span>
+				<div class="text-box">
+					<h3>品牌优势</h3>
+					<p>小牛资本集团旗下品牌 百亿规模<br />互联网金融全国十强</p>
+				</div>
+			</li>
+			<li>
+				<span class="ico"></span>
+				<div class="text-box">
+					<h3>更高收益</h3>
+					<p>银行活期存款收益的30倍<br />预期年化收益率11%</p>
+				</div>
+			</li>
+			<li>
+				<span class="ico"></span>
+				<div class="text-box">
+					<h3>投资安全</h3>
+					<p>PICC中国人民保险资金承保<br />100%本息保障计划</p>
+				</div>
+			</li>
+			<li>
+				<span class="ico"></span>
+				<div class="text-box">
+					<h3>灵活自由</h3>
+					<p>多种理财产品及投资期限可选择<br />100元起投,随存随取</p>
+				</div>
+			</li>
+		</ul>
+		<div class="operate-fixed">
+			<div class="operate-bg">
+				<a id="btn-showReg" class="oper-btn" href="javascript:void(0)" title="">立即注册</a>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		require('pages/user/nw_register/channel');
+		require('pages/user/yy/views');
+	</script>
+
+	<script type="text/javascript">
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?695745be5945955b87bc170eed465fe5";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</body>
+</html>

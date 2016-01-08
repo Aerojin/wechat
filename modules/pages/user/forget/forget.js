@@ -12,6 +12,7 @@ var TIPS = {
 	RETRY_FORMAT: "重试({0})",
 	SEND_MSG : "已发送验证码短信到号码{0}",
 	CODE_EMPTY: "请输入验证码",
+	IMAGE_EMPTY: "请输入图形验证码",
 	MOBILE_EMPTY: "请输入手机号码",
 	MOBILE_ERROR: "手机号必须是数字, 且长度为11位",	
 	PASSWORD_EMPTY: "请输入新的登录密码",
@@ -33,9 +34,12 @@ var forget = {
 		this.ui.btnSend 		= $("#btn-send");
 		this.ui.txtMobile		= $("#txt-mobile");
 		this.ui.btnDisSend 		= $("#btn-dis-send");
+		this.ui.txtImgCode		= $("#txt-imgCode");
+		this.ui.btnCode			= $("#btn-code");
 
 		this.queryString = queryString();
 		this.ui.txtMobile.val(this.queryString.mobile || "");
+		this.ui.btnCode.attr({"src": this.getImageCodeUri()});
 
 		this.regEvent();
 	},
@@ -54,6 +58,12 @@ var forget = {
 				this.activeButton();
 				this.sendCode();
 			}
+			return false;
+		}, this));
+
+		this.ui.btnCode.on("touchstart click", $.proxy(function () {
+			this.ui.btnCode.attr({"src": this.getImageCodeUri()});
+
 			return false;
 		}, this));
 	},
@@ -94,18 +104,26 @@ var forget = {
 		var options = {};
 
 		options.data = {
-			mobile: this.queryString.mobile
+			moduleId: "RESETLOGINIMAGE",
+			mobile: this.ui.txtMobile.val().trim(),
+			imageCode: this.ui.txtImgCode.val().trim()
 		};
 
 		options.success = function () {
 			
 		};
 
-		options.error = function () {
-
+		options.error = function (e) {
+			tipMessage.show(e.msg || TIPS.SYS_ERROR, {delay: 2000});
 		};
 
-		api.send(api.USER, "sendSmsCodeByResetLoginPwd", options, this);
+		api.send(api.USER, "sendSmsCode", options, this);
+	},
+	getImageCodeUri: function () {
+		var protocol = window.location.origin;
+		var path 	 = "/api/wap/randomImageCode?appVersion=1&moduleId=RESETLOGINIMAGE&source=web&r={0}";
+
+		return protocol + path.format(Math.random());
 	},
 	activeButton: function () {
 		var number = 60;
@@ -137,6 +155,7 @@ var forget = {
 		var mobile = this.ui.txtMobile.val().trim();
 		var password1 = this.ui.txtPassword1.val().trim();
 		var password2 = this.ui.txtPassword2.val().trim();
+		var imgCode = this.ui.txtImgCode.val().trim();
 
 		if(validate.isEmpty(mobile)){
 			tipMessage.show(TIPS.MOBILE_EMPTY, {delay: 2000});
@@ -148,6 +167,12 @@ var forget = {
 			tipMessage.show(TIPS.MOBILE_ERROR, {delay: 2000});
 
 			return false;	
+		}
+
+		if(validate.isEmpty(imgCode)){
+			tipMessage.show(TIPS.IMAGE_EMPTY, {delay: 2000});
+
+			return false;		
 		}
 
 		if(options && options.chechMobiel){

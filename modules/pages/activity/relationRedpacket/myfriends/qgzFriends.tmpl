@@ -1,0 +1,10 @@
+{{each qgzList}}
+	<li>
+	    <p class="hdimg"><img src="{{$value.lit_05}}"></p>
+	    <p class="hdname">
+	    	<span>{{$value.friendName}}</span>
+	    	<i>{{$value.friendMobile}}</i>
+	    </p>
+	    <p class="after_nmb"><em>已发{{$value.sendRedpaperTime}}次</em></p>
+	</li>
+{{/each}}  

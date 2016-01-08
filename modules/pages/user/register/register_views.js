@@ -6,7 +6,6 @@ var tipMessage		= require("ui/tip_message/tip_message");
 var loading 		= require("ui/loading_button/loading_button");
 var registerModel	= require("register_model");
 
-
 var TIPS = {
 	SHOW: "显示",
 	HIDE: "隐藏",
@@ -14,7 +13,8 @@ var TIPS = {
 	RETRY: "重试",
 	RETRY_FORMAT: "重试({0})",
 	REG_SUCCESS: "注册成功",
-	CODE_EMPTY: "请输入验证码",
+	CODE_EMPTY: "请输入手机验证码",
+	IMAGE_EMPTY: "请输入图形验证码",
 	SEND_MSG : "已发送验证码短信到号码{0}",
 	SYS_ERROR: "网络异常,请稍后重试",
 	MOBILE_EMPTY: "请输入手机号码",
@@ -24,13 +24,14 @@ var TIPS = {
 	MOBILE_EXIST: "该手机号已经注册, 请直接登录"
 };
 
+
 var views = function (options) {
 	options = options || {};
 
 	this.oldUser 	= false;
-	this.param 		= options.param || {};
-	this.redirect 	= options.redirect || false;
 	this.showPass 	= false;
+	this.param 		= options.param || {};	
+	this.redirect 	= options.redirect || false;
 
 	this.ui = {};
 	this.ui.txtCode 		= options.txtCode;
@@ -42,13 +43,18 @@ var views = function (options) {
 	this.ui.btnSend 		= options.btnSend;
 	this.ui.btnDisSend 		= options.btnDisSend;
 	this.ui.btnShowPass 	= options.btnShowPass;
-
+	this.ui.txtImgCode 		= options.txtImgCode;
+	this.ui.btnCode			= options.btnCode;
 
 	this.init();
 };
 
 views.prototype.init = function () {
-	this.model = new registerModel();	
+	this.model = new registerModel();
+
+	this.ui.txtMobile.val(this.param.mobile || "");	
+	this.ui.txtRecommend.val(this.param.referrer || "");
+	this.ui.btnCode.attr({"src": this.getImageCodeUri()});
 
 	this.regEvent();
 };
@@ -100,19 +106,26 @@ views.prototype.regEvent = function () {
 	this.ui.txtMobile.on("input", $.proxy(function () {
 		this.oldUser = false;
 	}, this));
+	
+	this.ui.btnCode.on("touchstart click", $.proxy(function () {
+		this.ui.btnCode.attr({"src": this.getImageCodeUri()});
+
+		return false;
+	}, this));
 };
 
 views.prototype.sendCode = function () {
 	var options = {
-		mobile: this.ui.txtMobile.val().trim()
+		mobile: this.ui.txtMobile.val().trim(),
+		imageCode: this.ui.txtImgCode.val().trim()
 	};
 
 	options.success = function () {
 		
 	};
 
-	options.error = function () {
-
+	options.error = function (e) {
+		tipMessage.show(e.msg || TIPS.SYS_ERROR, {delay: 2000});
 	};
 
 	this.model.sendCode(options, this);
@@ -202,8 +215,36 @@ views.prototype.checkMobile = function () {
 	this.model.checkMobile(options, this);
 };
 
-views.prototype.getRedirect = function (param) {
-	return decodeURIComponent(this.redirect) + "?" + $.param(param);
+views.prototype.getRedirect = function (obj) {
+	var path 	= "";
+	var param 	= "";
+	var url 	= decodeURIComponent(this.redirect);
+
+	if(url.indexOf("?") > -1){
+		param 	= url.substring(url.indexOf("?") + 1);
+		path 	= url.substring(0, url.indexOf("?"));
+
+		return  path + "?" + param + "&" + $.param(obj);
+	}
+
+	return url + "?" + $.param(obj);
+};
+
+views.prototype.checkImageCode = function () {
+	if(!this.ui.txtImgCode || !this.ui.btnCode){
+		return false;
+	}
+
+	var imgCode = this.ui.txtImgCode.val().trim();
+
+	return validate.isEmpty(imgCode);
+};
+
+views.prototype.getImageCodeUri = function () {
+	var protocol = window.location.origin;
+	var path 	 = "/api/wap/randomImageCode?appVersion=1&moduleId=REGISTERIMAGE&source=web&r={0}";
+
+	return protocol + path.format(Math.random());
 };
 
 views.prototype.check = function (options) {
@@ -226,6 +267,13 @@ views.prototype.check = function (options) {
 
 		return false;	
 	}
+
+	if(this.checkImageCode()){
+		tipMessage.show(TIPS.IMAGE_EMPTY, {delay: 2000});
+
+		return false;		
+	}
+	
 
 	if(this.oldUser){
 		this.onCheckMobile(this.oldUser);
@@ -272,7 +320,8 @@ views.prototype.complete = function (result) {
 		return;
 	}
 
-	window.location.href = getDefaultUri();	
+	/*change 已关联跳转至产品首页*/
+	window.location.href = getDefaultUri();
 };
 
 views.prototype.onCheckMobile = function () {
