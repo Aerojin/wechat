@@ -125,6 +125,7 @@ views.prototype.sendCode = function () {
 	};
 
 	options.error = function (e) {
+		this.ui.btnCode.attr({"src": this.getImageCodeUri()});
 		tipMessage.show(e.msg || TIPS.SYS_ERROR, {delay: 2000});
 	};
 

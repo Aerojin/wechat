@@ -114,6 +114,15 @@ app登录web必传参数列表
 26.转让产品购买页
 	fid: 产品ID
 	/pages/product/transfer_buy.html?fid=
+	
+27.资讯页(首页)
+	/pages/sundry/information_list.html
+
+28.安全保障(资讯页)
+	/pages/sundry/safety.html
+
+29.关于我们(资讯页)
+	/pages/sundry/about.html
 
 ```
 
