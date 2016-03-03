@@ -16,20 +16,25 @@
 	<script type="text/javascript" src="libs/mod.js" data-loader></script>
 	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
-<body>
+<body class="new-version">
 	<div class="wrap" id="wrap">
 		<article>
 			<section>
-				<h3 class="protype-name">活期收益</h3>
+				<h3 class="protype-name text-black9">活期产品</h3>
 				<div class="wrap_box bg-white hqb-context"></div>
 			</section>
-
-			<section>
-				<h3 class="protype-name">固定收益</h3>
-				<div class="wrap_box bg-white fixed-wrap fixed-context"></div>
-				<div class="picc"><span class="ico1">账户资金安全由中国人民保险提供100%承保</span></div>
+			<section id="tran-wrap" style="display: none;">
+				<h3 class="protype-name text-black9 clearfix">
+					<span>转让专区</span>
+					<a href="transfer_list.html" class="text-gray fr">更多></a>
+				</h3>
+				<div class="wrap_box bg-white tran-context"></div>
 			</section>
-		</article>	
+			<section>
+				<h3 class="protype-name text-black9">定期产品</h3>
+				<div class="wrap_box bg-white fixed-wrap fixed-context"></div>
+			</section>
+		</article>
 	</div>
 	<script type="text/javascript">
 		require('pages/product/home/index');

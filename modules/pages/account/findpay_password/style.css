@@ -1,11 +1,44 @@
-.deal-tit {margin: .3rem 0;text-align: center;color: #8f8f8f;font-size: .14rem;}
-.deal-tit-2 {margin: .2rem 0;}
-.deal-password-box {position: relative;z-index: 10;}
-.password-input {position: absolute;left: 0;top: 1px;z-index: 10;width: 100%;height: .54rem;text-indent:-99999rem;color:#fff;font: .16rem/.54rem "Microsoft YaHei";border:none;background: none;}
-.deal-password {/*padding: 0 0.5%;*/border:1px solid #d0d0d0;border-width: 1px 0;box-shadow: 0 0 .5rem rgba(12,51,92,.1);background: #fff;}
-.deal-password li {float: left; position: relative; width: 16.65%;height: .54rem;border-right: 1px solid #d0d0d0;box-sizing:border-box;}
-.deal-password li:after {display:none;content: "";position: absolute;left: 50%;top: .2rem;z-index:11;margin-left: -0.075rem;width: .15rem;height: .15rem;-moz-border-radius: 2rem;border-radius: 2rem;background: #000;}
-.deal-password li:last-child {border:none;}
-.deal-password li.z-on:after {display: block;}
+/**************重置交易密码start*****************/
+/*列表内容区*/
+/***common***/
+.page-Account .cash-input{ border: 1px solid #e8eaed;}
+.page-Account .cash-input li{padding: .1rem 0;margin-left: .25rem;border-bottom: 1px solid #e5e5e5;position: relative; }
+.page-Account .cash-input li:last-child{border-bottom: none;}
 
-.explain-txt{height: 0.2rem;width: 100%;}
+.page-Account .cash-input li input{display: block;width:66%;height: .4rem;vertical-align: middle;font-size: .16rem;color: #5a5a5a;border: 0; }
+.page-Account .cash-input li p{position: absolute;right: .1rem;top:.1rem;width: 1rem;text-align: center;line-height: .4rem;height: .4rem;}
+/***common***/
+
+
+/**头部提示**/
+.page-Account .card-info{padding: .1rem .15rem 0 .25rem;font-size: .16rem;color: #888;}
+
+
+/**按钮1**/
+.page-Account .operate{margin-left: .25rem;margin-right: .25rem;}
+.page-Account .oper-btn{display:block;line-height: .6rem;background:#fd9149;color:#FFF;text-align:center;font-size:.20rem;border-radius:5px;}
+.page-Account .oper-btn-gray{background:#ffc8a4;}
+/**按钮1**/
+
+.page-Account .cash-input li .yanz:before{
+	content:'';
+	height: .3rem;
+	position:absolute;
+	left:-.1rem;
+	top:.05rem;
+	border-left: 1px solid #d4d4d4;
+}
+.page-Account .cash-input li p.yanz{color: #fd9149;font-size:.16rem;}
+.page-Account .cash-input li p.yantime{color: #5a5a5a;}
+
+
+
+
+.page-Account .set-p {padding: .15rem .1rem;color: #888;text-align: center;font-size: .16rem;}
+/*输入交易密码*/
+.page-Account .deal-password {margin: 0 .2rem;border:1px solid #d7d6d6;background: #fafbfb;border-radius: 5px;}
+.page-Account .deal-password li {float: left; position: relative; width: 16.65%;height: .54rem;border-right: 1px solid #d7d6d6;box-sizing:border-box;}
+.page-Account .deal-password li:after {display:none;content: "";position: absolute;left: 50%;top: .2rem;z-index:11;margin-left: -0.075rem;width: .15rem;height: .15rem;-moz-border-radius: 2rem;border-radius: 2rem;background: #000;}
+.page-Account .deal-password li:last-child {border:none;}
+.page-Account .deal-password li.z-on:after {display: block;}
+/**************重置交易密码end*****************/

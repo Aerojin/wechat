@@ -5,15 +5,19 @@ var artTemplate = require("artTemplate");
 var iscroll 	= require("ui/iscroll/views");
 var tipMessage 	= require("ui/tip_message/tip_message");
 
+
+var TIPS = {
+	BAN1:"投资期限不足60天不可转让",
+	BAN2:"产品剩余期限不足30天不可转让",
+	PENDDING:"持有时间超过30日方可申请转让"
+};
+
+
 var holding = {
 
 	pageIndex: 1,
 
 	pageSize: 10,
-
-	currentData: {
-		proType:""		//产品类型 (1/固定产品,2/浮动产品)
-	},
 
 	init: function (options) {
 
@@ -23,8 +27,7 @@ var holding = {
 
 		this.format  = options.format;
 		this.padding = options.padding;
-
-		this.currentData.proType = options.proType || "";
+		this.proType = options.proType;
 
 		this.createWaterfall();
 		this.getData();
@@ -33,11 +36,12 @@ var holding = {
 	getData: function () {
 		var options = {};
 
-		options.data = $.extend(this.currentData, {
-			state: 2,
+		options.data = {
+			status: 2,
+			parentProductType: this.proType || 1,
 			pageSize: this.pageSize,
 			pageIndex: this.pageIndex
-		});
+		};
 
 		options.success = function (e) {
 			var result 	= e.data;
@@ -46,9 +50,12 @@ var holding = {
  			if(result.list.length > 0){
 	 			this.iscroll.setPageCount(result.pageCount);
 	 			this.iscroll.appendContext(this.template({
-		 				state: 2,
+	 					tabIndex: 0,
+		 				status: 2,
 		 				data: data
  				}));
+
+ 				this.setContext();
 		 		return;
 	 		}
 
@@ -59,9 +66,40 @@ var holding = {
 			this.iscroll.showEmpty();
 		};
 
-		api.send(api.PRODUCT, "queryInvestRecords", options, this);
+		api.send(api.PRODUCT, "queryUserInvestRecord", options, this);
 	},
 
+	setContext:function(){
+		this.ui.btnTransfer = $(".js-btn-transfer");
+
+		this.regEvent();
+	},
+
+	regEvent:function(){
+
+		this.ui.btnTransfer.on("click", function(){
+			var fid    = $(this).data("fid");
+			var status = $(this).data("status");
+
+			switch(status){
+				case 1:
+					tipMessage.show(TIPS.BAN1, {delay:2000});
+					break;
+				case 2:
+					tipMessage.show(TIPS.PENDDING, {delay:2000});
+					break;
+				case 3:
+					//申请转让
+					window.location.href = "$root$/account/doattorn.html?investId=" + fid;
+					break;
+				case 4:
+					tipMessage.show(TIPS.BAN2, {delay:2000});
+					break;
+			}
+
+			return false;
+		});
+	},
 
 	createWaterfall: function (data) {
  		var _this = this;

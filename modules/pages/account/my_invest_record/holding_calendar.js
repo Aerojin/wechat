@@ -12,10 +12,9 @@ var holding_calendar = {
 
 	pageSize: 10,
 
-	currentData: {
-		proType:"",		//产品类型 (1/固定产品,2/浮动产品)
-		dateType: 1,	//时间类型(1/月,2/天)
-		investEndDate: new Date().format("yyyy-MM") 	//投资时间
+	currentData:{
+		refundStartDate: "",
+		refundEndDate: ""
 	},
 
 	flagDayArray : [],  //有回款的日期
@@ -28,19 +27,28 @@ var holding_calendar = {
 
 		this.format  = options.format;
 		this.padding = options.padding;
-
-		this.currentData.proType = options.proType || "";
+		this.proType = options.proType;
 
 		this.renderCalendar();
 		this.createWaterfall();
+		this.setDefaultTime();
 		this.getData();
+	},
+
+	setDefaultTime:function(){
+		var today = new Date();
+		var date = new Date(today.getFullYear(), today.getMonth()+1, 0);
+		var lastDay = date.getDate();
+		this.currentData.refundStartDate  = today.format("yyyy-MM-01 00:00:00");
+		this.currentData.refundEndDate	  = today.format("yyyy-MM") + "-" + lastDay + " 23:59:59";
 	},
 
 	getData: function () {
 		var options = {};
 
-		options.data = $.extend(this.currentData, {
-			state: 2,
+		options.data = $.extend(this.currentData ,{
+			status: 2,
+			parentProductType: this.proType || 1,
 			pageSize: this.pageSize,
 			pageIndex: this.pageIndex
 		});
@@ -52,7 +60,8 @@ var holding_calendar = {
  			if(result.list.length > 0){ 				
 	 			this.iscroll.setPageCount(result.pageCount);
 	 			this.iscroll.appendContext(this.template({
-		 				state: 2,
+	 					tabIndex: 1,
+		 				status: 2,
 		 				data: data
  				}));
 		 		return;
@@ -66,7 +75,7 @@ var holding_calendar = {
 		};
 
 		this.iscroll.showLoading();
-		api.send(api.PRODUCT, "queryInvestRecords", options, this);
+		api.send(api.PRODUCT, "queryUserInvestRecord", options, this);
 	},
 
 
@@ -78,9 +87,10 @@ var holding_calendar = {
 
 		options.onSelectDay = function(date){
 			_this.resetWaterfall();
-			_this.currentData.dateType = 2; //按天加载
-			_this.currentData.investEndDate = date.format("yyyy-MM-dd");
 
+			//按天加载
+			_this.currentData.refundStartDate = date.format("yyyy-MM-dd 00:00:00");
+			_this.currentData.refundEndDate	  = date.format("yyyy-MM-dd 23:59:59");
 
 			if(_this.flagDayArray.indexOf(date.format("yyyy-MM-dd")) == -1){
 				//选中没有收益的日期时不加载数据
@@ -95,11 +105,15 @@ var holding_calendar = {
 			_this.resetWaterfall();
 
 			if(isSelectedAll){
-				delete _this.currentData.dateType;
-				delete _this.currentData.investEndDate;
+				delete _this.currentData.refundStartDate;
+				delete _this.currentData.refundEndDate;
 			} else {
-				_this.currentData.dateType = 1; //按月加载
-				_this.currentData.investEndDate = date.format("yyyy-MM");
+				//按月加载
+				var d = new Date(date.getFullYear(), date.getMonth()+1, 0);
+				var lastDay = d.getDate();
+				_this.currentData.refundStartDate = date.format("yyyy-MM-01 00:00:00");
+				_this.currentData.refundEndDate	  = date.format("yyyy-MM") + "-" + lastDay + " 23:59:59";
+
 			}
 
 			_this.getData();
@@ -120,7 +134,7 @@ var holding_calendar = {
 		}; 
 
 		options.success = function (e) {
-			var result 	= e.data || [];
+			var result 	= e.data.list || [];
 
  			if(result.length == 0){	
  				return; 

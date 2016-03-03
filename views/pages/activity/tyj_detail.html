@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>体验标</title>
+	<title>理财金特权标</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
@@ -17,40 +17,34 @@
 	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
-	<section id="context">
-		<div class="header_box">
-			<span>预期年化</span>
-			<P>0.0<b>%</b></P>
-		</div>
-		<div class="header_tb">
-			<span>投资期限</span>
-			<p>0天</p>
-		</div>
-		<ul class="Infor">
-			<li class="clearfix">
-				<label>收益方式</label>
-				<span>到期一次性还本付息</span>
-			</li>
-			<li class="clearfix">
-				<label>起息日</label>
-				<span>0000-01-01</span>
-			</li>
-			<li class="clearfix">
-				<label>到期日</label>
-				<span>0000-01-01</span>
-			</li>
-		</ul>
-		<ul class="Infor">
-			<li class="clearfix">
-				<a href="#">
-					<label>产品详情</label>
-					<span class="infor_d"></span>
-				</a>
-			</li>
-		</ul>
+	<div id="js_context" class="wrap wrap-pdb1 page-experi">
+		<header>
+			<div class="hd-white">
+				<div class="hd-detail">
+					<p class="p-name">预期年化</p>
+					<div class="p-num"><div class="viper">0.0%</div></div>
+					<div class="deadline"><p class="p-name">投资期限</p><p class="deadline-num">0天</p></div>
+				</div>
+			</div>
+		</header>
+		<section>
 
+			<ul class="new-invest-item mgt1">
+				<li><label>收益方式</label><div class="item-p">到期后本金回收且一次性付息</div></li>
+				<li><label>起息日</label><div class="item-p"></div></li>
+				<li><label>到期日</label><div class="item-p"></div></li>
+			</ul>
+			<ul class="operate-list mgt1">
+				<li class="li-tri">
+					<a class="alink" href="#1" title="">产品详情</a>
+				</li>
+			</ul>
 
-	</section>
+		</section>
+		
+		<div class="ft-operate-box"><a class="oper-btn " href="" title="">立即购买</a></div>
+	</div>
+
 	<script type="text/javascript">
 		require("pages/activity/tyj_detail/tyj_detail");
 	</script>

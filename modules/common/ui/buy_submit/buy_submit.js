@@ -14,6 +14,7 @@ var TIPS = {
 
 var buy = function (options) {
 
+	this.oneClick 	= false; //标记, 防止重复提交
 	this.cardState 	= bindCardState(options);
 	this.minAmount 	= options.minAmount || 100;
 };
@@ -49,6 +50,8 @@ buy.prototype.submit = function (data, callback) {
 buy.prototype.showDialogsPwd = function (callback) {
 	var _this = this;
 
+	this.oneClick = false;
+
 	if(this.dialogsPwd){
 		this.dialogsPwd.show();
 
@@ -57,12 +60,16 @@ buy.prototype.showDialogsPwd = function (callback) {
 
 	this.dialogsPwd = dialogsPwd.create({
 		onUpdate: function (result)  {
-			if(callback){
-				callback(result);
-			}
+			if(!_this.oneClick){
 
-			_this.dialogsPwd.hide();
-			_this.dialogsPwd.resetValue();
+				if(callback){
+					callback(result);
+				}
+
+				_this.oneClick = true;
+				_this.dialogsPwd.hide();
+				_this.dialogsPwd.resetValue();
+			}
 		}
 	});
 

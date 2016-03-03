@@ -76,15 +76,15 @@ var register = {
 		var data = [];
 
 		data.push({
-			src: __uri("/views/images/nw/nw_register4.jpg")
+			src: __uri("/views/images/nw/banner1.jpg")
 		});
 
 		data.push({
-			src: __uri("/views/images/nw/nw_register2.jpg")
+			src: __uri("/views/images/nw/banner2.jpg")
 		});
 
 		data.push({
-			src: __uri("/views/images/nw/nw_register3.jpg")
+			src: __uri("/views/images/nw/banner3.jpg")
 		});
 
 		this.slider = new sliderBar.create({

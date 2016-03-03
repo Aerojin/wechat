@@ -1,0 +1,24 @@
+.transfer .operate{margin-left: .1rem;margin-right: .1rem;}
+.transfer .operate2{margin-left: .6rem;margin-right: .6rem;}
+.transfer .operate3{margin-left: .25rem;margin-right: .25rem;}
+.transfer .oper-btn{display:block;line-height:.48rem;background:#fd9149;color:#FFF;text-align:center;font-size:.19rem;border-radius:5px;}
+.transfer .oper-btn-gray {background:#e0e0e0 !important;}
+
+.transfer .tips-picc {padding: .2rem 0;text-align: center;color: #939393;font-size: .14rem;}
+.transfer .tips-picc .ico1 {display: inline-block;padding-left: .2rem;
+background:url(ico-protect.png) no-repeat left center;
+-moz-background-size: .13rem .16rem;
+-webkit-background-size: .13rem .16rem;
+-o-background-size: .13rem .16rem;
+background-size: .13rem .16rem;}
+
+/*主内容区*/
+.tab-contain-box {margin-top: .1rem;box-shadow: 0 0 .08rem rgba(12,51,92,.04);background: #fff;}
+.tab-contain-box .text1 {padding: .1rem .25rem;font-size: .14rem;line-height: .23rem;color: #666;}
+.tab-detail {padding: .15rem .25rem;font-size: .14rem;color: #666;}
+.tab1 {width: 100%;}
+.tab1 th {padding: .1rem 0;text-align: center;font-size: .15rem;font-weight: normal;}
+.tab1 tbody td {padding: .1rem 0;text-align: center;color: #b2b2b2;}
+.tab1 tbody tr:first-child td {color: #666;}
+.tab1 tbody tr.on {background: #fdca89;}
+.tab1 tbody tr.on td {color: #666;}

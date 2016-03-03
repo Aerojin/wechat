@@ -17,7 +17,7 @@ loadingPage.prototype.init = function () {
 loadingPage.prototype.getElement = function () {
 	if(!this.ui.wrap){
 		this.ui.wrap = $(this.ui.template);
-
+		
 		var height 	= document.documentElement.clientHeight;
 		var width 	= document.documentElement.clientWidth;
 
@@ -39,9 +39,25 @@ loadingPage.prototype.show = function () {
 	this.container.append(this.getElement());
 };
 
+loadingPage.prototype.error = function () {
+	if(!this.ui.wrap){
+		this.show();		
+	}
+
+	this.getElement().find(".item").hide();
+	this.getElement().find(".error").show();
+
+	this.ui.wrap.on("touchstart", function () {
+		window.location.reload();
+		return false;
+	});
+};
+
 loadingPage.prototype.hide = function () {
 	this.hideScroll();
 	this.getElement().remove();
+
+	this.ui.wrap = null;
 };
 
 loadingPage.prototype.showScroll = function () {
@@ -59,6 +75,10 @@ module.exports = {
 
 	hide: function () {
 		this.getPage().hide();
+	},
+
+	error: function () {
+		this.getPage().error();
 	},
 
 	getPage: function () {

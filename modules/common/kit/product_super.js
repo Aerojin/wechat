@@ -1,198 +1,172 @@
 /*
-	state 状态码
-	0.正常
-	100.未开始
-	200.已结束
-	300.已售完
-	400.已满额
-
-	BUY_TYPE 产品购买类型
-	0.默认
-	100.按份购买
-	200.活期宝
-
 	activity 活动
 	vip 会员
 	tag 标签
 	hot 热点标签
 	progress 进度条
 	type 产品类型
+
+	"productType": 1,//产品类型 1固定,2浮动,3活期
+                "parentProductType
+
 */
-var $ 			= require("zepto");
-var user 		= require("user");
-var validate 	= require("validate");
-var moneyCny	= require("money_cny");
-var serverTime 	= require("server_time");
-var productUrl 	= require("product_url");
+var $ 				= require("zepto");
+var user 			= require("user");
+var validate 		= require("validate");
+var moneyCny		= require("money_cny");
+var serverTime 		= require("server_time");
+var productRate  	= require("product_rate");
+var PRODUCT_CONST 	= require("product_const");
 
-
-var TIPS = {
-	DAY: "天",
-	MONTH: "月"
-};
-
-var STATE = {
-	NORMAL: 0,
-	NOT_START: 100,
-	END: 200,
-	SELL_OUT: 300,
-	QUOTA_OUT: 400
-};
-
-var STATE_TEXT = {
-	0: "立即购买",
-	100: "{0}月{1}日开抢",
-	200: "已结束",
-	300: "已售完",
-	400: "已满额"
-};
-
-var BUY_TYPE = {
-	DEFAULT: 0,
-	PORTION: 100,
-	HQB: 200
-};
-
-var TYPE = {
-	FIXED: 100, 	//固定收益
-	FLOAT: 200, 	//浮动收益
-	RATE: 300		//活期宝
-};
 
 var model = function (data) {
-	this.data 	= data || {};	
+	this._data 	= data || {}; 						//私有数据, 供内部使用
+	this.data 	= $.extend(true, {}, data);			//公有数据, 对外使用
+	this.init();	
 };
 
 model.prototype.init = function () {
+	var result = {};
 
-	this.data.isFlow 		= Number(this.data.isFlow);
-	this.data.typeValue 	= Number(this.data.typeValue);
-	this.data.flowMinRate 	= this.data.flowMinRateDisplay || "0.0";
-	this.data.flowMaxRate 	= this.data.flowMaxRateDisplay || "0.0";
-	this.data.fixRate 		= this.data.fixRate || 0;
-	this.data.fixRateShow	= this.data.fixRateDisplay || "0.0";
-	this.data.remaMoney 	= moneyCny.toYuan(this.getRemaMoney(), 0);
+	result.fid 			= this._data.fid;											//产品FID
+	result.minRate 		= this._data.minRate || "0.0";								//产品最小利率
+	result.maxRate 		= this._data.maxRate || "0.0";								//产品最大利率
+	result.productType 	= this._data.productType;
+	result.remainMoney 	= moneyCny.toYuan(this.getRemaMoney(), 2);					//产品剩余额度(带小数位)
+	result.remainAmount = moneyCny.toYuan(this.getRemaMoney(), 0);					//产品剩余额度
 
-	this.data.extension 	= this.data.extension || {};
+	result.isNewUserMark	= this._data.newUserMark == 2; 							//是否是新手标
+	result.isFloat 			= Number(this._data.isFloat) == PRODUCT_CONST.FLOAT;	//是否是浮动产品
+	result.extension 		= this._data.extension || {};							//扩展字段
+	result.balance 			= moneyCny.toFixed(this._data.ableBalance, 2);			//账户余额	
+	result.strStartDate 	= this.formatDate(this._data.profitCalcDate);			//起息日
+	result.strEndDate 		= this.formatDate(this._data.refundDate);				//到期日
+	result.unitPrice 		= moneyCny.toYuan(this._data.unitPrice);				//按份卖的产品,每份多少钱
+	result.userRemaMoney	= moneyCny.toYuan(this._data.userRemainAmount, 0); 		//用户剩余可购买额度
+	result.remainAmountUnit	= moneyCny.toUnit(this.getRemaMoney(), 0);				//产品剩余额度(带单位)
+	result.userInvestUnit 	= moneyCny.toUnit(this._data.userInvestLimit);			//用户购买产品的最大额度(带单位)
+	result.userInvestLimit	= moneyCny.toYuan(this._data.userInvestLimit)			//用户购买产品的最大额度(原始值)
+	result.minInvestLimit 	= moneyCny.toYuan(this._data.minInvestLimit);			//产品最小购买金额
+	result.maxInvestLimit 	= moneyCny.toYuan(this._data.maxInvestLimit);			//产品最大购买金额
+	result.salesAmount 		= moneyCny.toYuan(this._data.salesAmount);				//产品销售总额
+	result.amount			= moneyCny.toYuan(this._data.amount);					//产品总额度
 
-	//----活期宝-------
-	this.data.balance 			= moneyCny.toYuan(this.data.ableBalance);
-	this.data.fbuyBalance	 	= moneyCny.toUnit(this.data.fbuyBalance);
-	this.data.remaMoneyDisplay	= moneyCny.toUnit(this.getRemaMoney(), 0, true);
-	this.data.fPurchaseMaximum	= moneyCny.toUnit(this.data.fPurchaseMaximum);
-	//----活期宝-------
+	result.token 		= user.get("token");				//用户tonke
+	result.userId 		= user.get("userId");				//用户ID
+	result.dateUnit 	= this.getDateUnit();				//产品单位
+	result.isLogin 		= user.isLogin();					//用户是否登录	
+	result.percentInfo 	= this.getPercentInfo();			//产品销售百分比信息
+	result.hotInfo 		= this.getHotInfo();				//产品标签信息
+	result.vipInfo 		= this.getVipInfo();				//产品会员信息
+	result.activityInfo	= this.getActivityInfo();			//产品活动信息
+	result.parentType 	= this.getParentType();				//产品父类型
+	result.state 		= this.getState();					//当前产品状态
+	result.stateText 	= this.getStateText();				//状态对应显示的文本
+	result.buyType 		= this.getBuyType();				//购买类型
+	result.isUserLimit 	= this.isUserLimit();				//是否限制用户购买额度
+	result.uri 			= this.getUrl();					//产品URL信息
+	result.protocolUri 	= this.getProtocolUrl();			//协议URL信息
+	result.isTransfer 	= this.isTransfer();				//产品是否可以转让
+	result.isTransferProduct = this.isTransferProduct(); 	//是否是转让产品
 
-	//----固定收益-------
-	this.data.buyMinMoney 			= moneyCny.toYuan(this.data.buyMinMoney);
-	this.data.buyTotalMoney 		= moneyCny.toYuan(this.data.buyTotalMoney);
-	this.data.buyedTotalMoney 		= moneyCny.toYuan(this.data.buyedTotalMoney);
-	this.data.buyMaxMoney			= moneyCny.toUnit(this.data.cBuyMaxMoney);
-	this.data.buyedMoney 			= moneyCny.toUnit(this.data.cBuyMaxMoney - this.data.userBuyedMoney);
+	this.data = $.extend(this.data, result);
 
-	//----固定收益-------
-
-	this.data.token 		= user.get("token");
-	this.data.userId 		= user.get("userId");
-	this.data.dateUnit 		= this.getDateUnit();
-	this.data.isLogin 		= user.isLogin();
-	this.data.productId 	= this.getProductId();
-	this.data.percentInfo 	= this.getPercentInfo();
-	this.data.hotInfo 		= this.getHotInfo();
-	this.data.vipInfo 		= this.getVipInfo();
-	this.data.activityInfo	= this.getActivityInfo();
-	this.data.type 			= this.getType();
-	this.data.state 		= this.getState();
-	this.data.stateText 	= this.getStateText();
-	this.data.buyType 		= this.getBuyType();
-	this.data.isUserLimit 	= this.isUserLimit();
-	this.data.uri 			= this.getUrl();
-	this.data.protocolUri 	= this.getProtocolUrl();
+	//初始化利率计算器
+	this.productRate = productRate.create({
+		day: this._data.investPeriod
+	});
 };
 
 //vip信息
 model.prototype.getVipInfo = function () {
-	var vipInfo = this.data.memberAwardRate || {};
+	var info = {}; 
+	var data = this._data.memberAwardRate;	
 
-	vipInfo.isVip 			= !!Number(vipInfo.menberLevel);
-	vipInfo.isVipProduct 	= !!this.data.memberAwardFlag;
+	info.isVip 			= !!data;							//当前用户是否是VIP
+	info.isVipProduct 	= !!this._data.memberAwardFlag;		//是否是VIP产品
 
-	return vipInfo;
-};
-
-model.prototype.getProductId = function () {
-	if(this.data.productId){
-		return this.data.productId;
+	if(info.isVip){
+		info.awardName		= data.awardName;					//加息配置名
+		info.awardRate 		= data.awardRate; 					//加息利率
+		info.startTime 		= data.startTime; 					//起始时间
+		info.endTime 		= data.endTime; 					//结束时间
+		info.remark 		= data.remark;						//备注
 	}
 
-	return this.data.fid;
+	return info;
 };
 
 //产品类型
-model.prototype.getType = function () {
-	if(this.data.isFlow == 1) {
-		return TYPE.FIXED;
-	}
+model.prototype.getParentType = function () {
+	var key = this._data.parentProductType;
 
-	if(this.data.isFlow == 2 && this.data.typeValue != 3){
-		return TYPE.FLOAT;
-	}
-
-	return TYPE.RATE;
+	return PRODUCT_CONST.PARENT_TYPE[key];
 };
 
 //获取产品状态
 model.prototype.getState = function () {
 	if(this.isSellOut()){
-		return STATE.SELL_OUT;
+		return PRODUCT_CONST.STATE.SELL_OUT;
 	}
 
 	if(this.isQuotaOut()){
-		return STATE.QUOTA_OUT;
+		return PRODUCT_CONST.STATE.QUOTA_OUT;
 	}
 
 	if(this.isProductDate() && !this.getProductRule().isStart){
-		return STATE.NOT_START;
+		return PRODUCT_CONST.STATE.NOT_START;
 	}
 
 	if(this.isProductDate() && this.getProductRule().isEnd){
-		return STATE.END;
+		return PRODUCT_CONST.STATE.END;
 	}
 
-	return STATE.NORMAL;
+	return PRODUCT_CONST.STATE.NORMAL;
 };
 
 //获取对应状态的文本
 model.prototype.getStateText = function () {
-	if(this.data.state == STATE.NOT_START){
-		var start = this.getProductRule().starDate;
-		var month = start.getMonth() + 1;
-		var day   = start.getDate();
+	var state = this.getState();
 
-		return STATE_TEXT[this.data.state].format(month, day);
+	//未开始, 提示则需要特殊处理
+	if(state == PRODUCT_CONST.STATE.NOT_START){
+		return this.getStartText();
 	}
 
-	return STATE_TEXT[this.data.state];
+	return PRODUCT_CONST.STATE_TEXT[state];
+};
+
+//获取未开始状态文本
+model.prototype.getStartText = function () {
+	var now 	= serverTime.getServerTime();		//当前时间	
+	var start 	= this.getProductRule().startDate;	//开始时间
+	var day 	= 24 * 60 * 60 * 1000; 				//一天时间的毫秒数
+	var diff 	= start.getTime() - now.getTime();	//开始时间和当前时间的时间差
+
+	//时间差小于24小时, 则需要判断是否是当天, 如果是当天则返回几点开抢的提示, 否则返回几月几号开抢提示
+	if(diff > 0 && diff < day && now.getDate() == start.getDate()){
+		return "{0}开抢".format(start.format("hh:mm"));
+	}
+
+	var month = start.getMonth() + 1;
+	var day   = start.getDate();
+
+	return  PRODUCT_CONST.STATE_TEXT[this.getState()].format(month, day)
 };
 
 
 //获取产品单位
 model.prototype.getDateUnit = function () {
-	if(Number(this.data.deadLineType || 0) == 1){
-		return TIPS.DAY;
-	}
-
-	return TIPS.MONTH;
+	return PRODUCT_CONST.DATE_UNIT.DAY;
 };
 
 //判断产品是否售完
 model.prototype.isSellOut = function () {
-	var minMoney 	= this.data.buyMinMoney;
-	var buyTotal 	= this.data.buyTotalMoney;
-	var buyedTotal  = this.data.buyedTotalMoney;
-	var result 		= buyTotal - buyedTotal;
+	var remaMoney 	= this._data.remainAmount;			//产品剩余额度
+	var minMoney 	= this._data.minInvestLimit;		//产品最小购买额度	
 
 	if(this.isProductLimit()){
-		return this.data.status != 2 || result < minMoney;
+		return remaMoney < minMoney;
 	}
 
  	return false;
@@ -200,7 +174,7 @@ model.prototype.isSellOut = function () {
 
 //产品是否设置额度
 model.prototype.isProductLimit = function () {
-	if(Number(this.data.buyTotalMoney) == 0){
+	if(Number(this._data.amount) == 0){
 		return false;
 	}
 
@@ -209,7 +183,7 @@ model.prototype.isProductLimit = function () {
 
 //产品是否限制用户购买额度
 model.prototype.isUserLimit = function () {
-	if(Number(this.data.cBuyMaxMoney) == 0){
+	if(Number(this._data.userInvestLimit) == 0 || this.isTransferProduct()){
 		return false;
 	}
 
@@ -218,10 +192,11 @@ model.prototype.isUserLimit = function () {
 
 //获取产品额度百分比
 model.prototype.getPercentInfo = function () {
-	var extension 	= this.data.extension || {};
-	var buyTotal 	= Number(this.data.buyTotalMoney || 0);
-	var buyedTotal 	= Number(this.data.buyedTotalMoney || 0);
-	var percent 	= (buyedTotal / buyTotal) * 100;
+	var extension 	= this._data.extension || {};
+	var remain 		= Number(this._data.remainAmount || 0); //产品剩余额度
+	var amount		= Number(this._data.amount || 0);		//产品总额
+	var sales 		= amount - remain; 						//已销售总额
+	var percent 	= (sales / amount) * 100;
 
 	if(percent > 0 && percent < 1){
 		percent = 1;
@@ -231,30 +206,29 @@ model.prototype.getPercentInfo = function () {
 		percent = 100;
 	}
 
+	if(window.isNaN(percent) || sales == 0 || amount == 0){
+		percent = 0;
+	}
+
 	return {
 		isShow: !!extension.show_progress,
 		value:  Math.floor(percent) + "%" 
 	}
 };
 
-//获取产品剩余余额
+//获取产品剩余可购买额度
 model.prototype.getRemaMoney = function () {
-	if(this.data.remaMoney < this.data.buyMinMoney){
+	if(this._data.remainAmount < this._data.minInvestLimit) {
 		return 0;
 	}
 
-	return this.data.remaMoney;
+	return this._data.remainAmount;
 };
 
 //个人额度是否用完
 model.prototype.isQuotaOut = function () {
-	if(this.getType() == TYPE.RATE){
-		return this.data.remaMoney == 0 || this.data.fbuyBalance == 0;
-	}
-
 	if(this.isUserLimit()){
-		return this.data.userAvailableMoney <= 0;
-		//return this.data.cBuyMaxMoney
+		return (this._data.userRemainAmount || 0) <= 0;		
 	}
 
 	return false;
@@ -262,7 +236,7 @@ model.prototype.isQuotaOut = function () {
 
 //产品是否有购买时间限制
 model.prototype.isProductDate = function () {
-	if(validate.isEmpty(this.data.productRule)){
+	if(validate.isEmpty(this._data.startTime) || validate.isEmpty(this._data.endTime)){
 		return false;
 	}
 
@@ -272,17 +246,17 @@ model.prototype.isProductDate = function () {
 //获取产品购买时间限制信息
 model.prototype.getProductRule = function () {
 	var obj 	= {};	
-	var start 	= this.data.productRule.startBuyTime;
-	var end 	= this.data.productRule.endBuyTime;
+	var start 	= this._data.startTime;
+	var end 	= this._data.endTime;
 
 	if(!validate.isEmpty(start) && !validate.isEmpty(end)){
 		obj.endDate	 = end.parseDate();
-		obj.starDate = start.parseDate();
+		obj.startDate = start.parseDate();
 		obj.result   = serverTime.getDateActivity(start, end);
 
 		return {
 			endData: obj.endDate,
-			starDate: obj.endDate,
+			startDate: obj.startDate,
 			isEnd: obj.result.isEnd,
 			isStart: obj.result.isStart
 		};
@@ -290,7 +264,7 @@ model.prototype.getProductRule = function () {
 
 	return {
 		endData: null,
-		starDate: null,
+		startDate: null,
 		isEnd: false,
 		isStart: true
 	}
@@ -298,7 +272,7 @@ model.prototype.getProductRule = function () {
 
 //获取热点标签信息
 model.prototype.getHotInfo = function () {
-	var extension 	= this.data.extension || {};
+	var extension 	= this._data.extension || {};
 
 	return {
 		isShow: !validate.isEmpty(extension.hot_product),
@@ -308,15 +282,19 @@ model.prototype.getHotInfo = function () {
 
 //获取产品购买类型
 model.prototype.getBuyType = function () {
-	if(this.getType() == TYPE.RATE){
-		return BUY_TYPE.HQB;
+	if(this._data.productType == PRODUCT_CONST.PRODUCT_TYPE.HQB){
+		return PRODUCT_CONST.BUY_TYPE.HQB;
 	}
 
-	if(this.data.typeValue == 5 || (this.data.typeValue >= 500 && this.data.typeValue < 600)){
-		return BUY_TYPE.PORTION;
+	if(this._data.productType == PRODUCT_CONST.PRODUCT_TYPE.YXB){
+		return PRODUCT_CONST.BUY_TYPE.YXB;
 	}
 
-	return BUY_TYPE.DEFAULT;
+	if(Number(this._data.unitPrice) > 0){
+		return PRODUCT_CONST.BUY_TYPE.PORTION;
+	}
+
+	return PRODUCT_CONST.BUY_TYPE.DEFAULT;
 };
 
 
@@ -327,11 +305,21 @@ model.prototype.getActivityInfo = function () {
 
 //判断活动是否在有效期内
 model.prototype.isValid = function (data) {
-	if(!data.beginTime || !data.endTime){
+	//会员产品活动过滤条件
+	if(data.adType == 2){
+		var vipInfo = this.getVipInfo();
+
+		return vipInfo.isVipProduct && !vipInfo.isVip;
+	}
+
+	return true;
+
+	/*
+	if(!data.startTime || !data.endTime){
 		return true;
 	}
 	
-	var start 	= data.beginTime;
+	var start 	= data.startTime;
 	var end   	= data.endTime;
 	var result 	= serverTime.getDateActivity(start, end);
 
@@ -340,6 +328,7 @@ model.prototype.isValid = function (data) {
 	}
 
 	return false;
+	*/
 };
 
 //过滤未开始和已经结束的活动
@@ -348,63 +337,87 @@ model.prototype.filterActivity = function (data) {
 		return [];
 	}
 
+	var _this 	= this;
 	var array 	= [];
 	var userId 	= user.get("userId");
 	var token 	= user.get("token");
-	var param 	= "?userId={0}&token={1}".format(userId, token);
+	var mobile 	= user.get("loginName");
+	var param 	= "?userId={0}&token={1}&loginName={2}".format(userId, token, mobile);
 
-	for(var i = 0; i < data.length; i++){
-		var result = data[i];
+	data.map(function (value, index) {
 
-		if(validate.isEmpty(result.redirectUrl)){
-			result.redirectUrl = "javascript:void(0);";
+		if(validate.isEmpty(value.redirectUrl)){
+			value.isGoto 	= false;
+			value.url 		= "javascript:void(0);";
 		}else{
-			result.redirectUrl += param;
+			value.isGoto 	= true;
+			value.url  		= value.redirectUrl + param;
 		}
 
-		if(this.isValid(result)){
-			array.push(result);
-		}		
-	}
+
+		if(_this.isValid(value)){
+			array.push(value);
+		}	
+	});
 
 	return array;
 };
 
 //获取产品各种URL配置
 model.prototype.getUrl = function () {
-	var data = this.data.auxiliaryInfo || {};
+	var info = {};
+	var data = this._data.featureRlt || [];
 
-	if(!data.detailUrl){
-		data.detailUrl = {
+	data.map(function (value, index) {
+		var obj = {
+			title: value.featureName,
+			url: value.featureValue
+		};
+
+		switch(value.featureType) {
+			case 1:
+				info.detailInfo = obj;
+				break;
+			case 2:
+				info.securityInfo = obj;
+				break;
+		}
+	});
+
+	if(!info.detailInfo){
+		info.detailInfo = {
 			title: "产品详情",
-			content: "产品详情",
-			redirectUrl: "javascript:void(0);"
+			desc: "产品详情",
+			url: "javascript:void(0);"
 		};
 	}
 
-	if(!data.securityUrl){
-		data.securityUrl = {
+	if(!info.securityInfo){
+		info.securityInfo = {
 			title: "安全保障",
-			content: "安全保障",
-			redirectUrl: "javascript:void(0);"
+			desc: "安全保障",
+			url: "javascript:void(0);"
 		};
 	}
 
-	if(!data.agreementUrl){
-		data.agreementUrl = [];
-	}
-
-	return data;
+	return info;
 };
 
 //获取产品协议URL配置
 model.prototype.getProtocolUrl = function () {
-	var uri 	= this.getUrl();
-	var array 	= uri.agreementUrl;
+	var array 	= [];
+	var data 	= this._data.featureRlt || [];
+	var investPeriod = this._data.investPeriod || "";
+	
+	data.map(function (value, index) {
+		value.url 	= value.featureValue + "?deadLineValue=" + investPeriod;
+		value.title = value.featureName;
 
-	for(var i = 0; i < array.length; i++){
-		array[i].checked = true;
-	}
+		if(value.parentFeatureType == 3){
+			value.checked = true;
+			array.push(value);
+		}
+	});
 
 	return array;
 };
@@ -413,8 +426,46 @@ model.prototype.getData = function () {
 	return this.data;
 };
 
+//判断是否是活期宝
+model.prototype.isHqb = function () {
+	return this._data.productType == PRODUCT_CONST.PRODUCT_TYPE.HQB;
+};
+
+//当前产品是否可以转让(显示转让标签)
+model.prototype.isTransfer = function () {
+	return this._data.isTransfer == 2 && this._data.investPeriod >= 60;
+};
+
+//是否是转让过的产品
+model.prototype.isTransferProduct = function () {
+	return this._data.investType == 2;
+};
+
 model.prototype.toYuan = function (amount) {
 	return moneyCny.toYuan(amount);
 };
 
-module.exports = model;
+model.prototype.formatDate = function (date) {
+	if(!date){
+		return "";
+	}
+
+	if(typeof(date) == "string"){
+		date = date.parseDate();
+	}
+
+	return date.format("yyyy-MM-dd");
+};
+
+
+
+module.exports = {
+	extend: function (child) {
+		$.extend(model.prototype, child);
+
+		return model;
+	},
+	create: function (options) {
+		return new model(options);
+	}
+};

@@ -1,63 +1,64 @@
-<a href="javascript:void(0);" class="btn-detail">
 {{if state == 300}}
 	<div class="zhishu-box zhishu-box-over vip-ture">
-		<div class="zhishu-tit">
-			<p>{{productName}}</p>		
-		</div>
-		<div class="zhishu-vip">
-			<div class="z-txt">预期年化</div>
+		<div class="zhishu-tit"><p>{{productName}}</p></div>
+		<div class="zhishu-vip">			
 			<div class="z-num">
 				<div class="vip-num-box">
-					<b>{{fixRateShow}}</b>%
+					<b>{{finalRateDesc}}</b>%
 					{{if vipInfo.isVipProduct && vipInfo.isVip}}
 						+<b>{{vipInfo.awardRate}}</b>% <span class="vip-tag">会员</span>
 					{{/if}}
 				</div>
 			</div>
 		</div>
-		<div class="zhishu-vip-limit"><p class="z-txt">投资期限</p><p class="z-num">{{deadLineValue}}{{dateUnit}}</p></div>
-		<a href="javascript:void(0);" class="btn-buy btn-submit">{{stateText}}</a>
+		<div class="zhishu-vip-limit"><p class="z-txt">{{investPeriod}}{{dateUnit}}</p></div>		
+		<span class="sold-out"></span>		
 	</div>
 {{else}}
 	<div class="zhishu-box vip-ture">
 		<div class="zhishu-tit">
 			<p>{{productName}}</p>
 			{{if vipInfo.isVipProduct && !vipInfo.isVip}}
-				<span class="time-vip ">会员加成</span>
+				<span class="time-vip time-yel">会员</span>
 			{{/if}}
-
+			{{if isTransfer}}
+				<span class="time-vip time-blue">可转</span>
+			{{/if}}
 			{{each activityInfo}}
-				<span class="time-vip time-yel">{{$value.text}}</span>
-			{{/each}}		
+				<span class="time-vip time-red">{{$value.title}}</span>
+			{{/each}}
 		</div>
-		<div class="zhishu-vip">
-			<div class="z-txt">预期年化</div>
+		<div class="zhishu-vip">			
 			<div class="z-num">
 				<div class="vip-num-box">
-					<b>{{fixRateShow}}</b>%
+					<b>{{finalRateDesc}}</b>%
 					{{if vipInfo.isVipProduct && vipInfo.isVip}}
 						+<b>{{vipInfo.awardRate}}</b>% <span class="vip-tag">会员</span>
 					{{/if}}
 				</div>
 			</div>
 		</div>
-		<div class="zhishu-vip-limit"><p class="z-txt">投资期限</p><p class="z-num">{{deadLineValue}}{{dateUnit}}</p></div>
-		<a href="javascript:void(0);" class="btn-buy btn-submit">{{stateText}}</a>
-		
+		<div class="zhishu-vip-limit"><p class="z-txt">{{investPeriod}}{{dateUnit}}</p></div>
+		{{if state == 100}}
+			<div class="btn-buy"><a href="javascript:void(0);" class="alink btn-submit">未开始</a></div>
+		{{else}}
+			<div class="btn-buy"><a href="javascript:void(0);" class="alink btn-submit">购买</a></div>
+		{{/if}}
 		{{if percentInfo.isShow}}
-			<div class="zhishu-datebox">
+			<div class="mgt1">
 				<div class="progressBar-box">
-					<div class="progressBar">
-						<span class="progressBar-block per" style="width: {{percentInfo.value}};"></span>
-					</div>
-					<span class="progressBar-result">{{percentInfo.value}}</span>
+					<div class="progressBar"><span class="progressBar-block per" style="width: {{percentInfo.value}};"></span></div>
+					<span class="progressBar-result">已售{{percentInfo.value}}</span>
 				</div>
 			</div>
 		{{/if}}
-
+		{{if isTransferProduct}}
+		<div class="zhishu-datebox mrt1">
+			<p class="day count-down"></p>
+		</div>
+		{{/if}}
 		{{if hotInfo.isShow }}
 			<div class="sold-hot"><div class="scale">{{hotInfo.value}}</div></div>
-		{{/if}}
+		{{/if}}	
 	</div>
 {{/if}}
-</a>

@@ -10,14 +10,23 @@ var masklayer = function (options) {
 
 		this.ui = {};
 		this.ui.wrap = $(this.template);
-
+		
 		this.regEvent();
+		this.setHeight();
 	};
 
 	this.regEvent = function () {
 		$(window).on("resize", $.proxy(function () {
 			this.reposition();
 		},this));
+	};
+
+	this.setHeight = function () {
+		var cliHeight = document.documentElement.clientHeight;
+		var docHeight = $(document).height();
+		var domheight = docHeight > cliHeight ? docHeight : cliHeight;
+
+		this.ui.wrap.height(domheight);
 	};
 
 	this.hide = function () {

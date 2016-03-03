@@ -1,20 +1,20 @@
-.exit-box-deal p { padding-bottom: .2rem;font: .13rem/.26rem "Microsoft YaHei";color:#ccc;}
-.exit-box-deal {position:absolute;width:3.16rem;text-align:center;background:#fff;border-radius: 5px;z-index:9999;top: 8%; margin-left: -1.58rem; left: 50%;}
-.exit-box-deal h3.password {padding: .3rem 0 .3rem 0;font: .16rem/.26rem "Microsoft YaHei";color:#363532;}
-.exit-mask .exit-box-red li {color: #fff;}
-.exit-box-deal .box-txt {padding-bottom:.4rem;font-size: .14rem;color: #979797;}
-.exit-box-deal h3.pd1-h3 {padding: .2rem 0;font-size: .18rem;}
+.dialog .exit-box-deal p { padding-bottom: .2rem;font: .13rem/.26rem "Microsoft YaHei";color:#ccc;}
+.dialog .exit-box-deal {position:absolute;width:3.16rem;text-align:center;background:#fff;border-radius: 5px;z-index:9999;top: 8%; margin-left: -1.58rem; left: 50%;}
+.dialog .exit-box-deal h3.password {padding: .3rem 0 .3rem 0;font: .16rem/.26rem "Microsoft YaHei";color:#363532;}
+.dialog .exit-mask .exit-box-red li {color: #fff;}
+.dialog .exit-box-deal .box-txt {padding-bottom:.4rem;font-size: .14rem;color: #979797;}
+.dialog .exit-box-deal h3.pd1-h3 {padding: .2rem 0;font-size: .18rem;}
 	
-.exit-mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:999}	
-.exit-mask .exit-btn {width:3.16rem;text-align:center;border-top: 1px solid #d1d1d1;z-index:9999}
-.exit-mask .exit-btn li {float:left;width:50%;line-height:.54rem;font-size:.18rem; background: #da554e; color:#fff;border-right:1px solid #ccc;cursor:pointer;box-sizing:border-box;}
-.exit-mask .exit-btn li:last-child {border-right: none;}
-.exit-mask .exit-btn li:nth-child(1) {border-radius: 0 0 0 0.04rem;}
-.exit-mask .exit-btn li:nth-child(2) {border-radius: 0 0 0.04rem 0;}
-.exit-mask .exit-btn li.btn-gray {background: #ccc;}
+.dialog-exit-mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:999}	
+.dialog-exit-mask .exit-btn {width:3.16rem;text-align:center;border-top: 1px solid #d1d1d1;z-index:9999}
+.dialog-exit-mask .exit-btn li {float:left;width:50%;line-height:.54rem;font-size:.18rem; background: #da554e; color:#fff;border-right:1px solid #ccc;cursor:pointer;box-sizing:border-box;}
+.dialog-exit-mask .exit-btn li:last-child {border-right: none;}
+.dialog-exit-mask .exit-btn li:nth-child(1) {border-radius: 0 0 0 0.04rem;}
+.dialog-exit-mask .exit-btn li:nth-child(2) {border-radius: 0 0 0.04rem 0;}
+.dialog-exit-mask .exit-btn li.btn-gray {background: #ccc;}
 
-.found_password_red {text-align: center;font: .14rem/.48rem "Microsoft YaHei";padding-top: 0.1rem;}
-.found_password_red a {color: #f05a39;}
+.dialog .found_password_red {text-align: center;font: .14rem/.48rem "Microsoft YaHei";padding-top: 0.1rem;}
+.dialog .found_password_red a {color: #f05a39;}
 
-.deal-password-box {position: relative;z-index: 10;}
-.password-input {position: absolute;left: 0;top: 1px;z-index: 10;width: 100%;height: .54rem;text-indent:-99999rem;color:#fff;font: .16rem/.54rem "Microsoft YaHei";border:none;background: none;}
+.dialog .deal-password-box {position: relative;z-index: 10;}
+.dialog .password-input {position: absolute;left: 0;top: 1px;z-index: 10;width: 100%;height: .54rem;text-indent:-99999rem;color:#fff;font: .16rem/.54rem "Microsoft YaHei";border:none;background: none;}

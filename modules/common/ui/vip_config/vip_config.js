@@ -6,7 +6,8 @@ var VIP_ICO = {
 	"1": __uri("vip-1.png"),
 	"2": __uri("vip-2.png"),
 	"3": __uri("vip-3.png"),
-	"4": __uri("vip-4.png")
+	"4": __uri("vip-4.png"),
+	"5": __uri("vip-5.png"),
 };
 
 var VIP_TEXT = {
@@ -21,7 +22,8 @@ var VIP_NAME = {
 	"1": "青铜会员",
 	"2": "白银会员",
 	"3": "黄金会员",
-	"4": "铂金会员"
+	"4": "铂金会员",
+	"5": "黑金会员"
 };
 /**
  * key表示会员等级，value表示各个等级对应的特权(VIP_TEXT):true表示有该特权，false表示没有该特权
@@ -31,7 +33,8 @@ var VIP_CONFIG = {
 	"1": [true, false, false, false],
 	"2": [true, true, true, false],
 	"3": [true, true, true, true],
-	"4": [true, true, true, true]
+	"4": [true, true, true, true],
+	"5": [true, true, true, true]
 };
 
 var VIP_DETAIL = {

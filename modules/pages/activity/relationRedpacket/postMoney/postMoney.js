@@ -20,6 +20,7 @@
  var hongbao2 = __uri("hongbao2.png");
  var hongbao3 = __uri("hongbao3.png");
  var hongbao4 = __uri("hongbao4.png");
+ var hongbao5 = __uri("hongbao5.png");
  
  var postMoney = {
  	init : function(){
@@ -141,12 +142,20 @@
 			return false;
 		},this));
 		this.ui.doChb.on("singleTap",$.proxy(function(e){
-			this.ui.doChb.addClass("rotate-pack cha_bg_x");
-			this.ui.deleteText.text("");
-			var currentText = "";
-			var siblingDiv = $(e.target).siblings();
-			siblingDiv && (currentText = $(siblingDiv).children(".chbS").text());
-			(currentText == this.cont.chbS.chbSF) ? (this.doChbFixedAction()) : (this.doChbLuckyAction());
+			// var currentText = "";
+			// var siblingDiv = $(e.target).siblings();
+			// //alert(siblingDiv.length + "," + $(siblingDiv).children(".chbS").length);
+			// siblingDiv && (currentText = $(this.ui.chbS[0]).text());//$(siblingDiv).children(".chbS").text());
+		    var currentText = $(this.ui.chbS[0]).text();
+			if(currentText && currentText == this.cont.chbS.chbSF){
+				this.ui.doChb.addClass("rotate-pack cha_bg_x");
+				this.ui.deleteText.text("");
+				this.doChbFixedAction();
+			}else if(currentText && currentText == this.cont.chbS.chbSL){
+				this.ui.doChb.addClass("rotate-pack cha_bg_x");
+				this.ui.deleteText.text("");
+				this.doChbLuckyAction();
+			}			
 			return false;
 		},this));
 		this.ui.fixedHistory.on("singleTap",$.proxy(function(e){
@@ -200,7 +209,7 @@
 				"hongbao4" : hongbao4,
 				"isGotFixed" : fix.status,
 				"fcounts" : fix.redpaperRechangeNum,
-				"leftTime" : this.getLeftTime(fix.systemTime,fix.endTime),
+				"leftTime" : this.getLeftTime(fix.systemTime,fix.startTime),
 				"isStart" : this.getLeftTime(fix.systemTime,fix.startTime),
 				"hbDate" : this.formatDate(fix.endTime)
 			}
@@ -264,6 +273,7 @@
 			lucky[i].hongbao1 = hongbao1;
 			lucky[i].hongbao2 = hongbao2;
 			lucky[i].hongbao3 = hongbao3;
+			lucky[i].hongbao5 = hongbao5;
 			lucky[i].shareName = lucky[i].shartName || "";
 			(lucky[i].shareName == "") && (lucky[i].shareName = lucky[i].shartUserMobile);
 			(lucky[i].shartPrivacy == 1 || lucky[i].shareName == "") && (lucky[i].shareName = "匿名好友");

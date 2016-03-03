@@ -16,34 +16,37 @@
 	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
-	<header class="header fix-header">
-		<ul class="hqb-tit clearfix">
-			<li><span class="note-name">今日收益(元)</span><span id="js-span-income" class="note-num">+0.00</span></li>
-		</ul>
-	</header>
-	<div class="wrap pt9" id="wrap">	
+	<div id="js_wrap" class="wrap page-myhqb">
+		<header>
+			<div class="head-box bg-orange-linear">
+				<div class="bg-wave2">
+					<div class="profit-today">
+						<p>今日预期收益（元）</p>
+						<p class="num">+0.00</p>
+					</div>
+				</div>
+			</div>
+		</header>
+
 		<article>
 			<section>
-				<div class="profit-list">
-						<div class="item-li">
-							<h3 class="tit-words">活期宝</h3>
-							<div class="line-box">
-								<h4>今日收益：<span class="text-red">+0.00</span></h4>
-								<div class="h-tips">(将作为本金复投，赎回时到账）</div>
-							</div>
-						</div>
-						<div class="item-li">
-							<h3 class="tit-words">定期投资</h3>
-							<div class="line-box">
-								<h4>今日收益：<span class="text-red">+0.00</span></h4>
-								<div class="h-tips">(根据当前持有的定期投资对应的年化收益率计算。总收益将在投资到期时回款。）</div>
-							</div>
+				<div class="wrap-today mgt1">
+					<div class="today-box">
+						<h3>活期宝</h3>
+						<p class="p-name">今日预期收益：<span class="text-orange">+0.00</span></p>
+						<p class="p-tips">(将作为本金复投，赎回时到账)</p>
+					</div>
 
-						</div>
+					<div class="today-box">
+						<h3>定期投资</h3>
+						<p class="p-name">今日预期收益：<span class="text-orange">+0.00</span></p>
+						<p class="p-tips">(根据当前持有的定期投资对应的年化收益率计算。总收益将在投资到期时回款。)</p>
+					</div>
 				</div>
 			</section>
 		</article>
 	</div>
+
 	<script type="text/javascript">
 		require('pages/account/my_income/my_income_today');
 	</script>

@@ -1,22 +1,28 @@
 {{each data}}
-<div class="hqb-box waterfall-item">
-	<div class="profit clearfix">
-		<span class="profit-sp">当前收益率：<em>{{$value.fYields}}%</em></span>
-		<span class="profit-sp">{{$value.fYieldsHint}}</span>
-	</div>
-	<ul class="profit-info clearfix">
-		<li>起息日<span>{{$value.fInterestTime}}</span></li>
-		<li>购买金额<span>{{$value.fPrincipalLeft}}</span></li>
-		<li>收益金额<span>{{$value.fProfitDueIn}}</span></li>
+<div class="item-box iscroll-item">
+	<ul class="ul-item1 dp-box">
+		<li><span>持有金额</span><span class="text-orange">{{$value.fPrincipal}}</span></li>
+		<li><span>起息日</span><span>{{$value.fProfitCalcDate}}</span></li>
+		<li><span>收益金额</span><span class="color-5a">{{$value.fTotalProfit}}</span></li>
 	</ul>
-	<div class="profit clearfix">
-		{{if $value.fRedeemAble == 1}}
-			<span class="profit-sp">可随时赎回</span>
-		{{else}}
-			<span class="profit-sp">{{$value.fLockPeriod}}日后可赎回</span>
+	<div class="column-box">
+		{{if $value.fRate != "11.0"}}
+		<div class="ico-rateUp"><span>+0.5%</span><span class="ico"><img src="{{iconSrc}}" alt=""></span></div>
 		{{/if}}
-		<span class="profit-sp"><a href="$root$/agreement/hqb_invest.html">活期宝协议</a></span>
+		<ul class="ul-item1 ul-item1-after dp-box">
+			<li><span>当前收益率</span><span class="text-orange">{{$value.fRate}}%</span></li>
+			
+			{{if $value.fRate != "11.0"}}
+			<li>
+				<span>{{$value.rateHint2}}</span>
+				<span class="color-5a">{{$value.rateHint1}}</span>
+			</li>
+			{{/if}}
+		</ul>
 	</div>
+	<ul class="operate-link dp-box">
+		<li class="box-flex">{{$value.tip}}</li>
+		<li class="box-flex text-r"><a href="$root$/agreement/hqb_invest.html" class="text-blue3">活期宝协议</a></li>
+	</ul>
 </div>
 {{/each}}
-

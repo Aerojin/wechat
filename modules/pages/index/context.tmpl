@@ -1,0 +1,56 @@
+{{if isNewUserMark}}
+	<div class="sold-hot">
+		<div class="scale">{{extension.hot_product}}</div>
+	</div>
+	<div class="ban-name"><span>{{productName}}</span></div>
+	<div class="ban-btn">
+		<div class="ban-show">
+			<a href="$root$/product/product_detail.html?fid={{fid}}">
+				<div class="ban_bg">
+					<p>{{finalRate}}%</p>
+					<span>{{investPeriod}}天期限</span>
+					<i>限</i>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="ban-note">
+		<span>{{productDesc}}</span>
+	</div>
+	{{if state == 300 }}
+		<div class="ban-notes">
+			<span>10:00开抢</span>
+			<span>限额{{amount}}</span>
+		</div>
+	{{else}}
+		<div class="ban-num">剩余：<em>{{remainAmount}}元</em></div>
+	{{/if}}
+	<div class="ban-time mgt2">
+		{{if isLogin}}
+			{{if state == 0}}
+				<a href="$root$/product/product_buy.html?fid={{fid}}"  class="abtn" id="btn-buy">{{stateText}}</a>
+			{{else if state == 100}}
+				<a href="javascript:void(0);" id="btn-tips" class="oper-btn-gray abtn">{{stateText}}</a>
+			{{else if state == 400}}
+				<a href="javascript:void(0);" class="oper-btn-gray abtn">仅限新手</a>
+			{{else}}
+				<a href="javascript:void(0);" class="oper-btn-gray abtn">{{stateText}}</a>
+			{{/if}}	
+		{{else}}
+			{{if state == 300}}
+				<a href="javascript:void(0);" class="oper-btn-gray abtn">{{stateText}}</a>
+			{{else if state == 100}}
+				<a href="javascript:void(0);" id="btn-tips" class="oper-btn-gray abtn">{{stateText}}</a>
+			{{else}}
+				<a href="$root$/product/product_buy.html?fid={{fid}}" class="abtn"><span>立即购买</span></a>	
+			{{/if}}			
+		{{/if}}
+		
+	</div>
+{{else}}
+	<div class="ban-name-copy"><span>{{productName}}</span></div>
+	<div class="ban-num-copy">{{minRateDesc}}<em>%</em>-{{maxRateDesc}}<em>%</em></div>
+	<div class="ban-note-copy"><span>随存随取</span>|<span>当日计息</span></div>
+	<div class="ban-btn-copy"><a id="btn-buy" href="$root$/product/product_buy.html?fid={{fid}}" class="btn-buy">立即购买</a></div>
+{{/if}}
+<div class="picc-careful"><span>由中国人保100%承保  小牛资本旗下产品</span></div>

@@ -87,7 +87,7 @@ var forget = {
 				return;
 			}
 
-			window.location.href = "$root$/user/login2.html?mobile=" + this.queryString.mobile;
+			window.location.href = "$root$/user/login.html?mobile=" + this.queryString.mobile;
 		};
 
 		options.error = function (e) {

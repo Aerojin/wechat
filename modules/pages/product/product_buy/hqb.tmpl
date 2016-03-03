@@ -1,0 +1,40 @@
+<div>
+	<header class="bg-orange-linear">
+		<div class="bg-wave2">
+			<div class="hqb-buy">
+				<h3 class="hqb-h3">{{productName}}</h3>
+				<p>预期年化收益率：{{minRateDesc}}%~{{maxRateDesc}}%</p>
+				<p class="mrt1">剩余额度：{{remainAmount}}元</p>
+				<span class="ico-deadtime">随存随取</span>
+			</div>
+		</div>
+	</header>	
+	<article>
+		<section>
+			{{if userInvestLimit > 0}}
+				<p class="b-tips">每人累计可购买{{userInvestUnit}}元，您还可购买{{userRemaMoney}}元</p>
+			{{/if}}
+			<div class="cash-input"><input type="tel" id="txt-money" placeholder="请输入购买金额，{{minInvestLimit}}元起"></div>
+			<p class="b-tips">您的账户余额为{{balance}}元<a href="javascript:void(0);" id="btn-recharge" class="pdl1 text-blue2">充值</a></p>
+			<div class="operate mrt1">
+				{{if state == 0}}
+					<a class="oper-btn"  id="btn-submit" href="javascript:void(0);" title="">购买</a>
+				{{else}}
+					<a class="oper-btn oper-btn-gray" href="javascript:void(0);" title="">{{stateText}}</a>
+				{{/if}}				
+			</div>
+			<ul class="protocol clearfix">
+				{{each protocolUri}}
+					<li>
+						{{if $value.checked}}
+							<span class="pact-ico btn-pact pact-on" data-index="{{$index}}"></span>
+						{{else}}
+							<span class="pact-ico btn-pact" data-index="{{$index}}"></span>
+						{{/if}}						
+						<p>已同意<a  href="{{$value.url}}" class="text-blue2">《{{$value.title}}》</a></p>
+					</li>
+				{{/each}}			
+			</ul>
+		</section>
+	</article>	
+</div>

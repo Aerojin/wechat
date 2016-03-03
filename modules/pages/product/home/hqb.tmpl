@@ -1,39 +1,38 @@
-<a href="javascript:void(0);" class="btn-detail">
 {{if state == 300}}
 	<div class="zhishu-box zhishu-box-over vip-ture">
-		<div class="zhishu-tit">
-			<p>{{productName}}</p>
-		</div>
+		<div class="zhishu-tit"><p>{{productName}}</p></div>
 		<div class="zhishu-vip">
-			<div class="z-txt">预期年化</div>
-			<div class="z-num">
-				<div class="vip-num-box"><b>{{flowMinRate}}</b>%~<b>{{flowMaxRate}}</b>% </div>
-			</div>
+			<div class="z-num"><div class="vip-num-box"><b>{{minRateDesc}}</b>%~<b>{{maxRateDesc}}</b>% </div></div>
+			<div class="z-txt">收益每月涨0.5%</div>
 		</div>
-		<div class="zhishu-vip-limit"><p class="z-txt">剩余额度</p><p class="z-num">{{remaMoneyDisplay}}元</p></div>
-		<a href="javascript:void(0);" class="btn-buy btn-submit">{{stateText}}</a>
+		<div class="zhishu-vip-limit"><p class="z-txt">随存随取</p></div>
+		<span class="sold-out"></span>					
 	</div>
 {{else}}
 	<div class="zhishu-box vip-ture">
 		<div class="zhishu-tit">
 			<p>{{productName}}</p>
-			<span class="time-vip">随存随取</span>
+			{{if isTransfer == 2}}
+				<span class="time-vip time-blue">可转</span>
+			{{/if}}
 			{{each activityInfo}}
-				<span class="time-vip time-yel">{{$value.text}}</span>
+				<span class="time-vip time-red">{{$value.title}}</span>
 			{{/each}}
 		</div>
 		<div class="zhishu-vip">
-			<div class="z-txt">预期年化</div>
 			<div class="z-num">
-				<div class="vip-num-box"><b>{{flowMinRate}}</b>%~<b>{{flowMaxRate}}</b>% </div>
+				<div class="vip-num-box">
+					<b>{{minRateDesc}}</b>%~<b>{{maxRateDesc}}</b>%
+				</div>
 			</div>
+			<div class="z-txt">收益每月涨0.5%</div>
 		</div>
-		<div class="zhishu-vip-limit"><p class="z-txt">剩余额度</p><p class="z-num">{{remaMoneyDisplay}}元</p></div>
-		<a href="javascript:void(0);" class="btn-buy btn-submit">{{stateText}}</a>
-
+		<div class="zhishu-vip-limit"><p class="z-txt">随存随取</p></div>
+		<div class="btn-buy"><a href="javascript:void(0);" class="alink btn-submit">购买</a><p>剩余{{remainAmountUnit}}元</p></div>
 		{{if hotInfo.isShow }}
-			<div class="sold-hot"><div class="scale">{{hotInfo.value}}</div></div>
-		{{/if}}
+			<div class="sold-hot">
+				<div class="scale">{{hotInfo.value}}</div>
+			</div>
+		{{/if}}						
 	</div>
 {{/if}}
-</a>

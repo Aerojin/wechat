@@ -1,0 +1,14 @@
+
+{{each data}}
+
+		<div class="sub_msg_list iscroll-item">
+			<a href="{{$value.redirectUrl}}" class="sub_msg_item dp-box">
+			<span class="thumb"><img src="{{$value.imgUrl}}"  /></span>
+			<div class="news-info box-flex">
+				<h4>{{$value.title}}</h4>
+				<p>{{$value.date}}</p>
+			</div>
+			</a>
+		</div>
+
+{{/each}}

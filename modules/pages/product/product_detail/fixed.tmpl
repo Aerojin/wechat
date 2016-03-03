@@ -1,0 +1,100 @@
+<div>
+	<header>
+		{{if state == 300}}
+			<div class="hd-whites sold-out">
+		{{else}}
+			<div class="hd-whites">
+		{{/if}}
+			<div class="hd-detail">
+				<p class="p-name">预期年化</p>
+				<div class="p-num">
+					<div class="viper">
+						{{finalRateDesc}}<span class="fs-22">%</span>
+						{{if vipInfo.isVipProduct && vipInfo.isVip}}
+							<span class="fs-22"> + </span>
+							{{vipInfo.awardRate}}<span class="fs-22">%</span><span class="mark-vip">会员</span>
+						{{/if}}
+					</div>
+				</div>
+				<div class="deadline">
+					<p class="p-name">期限</p>
+					<p class="deadline-num">{{investPeriod}}{{dateUnit}}</p>
+				</div>
+				<span class="sign-out"></span>
+			</div>
+			{{if percentInfo.isShow}}
+			<div class="invest-box">
+				<div class="progressBar-box">
+					<div class="progressBar">
+						<span class="progressBar-block per" style="width: {{percentInfo.value}};"></span>
+					</div>
+				</div>
+				<div class="invest-timing dp-box">
+					<p>已售{{percentInfo.value}}</p>
+					<p>剩余 {{remainAmount}}元</p>
+				</div>
+			</div>
+			{{/if}}
+		</div>
+	</header>
+	<section>
+		{{if activityInfo.length > 0}}
+			<ul class="news-activity">
+				{{each activityInfo}}
+					{{if $value.isGoto}}
+						<li class="news-tri">
+					{{else}}
+						<li>
+					{{/if}}
+						<a href="{{$value.url}}" class="dp-block">
+							{{if $value.adType == 2}}
+									<span class="ico ico-member">会员</span>
+							{{else}}
+								<span class="ico ico-activity">{{$value.title}}</span>
+							{{/if}}
+							{{$value.content}}
+						</a>
+					</li>
+				{{/each}}
+			</ul>
+		{{/if}}
+		<ul class="ul-picc dp-box">
+			<li><a class="dp-block" href="$root$/agreement/secure_detail.html"><span class="ico ico-picc1">风险备用金</span></a></li>
+			<li><a class="dp-block" href="$root$/agreement/picc.html"><span class="ico ico-picc2">PICC承保</span></a></li>
+		</ul>
+		<ul class="pro-info-detail mgt05">
+			{{if percentInfo.isShow}}
+			<li>产品总额：<span class="txt-strong">{{amount}}元</span></li>
+			{{/if}}
+			<li>投资金额：<span class="txt-strong">{{minInvestLimit}}元起</span></li>
+			<li>收益方式：<span class="txt-strong">{{refundWayDesc}}</span></li>
+			{{if isTransfer}}
+			<li>支持转让：<span class="txt-strong">持有30日且剩余期限超过30日可转让</span></li>
+			{{/if}}
+			<li>起息日：<span class="txt-strong">{{strStartDate}}</span></li>
+			<li>到期日：<span class="txt-strong">{{strEndDate}}</span></li>
+		</ul>
+		<ul class="operate-list mgt05">
+			<li class="li-tri">
+				<a class="alink" href="{{uri.detailInfo.url}}" title="">{{uri.detailInfo.title}}</a>
+			</li>
+			<li class="li-tri">
+				<a class="alink" href="{{uri.securityInfo.url}}" title="">{{uri.securityInfo.title}}</a>
+			</li>
+			<li class="li-tri">
+				<a class="alink" href="$root$/product/buy_record.html?fid={{fid}}" title="">
+					购买记录<span class="record-num fr">已有{{ordersTotal}}人购买</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<div class="ft-operate-boxs">
+		{{if isNewUserMark && state == 400}}
+			<a class="oper-btn oper-btn-gray" href="javascript:void(0);" title="">仅限新手</a>
+		{{else if state == 0}}
+			<a class="oper-btn"  id="btn-submit" href="javascript:void(0);" title="">{{stateText}}</a>
+		{{else}}
+			<a class="oper-btn oper-btn-gray" href="javascript:void(0);" title="">{{stateText}}</a>
+		{{/if}}		
+	</div>
+</div>

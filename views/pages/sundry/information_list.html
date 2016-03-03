@@ -1,0 +1,30 @@
+<!doctype html>
+<html style="background: #fff">
+<head>
+    <meta charset="UTF-8">
+    <title>小牛钱罐子</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+    <meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <!--
+        @require views/css/global.css
+        @require views/css/style.css
+        @require modules/pages/sundry/information_list/style.css
+    -->
+    <script type="text/javascript" src="libs/mod.js" data-loader></script>
+    <script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
+</head>
+<body>
+<div class="warp">
+    <div class="ui-scroller ui-info-list" id="context">
+        <div class="news-box in_box ui-item"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    require("pages/sundry/information_list/views");
+</script>
+</body>
+
+</html>

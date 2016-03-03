@@ -17,15 +17,14 @@ var index = {
 
 		this.ui = {};
 		this.ui.wrap 			= $("#wrap");
+		this.ui.tranWrap 		= $("#tran-wrap");
 		this.ui.hqbContext 		= this.ui.wrap.find(".hqb-context");
+		this.ui.tranContext 	= this.ui.wrap.find(".tran-context");
 		this.ui.fixedContext 	= this.ui.wrap.find(".fixed-context");
-
-		this.queryString = urlParam();
 
 		this.smartbar = smartbar.create();
 		this.smartbar.setState("home");
-
-		loadingPage.show();
+		
 		this.getData();
 		this.showVIPDialog();
 	},
@@ -56,15 +55,17 @@ var index = {
 	},
 
 	getData: function () {
-		var options = {
-			data: {}
+		var options = {};
+
+		options.data = {
+			pageIndex: 1,
+			pageSize: 100
 		};
 
 		options.success = function (e) {
 			var result = e.data || {};
 
-			this.renderHqb(result.currentData || {});
-			this.renderFixed(result.fixedProduct || []);
+			this.rander(result.list || []);
 			loadingPage.hide();
 		};
 
@@ -73,27 +74,33 @@ var index = {
 		};
 
 		
-		api.send(api.PRODUCT, "queryProductListByNew", options, this);
+		api.send(api.PRODUCT, "queryProductList", options, this);
 	},
 
-	renderHqb: function (data) {
-		var hqb = new productViews({
-			data: data
-		});
+	rander: function (list) {
+		var _this = this;
 
-		this.ui.hqbContext.empty().append(hqb.getElement());
-	},
-	renderFixed: function (data) {
+		this.ui.hqbContext.empty();
 		this.ui.fixedContext.empty();
 
-		for(var i = 0; i < data.length; i++){
+		list.map(function (value, index) {
 			var item = new productViews({
-				data: data[i]
+				data: value
 			});
 
-			this.ui.fixedContext.append(item.getElement());
-		}
+			if(item.getData().isTransferProduct){
+				_this.ui.tranWrap.show();
+				_this.ui.tranContext.append(item.getElement());
+			}else{
+				if(item.isHqb()){
+					_this.ui.hqbContext.append(item.getElement());
+				}else{
+					_this.ui.fixedContext.append(item.getElement());
+				}				
+			}			
+		});
 	}
 };
 
+loadingPage.show();
 index.init();

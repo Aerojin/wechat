@@ -49,17 +49,9 @@ var my_record = {
 		this.smartbar = smartbar.create();
 		this.queryString = queryString();
 
-		/*
-		sliderTrans.create({
-			activeClass: "active",
-			menu: this.ui.menu,
-			list: this.ui.list,
-			context: this.ui.context,
-			allowTouch: false
-		});
-*/
 
 		this.slider = new sliderTrans.create({
+			allowTouch: false,
    			element: this.ui.list,
    			context: this.ui.context,
    			header: $("header").height(),
@@ -140,19 +132,24 @@ var my_record = {
  	format: function (data) {
  		for(var i = 0; i < data.length; i++){
  			var result  	= data[i];
- 			var fEndTime 	= result.fEndTime.parseDate();
- 			var fBizTime 	= result.fBizTime.parseDate();
- 			var fStartTime 	= result.fStartTime.parseDate();			
+ 			var fEndTime 	= result.refundDate.parseDate();
+ 			var fBizTime 	= result.investTime.parseDate();
+ 			var fStartTime 	= result.profitCalcDate.parseDate();
+ 			var fServerTime =  result.serverTime.parseDate();
 
  			result.fEndTime		 = fEndTime.format("yyyyMMdd");
  			result.fBizTime		 = fBizTime.format("yyyy-MM-dd hh:mm:ss");
  			result.fStartTime	 = fStartTime.format("yyyyMMdd");
-	 		result.deadLineValue = result.deadLineValue;
-			result.deadLineType  = DATE_UNIT[result.deadLineType];
-			result.fProfit		 = moneyCny.toFixed(result.fProfit);
-			result.fInvestAmt	 = moneyCny.toFixed(result.fInvestAmt);
+	 		result.deadLineValue = result.investPeriod;
+			result.fProfit		 = moneyCny.toFixed(result.oddProfit);
+			result.fInvestAmt	 = moneyCny.toFixed(result.oddPrincipal);
 			result.equityURL 	 = this.getEquityURL(result);
 			result.bs2pUrl 		 = this.getBs2pUrl(result);
+
+			var timeSpan = fServerTime.format("yyyy-MM-dd").parseDate() - fStartTime.format("yyyy-MM-dd").parseDate();
+			var daySpan  = Math.floor(timeSpan / 1000 / 3600 / 24);
+			result.holdDays   = daySpan < 0 ? 0 : daySpan;
+			result.redeemDays = result.investPeriod - result.holdDays;
 
 			data[i] = result;
 		}
@@ -161,7 +158,7 @@ var my_record = {
  	},
 
  	getBs2pUrl: function (data) {
- 		if(data.typeValue == 6){
+ 		if(data.productType == 1401){
  			var url = "http://www.189eshop.cn:6685/catentry/catentryDetail.action?recCode=01552048&recStaff=yangj18&catentryClass=Component&catentryId={0}&systemId=MINI_WAP&storeId=15718";
 
 			return url.format(this.getBs2pType(data));
@@ -191,24 +188,25 @@ var my_record = {
  	getParam: function (data) {
  		var param = {};
 
- 		param.fId 			= data.fId;
- 		param.typeValue  	= data.typeValue;
+ 		param.fid 			= data.fid;
+ 		param.productId		= data.productId;
+ 		param.productType  	= data.productType;
+ 		param.investId 		= data.fid;
 
 		return $.param(param);
  	},
 
  	getEquityURL: function (data) {
- 		var result = data.productAd;
+ 		var result = null;
+ 		var ary = data.featureRlt || [];
 
- 		if(validate.isEmpty(result)){
- 			return {
-				title: "收益权转让协议",
-				content: "收益权转让协议",
-				redirectUrl: "javascript:void(0);"
-			};
- 		}
+ 		result = ary[0] || {
+				featureName: "",
+				featureDesc: "",
+				featureValue: "#"
+		};
 
- 		result.redirectUrl += "?" + this.getParam(data);
+ 		result.featureValue += "?" + this.getParam(data);
 
  		return result;
  	}

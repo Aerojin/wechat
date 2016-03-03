@@ -1,0 +1,67 @@
+.new-version .mrt1{margin-top: .1rem;}
+.new-version .operate {margin-left: .25rem;margin-right: .25rem;}
+.new-version .oper-btn {display:block;line-height: .6rem;background:#fd9149;color:#FFF;text-align:center;font-size:.20rem;border-radius:5px;}
+
+/*头部*/
+.new-version .hqb-buy {position: relative;padding: .25rem;}
+.new-version .hqb-buy .hqb-h3 {padding-bottom: .25rem;font-size: .20rem;color: #fff;}
+.new-version .hqb-buy p {font-size: .18rem;color: #fff;}
+.new-version .hqb-buy .ico-deadline, .new-version .hqb-buy .ico-deadtime {display:block;position: absolute;right: .25rem;top: .25rem;padding-left: .22rem;font-size: .16rem;line-height: .22rem;color: #fff;}
+.new-version .hqb-buy .ico-deadline:before, .new-version .hqb-buy .ico-deadtime:before {content: "";position: absolute;left: 0;top: 10%;width: .18rem;height: .18rem;
+background:url('ico-deadline-white.png') no-repeat;background-size: contain;-webkit-background-size: contain;}
+.new-version .hqb-buy .ico-deadtime:before{background:url('ico-deposit-white.png') no-repeat;background-size: contain;-webkit-background-size: contain;}
+
+.new-version .cash-input, .new-version .use-pack {position:relative;padding: .1rem .25rem;border: 1px solid #e8eaed;border-width: 1px 0;background: #fff;}
+.new-version .cash-input input {display: block;width: 100%;height: .3rem;vertical-align: middle;font-size: .18rem;color: #333;border: none;background: none;}
+.new-version p.b-tips {padding: .15rem .25rem;color:#5a5a5a;font-size: .16rem;}
+.new-version .use-pack {padding-right: .5rem;line-height: .3rem;font-size: .18rem;color:#888;}
+.new-version .use-pack:before {content: "";position: absolute;right: .2rem;top: 50%;margin-top: -.08rem;width: .1rem;height: .16rem;
+background:url('ico-tri-input.png') no-repeat;background-size: contain;-webkit-background-size: contain;}
+
+.new-version .protocol {padding: .1rem .25rem;}
+.new-version .protocol li {float: left; color: #888888;}
+.new-version .protocol li p {float: left;padding-left: .1rem;}
+.new-version .protocol li .pact-ico {float: left;width: .19rem;height: .19rem;border-radius: 3px;background: #2688db;}
+.new-version .protocol li .pact-on {
+box-shadow: 0 0 4px rgba(0,0,0,.2);
+background:url(ico-agree.png) no-repeat #2688db;
+-webkit-background-size: contain;
+background-size: contain;
+}
+
+.exit-box{position:absolute;padding: .15rem .35rem .2rem .35rem;width:2.9rem;text-align:center;background:#fff;-moz-border-radius:5px;border-radius:5px;z-index:9999 ;top: 1.2rem; left: 50%; margin-left: -1.8rem;}
+.exit-box h3{line-height:1.25rem;font-size:.18rem;border-bottom:1px solid #ccc}
+.exit-box .exit-sure {display:block;text-align: center;font: .2rem/.6rem "Microsoft YaHei";color:#fff;background: #fd9149;border-radius: 5px;cursor: pointer;}
+.frofit-tips {padding: .2rem 0;font-size: .18rem;line-height: .4rem;text-align: left;}
+.frofit-tips li {line-height: .32rem;height: .32rem;}
+.frofit-tips li label {float: left;width: 65%;color: #7e7e7e;}
+.frofit-tips li div.text {color: #5a5a5a;text-align: right;}
+.frofit-tips li:last-child {margin-top: .1rem;padding-top: .1rem;border-top: 1px solid #e8e8e8;}
+
+.new-version .bg-wave2 {
+	background: url(bg-wave2.png) no-repeat center bottom;
+	-webkit-background-size: 100% .5rem;
+	background-size: 100% .5rem;
+}
+
+.new-version .buy-list li {padding-left: 1.6rem; color: #5a5a5a;overflow: hidden; height: .5rem;}
+.new-version .manage-b .buy-part {margin: .05rem 0;width:1.52rem;height: .36rem;border-radius: .05rem;border: 1px solid #b4b4b4;display: -webkit-box;display: -moz-box;display: box;}
+
+.new-version .buy-part span {display: block;line-height: .36rem;font-size: .16rem;}
+.new-version .buy-part .preva,.buy-part .nexta {-webkit-box-flex: 1;-moz-box-flex: 1; box-flex: 1;
+	background: url(ico-add.png) no-repeat;
+	-webkit-background-size: .78rem .36rem ;
+	-moz-background-size: .78rem .36rem ;
+	background-size: .78rem .36rem ;}
+.new-version .buy-part .preva {background-position: 0 0;}
+.new-version .buy-part .nexta {background-position: -.41rem 0;}
+.new-version .buy-part .buy-num {text-align:center;-webkit-box-flex: 2;-moz-box-flex: 2;box-flex: 2;box-sizing: border-box;border: 1px solid #b4b4b4;border-width: 0 1px;background: #fff; display: block;
+  width: .1rem;	
+  line-height: .36rem;
+  font-size: .16rem;
+  color: #9d9d9d;}
+.new-version .inp-tits{position: absolute; line-height: .5rem; font-size: .18rem; left: 0rem; color: #888;}
+.new-version .manages-list{border-top:1px solid #e8eaed;border-bottom:1px solid #e8eaed;padding-left: .2rem;background:#fff;font-size: .18rem;}
+.new-version .manages-list li,.list-copy {position:relative;border-top:1px solid #e8eaed;line-height: .5rem;font-size: .16rem;}
+.new-version .manages-list li:first-child{border:0}
+.new-version .manages-list li a,.list-copy a {display:block;margin-right: .18rem;background:url(link-icon.png) no-repeat right center;background-size:.09rem .15rem}

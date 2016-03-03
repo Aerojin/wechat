@@ -3,6 +3,7 @@
 var $ 			= require("zepto");
 var artTemplate = require("artTemplate");
 var model 		= require("product_model");
+var countDown 	= require("kit/countdown");
 
 var views = function (options) {
 	this.model 		= new model(options.data);
@@ -16,37 +17,79 @@ views.prototype.init = function () {
 	this.ui = {};
 	this.ui.wrap 		= $(this.template(this.getData()));
 	this.ui.btnSubmit 	= this.ui.wrap.find(".btn-submit");
-	this.ui.btnDetail 	= this.ui.wrap.find(".btn-detail");
+	this.ui.countDown 	= this.ui.wrap.find(".count-down");
 
 	this.regEvent();
+	this.startCountDown();
 };
 
 views.prototype.regEvent = function () {
 	this.ui.btnSubmit.click($.proxy(function () {
-		var productId = this.getData().productId;
-		var typeValue = this.getData().typeValue;
-		var url = "$root$/product/buy_detail.html?productId={0}&typeValue={1}";
+		var fid = this.getData().fid;
+		var url = "$root$/product/product_buy.html?fid={0}";
 
-		window.location.href = url.format(productId, typeValue);
+		if(this.getData().isTransferProduct){
+			url = "$root$/product/transfer_buy.html?fid={0}";
+		}
+
+		window.location.href = url.format(fid);
 
 		return false;
 	}, this));
 
-	this.ui.btnDetail.click($.proxy(function () {
-		var productId = this.getData().productId;
-		var typeValue = this.getData().typeValue;
-		var url = "$root$/product/buy.html?productId={0}&typeValue={1}";
+	this.ui.wrap.click($.proxy(function () {
+		var fid = this.getData().fid;
+		var url = "$root$/product/product_detail.html?fid={0}";
 
-		window.location.href = url.format(productId, typeValue);
+		if(this.getData().isTransferProduct){
+			url = "$root$/product/transfer_detail.html?fid={0}";
+		}
+
+		window.location.href = url.format(fid);
+
+		return false;
 	}, this));
+};
+
+views.prototype.startCountDown = function () {
+	var _this = this;
+	
+	if(this.getData().isTransferProduct){
+		countDown.create({
+			msec: this.data.countdown,
+			onChange: function (obj) {
+				var text = _this.randerCountDown(obj);
+
+				_this.ui.countDown.html(text);
+			},
+			onComplete: function (obj) {
+				//_this.ui.wrap.remove();
+			}
+		});
+	}
+};
+
+views.prototype.randerCountDown = function(obj){
+	var array = [];
+
+	array.push("倒计时<span class='text-red'>{0}</span>天");
+	array.push("<span class='text-red'>{1}</span>时");
+	array.push("<span class='text-red'>{2}</span>分");
+	array.push("<span class='text-red'>{3}</span>秒");
+
+	return array.join("").format(obj.day, obj.hour, obj.minute, obj.second);
 };
 
 views.prototype.getElement = function () {
 	return this.ui.wrap;
 };
 
+views.prototype.isHqb = function () {
+	return this.model.isHqb();
+};
+
 views.prototype.getTemplate = function () {
-	if(this.model.getType() == 300){
+	if(this.isHqb()){
 		return artTemplate.compile(__inline("hqb.tmpl"));
 	}
 

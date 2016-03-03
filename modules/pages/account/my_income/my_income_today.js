@@ -16,8 +16,7 @@ var income_today = {
 	init: function () {
 
 		this.ui = {};
-		this.ui.wrap 		= $("#wrap");
-		this.ui.spanIncome  = $("#js-span-income");
+		this.ui.wrap 		= $("#js_wrap");
 		this.template 		= artTemplate.compile(__inline("today.tmpl"));
 		this.smartbar 		= smartbar.create();
 
@@ -48,7 +47,6 @@ var income_today = {
 			data.otherList = result.otherProfit || [];
 
 			this.ui.wrap.html(this.template(data));
-			this.ui.spanIncome.text("+" + data.todayIncome);
 
 			loadingPage.hide();
 		};

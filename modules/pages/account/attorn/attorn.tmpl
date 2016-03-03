@@ -1,0 +1,27 @@
+{{each data}}
+	<div class="blist">
+		<div class="box_block1">
+			<h3 class="box_tit">{{$value.productName}}</h3>
+			<div class="box_date">{{$value.fBizTime}}</div>
+		</div>
+		<ul class="box_block2">
+			<li><span>起息日</span><span class="text-gray">{{$value.fStartTime}}</span></li>
+			<li><span>持有时间</span><span class="text-gray">{{$value.holdPeriod}}天</span></li>
+			<li><span>投资期限</span><span class="text-gray">{{$value.investPeriod}}天</span></li>
+			<li><span>投资本金</span><span>{{$value.oddPrincipal}}</span></li>
+			<li><span>预期总收益</span><span class="text-red">{{$value.oddProfit}}</span></li>
+		</ul>
+		<div class="box_block3 dp-box">
+			{{if $value.transferStatus == 3}}
+				<span class="box_plan box-flex"><a href="{{$value.beforeDetail}}" class="text-blue">上笔转让详情</a></span>
+			{{/if}}
+			<span class="box_transfer box-flex">
+				<a href="{{$value.equityURL.featureValue}}" class="text-orange">{{$value.equityURL.featureName}}</a>
+			</span>
+		</div>
+		<div class="operate operate2 pdb1">
+			<a class="oper-btn" href="{{$value.submitURL}}" title="">申请转让</a>
+		</div>
+	</div>
+{{/each}}
+<div class="tips-picc"><span class="ico1">账户资金安全由中国人民保险提供100%承保</span></div>

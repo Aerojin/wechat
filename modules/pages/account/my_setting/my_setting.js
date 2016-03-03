@@ -27,6 +27,7 @@ var setting = {
 		
 		this.smartbar 	= smartbar.create();
 		
+		this.getRedFlag();
 		this.regEvent();
 	},
 	regEvent: function () {
@@ -89,6 +90,20 @@ var setting = {
 		};
 		
 		api.send(api.USER, "logout", options, this);
+	},
+	getRedFlag : function(){
+		var options = {
+		 	data : {}
+		 };
+		 options.success = function(e){
+		 	var result 	= e.data;
+ 			result.userTipStatus ? this.ui.btnGoGuide.append("<i></i>"): $("i").remove();
+		};
+		options.error = function(e){
+			tipMessage.show(e.msg || TIPS.SYS_ERROR, {delay : 2000});
+		};
+
+		api.send(api.ACTIVITY, "getTipStatus", options, this);
 	}
 
 };

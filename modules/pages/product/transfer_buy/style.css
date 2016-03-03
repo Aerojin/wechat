@@ -1,0 +1,59 @@
+.new-version .operate {margin-left: .25rem;margin-right: .25rem;}
+.new-version .oper-btn {display:block;line-height: .6rem;background:#fd9149;color:#FFF;text-align:center;font-size:.20rem;border-radius:5px;}
+
+/*头部*/
+.new-version .hqb-buy {position: relative;padding: .25rem;}
+.new-version .hqb-buy .hqb-h3 {padding-bottom: .25rem;font-size: .20rem;color: #fff;}
+.new-version .hqb-buy p {font-size: .18rem;color: #fff;}
+
+.new-version .cash-input, .new-version .use-pack {position:relative;padding: .1rem .25rem;border: 1px solid #e8eaed;border-width: 1px 0;background: #fff;}
+.new-version .cash-input input {display: block;width: 100%;height: .3rem;vertical-align: middle;font-size: .18rem;color: #333;border: none;background: none;}
+.new-version p.b-tips {padding: .15rem .25rem 0 .25rem;color:#5a5a5a;font-size: .16rem;}
+.new-version .use-pack {padding-right: .5rem;line-height: .3rem;font-size: .18rem;color:#888;}
+.new-version .use-pack:before {content: "";position: absolute;right: .2rem;top: 50%;margin-top: -.08rem;width: .1rem;height: .16rem;
+background:url('ico-tri-input.png') no-repeat;background-size: contain;-webkit-background-size: contain;}
+
+.new-version .protocol {padding: .1rem .25rem;}
+.new-version .protocol li {float: left; color: #888888;}
+.new-version .protocol li p {float: left;padding-left: .1rem;}
+.new-version .protocol li .pact-ico {float: left;width: .19rem;height: .19rem;border-radius: 3px;background: #2688db;}
+.new-version .protocol li .pact-on {
+box-shadow: 0 0 4px rgba(0,0,0,.2);
+background:url(ico-agree.png) no-repeat #2688db;
+-webkit-background-size: contain;
+background-size: contain;
+}
+
+.new-version .bg-wave2 {
+	background: url(bg-wave2.png) no-repeat center bottom;
+	-webkit-background-size: 100% .5rem;
+	background-size: 100% .5rem;
+}
+
+.new-version .buy-list li {padding-left: 1.6rem; color: #5a5a5a;overflow: hidden; height: .5rem;}
+.new-version .manage-b .buy-part {margin: .05rem 0;width:1.52rem;height: .36rem;border-radius: .05rem;border: 1px solid #b4b4b4;display: -webkit-box;display: -moz-box;display: box;}
+
+.new-version .buy-part span {display: block;line-height: .36rem;font-size: .16rem;}
+.new-version .buy-part .preva,.buy-part .nexta {-webkit-box-flex: 1;-moz-box-flex: 1; box-flex: 1;
+	background: url(ico-add.png) no-repeat;
+	-webkit-background-size: .78rem .36rem ;
+	-moz-background-size: .78rem .36rem ;
+	background-size: .78rem .36rem ;}
+.new-version .buy-part .preva {background-position: 0 0;}
+.new-version .buy-part .nexta {background-position: -.41rem 0;}
+.new-version .buy-part .buy-num {text-align:center;-webkit-box-flex: 2;-moz-box-flex: 2;box-flex: 2;box-sizing: border-box;border: 1px solid #b4b4b4;border-width: 0 1px;background: #fff; display: block;
+  width: .1rem;	
+  line-height: .36rem;
+  font-size: .16rem;
+  color: #9d9d9d;}
+
+.new-version .explain-txt {margin:.15rem .25rem;color:#9d9d9d;font-size: .12rem;}
+.new-version .explain-txt p {padding: .05rem 0;}
+.new-version .tips-picc {padding: .2rem 0;text-align: center;color: #939393;font-size: .14rem;}
+.new-version .tips-picc .ico1 {display: inline-block;padding-left: .2rem;
+background:url(ico-protect.png) no-repeat left center;
+-moz-background-size: .13rem .16rem;
+-webkit-background-size: .13rem .16rem;
+-o-background-size: .13rem .16rem;
+background-size: .13rem .16rem;}
+.new-version .inp-tit{left: 0.05rem; }

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>我的体验金</title>
+	<title>我的理财金</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
@@ -16,34 +16,25 @@
 	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
-	<div class="wrap">
-		<article class="pro_manage">
-			<ul class="invest-tabbar" id="ul-menu">
-				<li class="active" data-index="0">未使用(<span class="number">0</span>)</li>
-				<li data-index="1">已使用(<span class="number">0</span>)</li>
-				<li data-index="2">已过期(<span class="number">0</span>)</li>
-			</ul>
+	<header>
+		<ul id="ul-menu" class="redpack-tabbar dp-box">
+			<li data-index="0" class="active">未使用(<span class="number">0</span>)</li>
+			<li data-index="1">已使用(<span class="number">0</span>)</li>
+			<li data-index="2">已过期</li>
+		</ul>
+	</header>
 
-			<div style="overflow: hidden; width: 100%;">
-				<div id="context" class="clearfix scroll-box"  style="width: 12.42rem;">
-						
-					<div class="wrap_box float wrap-item" style="width: 4.14rem;">
-						<div  id="fixed-container" class="scroll-box">
-							<div id="fixed-loading">
-								<p class="waterfall-login">数据加载中...</p>
-							</div>
-						</div>
-					</div>
-					<div class="wrap_box float wrap-item" style="width: 4.14rem;">
-						
-					</div>
-					<div class="wrap_box float wrap-item" style="width: 4.14rem;">
-					
-					</div>
-				</div>
-			</div>
+	<div class="wrap page-experi">
+
+		<article class="ui-viewport">
+			<section id="context" class="ui-scroller">
+				<ul class="redpack-list ui-item"></ul>
+				<ul class="redpack-list ui-item"></ul>
+				<ul class="redpack-list ui-item"></ul>
+			</section>
 		</article>
 	</div>
+
 	<script type="text/javascript">
 		require('pages/account/my_tyj/my_tyj');
 	</script>

@@ -51,3 +51,9 @@ h2 {text-align: center;	font-weight:700; color:#383330;	font-size:.18rem;}
 p {margin:.1rem 0; font-size: .14rem; line-height: .2rem; color: #9d9d9d;}
 p.fo { font-size: .14rem; font-weight: 700;}
 h3 {font-size:.14rem; color:#383330; font-weight: 700;}
+
+.bg-white {background: #fff;}
+.doc-wrap {padding: .1rem;text-indent: 2em;color: #9d9d9d;font-size: .14rem;}
+.doc-wrap .t-h3 {padding-top: .1rem;font-weight: bold;}
+.doc-wrap p {margin-top: .1rem;}
+.wrap span.width04 {min-width: .4rem;}

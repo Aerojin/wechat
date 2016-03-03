@@ -1,7 +1,7 @@
 var $ 			= require("zepto");
 var api 		= require("api/api");
 var user 		= require("kit/user");
-var waterfall 	= require("ui/waterfall/waterfall");
+var iscroll 	= require("ui/iscroll/views");
 var artTemplate = require("artTemplate");
 var tipMessage 	= require("ui/tip_message/tip_message");
 
@@ -41,31 +41,29 @@ var unused = {
 
  			if(data.length > 0){
  				this.ui.number.text(data.length); 				
-	 			this.waterfall.setPageCount(result.pageCount);
-	 			this.waterfall.appendContext(this.template.context({data: data}));		 		
+	 			this.iscroll.setPageCount(result.pageCount);
+	 			this.iscroll.appendContext(this.template.context({data: data}));		 		
 		 		return;
 	 		}
 
-			this.waterfall.showEmpty();
+			this.iscroll.showEmpty();
 		};
 
 		options.error = function () {
-			this.waterfall.showEmpty();
+			this.iscroll.showEmpty();
 		};
 
-		this.waterfall.showLoading();		
+		this.iscroll.showLoading();		
 		api.send(api.ACTIVITY, "findRedPacketList", options, this);
 	},
 
 	createWaterfall: function (data) {
  		var _this = this;
 
- 		this.waterfall = waterfall.create({
- 			selector: ".waterfall-item",
- 			pageSize: this.pageSize,
+ 		this.iscroll = iscroll.create({
  			pageIndex: 1,
  			pageCount: 1,
- 			padding: this.padding,
+ 			pageSize: this.pageSize,
  			container: this.ui.wrap,
  			emptyHtml: this.template.empty,
  			onLoad: function (pageIndex) {
@@ -75,7 +73,6 @@ var unused = {
  		});
  	}
 };
-
 
 
 module.exports = {

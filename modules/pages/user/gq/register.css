@@ -1,3 +1,4 @@
+.wap{padding-bottom: 0.5rem;}
 .ho_box .ho_bao,.money_box{
 	animation: fadeInUp .6s ease .4s both;
 	-webkit-animation: fadeInUp .6s ease .4s both;
@@ -52,7 +53,7 @@
 	}
 }
 html{background: #feae0f;}
-.section_height{height:7.8rem; }
+.section_height{height:8.2rem; }
 .second_bao img{width: 2.23rem;}
 
 .x_bao{
@@ -73,7 +74,7 @@ html{background: #feae0f;}
 
 .sider_box{
 	position: absolute;
-	width: 100%;top:4.4rem;
+	width: 100%;top:4.6rem;
 }
 .sider_box p{
 	text-align: center;
@@ -206,17 +207,19 @@ html{background: #feae0f;}
 	position: absolute;
 	left: 50%;
 	margin-left: -50%;
-	top: 3.5rem;
+	top: 3.4rem;
 	width: 100%;
 }
 .money_box p{
 	text-align: center;
-    font-size: .3rem;
+    font-size: .12rem;
     font-weight: bold;
     color: #ffec36;
+    padding-left: .3rem;
 }
 .money_box p span{
-	font-size: .6rem;
+	font-size: .5rem;
+	line-height: 100%;
 }
 
 .images_code {height: 0.45rem; padding-top: 0.05rem;}

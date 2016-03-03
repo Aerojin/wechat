@@ -24,18 +24,18 @@ var finished = {
 
 		loadingPage.show();
 		this.createWaterfall();
-		this.getData(options.proType);
+		this.getData();
 	},
 	regEvent: function () {
 
 	},
 
-	getData: function (proType) {
+	getData: function () {
 		var options = {};
 
 		options.data = {
-			state: 3,
-			proType: proType || "",
+			status: 3,
+			parentProductType: this.proType || 1,
 			pageSize: this.pageSize,
 			pageIndex: this.pageIndex
 		}; 
@@ -49,7 +49,8 @@ var finished = {
  			if(result.list.length > 0){ 				
 	 			this.iscroll.setPageCount(result.pageCount);
 	 			this.iscroll.appendContext(this.template({
-	 				state: 3,
+	 				tabIndex: 2,
+	 				status: 3,
 	 				data: data
 	 			}));
 		 		return;
@@ -63,7 +64,7 @@ var finished = {
 		};
 
 		this.iscroll.showLoading();		
-		api.send(api.PRODUCT, "queryInvestRecords", options, this);
+		api.send(api.PRODUCT, "queryUserInvestRecord", options, this);
 	},
 
 	createWaterfall: function (data) {

@@ -1,7 +1,7 @@
-.hqb-tit {padding: .22rem .2rem .18rem .2rem;background: #da554e;}
+.hqb-tit {padding: .22rem .2rem .18rem .2rem;background: #fd9149;}
 .hqb-tit li {float: left;font: .14rem "Microsoft YaHei";color: #fff;}
 .hqb-tit li .note-num {display:block;font-size: .27rem;}
-.hqb-tit-copy {padding: .1rem .2rem .1rem .2rem;background: #c9504a;}
+.hqb-tit-copy {padding: .1rem .2rem .1rem .2rem;background: #f57424;}
 .hqb-tit-copy li {float: left;font: .14rem "Microsoft YaHei";color: #fff;}
 .hqb-tit-copy li .note-num {display:block;font-size: .18rem;}
 .hqb-tit-copy li:nth-child(2) {float: right;}
@@ -17,7 +17,7 @@
 .hqb-border {border: 1px solid #cfcfcf;box-sizing: border-box;}
 .notes-info { padding: .15rem 0;border-bottom: 1px solid #eee;}
 .notes-info li {float: left;}
-.notes-info li span {display: block;font: .18rem/.24rem "Microsoft YaHei";color: #da554e;}
+.notes-info li span {display: block;font: .18rem/.24rem "Microsoft YaHei";color: #fd9149;}
 .notes-info li em {display: block;font: .14rem "Microsoft YaHei";color: #c2c2c2;}
 
 .process-box {padding: 0 .15rem;position: relative;}

@@ -1,0 +1,25 @@
+.transfer .hqb-buy {position: relative;padding: .2rem .25rem;}
+/*购买记录*/
+.transfer .buy-record-box {position: relative;padding-top: .2rem;}
+.transfer .buy-record {padding: 0 .2rem;font-size: .16rem;color: #888;}
+.transfer .buy-record li .action {position: relative;float: left;width: 45%;padding: .15rem 0 .15rem .2rem;}
+.transfer .buy-record li .action:before {content: "";position: absolute;left: -2px;top: .25rem;width: 3px;height: 100%;background: #b8b8b8;}
+.transfer .buy-record li .action:after {content: "";position: absolute;left: -.095rem;top: .2rem;width: .19rem;height: .19rem;border-radius: .2rem;background: #b8b8b8;}
+.transfer .buy-record li h4 {font-size: .2rem;color: #555;}
+.transfer .buy-record li .date {float: left;display: block;width: 40%;padding: .18rem .2rem 0 0;position: relative;text-align: right;color: #333;}
+.transfer .buy-record li .date p:nth-child(2) {padding-top: .03rem;color: #999;}
+.transfer .buy-record li:last-child .action:before {display: none;}
+.transfer .buy-record li.z-on .action, .transfer .buy-record li.z-on h4 {color: #fd9149;}
+.transfer .buy-record li.z-on .action:after { background: url(ico-point-buy.png) no-repeat;-webkit-background-size: contain;background-size: contain; background-color: #fd9149;}
+/*购买记录end*/
+.transfer .btn-followUp {padding: 0 .15rem;font-size: .18rem;line-height: .56rem;text-align: center;}
+.transfer .btn-followUp li {width:50%;margin: 0 .1rem;-moz-border-radius: 5px;border-radius: 5px;box-sizing:border-box;border: 1px solid #c9c9c9;background: #fff;color: #555;cursor: pointer;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-ms-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;    
+}
+.transfer .btn-followUp li a {color: #555;display: block;}
+.transfer .btn-followUp li:last-child {border-color: #fd9149;background: #fd9149;color: #fff;}
+.transfer .btn-followUp li:last-child a {color: #fff;}

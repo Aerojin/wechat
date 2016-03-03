@@ -16,25 +16,33 @@
 	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
-	<div class="wrap">
-		<div class="redeem_sucbox" id="wrap">
-			<ul class="redeem_suc">
-				<li class="clearfix">
-					<span class="redeem_date end-date">-</span>
-					<div class="redeem_notes">预计到账日期</div>
-				</li>
-				<li class="clearfix">
-					<span class="redeem_date start-date">-</span>
-					<div class="redeem_notes">赎回申请提交成功<p>赎回金额<span class="amount">0</span>元</p></div>
-				</li>
-			</ul>
-		</div>
-
-		<ul class="code-share invest_goon">
-			<li><a href="javascript:void(0);" id="btn-back">返回我的活期宝</a></li>
-			<li><a href="$root$/account/hqb_ransom_record.html">查看赎回记录</a></li>
-		</ul>
-
+	<div class="wrap page-redeem">
+		<article>
+			<section>
+				<ul class="buy-record mgt3" id="wrap">
+					<li class="clearfix">
+						<div class="date">
+							<p class="end-date">-</p>
+						</div>
+						<div class="action">
+							<h4>到达账户余额</h4>
+						</div>
+					</li>
+					<li class="clearfix z-on">
+						<div class="date">
+							<p class="start-date">-</p>
+						</div>
+						<div class="action">
+							<h4>赎回申请提交成功</h4>
+							<p>赎回金额<span class="amount">0</span>元</p>
+						</div>
+					</li>
+				</ul>
+				<ul class="btn-followUp dp-box mgt3">
+					<li class="zon"><a id="btn-back" href="javascript:void(0);">返回我的活期宝</a></li>
+				</ul>
+			</section>
+		</article>
 	</div>
 	<script type="text/javascript">
 		require('pages/account/hqb_ransom_result/hqb_ransom_result');

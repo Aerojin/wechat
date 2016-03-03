@@ -17,47 +17,49 @@
 	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
-	<div class="wrap">
-		<article>
-			<header id="header">
-				<ul class="hqb-tit clearfix">
-					<li><span class="note-name">昨日收益（元）</span><span class="note-num">0</span></li>
-				</ul>
-				<ul class="hqb-tit-copy clearfix">
-					<li><span class="note-name">活期宝余额（元）</span><span class="note-num">0</span></li>
-					<li><span class="note-name">累计收益（元）</span><span class="note-num">0</span></li>
-				</ul>
-			</header>
-			<article class="invest-main j-slide-not">
-				<ul class="invest-tabbar m-cnt" id="ul-menu">
-					<li class="active" data-index="0">持有中</li>
-					<li data-index="1" class="">赎回记录</li>
-				</ul>
-			</article>
-			<div id="context">
-				<div class="scroll-box">
-					<div>
-						<p class="waterfall-login">数据加载中...</p>
+	<div class="wrap wrap-pdb1 page-myhqb">
+		<header>
+			<div class="head-box bg-orange-linear">
+				<div id="js_header" class="bg-wave1">
+					<div class="top-total text-c">
+						昨日收益（元）<p>0.00</p>
 					</div>
-				</div>
-				<!--<div class="scroll-box">
-					<div>
-						<p class="waterfall-login">数据加载中...</p>
-					</div>-->
+					<p class="profit-total">0.00</p>
+					<ul class="total-item dp-box mgt3">
+						<li>活期宝余额(元)<p>0.00</p></li>
+						<li></li>
+					</ul>
 				</div>
 			</div>
+
+			<ul id="js_ul_menu" class="invest-tabbar dp-box tabbar-two">
+				<li class="active" data-index="0">持有中</li>
+				<li data-index="1">赎回记录</li>
+			</ul>
+		</header>
+
+		<article>
+			<section>
+				<div class="ui-viewport">
+					<div id="js_context" class="tab-contain ui-scroller">
+						<div class="ui-item"></div>
+						<div class="ui-item"></div>
+					</div>
+				</div>
+				<div class="tips-picc"><span class="ico1"><a href="$root$/agreement/picc.html">账户资金安全由中国人民保险提供100%承保</a></span></div>
+			</section>
 		</article>
 
-		
-		<ul class="tool-btn clearfix" id="btn-tool">
-			<li><a href="$root$/account/hqb_ransom.html">赎回</a></li>
-			<li><a id="btn-buy" href="javascript:void(0);">购买</a></li>
-		</ul>
+		<div class="opeate-fixed" id="js_btn_tool">
+			<ul class="btn-redeem dp-box">
+				<li class="box-flex"><a href="$root$/account/hqb_ransom.html">赎回</a></li>
+				<li class="box-flex btn-on"><a id="js_btn_buy" href="javascript:void(0);">购买</a></li>
+			</ul>
+		</div>
 	</div>
-	<script type="text/javascript">
-		//require('pages/account/hqb_ransom_record/hqb_ransom_record');
-		require('pages/account/my_hqb/my_hqb');
 
+	<script type="text/javascript">		
+		require('pages/account/my_hqb/my_hqb');
 	</script>
 </body>
 </html>

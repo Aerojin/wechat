@@ -53,6 +53,10 @@ body{background: #e6e6e6;font-size: .16rem;}
    margin-top: .1rem;
 }
 
+.list_box ul li.hover{
+   background: #f3c492;
+}
+
 .list_box ul li p{
    color: #fff;
    line-height: .26rem;

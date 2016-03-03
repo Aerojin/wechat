@@ -10,6 +10,7 @@ var views = function (options) {
 	this.footer 	= options.footer || 0;
 	this.context 	= options.context;
 	this.element 	= options.element || [];
+	this.allowTouch = options.allowTouch === undefined ? true : options.allowTouch;
 	this.onChange 	= options.onChange || function () {};
 
 
@@ -28,6 +29,7 @@ views.prototype.init = function () {
 	};
 
 	this.addAnimation();
+	this.setHeightOfHack();
 	this.setIndex(this.index);
 
 	this.regEvent();//
@@ -37,6 +39,8 @@ views.prototype.regEvent = function () {
 	var _this = this;
 
 	this.context.on("touchstart", function (event) {
+		if(!_this.allowTouch) return;
+
 	   _this.start(event.touches[0]);
 	});
 };
@@ -181,14 +185,23 @@ views.prototype.setIndex = function (index) {
 	this.moveAnimate(this.getMove());
 };
 
-views.prototype.setHeight = function () {
+views.prototype.setHeightOfHack = function() {
+	//专门解决ios7下页面底部会多出一块空白区域的问题
 	var dom = this.element.eq(this.index);
 
-	this.element.css({height: this.height});
-	
+	var contentHeight = dom.children().height();
+	contentHeight = contentHeight < this.height ? this.height : contentHeight;
 
-	dom.removeAttr('style');	
-	dom.css({height:"auto"});
+	dom.removeAttr('style');
+	dom.css({height: contentHeight});
+}
+
+views.prototype.setHeight = function () {
+	var dom = this.element.eq(this.index);
+	this.element.css({height: this.height});
+
+	dom.removeAttr('style');
+	dom.css({height: 'auto'});
 };
 
 views.prototype.getDefHeight = function () {

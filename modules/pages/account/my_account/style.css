@@ -1,60 +1,53 @@
+/*头部*/
+img{max-width:100%;}
+.mgt1 {margin-top: 0.1rem;}
+.new-version .head-box {padding: .2rem 0;
+background: url("flower1.png");
+-webkit-background-size: .46rem .46rem;;
+background-size: .46rem .46rem;}
+.new-version .viper-img {display: block;width: 1rem;height: 1rem;margin: 0 auto;border-radius: .9rem;}
+.new-version .viper-view li {float: left;width: 50%;position: relative;color: #c7c7cd;font-size: .16rem;text-align: center;}
+.new-version .viper-view li p {padding-top: .1rem;font-size: .26rem;color: #fff;}
+.new-version .viper-view li.first:before {content: "";position: absolute;right: 0;top: 20%;width: 1px;height: 60%;background: #5d5b70;}
+.new-version .viper-view li a {color: #c7c7cd;}
 
-		/*头部*/
-		img {display: block;width: 100%;}
-		.viper-view {padding: .3rem .4rem .3rem .3rem;color: #fff;}
-		.viper-view .viper-img {display: block;width: .95rem;margin-right: .2rem;}
-		.viper-view .tri {right: .2rem;top: 50%;margin-top: -.19rem;width: .2rem;height: .38rem;
-		background: url(acc-tri1.png) no-repeat;
-		-webkit-background-size: 100% 100%;
-		background-size: 100% 100%;}
-		.total-info {padding-top: .1rem;}
-		.total-info .num {margin-top: .2rem;font-size: .32rem;}
-		.head-box .balance {padding: 0 .4rem 0 .2rem;height: .5rem;line-height: .5rem;color: #fff;overflow: hidden;}
-		.head-box .balance .tri {right: .2rem;top: 50%;margin-top: -.09rem;width: .1rem;height: .18rem;
-		background: url(acc-tri2.png) no-repeat;
-		-webkit-background-size: 100% 100%;
-		background-size: 100% 100%;}
-		.head-box .balance a.dp-block {color: #fff;} 
-		/*头部 end*/
-		
-		/*主内容区*/
-		.today-info {padding: .2rem 0;border: 1px solid #b3b3b3;border-width: 1px 0;background: #fff;}
-		.today-info > div {margin-left: .2rem;width: 50%;font-size: .16rem;line-height: .27rem;color: #4c4c4c;}
-		.today-info > div:first-child:before {content: "";position: absolute;right: 0;top: 0;width: 1px;height: 100%;background: #eaeaea;}
-		.today-info > div .num {display: block;font-size: .19rem;color: #e34545;}
-		.today-info a.dp-block {color: #4c4c4c;} 
 
-		.asset-menu {margin-top: .1rem;overflow: hidden;}
-		.asset-menu li {display: box;display:-webkit-box;height: .9rem;border: 1px solid #b3b3b3;border-width: 1px 0;background: #fff;}
-		.asset-menu li:nth-child(2) {margin-top: -1px;}
-		.asset-menu li:nth-child(3) {margin-top: .1rem;}
-		.asset-item {position: relative;box-flex: 1;-webkit-box-flex: 1;width: 50%;margin-left: .2rem;padding-top: .2rem;font-size: .14rem;}
-		.asset-item:first-child:before {content: "";position: absolute;right: 0;top: 15%;width: 1px;height: 70%;background: #eaeaea;}
-		.asset-item a.asset-a {padding-left: .68rem;position: relative;color: #999999;}
-		.asset-item .fis-p {font-size: .16rem;color: #4c4c4c;}
-		.asset-item span.ico-new {display: inline-block;position: relative;}
-		.asset-item span.ico-new:before {display: block;content: "";position: absolute;right: -.35rem;top: .04rem;width: .27rem;height: .14rem;
-		background: url(ico-new.png) no-repeat ;
-		-webkit-background-size: 100% 100%;
-		background-size: 100% 100%;}
+/*头部 end*/
 
-		.asset-item .ico-mu {position:absolute;left:0;top: 0;display: block;width: .48rem;height: .48rem;
-		background: url(frofit_icolist.png) no-repeat ;
-		-webkit-background-size: 4.14rem 1.95rem;
-		background-size: 4.14rem 1.95rem;}
-		.asset-item .ico-current {background-position: 0 0;}
-		.asset-item .ico-regular {background-position: -.65rem 0;}
-		.asset-item .ico-favour {background-position: 0 -.65rem;}
-		.asset-item .ico-privil {background-position: -.65rem -.65rem;}
-		.asset-item .ico-recharge {background-position: 0 -1.3rem;}
-		.asset-item .ico-withdraw {background-position: -.65rem -1.3rem;}
+/*主内容区*/
+.new-version .today-info {padding: .2rem 0;border: 1px solid #e8eaed;border-width: 1px 0;background: #fff;}
+.new-version .today-info > div {width: 50%;text-align: center;font-size: .16rem;line-height: .27rem;color: #888888;}
+.new-version .today-info > div:first-child:before {content: "";position: absolute;right: 0;top: 0;width: 1px;height: 100%;background: #e8eaed;}
+.new-version .today-info > div .num {display: block;font-size: .19rem;}
+.new-version .today-info a.dp-block {color: #888888;} 
 
-		.tips-picc {padding: .2rem 0;text-align: center;color: #939393;font-size: .14rem;}
-		.tips-picc .ico1 {display: inline-block;padding-left: .2rem;
-		background:url(ico-protect.png) no-repeat left center;
-		-moz-background-size: .13rem .16rem;
-		-webkit-background-size: .13rem .16rem;
-		-o-background-size: .13rem .16rem;
-		background-size: .13rem .16rem;}
+.new-version .asset-menu {margin-top: .1rem;overflow: hidden;}
+.new-version .asset-menu li {height: .9rem;border: 1px solid #e8eaed;border-width: 1px 0;background: #fff;}
+.new-version .asset-menu li:nth-child(2),.new-version .asset-menu li:nth-child(3) {margin-top: -1px;}
+.new-version .asset-item {position: relative;float: left;width: 50%;padding: .2rem 0;font-size: .14rem;}
+.new-version .asset-item:first-child:before {content: "";position: absolute;right: 0;top: 0;width: 1px;height: 100%;background: #e8eaed;}
+.new-version .asset-item a.asset-a {margin-left: .2rem;padding-left: .42rem;position: relative;color: #999999;}
+.new-version .asset-item .fis-p {font-size: .18rem;color: #414654;}
+.new-version .asset-item .fis-num {padding-top: .05rem;}
+.new-version .asset-item span.ico-new {padding-right: .12rem;display: inline-block;position: relative;}
+.new-version .asset-item span.ico-new:before {display: block;content: "";position: absolute;right: 0;top: 0;width: .1rem;height: .1rem;border-radius: .1rem;background: #ff4040;}
 
-	
+.new-version .asset-item .ico-mu {position:absolute;left:0;top: -16%;display: block;width: .42rem;height: .42rem;
+background: url(ico-index.png) no-repeat ;
+-webkit-background-size: 4.14rem 2.7rem;
+background-size: 4.14rem 2.7rem;}
+.new-version .asset-item .ico-current {background-position: 0 0;}
+.new-version .asset-item .ico-regular {background-position: -.42rem 0;}
+.new-version .asset-item .ico-transfer {background-position: -.42rem -1.26rem;}
+.new-version .asset-item .ico-favour {background-position: 0 -.42rem;}
+.new-version .asset-item .ico-privil {background-position: -.42rem -.42rem;}
+.new-version .asset-item .ico-recharge {background-position: 0 -.84rem;}
+.new-version .asset-item .ico-rage {background-position: -.42rem -.84rem;}
+.new-version .asset-item .ico-withdraw {background-position: 0 -1.26rem;}
+
+
+.new-version .tips-picc {padding: .2rem 0;text-align: center;color: #939393;font-size: .14rem;}
+.new-version .tips-picc .ico1 {display: inline-block;padding-left: .2rem;
+background:url(ico-protect-new.png) no-repeat left center;
+-webkit-background-size: .17rem .17rem;
+background-size: .17rem .17rem;}

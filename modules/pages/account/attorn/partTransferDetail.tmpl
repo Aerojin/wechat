@@ -1,0 +1,46 @@
+<h2 class="inpage-tit">{{productName}}</h2>
+<div class="record-wrap">
+	<div class="record-box">
+		<div class="record-name">原产品</div>
+		<div class="record-line">
+			<div class="record-list">
+				<span class="line-point"></span>
+				<p>起息日：{{profitCalcDate}}</p>
+				<p>产品期限：{{investPeriod}}天</p>
+				<p>投资本金：{{principal}}元</p>
+				<p>已计利息：{{profit}}元</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="record-box">
+		<div class="record-name">已转让</div>
+		<div class="record-line">
+			<div class="record-list">
+				<span class="line-point"></span>
+				<p>转让日：{{transferTime}}</p>
+				<p>持有时间：{{holdPeriod}}天</p>
+				<p>转让本金：{{salesPrincipal}}元</p>
+				<p>对应利息：{{salesProfit}}元</p>
+				<p>手续费：-{{fee}}元</p>
+				<p>转出金额：{{salesAmount}}元</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="record-box">
+		<div class="record-name">剩余资产</div>
+		<div class="record-line">
+			<div class="record-list">
+				<span class="line-point"></span>
+				<p>起息日：{{profitCalcDate}}</p>
+				<p>到息日：{{refundDate}}</p>
+				<p>剩余本金：{{oddPrincipal}}元</p>
+				<p>预期剩余收益：{{oddProfit}}元</p>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="tips-picc"><span class="ico1">账户资金安全由中国人民保险提供100%承保</span></div>

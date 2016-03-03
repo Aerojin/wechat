@@ -38,6 +38,7 @@ var calendar = function(options){
 		onSelectDay : options.onSelectDay || function(){}, //选择日期事件
 		onChangeMonth : options.onChangeMonth || function(){}, //改变月份事件
 
+		isSelectedToday : options.isSelectedToday || false, //是否默认选中今天
 		showAll: options.showAll || false, //是否显示"全部"选项
 		minYearMonth: options.minYearMonth || "1900-01",
 		maxYearMonth: options.maxYearMonth || "2100-01"
@@ -88,7 +89,7 @@ calendar.prototype = {
 
 		var year 	= this.today.getFullYear();
 		var month 	= this.today.getMonth();
-		var endMonth = month + 11;
+		var endMonth = month + 12;
 
 		for(var i=month; i<=endMonth; i++){
 			this.monthAry.push({
@@ -213,18 +214,6 @@ calendar.prototype = {
 		this.render.flagSelect.call(this);
 	},
 
-	showSelect:function(){
-		this.isSelectShow = true;
-		this.ui.divMonth.show();
-		
-		this.render.initScroll.call(this);
-	},
-
-	hideSelect:function(){
-		this.isSelectShow = false;
-		this.ui.divMonth.hide();
-	},
-
 	goNextMonth:function(){
 		this.isSelectedAll = false;
 
@@ -259,8 +248,8 @@ calendar.prototype = {
 
 	 	var date = this.currentMonth;
 
-		this.hideSelect();
-		this.render.setCurrentMonth.call(this);
+		this.render.hideSelect.call(this);
+		this.render.setMonthBar.call(this);
 
 		this.buildDate(date);
 		this.render.calendar.call(this);
@@ -291,7 +280,8 @@ calendar.prototype.render = {
 		this.ui.nextMonth 	= this.html.find(".next");
 		this.ui.divMonth 	= this.html.find(".date-box");
 		this.ui.ulMonth		= this.html.find(".date-scroll");
-		this.ui.pMonth 		= this.html.find(".date-cur > span");
+		this.ui.lblMonth 	= this.html.find(".date-cur > span");
+		this.ui.btnMonth 	= this.html.find(".date-cur");
 
 		this.ui.tbody   = this.html.find(".datepickerDays");
 		this.ui.tdList 	= this.ui.tbody.find("td");
@@ -308,7 +298,7 @@ calendar.prototype.render = {
 
 		this.ui.ulMonth.empty();
 
-		this.ui.pMonth.text(this.today.format("yyyy年MM月")); 
+		this.ui.lblMonth.text(this.today.format("yyyy年MM月")); 
 
 		if(this.options.showAll){
 			this.ui.ulMonth.append("<li>" + SYSTEXT.ALL + "</li>");
@@ -346,23 +336,23 @@ calendar.prototype.render = {
 			this.ui.trList.last().show();
 		}
 
-		var oTd = null;
+		var otd = null;
 		this.dateAry.map($.proxy(function(item, index){
 
-			oTd = this.ui.tdList.eq(index);
-			oTd.removeClass();
+			otd = this.ui.tdList.eq(index);
+			otd.removeClass();
 
 			//设置日期
-			oTd.find("span").text(item.date.getDate());
+			otd.find("span").text(item.date.getDate());
 
 			if(item.status == this.STATUS.PREV || item.status == this.STATUS.NEXT){
 				//非当月日期灰显
-				oTd.addClass("grey");
+				otd.addClass("grey");
 			}
 
 			//选中今天
-			if(this.isToday(item.date)){
-				oTd.addClass("defaultpicker");
+			if(this.options.isSelectedToday && this.isToday(item.date)){
+				otd.addClass("defaultpicker");
 			}
 
 
@@ -376,64 +366,70 @@ calendar.prototype.render = {
 
 	regEvent:function(){
 
-		var _this = this;
+		var me = this;
 
 		//选择月份
-		_this.ui.ulMonth.children().on("tap", function(){
+		this.ui.ulMonth.children().on("tap", function(){
 
 			var index = $(this).index();
 			
-			if(_this.options.showAll){
+			if(me.options.showAll){
 				if(index == 0){
-					_this.isSelectedAll = true;
+					me.isSelectedAll = true;
 				} else {
 					index = index - 1;
-					_this.isSelectedAll = false;
+					me.isSelectedAll = false;
 				}
 			}
 
-			var d = _this.monthAry[index];
+			var selectedDate = me.monthAry[index];
 
-			if(d.date.format("yyyy-MM") == _this.currentMonth.format("yyyy-MM")){
-				_this.hideSelect();
+			if(selectedDate.date.format("yyyy-MM") == me.currentMonth.format("yyyy-MM")){
+				me.render.hideSelect.call(me);
 				return;
 			}
 
-			_this.currentMonth = d.date;
-			_this.onChangeMonth();
+			me.currentMonth = selectedDate.date;
+			me.onChangeMonth();
+			return false;
 		});
 
-		//日历
-		_this.ui.tdList.on("tap", function(){
+		//选择日期
+		this.ui.tdList.on("tap", function(){
+			me.render.hideSelect.call(me);
 
-			var index = _this.ui.tdList.index(this);
-			var o = _this.dateAry[index];
+			var index = me.ui.tdList.index(this);
+			var o = me.dateAry[index];
 
 			//if(o.flag){
-				_this.ui.tdList.removeClass("defaultpicker");
+				me.ui.tdList.removeClass("defaultpicker");
 				$(this).addClass("defaultpicker");
-				_this.onSelectDay(o.date);
+				me.onSelectDay(o.date);
 			//}
 
 			switch(o.status){
-				case _this.STATUS.PREV:
-					_this.goPreviousMonth();
+				case me.STATUS.PREV:
+					me.goPreviousMonth();
 					break;
 
-				case _this.STATUS.NEXT:
-					_this.goNextMonth();
+				case me.STATUS.NEXT:
+					me.goNextMonth();
 					break;
 			}
+
+			return false;
 
 		});
 
 		//显示隐藏月份列表
-		this.ui.pMonth.parent().on("tap", function(){
-			if(_this.isSelectShow){
-				_this.hideSelect();
+		this.ui.btnMonth.on("tap", function(){
+			if(me.isSelectShow){
+				me.render.hideSelect.call(me);
 			} else {
-				_this.showSelect();
+				me.render.showSelect.call(me);
 			}
+
+			return false;
 		});
 
 		//点空白位置隐藏下拉
@@ -445,45 +441,77 @@ calendar.prototype.render = {
             	return;
             }
 
-            _this.hideSelect();
+            me.render.hideSelect.call(me);
+
+            return false;
 			
 		});
 
 		//上一月
 		this.ui.prevMonth.on("tap", function(){
-
-			_this.goPreviousMonth();
+			me.goPreviousMonth();
 		});
 
 		//下一月
 		this.ui.nextMonth.on("tap", function(){
-
-			_this.goNextMonth();
+			me.goNextMonth();
 		});
 	},
 
-	setCurrentMonth:function(){
-		var currMonthIsFlag = false;
-		var date = this.currentMonth;
-		var currMonthText = this.ui.pMonth.text();
-		var selectedMonthText = this.isSelectedAll ? SYSTEXT.ALL : date.format("yyyy年MM月");
+	showSelect:function(){
+		this.isSelectShow = true;
+		this.ui.divMonth.show();
+		this.render.initScroll.call(this);
 
+		this.ui.btnMonth.addClass("month-ico-up").removeClass("month-ico-down");
+	},
+
+	hideSelect:function(){
+		this.isSelectShow = false;
+		this.ui.divMonth.hide();
+
+		this.ui.btnMonth.addClass("month-ico-down").removeClass("month-ico-up");
+	},
+
+	setMonthBar:function(){
+		var currMonthIsFlag = false;
+
+		var currMonth = this.currentMonth.format("yyyy-MM");
+		var minMonth  = this.options.minYearMonth.format("yyyy-MM");
+		var maxMonth  = this.options.maxYearMonth.format("yyyy-MM");
+
+		var selectedMonthText = this.isSelectedAll ? SYSTEXT.ALL : this.currentMonth.format("yyyy年MM月");
+
+		//设置文本
 		this.monthAry.map($.proxy(function(item, index){
 
 			if(!item.flag) return;
 
-			if(this.currentMonth.format("yyyy-MM") == item.date.format("yyyy-MM")){
+			if(currMonth == item.date.format("yyyy-MM")){
 				currMonthIsFlag = true;
 			}
 		}, this));
 
-		this.ui.pMonth.removeClass("point");
+		this.ui.lblMonth.removeClass("point");
 		
 		if(currMonthIsFlag){
-			this.ui.pMonth.addClass("point");
+			this.ui.lblMonth.addClass("point");
 		}
 
-		this.ui.pMonth.text(selectedMonthText);
+		this.ui.lblMonth.text(selectedMonthText);
+
+		//设置翻月按钮
+		if(currMonth == minMonth){
+			this.ui.prevMonth.removeClass("tapOn");
+
+		} else if(currMonth == maxMonth) {
+			this.ui.nextMonth.removeClass("tapOn");
+
+		} else {
+			!this.ui.prevMonth.hasClass("tapOn") && this.ui.prevMonth.addClass("tapOn");
+			!this.ui.nextMonth.hasClass("tapOn") && this.ui.nextMonth.addClass("tapOn");
+		}
+
 	},
 
 	flagSelect:function(){
@@ -495,7 +523,7 @@ calendar.prototype.render = {
 			var i = index;
 			this.options.showAll ? i++ : i;
 
-			this.ui.ulMonth.children().eq(i).addClass("dot-red");
+			this.ui.ulMonth.children().eq(i).addClass("dot");
 
 		}, this));
 	},

@@ -8,9 +8,8 @@ var moneyCny	= require("kit/money_cny");
 var validate 	= require("kit/validate");
 var serverTime 	= require("kit/server_time");
 var queryString = require("kit/query_string");
-var waterfall 	= require("ui/waterfall/waterfall");
 var smartbar	= require("ui/smartbar/smartbar");
-var sliderPage	= require("ui/slider_page/slider_page");
+var sliderTrans	= require("ui/slider_transition/views");
 
 var used 	= require("used");
 var unused 	= require("unused");
@@ -38,7 +37,7 @@ var redPacket = {
 		this.ui = {};
 		this.ui.context = $("#context");
 		this.ui.menu 	= $("#ul-menu li");
-		this.ui.list 	= this.ui.context.find(".wrap-item");
+		this.ui.list 	= this.ui.context.find(".ui-item");
 
 		this.template	= {};
 		this.template.empty  	= artTemplate.compile(__inline("empty.tmpl"));
@@ -52,16 +51,19 @@ var redPacket = {
 			return _this.format(data, status);
 		};
 
-		this.ui.sliderPage = sliderPage.create({
-			activeClass: "active",
-			menu: this.ui.menu,
-			list: this.ui.list,
-			context: this.ui.context			
-		});
 
+		this.slider = new sliderTrans.create({
+			allowTouch: false,
+			index: this.queryString.index || 0,
+   			element: this.ui.list,
+   			context: this.ui.context,
+   			header: $("header").height(),
+   			onChange: function (index) {
+   				_this.ui.menu.removeClass("active");
+   				_this.ui.menu.eq(index).addClass("active");
+   			}
+   		});
 
-		var sliderIndex = this.queryString.sliderIndex || 0;
-		this.ui.sliderPage.setIndex(sliderIndex);
 
 		unused.create({
 			state: "unused",
@@ -86,8 +88,20 @@ var redPacket = {
 			format: format,
 			template: this.template,
 			container: this.ui.list.eq(2),
-			padding: this.smartbar.getHeight(),
-			number: this.ui.menu.eq(2).find(".number")
+			padding: this.smartbar.getHeight()
+		});
+
+
+		this.regEvent();
+	},
+
+	regEvent: function () {
+		var _this = this;
+
+		this.ui.menu.click(function(event) {
+			var index = _this.ui.menu.index($(this)); 
+
+			_this.slider.setIndex(index);
 		});
 	},
 
@@ -96,6 +110,7 @@ var redPacket = {
 		var endDate   	= null;
 		var income		= null;
 		var fExpCash 	= null;
+		var isfinish	= true;
 		var fDate		= { };
 		var state 		= STATE[fStatus];
 
@@ -111,6 +126,8 @@ var redPacket = {
 			}
 			if(!validate.isEmpty(result.endDate)){
 				endDate = result.endDate.parseDate().format("yyyy-MM-dd");
+
+				isfinish = result.endDate.parseDate() <= new Date();
 			}
 
 			if(Number(result.income) > 0){
@@ -127,6 +144,7 @@ var redPacket = {
 			result.fExpCash 	= fExpCash;
 			result.startDate 	= startDate;
 			result.endDate 		= endDate;
+			result.isfinish		= isfinish;
 			result.expireDate 	= fDate.fExpireDay;
 			result.expCash 		= result.expCash;
 

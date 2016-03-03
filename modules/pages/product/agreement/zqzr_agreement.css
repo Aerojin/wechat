@@ -1,0 +1,30 @@
+.bg-white {background: #fff;}
+div .text-6 {color: #666;}
+.transfer .agreement {padding: 0 .1rem;font-size: .14rem;line-height: .2rem;color: #9d9d9d;overflow: hidden;}
+.transfer .agreement a {color: #f16a4c;}
+.transfer .agreement p {margin: .1rem 0;}
+.transfer .agreement h2 { font-size: .18rem;font-weight: bold;text-align:center;color: #383330;}
+.transfer .agreement h3 { font-size: .16rem;font-weight: bold;color: #383330;}
+.transfer .agreement h4 { font-size: .14rem;font-weight: bold;color: #383330;}
+.transfer .t-indent {text-indent: 2em;}
+.transfer .pact-tab1 {text-indent: 0;}
+.transfer .pact-tab1 th {text-align: center;padding: .05rem 0;}
+.transfer .pact-tab1 td {padding: .05rem 0 .05rem .05rem;}
+.transfer .pact-tab2 td {padding: .05rem;text-align: center;}
+.transfer .tab-img img {display: block;width: 100%;}
+.transfer .pact-tab1 span.word {height: auto;max-height: .2rem;}
+.transfer .pact-tab1 .text-l {text-align: left;}
+.transfer .pact-tab1 .text-c {text-align: center;}
+.transfer .pact-tab1 .text-r {text-align: right;}
+.transfer .pact-tab1 span.width03 {min-width: .3rem;}
+.transfer .pact-tab1 span.width01 {min-width: .1rem;}
+
+
+.transfer .page-info li {font-size: .14rem;line-height: .24rem;}
+.transfer .page-info li b {float: left;}
+.transfer .page-info li .word {height: .24rem;}
+.transfer span.word {display: inline-block;height: .2rem;border-bottom: 1px solid #ccc;}
+.transfer span.width15 {min-width: 1.5rem;}
+.transfer span.width1 {min-width: 1rem;}
+.transfer span.width07 {min-width: .7rem;}
+.transfer b.un-line {text-decoration: underline;}

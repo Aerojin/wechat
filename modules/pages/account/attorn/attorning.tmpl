@@ -1,0 +1,47 @@
+<div class="blist">
+	<div class="box_block1">
+		<h3 class="box_tit">{{origProductName}}</h3>
+		<span class="sign-deadline">{{origInvestPeriod}}天期限</span>
+		<div class="box_date">{{transferTime}}</div>
+	</div>
+	<div class="detail-box">
+		<div class="de-num dp-box pdb1">
+			已转出金额<p class="box-flex3 text-c">{{salesAmount}}</p>
+			转让价格<p class="box-flex2 text-r">{{amount}}</p>
+		</div>
+		<div class="progressBar-box dp-box">
+			<div class="progressBar box-flex">
+				<span class="progressBar-block per" style="width: {{percent}}%"></span>
+			</div>
+			<div class="show-num">已转<span class="text-orange">{{percent}}%</span></div>
+		</div>
+		<div class="formula dp-box">
+			<span class="item-li">转让价格<em class="num text-orange">{{amount}}</em></span>=
+			<span class="item-li">投资本金<em class="num text-orange">{{principal}}</em></span>+
+			<span class="item-li">已计利息<em class="num text-orange">{{profit}}</em></span>-
+			<span class="item-li">预计手续费<em class="num text-orange">{{fee}}</em></span>
+		</div>
+	</div>
+	
+	<div class="box_block3 dp-box">
+		<span class="countdown box-flex count-down">
+			倒计时
+			<span class="text-red">0</span>天
+			<span class="text-red">00</span>时
+			<span class="text-red">00</span>分
+			<span class="text-red">00</span>秒
+		</span>
+		<span class="box_transfer box-flex"><a href="{{equityURL.featureValue}}" class="text-orange">{{equityURL.featureName}}(范本)</a></span>
+	</div>
+	<div class="operate operate2 pdb1">
+		{{if countdown == 0 || percent == 100}}
+			<a class="oper-btn oper-btn-gray over" href="javascript:void(0)" title="">已结束</a>
+		{{else}}
+			{{if isRevocation}}
+				<a class="oper-btn btn-submit" data-fid="{{fid}}" href="javascript:void(0)" title="">撤销转让</a>
+			{{else}}
+				<a class="oper-btn oper-btn-gray btn-gray1" href="javascript:void(0)" title="">不可撤销</a>
+			{{/if}}
+		{{/if}}
+	</div>
+</div>

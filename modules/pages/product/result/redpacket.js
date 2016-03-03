@@ -29,6 +29,7 @@ var share = {
 		this.regEvent();
 		this.getRedNumber();
 		this.createWbChatApi();
+		this.ui.wrap.show();
 	},
 
 	regEvent: function () {

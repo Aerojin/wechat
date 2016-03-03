@@ -58,6 +58,10 @@ var register = {
 			}
 		};
 
+		if(this.queryString && !!Number(this.queryString.showReferrer)){
+			this.ui.txtRecommend.parent().show();
+		}
+
 		this.regEvent();
 	},
 

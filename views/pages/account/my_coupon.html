@@ -16,22 +16,29 @@
 	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
-	<section>
-		<ul id="ul-coupon" class="myoffer">
-			<li>
-				<a class="clearfix" id="btn-hbao">
-					<label class="moneyiocn1">我的红包</label>
-					<span><em id="lbl-redpacket">0</em>个可用</span>
-				</a>
-			</li>
-			<li >
-				<a class="clearfix" id="btn-tyj">
-					<label class="moneyiocn2">我的体验金</label>
-					<span><em id="lbl-tyj">0</em>元可用</span>
-				</a>
-			</li>
-		</ul>
-	</section>
+
+	<div class="wrap page-favour">
+		<article>
+			<section>
+				<ul id="js_ul_wrap" class="favour-item mgt1">
+
+					<li class="li-tri" id="js_btn_hbao">
+						<a class="dp-block"><label class="ico ico-pack">我的红包</label>
+						<div class="item-p"><span id="js_lbl_redpacket">0</span>个可用</div></a>
+					</li>
+
+					<li class="li-tri" id="js_btn_tyj">
+						<a class="dp-block"><label class="ico ico-experi">我的理财金</label>
+						<div class="item-p"><span id="js_lbl_tyj">0.00</span>元可用</div></a>
+					</li>
+				</ul>
+				<div class="add-box mgt1 dn">
+					<a class="dp-block"><label class="ico-add">礼品卡兑换</label></a>
+				</div>
+			</section>
+		</article>
+	</div>
+
 	<script type="text/javascript">
 		require('pages/account/my_coupon/my_coupon');
 	</script>

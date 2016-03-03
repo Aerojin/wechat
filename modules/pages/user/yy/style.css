@@ -33,7 +33,7 @@ background-image: url(icolist-reg.png);-webkit-background-size: 4.14rem 1.6rem;b
 .reglist li.ico-password .border-box,.reglist li.ico-security .border-box {padding-right: 1.3rem;}
 .reglist li .img-security {position: absolute;right: .05rem;top: 50%;display: block;width: 1.2rem;margin-top: -.2rem;height: .4rem;}
 .reglist li.ico-sms .border-box {width: 1.5rem;}
-.reglist li a.btn-get {position: absolute;right:0;top: 0;display: block;width: 1.48rem;line-height: .5rem;text-align: center;color: #fff;border-radius: 3px;background: #e34545;border: 1px solid #e34545;}
+.reglist li a.btn-get {position: absolute;right:0;top: 0;display: block;width: 1.48rem;line-height: .5rem;text-align: center;color: #fff;border-radius: 3px;background: #fd9149;border: 1px solid #fd9149;}
 .reglist li a.oper-btn-gray{border-width: 0px;}
 
 .servive-pact {padding-left: .3rem;position: relative;color: #9d9d9d;font-size: .14rem;}

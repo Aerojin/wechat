@@ -16,6 +16,7 @@ var keyboard = function (options) {
 
 	this.init = function () {
 		this.ui = {};
+		this.ui.html 			= $("html");
 		this.ui.wrap 			= $(__inline("context.tmpl"));
 		this.ui.btnClose 		= this.ui.wrap.find(".btn-close");
 		this.ui.btnBackspace 	= this.ui.wrap.find(".btn-backspace");
@@ -25,7 +26,8 @@ var keyboard = function (options) {
 		this.ui.context 	 	= this.ui.wrap.find(".loading-context");
 		this.ui.keyboard   		= this.ui.wrap.find(".keyboard-wrap");		
 		this.ui.pwdLi 	 		= this.ui.wrap.find(".div-context li");
-		this.ui.btnLi 			= this.ui.wrap.find("li");
+		this.ui.btnLi 			= this.ui.wrap.find(".keyboards li");
+		this.ui.jsWrap 			= this.ui.wrap.find(".js-wrap");
 		this.ui.input 			= $("input");
 
 		this.regEvent();
@@ -108,7 +110,10 @@ var keyboard = function (options) {
 	};
 
 
-	this._show = function () {		
+	this._show = function () {
+		var _this = this;
+
+		this.showScroll();
 		this.hideLoading();
 		this.ui.wrap.show();
 		this.ui.keyboard.css({
@@ -118,7 +123,9 @@ var keyboard = function (options) {
 		this.ui.keyboard.animate({
 			bottom: "0px"
 		}, 200, function () {
-			//		
+			_this.ui.jsWrap.css({
+				top: document.body.scrollTop
+			});	
 		});
 
 		this.isShow = true;
@@ -134,12 +141,17 @@ var keyboard = function (options) {
 
 		this.ui.keyboard.css({
 			bottom: "0px"
-		});
+		});	
 
 		this.ui.keyboard.animate({
 			bottom: -this.ui.keyboard.height()
 		}, 200, function () {
 			_this.ui.wrap.hide();
+
+			_this.hideScroll();
+			_this.ui.jsWrap.css({
+				top: "0px"
+			});
 
 			if(callback){
 				callback();
@@ -147,6 +159,7 @@ var keyboard = function (options) {
 		});
 
 		this.isShow = false;
+		
 	};
 
 	this.removeBlur = function () {
@@ -199,6 +212,14 @@ var keyboard = function (options) {
 			//this.ui.loading.show();
 			this.onUpdate(value);
 		}
+	};
+
+	this.showScroll = function () {
+		 this.ui.html.css({'overflow-y': 'hidden'});
+	};
+
+	this.hideScroll = function () {
+		 this.ui.html.css({'overflow-y': 'auto'});
 	};
 
 	return this.init();

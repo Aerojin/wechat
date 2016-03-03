@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>新手福利</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<!--
+        @require views/css/global.css
+        @require views/css/common.css
+    -->
+	<link rel="stylesheet" href=""/>
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
+</head>
+<body>
+<div class="wrap wrap_bg" id="page1" >
+	<header class="clearfix" >
+		<div class="fl">
+			<img class="fl"  src="/views/images/yy/logo.png">
+		</div>
+		<div class="titlebox fl  pdl1" >
+			<p>小牛资本旗下互联网金融平台</p>
+			<p>账户资金安全由PICC承保</p>
+		</div>
+	</header>
+	<div class="bannerimg">
+		<img src="/views/images/yy/banner1_02.png">
+	</div>
+	<!-- 注册列表start -->
+	<div class="form_box pdl2 pdr2 pdb3">
+		<form>
+			<div class="input_box">
+				<div class="box_li mobile_box">
+					<input type="tel" placeholder="请输入手机号码" id="txt-mobile">
+				</div>
+				<div class="box_li password_numb clearfix">
+					<input type="password" placeholder="请设置您的登录密码" id="txt-password1" >
+					<input type="text" placeholder="请设置您的登录密码" id="txt-password2" style="display:none;" >
+					<span id="btn-showpass">显示</span>
+				</div>
+
+				<div class="box_li imgpassword_numb clearfix">
+					<input type="tel" placeholder="请输入右侧验证码" id="txt-imgCode" maxlength="4">
+					<img src="http://m.xiaoniuapp.com/api/wap/randomImageCode?appVersion=1&moduleId=REGISTERIMAGE&source=web" id="btn-code">
+				</div>
+
+				<div class=" verification_numb clearfix">
+					<div class="box_li verification_bg">
+						<input type="tel" placeholder="请输入验证码" id="txt-code">
+					</div>
+					<span id="btn-dis-send" class="oper-btn-gray" style="display:none;" id="btn-dis-send">重试(60)</span>
+					<span id="btn-send">获取验证码</span>
+				</div>
+				<div class="border-box" style="display: none">
+					<span class="ico"></span>
+					<input id="txt-recommend" class="inp" type="tel" maxlength="11" autocomplete="off" placeholder="请输入推荐人手机号">
+				</div>
+				<div class="Agree">
+					<p><span class="hover" id="btn-pact" data-state="1"></span>同意<a href="$root$/agreement/qgz_server_protocol.html" class="text-blue">《小牛钱罐子服务协议》</a></p>
+
+				</div>
+			</div>
+			<span class="receive_btn " id="btn-submit">立即注册领取豪礼</span>
+		</form>
+		<p class="login"><span href="login.html">已有账号？</span><a href="login.html">立即登录</a></p>
+	</div>
+	<!-- 广告列表 -->
+	<div class="advert_box">
+		<h3 class="">新手享688红包</h3>
+		<ul class="advert_ul dp-box">
+			<li class="box-flex bg">
+				<p>20元</p>
+				<span>注册成功</span>
+			</li>
+			<li class="box-flex bg">
+				<p>50元</p>
+				<span>实名验证</span>
+			</li>
+			<li class="box-flex bg">
+				<p>200元</p>
+				<span>充值成功</span>
+			</li>
+			<li class="box-flex bg">
+				<p>418元</p>
+				<span>投资产品</span>
+			</li>
+		</ul>
+	</div>
+	<div class="advert_box advert_list_box ">
+		<h3 class="">优质理财产品选择多多</h3>
+		<ul class="advert_ul dp-box ">
+			<li class="box-flex">
+				<h1>新手专享标</h1>
+				<em>预期年化</em>
+				<b>15%</b>
+				<span>7天限期</span>
+			</li>
+			<li class="box-flex">
+				<h1>活期宝</h1>
+				<em>预期年化高达</em>
+				<b>11%</b>
+				<span>随存随取</span>
+			</li>
+			<li class="box-flex">
+				<h1>定期产品</h1>
+				<em>预期年化高达</em>
+				<b>15%</b>
+				<span>90天~360天</span>
+			</li>
+		</ul>
+	</div>
+	<div class="advertisement_box">
+		<h1>小牛钱罐子，百万用户的选择</h1>
+		<ul class="dp-box">
+			<li class="box-flex">
+				<img src="/views/images/yy/icon_07.png">
+				<p>小牛资本旗<br>下金融平台</p>
+			</li>
+			<li class="box-flex">
+				<img src="/views/images/yy/icon_09.png">
+				<p>大型金融机构<br>提供优质资产</p>
+			</li>
+			<li class="box-flex">
+				<img src="/views/images/yy/icon_11.png">
+				<p>银行监管<br>资金流向</p>
+			</li>
+			<li class="box-flex">
+				<img src="/views/images/yy/icon_13.png">
+				<p>PICC保障<br>资金安全</p>
+			</li>
+		</ul>
+
+		<div class="text_box mgt5 mgb5 pdb2">
+			<p>小牛钱罐子版权所有</p>
+			<p>客服电话: 400-998-9090</p>
+			<span>投资有风险 入市需谨慎 最终收益以实际为准</span>
+		</div>
+	</div>
+	<div style="height: 0.5rem;"></div>
+	<span class="receive_btn btnlist" id="btn-submit1" >立即注册领取豪礼</span>
+</div>
+
+
+<div class="wrap wp dp-box flex-v" style="display: none;" id="success-page">
+	<div class="flex-2">
+		<img class="mgt5 pdb2" src="/views/images/yy/gou_03.png">
+		<h1 class="pdb1">注册成功，<span>688元</span>福利已存入您的账户</h1>
+		<p id="mobile-num"></p>
+	</div>
+	<div class="box-flex" style="height: 2rem;">
+		<p>赶紧下载APP领取更多新手福利！</p>
+		<a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.meetrend.moneybox">
+			<div class="new_btn" id="btn-load">立即下载</div>
+		</a>
+		<a href="javascript:void(0);" id="btn-home">暂不下载，进入网页版领取福利 >></a>
+	</div>
+</div>
+
+	<script type="text/javascript">
+		require('pages/user/nw_register/channel');
+		require('pages/user/yy/promotion_views');
+	</script>
+	<script type="text/javascript">
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?695745be5945955b87bc170eed465fe5";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</body>
+</html>

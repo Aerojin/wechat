@@ -104,8 +104,20 @@ fis.match('/libs/*.js', {
 
 
 /*公共组件合并处理*/
-fis.match('modules/common/**.js', {
-    packTo: 'modules/common/common.js'
+fis.match('modules/common/base/**.js', {
+    packTo: 'modules/common/common_base.js'
+});
+
+fis.match('modules/common/api/**.js', {
+    packTo: 'modules/common/common_api.js'
+});
+
+fis.match('modules/common/kit/**.js', {
+    packTo: 'modules/common/common_kit.js'
+});
+
+fis.match('modules/common/ui/**.js', {
+    packTo: 'modules/common/common_ui.js'
 });
 
 /*样式合并处理*/
@@ -143,18 +155,6 @@ fis.match('views/pages/index.html', {
 /*
 fis.match('*', {
     domain: '/app'
-});
-*/
-
-/*
-fis.match('*.{html,tmpl}', {
-  parser: function(content, file) {
-    var lang = fis.compile.lang;
-
-    return content.replace(/(<a.*)href\s*=\s*('|")(.+)\2(\s*>[\s\S]*?<\/a>)/ig, function(all, prefix, quote, value, affix) {
-      return prefix + "href=" + quote + lang.uri.wrap(value) + quote + affix;
-    });
-  }
 });
 */
 

@@ -27,7 +27,7 @@ background-size: 100% 100%;
 -o-background-size: 100% 100%;}
 .ico-apply {background-position: 0 -1rem;width: .76rem;height: .86rem;background-size: 4.14rem 5.15rem;}
 
-.apply-result {text-align:center;padding:.3rem 0;background: #da554e;color: #fff;}
+.apply-result {text-align:center;padding:.3rem 0;background: #fd9149;color: #fff;}
 .apply-result img {vertical-align:top;width:.78rem;height:.88rem;display: block;margin: 0 auto;}
 .apply-result p {font-size:.18rem;margin-top:.15rem;}
 .apply-result .origin {color: #fff;}
@@ -40,7 +40,7 @@ background-size: 100% 100%;
 .code-share {padding: .1rem;text-align: center;margin-top: .78rem;font: .19rem/.48rem "Microsoft YaHei";display: -webkit-box;display: box;}
 .code-share li {width:50%;height: .48rem;margin: 0 .03rem;-moz-border-radius: 5px;border-radius: 5px;box-sizing:border-box;border: 1px solid #b2b2b2;background: #fff;color: #9d9d9d;-webkit-box-flex: 1;box-flex: 1;cursor: pointer;}
 .code-share li a {color: #9d9d9d;display: block;}
-.code-share li:last-child {border-color: #da554e;background: #da554e;color: #fff;}
+.code-share li:last-child {border-color: #fd9149;background: #fd9149;color: #fff;}
 .code-share li:last-child a {color: #fff;}
 
 .invest_goon {margin-top: 0;}

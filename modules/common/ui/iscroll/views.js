@@ -9,8 +9,6 @@ var TIPS = {
 	LOADING_TEXT: "数据加载中..."
 };
 
-var DEF
-
 var views = function (options) {
 	
 	this.isLoad 		= false;	
@@ -32,6 +30,7 @@ views.prototype.init = function () {
 
 	this.ui = {};
 	this.ui.win 		= $(window);
+
 	this.ui.wrap 		= $(this.getTemplate());
 	this.ui.empty 		= this.ui.wrap.find(".iscroll-empty");
 	this.ui.header	 	= this.ui.wrap.find(".iscroll-header");
@@ -39,6 +38,7 @@ views.prototype.init = function () {
 	this.ui.loading 	= this.ui.wrap.find(".iscroll-loading");
 
 
+	//this.container.addClass('ui-scroll');
  	this.container.empty().append(this.ui.wrap);	
 
 	//this.scroll();
@@ -53,15 +53,16 @@ views.prototype.regEvent = function () {
 			this.scroll();
 		}
 	}, this));
-
 	this.ui.wrap.on("touchstart", $.proxy(function () {
 		window.iscrollID = this.id;
 	}, this));
 };
 
 views.prototype.scroll = function () {
+
 	var pageIndex = this.pageIndex;
     var pageCount = this.pageCount;
+
 	var last = this.ui.context.find(this.selector).eq(-1);
 
 	 if(this.isLoading || last.size() == 0){
@@ -70,7 +71,7 @@ views.prototype.scroll = function () {
 
     var documentH = this.ui.win.scrollTop() + document.documentElement.clientHeight;
     var lastPinHeight = Math.floor(last.height() / 2) + last.offset().top;
-        
+
     if(documentH > lastPinHeight && pageIndex + 1 <= pageCount){
     	this.pageIndex++;
         this.isLoading = true;

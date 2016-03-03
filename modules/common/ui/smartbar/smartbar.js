@@ -4,6 +4,8 @@
 var $ 				= require("zepto");
 var versions 		= require("base/versions");
 var getDefaultUri	= require("kit/default_uri");
+var api 			= require("api/api");
+var tipMessage 		= require("ui/tip_message/tip_message");
 
 var KEY = "_SMARTBAR_STATE_";
 
@@ -40,6 +42,7 @@ smartbar.prototype.init = function () {
 	
 	this.regEvent();
 	this.setState(this.state);
+	this.setRedTip();
 
 	this.container.append(this.ui.wrap);
 	
@@ -121,6 +124,39 @@ smartbar.prototype.setFocus = function () {
 
 	this.ui.li.removeClass('z-on');
 	dom.addClass('z-on');
+};
+
+smartbar.prototype.setUnread = function(isUnread){
+	if(versions.isApp()){
+		return;
+	}
+
+	var li = this.ui.btnAccount.parent();
+
+	if(isUnread){
+		li.addClass("newmsg");
+	} else {
+		li.removeClass("newmsg");
+	}
+};
+
+smartbar.prototype.setRedTip = function(isUnread){
+	if(versions.isApp()){
+		return;
+	}
+
+	var options = {
+	 	data : {}
+	 };
+	 options.success = function(e){
+	 	var result 	= e.data;
+			result.userTipStatus ? this.ui.btnSetting.append("<i></i>"): $(".tool_tab li i").remove();
+	};
+	options.error = function(e){
+		tipMessage.show(e.msg || TIPS.SYS_ERROR, {delay : 2000});
+	};
+
+	api.send(api.ACTIVITY, "getTipStatus", options, this);
 };
 
 

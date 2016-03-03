@@ -80,9 +80,7 @@ input {border:none;outline:none}
 	text-align: center;
 	margin-top:.06rem;
 }
-.oper-btn-gray{
-	background:#ccc!important;
-}
+
 .Agree{position: relative;padding: .1rem 0;}
 .Agree p{padding-left: .4rem;}
 .Agree p span{

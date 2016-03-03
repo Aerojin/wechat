@@ -1,0 +1,75 @@
+<div>
+	<header class="bg-orange-linear" id="header">
+		<div class="bg-wave2">
+			<div class="hqb-buy">
+				<h3 class="hqb-h3">{{productName}}</h3>
+				<p>
+					预期年化收益率：{{finalRateDesc}}%
+					{{if vipInfo.isVipProduct && vipInfo.isVip}}
+					+ {{vipInfo.awardRate}}%(会员)
+					{{/if}}
+				</p>
+				{{each activityInfo}}
+					<p class="mrt1">
+						+{{$value.awardRate}}%({{$value.awardName}})
+					</p>
+				{{/each}}
+				<span class="ico-deadline">{{investPeriod}}{{dateUnit}}期限</span>
+			</div>
+		</div>
+	</header>
+	<article class="mrt1">
+		<section>
+			{{if isUserLimit}}
+				<p class="b-tips">每人累计最多可购买{{userInvestUnit}}元，您还可以购买{{userRemaMoney}}元</p>				
+			{{/if}}
+			<ul class="manages-list buy-list manage-b">
+				<li class="clearfix">
+					<label class="inp-tits">购买份数</label>
+					<div class="buy-part bg-on">
+						<span class="preva" id="btn-prev"></span>
+						<input class="buy-num" id="txt-copies" type="tel" maxlength="3" value="1" />
+						<span class="nexta" id="btn-next"></span>
+					</div>
+				</li>
+				<li class="clearfix">
+					<label class="inp-tits">合计金额</label>
+					<div class="red_num"><span id="span-amount">0.00</span>元</div>
+				</li>	
+			</ul>			
+			<p class="b-tips">您的账户余额为{{balance}}元<a id="btn-recharge" href="javascript:void(0);" class="pdl1 text-blue2">充值</a></p>
+			<a href="javascript:void(0);" id="btn-packet">
+				<div class="use-pack clearfix">
+					<span class="txt fl">使用红包</span>
+					<span class="num fr text-orange" id="div-redNumber">暂无可用</span>
+				</div>
+			</a>
+			<p class="b-tips">
+				预期总收益 <span id="invest-num">0</span>元
+				{{if isShowEarnings }}
+					<a id="btn-earnings" href="javascript:void(0);" class="btn-detail pdl1 text-blue2">详情</a>
+				{{/if}}
+			</p>
+			
+			<div class="operate mrt1">
+				{{if state == 0}}
+					<a class="oper-btn"  id="btn-submit" href="javascript:void(0);" title="">购买</a>
+				{{else}}
+					<a class="oper-btn oper-btn-gray" href="javascript:void(0);" title="">{{stateText}}</a>
+				{{/if}}				
+			</div>
+			<ul class="protocol clearfix">
+				{{each protocolUri}}
+					<li>
+						{{if $value.checked}}
+							<span class="pact-ico btn-pact pact-on" data-index="{{$index}}"></span>
+						{{else}}
+							<span class="pact-ico btn-pact" data-index="{{$index}}"></span>
+						{{/if}}						
+						<p>已同意<a  href="{{$value.url}}" class="text-blue2">《{{$value.title}}》</a></p>
+					</li>
+				{{/each}}				
+			</ul>
+		</section>
+	</article>
+</div>

@@ -12,16 +12,16 @@ module.exports = function (button) {
 		this.button.attr("id", "loading-button");
 
 		this.source.hide().before(this.button);
-		this.button.addClass('oper-btn-gray').html(this.tmpl);
+		this.button.addClass('btn-gray').html(this.tmpl);
 	};
 
 	this.close = function () {
 		this.source.show();
-		this.button.removeClass('oper-btn-gray').hide();
+		this.button.removeClass('btn-gray').hide();
 	};
 
 	this.check = function () {
-		return this.button.hasClass('oper-btn-gray');
+		return this.button.hasClass('btn-gray');
 	};
 
 	this.init();

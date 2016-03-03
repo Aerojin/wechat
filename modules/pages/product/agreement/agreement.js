@@ -42,8 +42,8 @@ var agreement = {
 			options.data.typevalue  = this.queryString.typeValue;
 		}
 		
-		if(this.queryString.fId){
-			options.data.recordId  = this.queryString.fId;
+		if(this.queryString.fid){
+			options.data.recordId  = this.queryString.fid;
 		}
 
 		options.success = function (e) {
@@ -51,7 +51,7 @@ var agreement = {
 
 			this.setIdentity(result);
 
-			if(this.queryString.fId){
+			if(this.queryString.fid){
 				this.setProduct(this.format(result));
 			}
 		};

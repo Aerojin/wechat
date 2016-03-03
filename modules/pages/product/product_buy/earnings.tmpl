@@ -1,0 +1,25 @@
+<div class="exit-box">
+	<ul class="frofit-tips">
+		<li>
+			<label>产品收益</label>
+			<div class="text">{{earnings}}元</div>
+		</li>
+		{{if isVip}}
+			<li>
+				<label>会员加成</label>
+				<div class="text">+{{vipEarnings}}元</div>
+			</li>
+		{{/if}}
+		{{each awardRate}}
+			<li>
+				<label>{{$value.text}}</label>
+				<div class="text">+{{$value.value}}元</div>
+			</li>
+		{{/each}}
+		<li>
+			<label>预期总收益</label>
+			<div class="text"><span class="text-orange">{{result}}元</span></div>
+		</li>
+	</ul>
+	<span class="exit-sure btn-submit">确认</span>
+</div>

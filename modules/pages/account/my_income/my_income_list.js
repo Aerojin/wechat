@@ -8,7 +8,7 @@ var user 			= require("kit/user");
 var smartbar		= require("ui/smartbar/smartbar");
 var queryString 	= require("kit/query_string");
 var moneyCny 		= require("kit/money_cny");
-var waterfall 		= require("ui/waterfall/waterfall");
+var iscroll 		= require("ui/iscroll/views");
 var tipMessage  	= require("ui/tip_message/tip_message");
 var loadingPage		= require("ui/loading_page/loading_page");
 
@@ -26,8 +26,8 @@ var income_list = {
 	init: function () {
 
 		this.ui = {};
-		this.ui.container 	= $("#container");
-		this.ui.spanIncome	= $("#span-income");
+		this.ui.container 	= $("#js_container");
+		this.ui.spanIncome	= $("#js_lbl_income");
 		this.template 		= artTemplate.compile(__inline("list.tmpl"));
 		this.smartbar 		= smartbar.create();
 
@@ -58,10 +58,12 @@ var income_list = {
 			loadingPage.hide();
 
 			if(data.sumProfit == 0){
-				this.waterfall.setPageCount(1);
-				this.waterfall.showEmpty();
+				this.iscroll.setPageCount(1);
+				this.iscroll.showEmpty();
 				return;
 			}
+
+			this.ui.spanIncome.text(moneyCny.toFixed(data.sumProfit));
 
 			//请求无数据但有日期
 			if(this.pageIndex < 5 && data.recInvestEndDate){
@@ -70,27 +72,25 @@ var income_list = {
 			}
 
 			//无数据
-			if(!data.recInvestEndDate && !data.currentInvestProfit && !data.fixInvestProfit && !data.otherProfit){
-				this.waterfall.setPageCount(1);
-				this.waterfall.hideLoading();
+			if(!data.recInvestEndDate && !data.currentInvestProfit && !data.fixInvestProfit && !data.otherProfit && !data.transferProfit) {
+				this.iscroll.setPageCount(1);
+				this.iscroll.hideLoading();
 				return;
 			}
 
-			this.ui.spanIncome.text(moneyCny.toFixed(data.sumProfit));
-
-			if(data.currentInvestProfit || data.fixInvestProfit || data.otherProfit){
-	 			this.waterfall.appendContext(this.template(data));
+			if(data.currentInvestProfit || data.fixInvestProfit || data.otherProfit || data.transferProfit){
+	 			this.iscroll.appendContext(this.template(data));
 	 		} else {
-	 			this.waterfall.setLoading(false);
+	 			this.iscroll.setLoading(false);
 	 		}
 		};
 
 		options.error = function (e) { 
 
-			this.waterfall.showEmpty();
+			this.iscroll.showEmpty();
 		};
 		
-		this.waterfall.showLoading();
+		this.iscroll.showLoading();
 		api.send(api.ACCOUNT, "querySumProfit", options, this);
 	},
 
@@ -99,7 +99,9 @@ var income_list = {
 		data.currentInvestProfit = data.profitList.currentInvestProfit;
 		data.fixInvestProfit 	 = data.profitList.fixInvestProfit;
 		data.otherProfit 		 = data.profitList.otherProfit;
+		data.transferProfit 	 = data.profitList.transferProfit;
 		data.recInvestEndDate 	 = data.profitList.recInvestEndDate;
+
 
 		//取日期
 		if(data.recInvestEndDate){
@@ -124,14 +126,11 @@ var income_list = {
 
 	createWaterfall: function (data) {
  		var _this = this;
- 		var padding = this.smartbar.getHeight() + 15;
 
- 		this.waterfall = waterfall.create({
- 			selector: ".waterfall-item",
- 			pageSize: this.pageSize,
+ 		this.iscroll = iscroll.create({
  			pageIndex: 1,
+ 			pageSize: this.pageSize,
  			pageCount: this.pageSize,
- 			padding: padding,
  			container: this.ui.container,
  			onLoad: function (pageIndex) {
  				_this.pageIndex = pageIndex;

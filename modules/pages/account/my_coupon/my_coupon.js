@@ -14,11 +14,11 @@ var coupon = {
 	init: function () {
 		
 		this.ui = {};
-		this.ui.btnTyj		= $("#btn-tyj");
-		this.ui.btnHbao		= $("#btn-hbao");
-		this.ui.tyj 		= $("#lbl-tyj");
-		this.ui.redPacket 	= $("#lbl-redpacket");
-		this.ui.ulCoupon	= $("#ul-coupon");
+		this.ui.btnTyj		= $("#js_btn_tyj");
+		this.ui.btnHbao		= $("#js_btn_hbao");
+		this.ui.tyj 		= $("#js_lbl_tyj");
+		this.ui.redPacket 	= $("#js_lbl_redpacket");
+		this.ui.ulWrap	= $("#js_ul_wrap");
 
 		this.queryString = queryString() || {};
 
@@ -73,11 +73,11 @@ var coupon = {
 			var result = e.data || {};
 
 			if(result.redPackMark){
-				this.ui.ulCoupon.children().eq(0).addClass("active");
+				this.ui.ulWrap.children().eq(0).addClass("active");
 			}
 
 			if(result.experienceMark){
-				this.ui.ulCoupon.children().eq(1).addClass("active");
+				this.ui.ulWrap.children().eq(1).addClass("active");
 			}
 
 		};

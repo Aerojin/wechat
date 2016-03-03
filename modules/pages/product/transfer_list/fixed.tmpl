@@ -1,0 +1,51 @@
+{{if state == 300}}
+	<div class="zhishu-box zhishu-box-over vip-ture iscroll-item">
+		<div class="zhishu-tit"><p>{{productName}}</p></div>
+		<div class="zhishu-vip">			
+			<div class="z-num">
+				<div class="vip-num-box">
+					<b>{{finalRateDesc}}</b>%
+				</div>
+			</div>
+		</div>
+		<div class="zhishu-vip-limit"><p class="z-txt">{{investPeriod}}{{dateUnit}}</p></div>		
+		<span class="sold-out"></span>		
+	</div>
+{{else}}
+	<div class="zhishu-box vip-ture iscroll-item">
+		<div class="zhishu-tit">
+			<p>{{productName}}</p>
+			{{if isTransfer}}
+				<span class="time-vip time-blue">可转</span>
+			{{/if}}
+		</div>
+		<div class="zhishu-vip">			
+			<div class="z-num">
+				<div class="vip-num-box">
+					<b>{{finalRateDesc}}</b>%
+				</div>
+			</div>
+		</div>
+		<div class="zhishu-vip-limit"><p class="z-txt">{{investPeriod}}{{dateUnit}}</p></div>
+		<div class="btn-buy">
+			{{if state == 0}}
+				<a href="javascript:void(0);" class="alink btn-submit">购买</a>
+			{{else if state == 100}}
+				<a href="javascript:void(0);" class="alink oper-btn-gray">未开始</a>
+			{{else}}
+				<a href="javascript:void(0);" class="alink oper-btn-gray">{{stateText}}</a>
+			{{/if}}
+		</div>
+		{{if percentInfo.isShow}}
+			<div class="mgt1">
+				<div class="progressBar-box">
+					<div class="progressBar"><span class="progressBar-block per" style="width: {{percentInfo.value}};"></span></div>
+					<span class="progressBar-result">已售{{percentInfo.value}}</span>
+				</div>
+			</div>
+		{{/if}}
+		<div class="zhishu-datebox mrt1">
+			<p class="day count-down"></p>
+		</div>
+	</div>
+{{/if}}

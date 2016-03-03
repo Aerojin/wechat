@@ -10,7 +10,6 @@ var queryString 	= require("kit/query_string");
 var loading 		= require("ui/loading_button/loading_button");
 var tipMessage		= require("ui/tip_message/tip_message");
 var keyboard		= require("ui/keyboard/keyboard");
-var smartbar		= require("ui/smartbar/smartbar");
 
 var findPay = {
 		
@@ -29,6 +28,7 @@ var findPay = {
 		this.ui.password  = $("#ul-password");
 		this.ui.btnSubmit = $("#btn-submit");
 		this.ui.tips 	  = $("#tips");	
+		this.ui.keyboard  = $("#keyboard");
 
 		this.queryString = queryString();
 
@@ -37,8 +37,7 @@ var findPay = {
 				_this[_this.state].change.call(_this, value);
 			}
 		});
-
-		smartbar.create();
+		
 		this.regEvent();
 	},
 

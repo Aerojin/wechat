@@ -16,38 +16,61 @@
 	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
-	<div class="wrap" id="wrap">
-		
+	<div class="wrap wrap-pdb1 page-totalAssets" id="wrap">
 		<article>
-			<section>
-				<ul class="total-assets">
-					<a href="$root$/account/fund_detail.html"><li>
-						<h3>账户余额</h3>
-						<dl>
-							<dd><span class="text-red js_balance">0.00</span><span>活期宝余额(元)</span></dd>
-						</dl>
-					</li></a>
-					<a href="$root$/account/my_hqb.html"><li>
-						<h3>活期投资</h3>
-						<dl>
-							<dd><span class="text-red js_floatBalance">0.00</span><span>活期宝余额(元)</span></dd>
-							<dd><span class="text-red js_floatIncome">0.00</span><span>累计收益(元)</span></dd>
-						</dl>
-					</li></a>
-					<a href="$root$/account/my_invest_record.html"><li>
-						<h3>定期投资</h3>
-						<dl>
-							<dd><span class="text-red js_fixBalance">0.00</span><span>投资中本金(元)</span></dd>
-							<dd><span class="text-red js_fixIncome">0.00</span><span>累计收益(元)</span></dd>
-						</dl>
-					</li></a>
-				</ul>
-				
-				<div class="tips-picc"><span class="ico1">账户资金安全由中国人民保险提供100%承保</span></div>
-			</section>
+			<ul class="total-listBox">
+				<li>
+					<a href="$root$/account/fund_detail.html" class="total-tit">
+						<p class="fis-p"><span class="ico-mu ico-yu"></span>账户余额</p>
+						<div class="dp-box">
+							<div class="total-left box-flex">
+								<p class="dollar_r dollar_orange js_balance">0.00</p>
+								<p>余额(元)</p>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="$root$/account/my_hqb.html" class="total-tit">
+						<p class="fis-p"><span class="ico-mu"></span>活期投资</p>
+						<div class="dp-box">
+							<div class="total-left box-flex">
+								<p class="dollar_r dollar_orange js_floatBalance">0.00</p>
+								<p>活期宝余额(元)</p>
+							</div>
+							<div class="total-right box-flex">
+								<p class="dollar_r js_floatIncome">0.00</p>
+								<p>累计收益(元)</p>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="$root$/account/my_invest_record.html" class="total-tit">
+						<p class="fis-p"><span class="ico-mu ico-regular"></span>定期投资</p>
+						<div class="dp-box">
+							<div class="total-left box-flex">
+								<p class="dollar_r dollar_orange js_fixBalance">0.00</p>
+								<p>投资中本金(元)</p>
+							</div>
+							<div class="total-right box-flex">
+								<p class="dollar_r js_fixIncome">0.00</p>
+								<p>累计收益(元)</p>
+							</div>
+						</div>
+					</a>
+				</li>
+			</ul>
 		</article>
-
+		<div class="tips-picc"><span class="ico1">账户资金安全由中国人民保险提供100%承保</span></div>
 	</div>
+
+
+
+
+
+
+
 
 	<script type="text/javascript">
 		require('pages/account/my_assets/my_assets');

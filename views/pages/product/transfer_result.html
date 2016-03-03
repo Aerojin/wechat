@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>购买成功</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+	<meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	
+	<!--
+        @require views/css/global.css
+        @require views/css/style.css 
+    -->
+	<script type="text/javascript" src="libs/mod.js" data-loader></script>
+	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
+</head>
+<body>
+	<div class="wrap new-version">
+		<article>
+			<section>
+				<ul class="buy-record mgt3" id="wrap">
+					<li class="clearfix">
+						<span class="date back-time">-</span>
+						<div class="action"><h4>到期日</h4></div>
+					</li>
+					<li class="clearfix">
+						<span class="date start-time">-</span>
+						<div class="action"><h4>起息日</h4></div>
+					</li>
+					<li class="clearfix z-on">
+						<span class="date biz-time">-</span>
+						<div class="action"><h4>购买成功</h4><p>投资本金<span class="amount">0</span>元</p></div>
+					</li>
+				</ul>
+				<ul class="btn-followUp dp-box mgt3">
+					<li><a id="btn-invest" href="javascript:void(0);">继续投资</a></li>
+					<li><a id="btn-record" href="javascript:void(0);">查看投资记录</a></li>
+				</ul>
+			</section>
+		</article>
+	</div>
+	<script type="text/javascript">
+		var script = document.createElement("script");
+			script.type = "text/javascript";
+			script.src= window.location.protocol + "//res.wx.qq.com/open/js/jweixin-1.0.0.js";
+
+		document.body.appendChild(script);
+	</script>
+	<script type="text/javascript">
+		require('pages/product/result/transfer_result');
+	</script>
+</body>
+</html>

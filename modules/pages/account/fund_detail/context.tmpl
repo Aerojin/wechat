@@ -1,16 +1,21 @@
-{{each data}}
-<div class="blist waterfall-item">
-	<div class="box_block1">
-		<div class="box_tit"><span>{{$value.transTypeDesc}}</span></div>
-		<div class="box_date">{{$value.transDate}}</div>
-		<div class="box_amount">
-			{{ if $value.toInvestOp == "+"}}
-				<span class="success">+{{$value.transAmount}}</span>
-			{{else}}
-				<span class="fail">-{{$value.transAmount}}</span>
-			{{/if}}
-		</div>
-	</div>
-	<div class="box_block2">{{$value.remark}}</div>
-</div>
-{{/each}}
+
+<article>
+	<ul class="founs-listBox">
+		{{each data}}
+				<li class="waterfall-item">
+					<div class="funds-tit">
+						<h5 class="mgt15 pdb1">{{$value.transTypeDesc}}</h5>
+						<p class="funds-time">{{$value.transDate}}</p>
+
+						{{ if $value.toInvestOp == "+"}}
+							<i class="pos-a fs-20">+{{$value.transAmount}}</i>
+						{{else}}
+							<i class="pos-a fs-20 clOrg">-{{$value.transAmount}}</i>
+						{{/if}}
+
+					</div>
+					<div class="fonds-info pd150">{{$value.remark}}</div>
+				</li>
+		{{/each}}
+	</ul>
+</article>

@@ -1,46 +1,29 @@
-html{background: #e6e6e6;}
-body{font-size: .16rem;}
+div .text-black5a {color: #5a5a5a;}
+.page-experi p.b-tips {padding: .15rem .25rem;color:#5a5a5a;font-size: .16rem;}
+.page-experi .operate {margin-left: .25rem;margin-right: .25rem;}
+.page-experi .oper-btn {display:block;line-height: .6rem;background:#fd9149;color:#FFF;text-align:center;font-size:.20rem;border-radius:5px;}
+.page-experi .oper-btn-gray {background:#ffc8a4;}
+.page-experi .ft-operate-box {position: fixed;left: 0;bottom: 0;z-index:999;width:100%;}
+.page-experi .ft-operate-box .oper-btn {border-radius: 0;}
 
-/***和新手理财共用的样式**/
-.Infor{border-top:1px solid #ccc;background: #fff;margin-top: .16rem;}
-.Infor li{position: relative;line-height: .5rem;border-bottom: 1px solid #ccc;padding:0 .2rem;}
-.Infor li label{position: absolute;left:.2rem;color: #9d9d9d;}
-.Infor li span{float: right;}
+.page-experi .hqb-buy {position: relative;padding: .25rem;}
+.page-experi .hqb-buy .hqb-h3 {padding-bottom: .2rem;font-size: .20rem;color: #5a5a5a;}
+.page-experi .hqb-buy p {font-size: .16rem;color: #888;}
+.page-experi .hqb-buy .ico-deadline {display:block;position: absolute;right: .25rem;top: .25rem;padding-left: .22rem;font-size: .16rem;line-height: .22rem;color: #5a5a5a;}
 
-
-.infor_btn a{
-  display: block;
-  line-height: .48rem;
-  background: #da554e;
-  color: #FFF;
-  text-align: center;
-  font-size: .19rem;
-  border-radius: 5px;
+.page-experi .new-invest-item {padding-left: .25rem;line-height: .54rem;font-size: .16rem;border: 1px solid #e8eaed;border-width: 1px 0;background: #fff;}
+.page-experi .new-invest-item li {padding-right: .25rem;border-bottom: 1px solid #e8eaed;color: #888;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex; 
+ }
+.page-experi .new-invest-item li .item-p {text-align: right;color: #5a5a5a;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-ms-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
 }
-
-/**和新手理财共用的样式**/
-
-.buy_infor label{color: #666;}
-.buy_infor span{color: #b4b4b4;}
-.buy_infor span.buy_txt{color: #383330}
-.buy_infor span.buy_txt2{color: #bbb}
-
-.buy_red_hd{height: 1rem;background: #da554e;color: #fff;padding:.4rem .2rem 0 .2rem;}
-.buy_red_hd h1{font-size: .24rem;}
-.buy_red_hd span{
-	position: absolute;
-	right:.2rem;
-	top:.32rem;
-	padding-left: .26rem;
-	height: .4rem;
-	line-height: .4rem;
-	background: url(dataiocn.png) no-repeat left center;
-	background-size: .22rem;
-}	
-.buy_red_hd p{padding:.2rem 0;}
-
-
-
-.expect_money{padding:0 .2rem;line-height:.26rem;color: #da554e}
-
-.Expect_btn{padding:.3rem .1rem 0 .1rem;}
+.page-experi .new-invest-item li:last-child{border: none;}

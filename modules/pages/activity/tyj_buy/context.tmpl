@@ -1,21 +1,19 @@
-	<div class="buy_red_hd">
-		<h1>{{pname}}</h1>
+<header>
+	<div class="hqb-buy bg-white">
+		<h3 class="hqb-h3">{{pname}}</h3>
 		<p>预期年化收益率：{{rate}}%</p>
-		<span>{{days}}天期限</span>
+		<span class="ico-deadline">{{days}}天期限</span>
 	</div>
-	<ul class="Infor buy_infor">
-		<li class="clearfix">
-			<label>购买金额</label>
-			<span class="buy_txt">{{amount}}元</span>
+</header>
 
-		</li>
-		<li class="clearfix">
-			<label>返现红包</label>
-			<span class="buy_txt2">当前不适用</span>
-		</li>
+<section>
+	
+	<ul class="new-invest-item mgt1">
+		<li><label class="text-black5a">购买金额</label><div class="item-p">{{amount}}元</div></li>
+		<li><label class="text-black5a">返现红包</label><div class="item-p"><span class="text-gray">当前不适用</span></div></li>
 	</ul>
-	<p class="expect_money">预期收益{{income}}元</p>
-
-	<div class="infor_btn Expect_btn">
-		<a href="javascript:void(0)" id="btn-buy">购买</a>
+	<p class="b-tips">预期总收益  {{income}}元</p>
+	<div class="operate mgt1">
+		<a class="oper-btn" id="js_btn_buy" href="javascript:void(0)" title="">购买</a>
 	</div>
+</section>

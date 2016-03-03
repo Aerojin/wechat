@@ -1,0 +1,17 @@
+<thead>
+	<tr>
+		<th colspan="2">产品期限为{{minInvestPeriod}}-{{maxInvestPeriod}}天<br />转让手续费明细</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>持有天数</td>
+		<td>手续费率</td>
+	</tr>
+	{{each data}}
+		<tr class="trInfo">
+			<td>{{$value.minHoldPeriod}}-{{$value.maxHoldPeriod}}</td>
+			<td>{{$value.feeTariff}}%</td>
+		</tr>
+	{{/each}}
+</tbody>

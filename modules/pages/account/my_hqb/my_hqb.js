@@ -5,76 +5,80 @@ var $ 				= require("zepto");
 var api 			= require("api/api");
 var artTemplate 	= require("artTemplate");
 var moneyCny		= require("kit/money_cny");
-var appApi 			= require("kit/app_api");
-var eventFactory 	= require("base/event_factory");
+var queryString 	= require("kit/query_string");
 var waterfall 		= require("ui/waterfall/waterfall");
-var smartbar		= require("ui/smartbar/smartbar");
 var tipMessage  	= require("ui/tip_message/tip_message");
-var loadingPage		= require("ui/loading_page/loading_page");
+var sliderTrans		= require("ui/slider_transition/views");
 var ransomRecord    = require("hqb_ransom_record");
+var holding 			= require("holding");
+var finished 			= require("finished");
+
 var myHqb = {
-
-	pageIndex: 1,
-
-	pageSize: 10,
 
 	buyUrl: "$root$/product/home.html",
 
 	init: function (index) {
+		var _this = this;
 		
 		this.ui = {};
-		this.ui.header 		= $("#header");
-		this.ui.context 	= $("#context");
-		this.ui.btnTool 	= $("#btn-tool");
-		this.ui.btnBuy		= $("#btn-buy");
-		this.ui.menu        = $("#ul-menu li");
+		this.ui.header 		= $("#js_header");
+		this.ui.context 	= $("#js_context");
+		this.ui.btnTool 	= $("#js_btn_tool");
+		this.ui.btnBuy		= $("#js_btn_buy");
+		this.ui.menu        = $("#js_ul_menu li");
+		this.ui.list 		= this.ui.context.find(".ui-item");
 		this.template = {};
 		this.template.header  = artTemplate.compile(__inline("header.tmpl"));
 		this.template.context = artTemplate.compile(__inline("context.tmpl"));
 
-		if( index != 0 || index == undefined){
-			loadingPage.show();
-		}
-		this.smartbar = smartbar.create();
-		this.ui.btnTool.css({
-			bottom: this.smartbar.getHeight()
-		});
-		this.createWaterfall();
+		this.queryString = queryString() || {};
 
-		this.getData();
+		this.slider = new sliderTrans.create({
+			allowTouch: false,
+			index: this.queryString.index || 0,
+   			element: this.ui.list,
+   			context: this.ui.context,
+   			header: $("header").height(),
+   			onChange: function (index) {
+   				_this.ui.menu.removeClass("active");
+   				_this.ui.menu.eq(index).addClass("active");
+   			}
+   		});
+
+		
+		holding.create({
+			padding: this.ui.btnTool.height(),
+			container: this.ui.list.eq(0)
+		});
+
+		finished.create({
+			padding: this.ui.btnTool.height(),
+			container: this.ui.list.eq(1)
+		});
+
+
 		this.getHeader();
 		this.getHqb();
 
 		this.regEvent();
+
 	},
 
 	regEvent: function () {
 		var _this = this;
 		this.ui.btnBuy.on("click", $.proxy(function () {
-			/*
-			eventFactory.exec({
-				"wap": function () {
-					window.location.href = "$root$/product/home.html";
-				},
-				"app": function () {
-					window.location.href = appApi.getProductList({type: 3});
-				}
-			});
-			*/
-			window.location.href = this.buyUrl;			
+
+			window.location.href = this.buyUrl;
 		}, this));
-		this.ui.menu.on("click",function(){
-			var index = $(this).index();
-			switch (index){
-				case 0 :
-					_this.init(0);
-					break;
-				case 1 :
-					ransomRecord.init();
-					break;
-			};
-			$(this).addClass("active").siblings().removeClass("active");
-	    })
+
+
+		this.ui.menu.click(function(event) {
+			var index = _this.ui.menu.index($(this));
+
+			_this.slider.setIndex(index);
+		});
+
+
     },
 	getHeader: function () {
 		var options = {
@@ -84,9 +88,10 @@ var myHqb = {
 		options.success = function (e) {
 			var result 	= e.data;
 			var data = {
-				fProfit: moneyCny.toFixed(result.fProfit, 2),
-				fMoneyAmount: moneyCny.toFixed(result.fMoneyAmount, 2),
-				fProfitYesterday: moneyCny.toFixed(result.fProfitYesterday, 2)
+				fProfit: moneyCny.toFixed(result.totalProfit, 2),
+				fMoneyAmount: moneyCny.toFixed(result.remainMoney, 2),
+				fProfitYesterday: moneyCny.toFixed(result.yesterDayProfit, 2),
+				fRedeemProcessMoney: moneyCny.toFixed(result.redeemProcessMoney, 2)
 			};
 
 			this.ui.header.html(this.template.header(data));
@@ -96,39 +101,9 @@ var myHqb = {
 			
 		};
 
-		api.send(api.PRODUCT, "assetQuery", options, this);
+		api.send(api.PRODUCT, "currentStatistics", options, this);
 	},
 
-	getData: function () {
-		var options = {};
-
-		options.data = {
-			pageSize: this.pageSize,
-			pageIndex: this.pageIndex
-		}; 
-
-		options.success = function (e) {
-			var result 	= e.data;
-			var data 	= this.format(result.list || []);
-
-			loadingPage.hide();
-
- 			if(result.list.length > 0){ 				
-	 			this.waterfall.setPageCount(result.pageCount);
-	 			this.waterfall.appendContext(this.template.context({data: data}));
-		 		return;
-	 		}
-
-			this.waterfall.showEmpty();
-		};
-
-		options.error = function () {
-			this.waterfall.showEmpty();
-		};
-
-		this.waterfall.showLoading();
-		api.send(api.PRODUCT, "queryInvestRecordsByHqb", options, this);
-	},
 
 	getHqb: function () {
  		var options = {};
@@ -138,53 +113,17 @@ var myHqb = {
 		};
 
 		options.success = function (e) {
-			var result 	= e.data;
-			var url 	= "$root$/product/buy_detail.html?productId={0}&typeValue={1}";
+			var result 	= e.data || {};
+			var url 	= "$root$/product/product_buy.html?fid={0}";
 
-			this.buyUrl = url.format(result.productId, result.typeValue);
+			this.buyUrl = url.format(result.fid);
 		};
 
 		options.error = function () {
 
 		};
 
-		api.send(api.PRODUCT, "queryProductInfo", options, this);
- 	},
-
-	createWaterfall: function (data) {
- 		var _this = this;
- 		var padding = this.smartbar.getHeight() + this.ui.btnTool.height();
-
- 		this.waterfall = waterfall.create({
- 			selector: ".waterfall-item",
- 			pageSize: this.pageSize,
- 			pageIndex: 1,
- 			pageCount: 1,
- 			padding: padding,
- 			container: this.ui.context,
- 			onLoad: function (pageIndex) {
- 				_this.pageIndex = pageIndex;
- 				_this.getData();
- 			}
- 		});
- 	},
-
- 	format: function (data) {
- 		for(var i = 0; i < data.length; i++){
- 			var result  		= data[i];
- 			var fYields 		= Number(result.fYields) * 100;
- 			var fInterestTime 	= result.fInterestTime.parseDate();
-
- 			result.fRedeemAble 		= Number(result.fRedeemAble);
- 			result.fYields		 	= moneyCny.toDecimalStr(fYields, 1);
- 			result.fInterestTime	= fInterestTime.format("yyyyMMdd");
- 			result.fPrincipalLeft	= moneyCny.toFixed(result.fPrincipalLeft);
- 			result.fProfitDueIn		= moneyCny.toFixed(result.fProfitDuein);
-
- 			data[i] = result;
- 		} 
-
- 		return data;
+		api.send(api.PRODUCT, "getProductInfo", options, this);
  	}
 
 };

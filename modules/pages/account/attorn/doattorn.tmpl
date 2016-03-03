@@ -1,0 +1,30 @@
+<div class="tab-contain-box">
+	<div class="info-box bg-white">
+		<div class="box_block1">
+			<h3 class="box_tit">{{origProductName}}</h3>
+		</div>
+		<ul class="box-li">
+			<li><label class="li-tit">产品期限</label><div class="li-num">{{origInvestPeriod}}天</div></li>
+			<li><label class="li-tit">持有天数</label><div class="li-num">{{holdPeriod}}天</div></li>
+			<li><label class="li-tit">投资本金</label><div class="li-num text-orange">+{{principal}}元</div></li>
+			<li><label class="li-tit">已计利息</label><div class="li-num text-orange">+{{profit}}元</div></li>
+			<li><label class="li-tit">手续费</label><div class="li-num text-green">-{{fee}}元</div><span class="ico-unknown icoUnknown"></span></li>
+			<li><label class="li-tit">转让价格</label><div class="li-num text-orange">={{amount}}元</div></li>
+		</ul>
+	</div>
+</div>
+<ul class="protocol clearfix">
+	<li><span class="pact-ico pact-on isAgree"></span><p>已阅读并同意<a href="{{equityURL.redirectUrl}}"><span class="text-blue2">{{equityURL.content}}(范本)</span></a></p></li>
+</ul>
+
+<div class="operate operate3 mgt2 pdb1">
+	<a class="oper-btn" href="javascript:void(0)" title="" id="submitBtn">同意协议并全额转让</a>
+</div>
+
+<!-- 说明文字 -->
+<div class="explain-txt"><strong>温馨提示</strong>
+<p>1、债权出让人在提交转让申请后，有权在无受让人购买前，手动撤销该转让项目，若债权已被认购或部分认购，则不得手动撤销</p>
+<p>2、提交转让申请后，转让时效为转让起72个小时，若此期间债权未全部出让，未成功转让部分由债权出让人继续持有， 可以再次提出转让申请</p>
+</div>
+
+<div class="tips-picc"><span class="ico1">账户资金安全由中国人民保险提供100%承保</span></div>

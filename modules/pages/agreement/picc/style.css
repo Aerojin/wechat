@@ -42,6 +42,7 @@ header .picc_title p.picc_zh{font-size: .24rem;}
 }
 .list_box li img{
 	width: .82rem;
+	margin: 0 auto;
 }
 .list_box li p{
 	padding:.1rem 0;
@@ -50,7 +51,7 @@ header .picc_title p.picc_zh{font-size: .24rem;}
 
 .pic_antext{text-indent: .4rem;padding:.2rem .1rem;line-height: .26rem;color: #eaf2f9;}
 .picc_imgbox{text-align:center;padding: .2rem 0;}
-.picc_imgbox img{width: 3.5rem;}
+.picc_imgbox img{width: 3.5rem;margin: 0 auto;}
 
 .explain_box{padding:0 .1rem;}
 .explain_box h3{

@@ -5,9 +5,11 @@
  var api 			= require("api/api");
  var user     		= require("kit/user");
  var artTemplate 	= require("artTemplate");
+ var productSuper 	= require("kit/product_super");
  var smartbar 		= require("ui/smartbar/smartbar");
  var sliderBar 		= require("ui/slider_bar/slider_bar");
  var loadingPage	= require("ui/loading_page/loading_page");
+ var tipMessage 	= require("ui/tip_message/tip_message");
 
 var index = {
 	init: function () {
@@ -19,9 +21,10 @@ var index = {
 		this.ui.sliderContainer	= $("#slider-container");
 
 		this.smartbar 	= smartbar.create();
+		this.smartbar.setState("index");
 
 		this.template 	= {};
-		this.template.hqb		= artTemplate.compile(__inline("hqb.tmpl"));
+		this.template.context	= artTemplate.compile(__inline("context.tmpl"));
 		this.template.activity	= artTemplate.compile(__inline("activity.tmpl"));
 
 		this.getHqb();
@@ -34,6 +37,10 @@ var index = {
 
 		this.ui.btnItem.on("touchstart", function () {
 			return false;
+		});
+
+		this.ui.divHqb.find("#btn-tips").on("click", function () {
+			tipMessage.show($(this).text(), {delay: 2000});
 		});
 	},
 
@@ -90,28 +97,28 @@ var index = {
  		var options = {};
 
 		options.data = {
-
+			pageIndex: 1
+			//productType: 301
 		};
 
 		options.success = function (e) {
 			var result = e.data;
+				result = result.list[0];
 
-			var html = this.template.hqb({
-				productId: result.productId,
-				typeValue: result.typeValue,
-				flowMinRate: result.flowMinRateDisplay,
-				flowMaxRate: result.flowMaxRateDisplay,
-			});
+			if(result){
+				var model = productSuper.create(result);
+				var html = this.template.context(model.getData());
 
-			this.ui.divHqb.html(html);
-			this.regEvent();
+				this.ui.divHqb.html(html);
+				this.regEvent();
+			}
 		};
 
 		options.error = function () {
 
 		};
 
-		api.send(api.PRODUCT, "queryProductInfo", options, this);
+		api.send(api.PRODUCT, "findProductByWechatHome", options, this);
  	},
 
  	format: function (data) {

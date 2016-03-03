@@ -1,48 +1,41 @@
-html{background: #e6e6e6;}
-body{font-size: .16rem; color: #454545;}
+.page-experi .operate-list {padding-left: .25rem;border:1px solid #e8eaed;border-width: 1px 0;background:#FFF;font-size: .16rem;}
+.page-experi .operate-list li {position:relative;border-bottom:1px solid #e8eaed;line-height: .5rem;color: #7e7e7e;}
+.page-experi .operate-list li:last-child {border:0}
+.page-experi .operate-list li .alink {display: block;padding-right: .4rem;color: #7e7e7e;}
+.page-experi .operate-list .li-tri:before {content: "";position: absolute;right: .25rem;top: 50%;margin-top: -.08rem;width: .1rem;height: .16rem;pointer-events: none;
+background:url('ico-tri-input.png') no-repeat;background-size: contain;-webkit-background-size: contain;}
+.page-experi .operate-list li .record-num {float: right;margin-right: .3rem;color: #8c8c8c;}
 
+.page-experi .operate {margin-left: .25rem;margin-right: .25rem;}
+.page-experi .oper-btn {display:block;line-height: .6rem;background:#fd9149;color:#FFF;text-align:center;font-size:.20rem;border-radius:5px;}
+.page-experi .oper-btn-gray {background:#ffc8a4;}
+.page-experi .ft-operate-box {position: fixed;left: 0;bottom: 0;z-index:999;width:100%;padding:0;border-top:none;}
+.page-experi .ft-operate-box .oper-btn {border-radius: 0;}
 
-.header_box{height: 1.3rem;background: #da554e;text-align: center;color: #feffff;}
-.header_box span{padding-top: .2rem;display: block;font-size: .16rem;}
-.header_box p{font-size: .60rem;}
-.header_box p b{font-size: .3rem;}
-.header_tb {border-bottom: 1px solid #ccc;padding:.2rem 0;background: #fff;text-align: center;}
-.header_tb p{font-size: .18rem;}
-.header_tb span{color: #999;}
+.page-experi .hd-white {padding: .2rem 0 .2rem 0;background: #fff;border: 1px solid #e8eaed;border-width: 1px 0;}
+.page-experi .hd-detail {position: relative;padding: 0 .25rem;}
+.page-experi .hd-detail .p-name {font-size: .18rem;color: #888;}
+.page-experi .hd-detail .p-num {font-size: .32rem;color: #fd9149;margin-top: .1rem;}
+.page-experi .hd-detail .fs-18 {font-size: .18rem;}
+.page-experi .hd-detail .fs-22 {font-size: .22rem;}
+.page-experi .hd-detail .deadline {width: 1.3rem;position: absolute;right: 0;top:0;font-size: .18rem;color: #888;}
+.page-experi .hd-detail .deadline .deadline-num {font-size: .18rem;color: #595a69;margin-top: .2rem;}
+.page-experi .hd-detail .viper {display: inline-block;position: relative;padding-right: .3rem;}
+.page-experi .hd-detail .mark-vip {position: absolute;right: 0;top: .05rem;display: block;padding: 0 .05rem;line-height: .16rem;border-radius: .16rem;font-size: .12rem;color: #fff;background: #ffcb7d;}
 
-/**和产品投资页面共用样式**/	
-.Infor{border-top:1px solid #ccc;background: #fff;margin-top: .16rem;}
-.Infor li{position: relative;line-height: .5rem;border-bottom: 1px solid #ccc;padding:0 .2rem;}
-.Infor li label{position: absolute;left:.2rem;color: #9d9d9d;}
-.Infor li span{float: right;}
-.Infor li a{display: block;}
-
-
-.infor_btn a{
-  display: block;
-  line-height: .48rem;
-  background: #da554e;
-  color: #FFF;
-  text-align: center;
-  font-size: .19rem;
-  border-radius: 5px;
-}	
-/**和产品投资页面共用样式**/	
-
-.Infor li a span.infor_d{
-	width:.2rem;height: .5rem;
-	background: url(link-icon.png) no-repeat right center;
-	background-size: .09rem .15rem;
+.page-experi .new-invest-item {padding-left: .25rem;line-height: .54rem;font-size: .16rem;border: 1px solid #e8eaed;border-width: 1px 0;background: #fff;}
+.page-experi .new-invest-item li {padding-right: .25rem;border-bottom: 1px solid #e8eaed;color: #888;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; 
+ }
+.page-experi .new-invest-item li .item-p {text-align: right;color: #5a5a5a;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
 }
-
-.infor_btn{
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 999;
-  width: 100%;
-  padding: .1rem;
-  border-top: 1px solid #949494;
-  box-sizing: border-box;
-  background: #fff;
-}
+.page-experi .new-invest-item li:last-child{border: none;}

@@ -20,7 +20,7 @@ var tyj_detail = {
 	init: function () {
 
 		this.ui = {};
-		this.ui.context = $("#context");
+		this.ui.context = $("#js_context");
 		this.template 	= artTemplate.compile(__inline("context.tmpl"));
 
 		this.queryString = queryString() || {};	
@@ -138,7 +138,7 @@ var tyj_detail = {
 	setContext:function(data){
 		this.ui.context.html(this.template(data));
 
-		this.ui.btnBuy = $("#btn-buy");
+		this.ui.btnBuy = $("#js_btn_buy");
 
 		this.regEvent();
 	}

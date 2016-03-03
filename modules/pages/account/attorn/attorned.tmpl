@@ -1,0 +1,43 @@
+{{each data}}
+	<div class="blist">
+		<div class="box_block1">
+			<h3 class="box_tit">{{$value.productName}}</h3>
+			<span class="sign-deadline">{{$value.investPeriod}}天期限</span>
+		</div>
+		<div class="process-wrap">
+			<ul class="ps-tit dp-box">
+				<li>起息日</li>
+				<li>转让日</li>
+				<li>到期日</li>
+			</ul>
+			<div class="ps-point"><span></span><span></span><span></span></div>
+
+			<div class="process-box dp-box">
+				<div class="ps-cloumn">
+					<div class="sign-litem">{{$value.profitCalcDate}}</div>
+					<div class="sign-litem"><span class="fs-16">投资本金</span><span class="dp-block text-orange">{{$value.principal}}</span></div>
+				</div>
+				<div class="ps-cloumn">
+					<div class="sign-litem">{{$value.transferTime}}</div>
+					<div class="sign-litem"><span class="fs-16">转让本金</span><span class="dp-block text-orange">{{$value.salesPrincipal}}</span></div>
+					<div class="sign-litem"><span class="fs-16">转出金额</span><span class="dp-block text-orange">{{$value.salesAmount}}</span></div>
+				</div>
+				<div class="ps-cloumn">
+					<div class="sign-litem">{{$value.refundDate}}</div>
+					{{if $value.oddPrincipal == 0}}
+						<div class="sign-litem"><span class="fs-16 text-orange">已全额转让</span></div>
+					{{else}}
+					<!-- 	<div class="sign-litem"><span class="fs-16">起息日</span><span class="dp-block text-orange">{{$value.profitCalcDate}}</span></div>
+						<div class="sign-litem"><span class="fs-16">到息日</span><span class="dp-block text-orange">{{$value.refundDate}}</span></div> -->
+						<div class="sign-litem"><span class="fs-16">剩余本金</span><span class="dp-block text-orange">{{$value.oddPrincipal}}</span></div>
+						<div class="sign-litem"><span class="fs-16">预期剩余收益</span><span class="dp-block text-orange">{{$value.oddProfit}}</span></div>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+		<div class="box_block3 dp-box">
+			<span class="box_plan box-flex"><a href="{{$value.checkDetail}}" class="text-orange">查看转让详情</a></span>
+			<span class="box_transfer box-flex"><a href="{{$value.equityURL.featureValue}}" class="text-orange">{{$value.equityURL.featureName}}</a></span>
+		</div>
+	</div>
+{{/each}}

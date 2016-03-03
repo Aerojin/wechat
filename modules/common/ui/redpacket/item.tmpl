@@ -1,0 +1,25 @@
+<ul class="redpack-list">
+	{{each data}}
+		{{if $value.isSelected }}
+			<li class="pack-selected js-item" data-index="{{$value.index}}">
+		{{else if $value.isUsable }}
+			<li class="js-item" data-index="{{$value.index}}">
+		{{else}}
+			<li class="gray js-item" data-index="{{$value.index}}">
+		{{/if}}
+			<div class="li-box">
+				<span class="cashBack"></span>
+				<span class="useStatus"></span>
+				<div class="num">{{$value.newMoney}}<span class="fs-18">元</span></div>
+				<dl class="summary">
+					<dt>{{$value.fName}}</dt>
+					<dd>{{$value.fRemark}}</dd>
+				</dl>
+				<div class="redpack-status dp-box">
+					<div class="expaiationTime box-flex"><span class="ico ico-standby"></span>还剩{{$value.newExpireDay}}过期</div>
+					<!--<div class="use text-r"><a href="javascript:void(0);">立即使用 ></a></div>-->
+				</div>
+			</div>
+		</li>
+	{{/each}}
+</ul>

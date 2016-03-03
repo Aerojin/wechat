@@ -6,9 +6,9 @@ var api 		= require("api/api");
 var artTemplate = require("artTemplate");
 var moneyCny	= require("kit/money_cny");
 var serverTime 	= require("kit/server_time");
-var waterfall 	= require("ui/waterfall/waterfall");
 var smartbar	= require("ui/smartbar/smartbar");
-var sliderPage	= require("ui/slider_page/slider_page");
+var queryString = require("kit/query_string");
+var sliderTrans	= require("ui/slider_transition/views");
 
 var used 	= require("used");
 var unused 	= require("unused");
@@ -35,12 +35,13 @@ var redPacket = {
 		this.ui = {};
 		this.ui.context = $("#context");
 		this.ui.menu 	= $("#ul-menu li");
-		this.ui.list 	= this.ui.context.find(".wrap-item");
+		this.ui.list 	= this.ui.context.find(".ui-item");
 
 		this.template	= {};
 		this.template.empty  	= artTemplate.compile(__inline("empty.tmpl"));
 		this.template.context  	= artTemplate.compile(__inline("context.tmpl"));
 
+		this.queryString = queryString() || {};	
 		this.smartbar = smartbar.create();
 
 		var _this  = this;
@@ -48,12 +49,18 @@ var redPacket = {
 			return _this.format(data, status);
 		};
 
-		sliderPage.create({
-			activeClass: "active",
-			menu: this.ui.menu,
-			list: this.ui.list,
-			context: this.ui.context			
-		});
+
+		this.slider = new sliderTrans.create({
+			allowTouch: false,
+			index: this.queryString.index || 0,
+   			element: this.ui.list,
+   			context: this.ui.context,
+   			header: $("header").height(),
+   			onChange: function (index) {
+   				_this.ui.menu.removeClass("active");
+   				_this.ui.menu.eq(index).addClass("active");
+   			}
+   		});
 
 		unused.create({
 			state: "UNEXCHANGE",
@@ -78,8 +85,19 @@ var redPacket = {
 			format: format,
 			template: this.template,
 			container: this.ui.list.eq(2),
-			padding: this.smartbar.getHeight(),
-			number: this.ui.menu.eq(2).find(".number")
+			padding: this.smartbar.getHeight()
+		});
+
+		this.regEvent();
+	},
+
+	regEvent: function () {
+		var _this = this;
+
+		this.ui.menu.click(function(event) {
+			var index = _this.ui.menu.index($(this)); 
+
+			_this.slider.setIndex(index);
 		});
 	},
 
@@ -105,7 +123,7 @@ var redPacket = {
 
 	getDiffTime: function (date, state) {
 		var date2 = date.parseDate();
-		var date1 = serverTime.getServerTime();		
+		var date1 = serverTime.getServerTime();
 		var diffTime = serverTime.getServerDiff(date1, date2);
 
 		if(state != "UNEXCHANGE"){

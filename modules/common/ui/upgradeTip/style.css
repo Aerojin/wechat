@@ -17,8 +17,7 @@
 .manage-a li .inp-tit {color: #9d9d9d;}
 .manage_tips {padding:.08rem .16rem;text-align:center;font: .14rem/.24rem "Microsoft YaHei";color: #939393;}
 .ft-operate-box {position: fixed;left: 0;bottom: 0;z-index:999;width:100%;padding: .1rem;border-top: 1px solid #949494;box-sizing:border-box;}
-.oper-btn{display:block;line-height:.48rem;background:#da554e;color:#FFF;text-align:center;font-size:.19rem;border-radius:5px}
-.oper-btn-gray {background:#ccc !important;}
+.oper-btn{display:block;line-height:.48rem;background:#fd9149;color:#FFF;text-align:center;font-size:.19rem;border-radius:5px}
 
 .member-rate {display: inline-block;position: relative;}
 .member-rate .m-tag {position: absolute;right: 0;top: -.05rem;display:block;font-size: .12rem;line-height: .14rem;font-style:normal;padding: 0 .05rem;border-radius:2px;border: 1px solid #f9d741;color: #f9d741;}

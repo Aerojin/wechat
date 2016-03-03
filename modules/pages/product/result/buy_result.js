@@ -8,7 +8,9 @@ var queryString 	= require("kit/query_string");
 var eventFactory 	= require("base/event_factory");
 var smartbar		= require("ui/smartbar/smartbar");
 var vipUpgrade		= require("ui/vip_upgrade/vip_upgrade");
+var loadingPage		= require("ui/loading_page/loading_page");
 var redpacket 		= require("redpacket");
+var resultViews 	= require("result_views");
 
 var result = {
 	init: function () {
@@ -19,59 +21,44 @@ var result = {
 		this.ui.redBox 		= $("#red-box");
 		this.ui.redNum 		= $("#red-num");
 		this.ui.btnInvest	= $("#btn-invest");
-		this.ui.activityBox	= $("#activity-box");
-		this.ui.backTime 	= this.ui.wrap.find(".back-time");
-		this.ui.startTime 	= this.ui.wrap.find(".start-time");
-		this.ui.bizTime 	= this.ui.wrap.find(".biz-time");
-		this.ui.amount 		= this.ui.wrap.find(".amount");
-		this.ui.earnings	= this.ui.wrap.find(".earnings");
+		this.ui.btnRecord 	= $("#btn-record");
 
 		this.queryString = queryString();
+		this.smartbar	 = smartbar.create();
 
-		this.ui.amount.text(this.queryString.amount);
-		this.ui.bizTime.text(this.queryString.fBizTime);
-		this.ui.backTime.text(this.queryString.fBackTime);
-		this.ui.startTime.text(this.queryString.fStartTime);
-		this.ui.earnings.text(this.queryString.earnings);
+		this.views = resultViews.create({
+			investId: this.queryString.investId,
+			onLoad: function (e) {
+				if(e.result){
+					_this.rander(e);
+					return;
+				}
 
+				loadingPage.error();
+			}
+		});		
 
+		this.regEvent();
+	},
+	rander: function (e) {
+		var data = e.data || {};
+
+		this.ui.wrap.empty().html(e.element);
+
+		//是否显示红包
 		if(Number(this.queryString.redAmount) > 0){
 			this.ui.redBox.show();
 			this.ui.redNum.text(this.queryString.redAmount);
 		}
 
-		this.smartbar = smartbar.create();
-
-		//红包分享
-		redpacket.create({investId: this.queryString.investId});
-
-		//升级VIP提示
-		var memberOldLevel = Number(this.queryString.memberOldLevel);
-		var memberNewLevel = Number(this.queryString.memberNewLevel);
-
-		if(memberOldLevel != memberNewLevel && memberNewLevel > 0){
-			vipUpgrade.create({
-				vipLevel: memberNewLevel,
-				onClose: function () {
-					_this.showActivity();
-				}
-			});
-
-			user.set("memberLevel", memberNewLevel);
-
-			eventFactory.exec({
-				"wap": function () {
-
-				},
-				"app": function () {
-					window.location.href = appApi.getVipUpgrade();
-				}
-			});
-		}else{
-			this.showActivity();
+		//闪赚宝不显示红包分享
+		if(this.showRedPacket(data)){
+			//红包分享
+			redpacket.create({investId: this.queryString.investId});
 		}
 
-		this.regEvent();
+		loadingPage.hide();
+		this.showVipUpgrade();
 	},
 	regEvent: function () {
 		this.ui.btnInvest.on("click", $.proxy(function () {
@@ -86,29 +73,48 @@ var result = {
 			
 		}, this));
 
-		$("#div-activity").find(".btn-close").on("touchstart", function () {
-			$("#div-activity").hide();
+		this.ui.btnRecord.on("click", $.proxy(function () {
+			window.location.href = this.views.getRecordUri();
+		}, this));
 
-			return false;
-		});
-
-		$("#div-activity").find(".btn-activity").on("touchstart", function () {
-			var userId 	= user.get("userId");
-			var token 	= user.get("token");
-			var url 	= "https://mact.xiaoniuapp.com/activity/1212/index.html?userId={0}&token={1}";
-
-			window.location.href = url.format(userId, token);
-			return false;
-		});
 	},
 
-	showActivity: function () {
-		var result = this.queryString.isShowActivity;
+	showVipUpgrade: function () {
+		//升级VIP提示
+		var memberOldLevel = Number(this.queryString.memberOldLevel);
+		var memberNewLevel = Number(this.queryString.memberNewLevel);
 
-		if(result && result.trim() == "true"){
-			$("#div-activity").show();
+		if(memberOldLevel != memberNewLevel && memberNewLevel > 0){
+			vipUpgrade.create({
+				vipLevel: memberNewLevel,
+				onClose: function () {
+				
+				}
+			});
+
+			user.set("memberLevel", memberNewLevel);
+
+			eventFactory.exec({
+				"wap": function () {
+
+				},
+				"app": function () {
+					window.location.href = appApi.getVipUpgrade();
+				}
+			});
 		}
+	},
+
+	showRedPacket: function (data) {
+		if(data.productType == 1301 && Number(this.queryString.newUserMark) == 1){
+			return false;
+		}
+
+		return true;
 	}
+
+	
 };
 
+loadingPage.show();
 result.init();

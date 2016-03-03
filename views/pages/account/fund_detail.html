@@ -17,24 +17,26 @@
 	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
-	<div class="wrap">
-		<div class="capital-tit" id="header">
-			<ul class="hqb-tit clearfix">
-				<li><span class="note-name">账户余额（元）</span><span class="note-num span-amount">0.00</span></li>
-			</ul>			
-		</div>
-		<article class="invest-main j-slide-not">
-			<div class="tab-contain">
-				<div style="overflow: hidden; width: 100%;">
-					<div id="context" class="clearfix">	
-						<div>
-							<p class="waterfall-login">数据加载中...</p>
-						</div>						
-					</div>
-				</div>
+	<div class="wrap page-fundsDetails">
+		<header>
+			<div class="bg-white">
+				<ul class="hqb-tit clearfix">
+					<li>
+				   		<span class="note-name mgb1">账户余额(元)</span>
+				   		<span id="js_lbl_amount" class="note-num text-orange">0.00</span>
+				   	</li>
+				</ul>
 			</div>
+		</header>
+		<article>
+			<ul id="js_context" class="founs-listBox">
+				<li>
+					<p class="waterfall-login">数据加载中...</p>
+				</li>
+			</ul>
 		</article>
 	</div>
+
 	<script type="text/javascript">
 		require('pages/account/fund_detail/fund_detail');
 	</script>

@@ -1,6 +1,5 @@
 var $ 			= require("zepto");
 var user        = require("kit/user");
-var extend 		= require("base/extend");
 var webStatus	= require("web_status");
 var versions	= require("base/versions");
 var httpClient 	= require("base/http_client");
@@ -166,9 +165,10 @@ api.getModule = function (moduleName, apiName, data) {
     *@param {Object} context        上下文
 */
 api.send = function (moduleName, apiName, options, context){
+    
     var data = options.data || {};
     var result = this.getModule(moduleName, apiName, data);
-    
+
     this.call(result.requestUrl, result.requestBody, options, context);
 };
 

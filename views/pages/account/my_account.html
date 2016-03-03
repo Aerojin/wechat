@@ -15,98 +15,112 @@
 	<script type="text/javascript" src="libs/mod.js" data-loader></script>
 	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
-<body>
-	<div class="wrap" id="wrap">
+<body class="new-version">
+	<div class="wrap" id="js_wrap">
 		<header>
-			<div class="head-box bg-red">
-				<a href="$root$/account/my_assets.html" class="dp-block"><div class="viper-view pos-r dp-box">
-					<span class="viper-img"><img id="vipimg" /></span>
-					<div class="total-info box-flex">
-						<p class="fs-16">总资产(元)</p>
-						<p class="num js_total">0.00</p>
-					</div>
-					<span class="tri pos-a"></span>
-				</div></a>
-				<div class="balance pos-r bg-red2 fs-16">
-					<a href="$root$/account/fund_detail.html" class="dp-block">账户余额(元)
-						<span class="bala-num fl-r js_balance">0.00</span>
-						<span class="tri pos-a"></span>
-					</a>
-				</div>
-			</div>
-		</header>
-		<article>
-			<section>
-				<div class="today-info dp-box">
-					<div class="profit-antic box-flex pos-r">
-						<a href="$root$/account/my_income_today.html" class="dp-block">
-							今日收益(元)<span class="num js_dayIncome">+0.00</span></a>
-					</div>
-					<div class="profit-real box-flex">
-						<a href="$root$/account/my_income_list.html" class="dp-block">
-							累计收益(元)<span class="num js_income">0.00</span></a>
-					</div>
-				</div>
-				<ul class="asset-menu">
-					<li>
-						<div class="asset-item">
-							<a href="$root$/account/my_hqb.html" class="dp-block asset-a">
-								<span class="ico-mu ico-current"></span>
-								<p class="fis-p">活期投资</p>
-								<p>今日收益</p>
-								<p class="js_floatDayIncome">0.00</p>
-							</a>
-						</div>
-						<div class="asset-item">
-							<a href="$root$/account/my_invest_record.html" class="dp-block asset-a">
-								<span class="ico-mu ico-regular"></span>
-								<p class="fis-p">定期投资</p>
-								<p>待收收益</p>
-								<p class="js_fixIncome">0.00</p>
-							</a>
-						</div>
+			<div class="head-box">
+				<span class="viper-img"><img id="js_vipimg" /></span>
+				<ul class="viper-view mgt1 clearfix">
+					<li class="first">
+						<a href="$root$/account/my_assets.html" class="dp-block">总资产(元)<p class="js_total">0.00</p></a>
 					</li>
 					<li>
-						<div class="asset-item">
-							<a href="$root$/account/my_coupon.html" class="dp-block asset-a">
-								<span class="ico-mu ico-favour"></span>
-								<p class="fis-p">我的优惠</p>
-								<p><span id="js_hbao_flag" class=""><label class="js_hbao">0</label>个可用</span></p>
-							</a>
-						</div>
-						<div class="asset-item">
-							<a href="$root$/vip/vip.html" class="dp-block asset-a">
-								<span class="ico-mu ico-privil"></span>
-								<p class="fis-p">会员特权</p>
-								<p class="js_vipname"></p>
-							</a>
-						</div>
-					</li>
-					<li>
-						<div class="asset-item">
-							<a id="btn-recharge" class="dp-block asset-a"><span class="ico-mu ico-recharge"></span><p class="fis-p">我要充值</p><p>0手续费</p></a>
-						</div>
-						<div class="asset-item">
-							<a id="btn-withdraw" class="dp-block asset-a">
-								<span class="ico-mu ico-withdraw"></span>
-								<p class="fis-p">我要提现</p>
-								<p><label class="js_withdraw">0.00</label>提现中</p>
-							</a>
-						</div>
+						<a href="$root$/account/fund_detail.html" class="dp-block">可用余额(元)<p class="js_balance">1352.02</p></a>
 					</li>
 				</ul>
+			</div>
+		</header>
+			<article>
+				<section>
+					<div class="today-info dp-box">
+						<div class="profit-antic box-flex pos-r">
+							<a href="$root$/account/my_income_today.html" class="dp-block">今日收益(元)
+								<span class="num text-orange js_dayIncome">+0.00</span>
+							</a>
+						</div>
+						<div class="profit-real box-flex">
+							<a href="$root$/account/my_income_list.html" class="dp-block">累计收益(元)
+								<span class="num text-black3 js_income">0.00</span>
+							</a>
+						</div>
+					</div>
+					<ul class="asset-menu">
+						<li class="clearfix">
+							<div class="asset-item">
+								<a href="$root$/account/my_hqb.html" class="dp-block asset-a">
+									<span class="ico-mu ico-current"></span>
+									<p class="fis-p">活期投资</p>
+									<p class="fis-num">今日收益：<label class="js_floatDayIncome">0.00</label></p>
+								</a>
+							</div>
+							<div class="asset-item">
+								<a href="$root$/account/my_invest_record.html" class="dp-block asset-a">
+									<span class="ico-mu ico-regular"></span>
+									<p class="fis-p">定期投资</p>
+									<p class="fis-num">待收收益：<label class="js_fixIncome">0.00</label></p>
+								</a>
+							</div>
+						</li>
 
-				<div class="tips-picc"><span class="ico1">账户资金安全由中国人民保险提供100%承保</span></div>
+						<li class="clearfix">
+							<div class="asset-item">
+								<a href="$root$/account/attorn.html" class="dp-block asset-a">
+									<span class="ico-mu ico-transfer"></span>
+									<p class="fis-p">我要转让</p>
+									<p class="fis-num"><label class="js_transfer">0</label>个可转让</p>
+								</a>
+							</div>
+							<div class="asset-item">
+								<a href="$root$/account/my_coupon.html" class="dp-block asset-a">
+									<span class="ico-mu ico-favour"></span>
+									<p class="fis-p"><span id="js_hbao_flag">我的优惠</span></p>
+									<p class="fis-num"><label class="js_hbao">0</label>个可用</p>
+								</a>
+							</div>
+						</li>
 
-			</section>
+						<li class="clearfix">
+							<div class="asset-item">
+								<a href="$root$/vip/vip.html" class="dp-block asset-a">
+									<span class="ico-mu ico-privil"></span>
+									<p class="fis-p">会员特权</p>
+									<p class="fis-num js_vipname"></p>
+								</a>
+							</div>
+							<div class="asset-item dn">
+								<a href="#" class="dp-block asset-a">
+									<span class="ico-mu ico-rage"></span>
+									<p class="fis-p">我的佣金</p>
+									<p class="fis-num js_commission">0.00</p>
+								</a>
+							</div>
+						</li>
 
-		</article>
-
-
+						<li class="mgt1 clearfix">
+							<div class="asset-item">
+								<a id="js_btn_recharge" class="dp-block asset-a">
+									<span class="ico-mu ico-recharge"></span>
+									<p class="fis-p">我要充值</p>
+									<p class="fis-num">0手续费</p>
+								</a>
+							</div>
+							<div class="asset-item">
+								<a id="js_btn_withdraw" class="dp-block asset-a">
+									<span class="ico-mu ico-withdraw"></span>
+									<p class="fis-p">我要提现</p>
+									<p class="fis-num"><label class="js_withdraw">0.00</label>提现中</p>
+								</a>
+							</div>
+						</li>
+					</ul>
+					<div class="tips-picc"><span class="ico1">账户资金安全由中国人民保险提供100%承保</span></div>
+				</section>
+			</article>
 	</div>
 
 	<script type="text/javascript">
 		require('pages/account/my_account/my_account');
 	</script>
 </body>
+
 </html>

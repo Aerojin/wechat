@@ -1,0 +1,51 @@
+.transfer .operate{margin-left: .1rem;margin-right: .1rem;}
+.transfer .operate2{margin-left: .6rem;margin-right: .6rem;}
+.transfer .operate3{margin-left: .25rem;margin-right: .25rem;}
+.transfer .oper-btn{display:block;line-height:.48rem;background:#fd9149;color:#FFF;text-align:center;font-size:.19rem;border-radius:5px;}
+
+.transfer .explain-txt {margin:.15rem .25rem;color:#9d9d9d;font-size: .12rem;}
+.transfer .explain-txt p {padding: .05rem 0;}
+.transfer .tips-picc {padding: .2rem 0;text-align: center;color: #939393;font-size: .14rem;}
+.transfer .tips-picc .ico1 {display: inline-block;padding-left: .2rem;
+background:url(ico-protect.png) no-repeat left center;
+-moz-background-size: .13rem .16rem;
+-webkit-background-size: .13rem .16rem;
+-o-background-size: .13rem .16rem;
+background-size: .13rem .16rem;}
+
+/*主内容区*/
+.transfer .tab-contain-box {margin-top: .1rem;box-shadow: 0 0 .08rem rgba(12,51,92,.04);background: #fff;}
+.transfer .box_block1 {position: relative;padding: .1rem .25rem;color: #626262;}
+.transfer .info-box .box_tit {font-size: .18rem;color: #333;}
+.transfer .info-box .box_date {padding-top: .05rem;font-size: .14rem;color: #b2b2b2;}
+/*.transfer .info-box .t_ico {position: absolute;display:block;right: .2rem;top: 50%;margin-top: -.11rem;width: .13rem;height: .22rem;
+background:url('link-tri1.png') no-repeat;-webkit-background-size: 100% 100%;background-size: 100% 100%;}*/
+.transfer .box-li {position: relative;line-height: .5rem;font-size: .16rem;color: #666;}
+.transfer .box-li li {position: relative;padding: 0 .25rem;border-bottom: 1px solid #e6e6e6;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;  
+}
+.transfer .box-li .li-tit {display: block;width: 1.6rem;}
+.transfer .box-li .li-num {display: block;width: 100%;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-ms-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.transfer .box-li li .ico-unknown {position: absolute;display:block;right: .25rem;top: 50%;margin-top: -.11rem;width: .22rem;height: .22rem;
+background:url('ico-unknown.png') no-repeat;-webkit-background-size: 100% 100%;background-size: 100% 100%;}
+
+.transfer .protocol {padding: .1rem .25rem;font-size: .12rem;}
+.transfer .protocol li {float: left; color: #888888;}
+.transfer .protocol li p {float: left;padding-left: .1rem;}
+.transfer .protocol li .pact-ico {float: left;width: .19rem;height: .19rem;border-radius: 3px;background: #2688db;}
+.transfer .protocol li .pact-on {
+	box-shadow: 0 0 4px rgba(0,0,0,.2);
+	background:url(ico-agree.png) no-repeat #2688db;
+	-webkit-background-size: contain;
+	background-size: contain;
+}

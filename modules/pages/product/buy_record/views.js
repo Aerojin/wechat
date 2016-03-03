@@ -31,7 +31,7 @@ var views = {
 		options.data = {
 			pageIndex: 1,
 			pageSize: this.pageSize,
-			productId: this.queryString.productId
+			fid: this.queryString.fid
 		};
 
 		options.success = function (e) {

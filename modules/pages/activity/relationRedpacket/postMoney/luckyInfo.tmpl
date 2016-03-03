@@ -2,8 +2,8 @@
 	{{if $value.status == 1}}
 		{{if $value.num == 0}}
 			{{if $value.count == 0}}
-				<li class="waterfall-item">
-					<img src="{{$value.hongbao3}}">
+				<li class="waterfall-item hover">
+					<img src="{{$value.hongbao5}}">
 					<p><b class="luckyShareName">{{$value.shareName}}</b>为您带来了红包<br><i>[已领完]</i>手慢了，红包派完了</p>
 					<span>{{$value.hbDate}}</span>
 				</li>
@@ -15,36 +15,36 @@
 				</li>
 			{{/if}}			
 		{{else if $value.num == 1}}
-			<li class="waterfall-item">
-				<img src="{{$value.hongbao2}}">
+			<li class="waterfall-item hover">
+				<img src="{{$value.hongbao5}}">
 				<p><b class="luckyShareName">{{$value.shareName}}</b>为您带来了红包<br><i>[已拆]</i>您获得了<em>{{$value.hbCash}}</em></p>
 				<span>{{$value.hbDate}}</span>
 			</li>
 		{{/if}}
 	{{else if $value.status == 2}}
 		{{if $value.num == 0}}
-			<li class="waterfall-item">
-				<img src="{{$value.hongbao3}}">
+			<li class="waterfall-item hover">
+				<img src="{{$value.hongbao5}}">
 				<p><b class="luckyShareName">{{$value.shareName}}</b>为您带来了红包<br><i>[已领完]</i>手慢了，红包派完了</p>
 				<span>{{$value.hbDate}}</span>
 			</li>
 		{{else if $value.num == 1}}
-			<li class="waterfall-item">
-				<img src="{{$value.hongbao2}}">
+			<li class="waterfall-item hover">
+				<img src="{{$value.hongbao5}}">
 				<p><b class="luckyShareName">{{$value.shareName}}</b>为您带来了红包<br><i>[已拆]</i>您获得了<em>{{$value.hbCash}}</em></p>
 				<span>{{$value.hbDate}}</span>
 			</li>
 		{{/if}}
 	{{else if $value.status == 3}}
 		{{if $value.num == 0}}
-			<li class="waterfall-item">
-				<img src="{{$value.hongbao3}}">
+			<li class="waterfall-item hover">
+				<img src="{{$value.hongbao5}}">
 				<p><b class="luckyShareName">{{$value.shareName}}</b>为您带来了红包<br><i>[已过期]</i></p>
 				<span>{{$value.hbDate}}</span>
 			</li>
 		{{else if $value.num == 1}}
-			<li class="waterfall-item">
-				<img src="{{$value.hongbao2}}">
+			<li class="waterfall-item hover">
+				<img src="{{$value.hongbao5}}">
 				<p><b class="luckyShareName">{{$value.shareName}}</b>为您带来了红包<br><i>[已拆]</i>您获得了<em>{{$value.hbCash}}</em></p>
 				<span>{{$value.hbDate}}</span>
 			</li>

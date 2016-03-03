@@ -16,7 +16,7 @@ module.exports = {
 			day: Math.floor(day),
 			hour: Math.floor(hour % 24),
 			minute: Math.floor(minute % 60),
-			second: Math.floor(minute % 60)
+			second: Math.floor(second % 60)
 		};
 	},
 

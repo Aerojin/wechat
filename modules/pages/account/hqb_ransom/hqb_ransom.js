@@ -15,6 +15,7 @@ var dialogsPwd  = require("ui/dialogs_password/dialogs_password");
 var TIPS = {
 	REDEEM_ERROR: "赎回金额不能大于可赎回余额",
 	REDEEM_TIPS: "您没有可赎回余额",
+	REDEEM_TIPS1: "剩余可赎回余额低于100元,需将剩余余额一并赎回",
 	MONEY_TIPS: "赎回金额只能是数字",
 	MONEY_ERROR: "赎回金额不能少于100",
 	SYS_ERROR: "网络异常,请稍后重试"
@@ -56,7 +57,11 @@ var rensom = {
  		}, this));
 
  		this.ui.txtMoney.on("input", function () {
- 			$(this).val(floatFormat.toFixed($(this).val(), 2));
+ 			var value = $(this).val();
+
+ 			if(value.length > 0){
+	 			$(this).val(floatFormat.toFixed($(this).val(), 2));
+	 		}
  		}); 		
  	},
 
@@ -68,7 +73,7 @@ var rensom = {
  		options.success = function (e) {
  			var result = e.data;
 
- 			this.redeemMoney = moneyCny.toFixed(result.fRedeemMoney);
+ 			this.redeemMoney = moneyCny.toFixed(result);
  			this.ui.redeemNum.text(this.redeemMoney);
  		};
 
@@ -77,7 +82,7 @@ var rensom = {
  			this.ui.redeemNum.text(0);
  		};
 
- 		api.send(api.PRODUCT, "assetQuery", options, this); 		
+ 		api.send(api.PRODUCT, "getCurrentRedeemableAmount", options, this); 		
  	},
 
 
@@ -87,9 +92,8 @@ var rensom = {
 
  		options.data = {
  			productId: "",
- 			redeemAmount: amount,
- 			payPassword: pwd,
- 			formId:  ""
+ 			amount: amount,
+ 			payPassword: pwd
  		};
 
 
@@ -112,12 +116,13 @@ var rensom = {
  			tipMessage.show(e.msg || TIPS.SYS_ERROR, {delay: 2000});
  		};
 
- 		api.send(api.PRODUCT, "applyRedeem", options, this); 	
+ 		api.send(api.PRODUCT, "applyRedeemCurrent", options, this); 	
  	},
 
  	check: function () {
- 		var money = Number(this.ui.txtMoney.val().trim());
+ 		var money 		= Number(this.ui.txtMoney.val().trim());
  		var redeemMoney = Number(this.redeemMoney);
+ 		var result 		= redeemMoney.sub(money);
 
  		if(validate.isEmpty(money)){
  			tipMessage.show(TIPS.MONEY_ERROR, {delay: 2000});
@@ -144,7 +149,12 @@ var rensom = {
  		}
 
  		if(redeemMoney < money){
- 			tipMessage.show(TIPS.REDEEM_ERROR, {delay: 2000})
+ 			tipMessage.show(TIPS.REDEEM_ERROR, {delay: 2000});
+ 			return false;
+ 		}
+
+ 		if( result < 100 && result > 0){
+ 			tipMessage.show(TIPS.REDEEM_TIPS1, {delay: 2000});
  			return false;
  		}
 

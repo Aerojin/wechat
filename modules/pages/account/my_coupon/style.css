@@ -1,28 +1,22 @@
-html{background: #e6e6e6;}
-body{font-size: .16rem;}
+.favour-item {padding-left: .25rem;border: 1px solid #e8eaed;border-width: 1px 0;background: #fff;}
+.favour-item li {position:relative;height: .84rem;line-height: .84rem;border-bottom: 1px solid #ddd;}
+.favour-item li label {position: absolute;left: 0;top: 0;padding-left: .35rem;color: #5a5a5a;font-size: .2rem;}
+.favour-item li .item-p {color: #888;text-align: right;font-size: .16rem;padding-right: .5rem;}
+.favour-item .li-tri:before {content: "";position: absolute;right: .25rem;top: 50%;margin-top: -.08rem;width: .1rem;height: .16rem;pointer-events: none;
+background:url('ico-tri-input.png') no-repeat;background-size: contain;-webkit-background-size: contain;}
+.favour-item li:last-child {border: none;}
+.favour-item li .ico:before {content: "";position: absolute;left: -.08rem;top: 50%;margin-top: -.18rem;width: .42rem;height: .42rem;background: url(ico-index.png) no-repeat;
+-webkit-background-size: 4.14rem 2.7rem;background-size: 4.14rem 2.7rem;}
+.favour-item li .ico-pack:before {background-position: -.84rem -1.26rem;}
+.favour-item li .ico-experi:before {background-position: -1.26rem  -1.26rem;}
+.favour-item li .ico-ticket:before {background-position: -1.67rem -1.25rem;}
 
-.myoffer{margin-top: .1rem;}
-.myoffer li{position: relative;padding:0 .16rem;background: #fff;border-top:8px solid #e6e6e6;}
-.myoffer li a{display: block;}
-.myoffer li a label,.myoffer li a span{display: block;height:1rem;line-height:1rem;font-size: .22rem;}
-.myoffer li a label{position: absolute;left:.16rem; padding-left: .4rem;padding-right: .2rem;color: #676767;}
-.myoffer li a label:before {display: none;content: "";position: absolute;right: 0;top: 50%;margin-top: -.05rem;width: .1rem;height: .1rem;border-radius: .1rem;background: #da554e;}
-.myoffer li.active a label:before {display: block;}
-.myoffer li a span{
-	float: right; 
-	padding-right: .26rem;
-	color: #ccc;
-	background: url(link-icon.png) no-repeat right center;
-	background-size: .14rem .26rem;
-}
+.add-box {position: relative;padding-left: .25rem;line-height: .84rem;border: 1px solid #e8eaed;border-width: 1px 0;background: #fff;}
+.add-box:before {content: "";position: absolute;right: .25rem;top: 50%;margin-top: -.08rem;width: .1rem;height: .16rem;pointer-events: none;
+background:url('ico-tri-input.png') no-repeat;background-size: contain;-webkit-background-size: contain;}
+.add-box .ico-add {position: relative;padding-left: .35rem;color: #5a5a5a;width: 1.2rem;font-size: .2rem;}
+.add-box .ico-add:before {content: "";position: absolute;left: 0;top: 50%;margin-top: -.105rem;width: .21rem;height: .21rem;background: url(ico-add.png) no-repeat;
+-webkit-background-size: contain;background-size: contain;}
 
-.myoffer li a label.moneyiocn1{
-	background: url(moneyiocn_2.png) no-repeat left center;
-	background-size: .36rem;
-}
-.myoffer li a label.moneyiocn2{
-	background: url(moneyiocn_1.png) no-repeat left center;
-	background-size: .36rem;
-}
-
-.myoffer em{font-style:normal}
+.favour-item li .ico:after {display: none;content: "";position: absolute;right: -.12rem;top: .32rem;margin-top: -.05rem;width: .1rem;height: .1rem;border-radius: .1rem;background: #ff4040;}
+.favour-item li.active .ico:after {display: block;}

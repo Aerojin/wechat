@@ -1,23 +1,70 @@
+
 {{each data}}
-<div class="bag-block waterfall-item {{$value.stateCls}}" data-originmoney="{{$value.fOriginMoney}}">
-	<div class="ico-used">{{$value.stateText}}</div>
-	<div class="bag-num">￥<b>{{$value.fMoney}}</b></div>
-	<dl class="bag-info">
-		<dt>
-			{{if $value.fName.length > 0}}
-				<h4>{{$value.fName}}</h4>
-			{{else}}
-				<h4>投资返现红包</h4>
-			{{/if}}
-			{{if $value.expireDay > 0}}
-				<p>还剩{{$value.fExpireDay}}过期</p>
-			{{else}}
-				<p>有效期至{{$value.fExpireDay}}</p>
-			{{/if}}
-		</dt>
-		<dd>
-			<p>{{$value.fRemark}}</p>
-		</dd>
-	</dl>
-</div>
+
+{{if $value.fStatus == "UNEXCHANGE"}}
+	<li class="iscroll-item">
+		<div class="li-box">
+			<span class="cashBack"></span>
+			<span class="useStatus"></span>
+			<div class="num">{{$value.fMoney}}<span class="fs-18">元</span></div>
+			<dl class="summary">
+				{{if $value.fName.length > 0}}
+					<dt>{{$value.fName}}</dt>
+				{{else}}
+					<dt>投资返现红包</dt>
+				{{/if}}
+
+				<dd>{{$value.fRemark}}</dd>
+			</dl>
+			<div class="redpack-status dp-box">
+				<div class="expaiationTime box-flex"><span class="ico ico-standby"></span>还剩{{$value.fExpireDay}}过期</div>
+				<!-- <div class="use text-r"><a href="#">立即使用 ></a></div> -->
+			</div>
+		</div>
+	</li>
+
+{{else if $value.fStatus == "EXCHANGED"}}
+	<li class="s-expirBack gray">
+		<div class="li-box">
+			<span class="cashBack"></span>
+			<span class="useStatus"></span>
+			<div class="num">{{$value.fMoney}}<span class="fs-18">元</span></div>
+			<dl class="summary">
+				{{if $value.fName.length > 0}}
+					<dt>{{$value.fName}}</dt>
+				{{else}}
+					<dt>投资返现红包</dt>
+				{{/if}}
+
+				<dd>{{$value.fRemark}}</dd>
+			</dl>
+			<div class="redpack-status dp-box">
+				<div class="expaiationTime box-flex"><span class="ico ico-cashBack"></span>已成功返现</div>
+			</div>
+		</div>
+	</li>
+
+
+{{else if $value.fStatus == "OVERDUE"}}
+	<li class="s-expiration gray">
+		<div class="li-box">
+			<span class="cashBack"></span>
+			<span class="useStatus"></span>
+			<div class="num">{{$value.fMoney}}<span class="fs-18">元</span></div>
+			<dl class="summary">
+				{{if $value.fName.length > 0}}
+					<dt>{{$value.fName}}</dt>
+				{{else}}
+					<dt>投资返现红包</dt>
+				{{/if}}
+				
+				<dd>{{$value.fRemark}}</dd>
+			</dl>
+			<div class="redpack-status dp-box">
+				<div class="expaiationTime box-flex"><span class="ico ico-standby"></span>已于 {{$value.fExpireDay}} 过期</div>
+			</div>
+		</div>
+	</li>
+{{/if}}
+
 {{/each}}

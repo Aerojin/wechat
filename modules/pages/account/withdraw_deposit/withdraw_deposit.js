@@ -84,8 +84,9 @@ var dialogsPwd 		= require("ui/dialogs_password/dialogs_password");
 		};
 
 		options.success = function (e) {
-			var result = e.data || {};
+			var result = e.data || 0;
 
+			
 			this.balance = moneyCny.toYuan(result);
 			this.ui.spanBalance.text(moneyCny.toFixed(result));
 		};

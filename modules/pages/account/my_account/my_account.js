@@ -23,14 +23,15 @@ var account = {
 	init: function () {
 		
 		this.ui = {};
-		this.ui.wrap 		= $("#wrap");
-		this.ui.vipimg 		= $("#vipimg");
+		this.ui.wrap 		= $("#js_wrap");
+		this.ui.vipimg 		= $("#js_vipimg");
 		this.ui.hbaoFlag	= $("#js_hbao_flag");
-		this.ui.btnRecharge = $("#btn-recharge");
-		this.ui.btnWithdraw = $("#btn-withdraw");
+		this.ui.btnRecharge = $("#js_btn_recharge");
+		this.ui.btnWithdraw = $("#js_btn_withdraw");
 
+		var userMobile   = user.get("loginName");
 		this.queryString = queryString() || {};
-		this.queryString.mobile = user.get("loginName");
+		this.queryString.mobile = userMobile;
 		
 		loadingPage.show();
 		this.smartbar 	= smartbar.create();
@@ -39,6 +40,8 @@ var account = {
 		this.regEvent();
 		this.getMyAsset();
 		this.getUnreadFlag();
+
+		document.title = replaceMobile(userMobile);
 
 	},
 	regEvent: function () {
@@ -92,10 +95,14 @@ var account = {
 			this.ui.wrap.find(".js_floatDayIncome").text(moneyCny.toFixed(result.cProDayProfit));
 			//定期投资待收收益
 			this.ui.wrap.find(".js_fixIncome").text(moneyCny.toFixed(result.fixProDueProfit));
+			//可转让数
+			this.ui.wrap.find(".js_transfer").text(result.transferProductCount);
 			//红包个数
 			this.ui.wrap.find(".js_hbao").text(result.redPacketCount);
 			//会员等级
 			this.ui.wrap.find(".js_vipname").text(vipConfig.getVipName(result.memberLevel || 0));
+			//我的佣金
+			this.ui.wrap.find(".js_commission").text(moneyCny.toFixed(result.commissionAmount));
 			//提现中金额
 			this.ui.wrap.find(".js_withdraw").text(moneyCny.toFixed(result.withdrawBlockedAmount));
 

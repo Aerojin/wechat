@@ -1,0 +1,79 @@
+/*顶部tab*/
+.page-redpack .redpack-tabbar {position: fixed;left: 0;top:0;width: 100%;line-height:.6rem;border-bottom: 1px solid #e8eaed;font-size: .18rem;background: #fff;}
+.page-redpack .redpack-tabbar li {width: 33.33%;position: relative; text-align: center;color: #5a5a5a;}
+.page-redpack .redpack-tabbar li:before {content: "";position: absolute;right: 0;top: 30%;width: 1px;height: 40%;background: #dcdcdc;}
+.page-redpack .redpack-tabbar li:last-child:before {display: none;}
+.page-redpack .redpack-tabbar li.active {color: #fd9149;}
+.page-redpack .redpack-tabbar li.active:after {content: "";position: absolute;left: 10%;bottom: 0;z-index: 10;width: 80%;height: .02rem;background: #fd9149;}
+
+/*红包*/
+.page-redpack .redpack-wrap {padding: .12rem; height: 4.9rem; position: relative;}
+.page-redpack .redpack-list li {position: relative;margin-bottom: .12rem;}
+.page-redpack .redpack-list .li-box {position: relative;padding: .15rem 0 .4rem 0;min-height: .9rem;border-radius: 5px;background: #ee5f51;overflow: hidden;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;   
+}
+.page-redpack .redpack-list li .num {width: 1.5rem;margin-right: .1rem;padding: .15rem 0 0 .2rem;font-size: .36rem;line-height: 100%;color: #fff;}
+.page-redpack .redpack-list li .summary {position: relative;z-index: 9;margin-right: .2rem;color: #fff;width: 100%;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-ms-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.page-redpack .summary dt {font-size: .18rem;}
+.page-redpack .summary dd {margin-top: .05rem;font-size: .14rem;line-height: .18rem;}
+.page-redpack .redpack-status {position: absolute;left:0;bottom:0;width: 100%;padding: 0 .2rem;height: .4rem;line-height: .4rem;font-size: .16rem;color: #fff;box-sizing: border-box;border-radius: 0 0 5px 5px;background: rgba(39,39,39,.2);overflow: hidden;}
+.page-redpack .expaiationTime {position: relative;padding-left: .22rem;}
+.page-redpack .redpack-status .use a {color: #fff;}
+.page-redpack .expaiationTime .ico {position: absolute;left: 0;top: 50%;margin-top: -.09rem;width: .2rem;height: .2rem;-webkit-background-size: contain;background-size: contain;}
+.page-redpack .cashBack {display: none;position: absolute;left: -.2rem;top: .1rem;width: .82rem;height: .2rem;-webkit-transform: rotate(-45deg);transform: rotate(-45deg);background-image: url(mark-cashBack.png);-webkit-background-size: contain;background-size: contain;}
+/*红包底部状态栏对应icon*/
+.page-redpack .expaiationTime .ico-standby {background-image: url(redpack-ico-standby.png);}/*还剩xx天过期*/
+.page-redpack .expaiationTime .ico-used {background-image: url(redpack-ico-used.png);}/*已使用*/		
+.page-redpack .expaiationTime .ico-cashBack {background-image: url(redpack-ico-cashBack.png);}/*已成功返现*/
+.page-redpack .expaiationTime .ico-transferFail {background-image: url(redpack-ico-transferFail.png);}/*已转让*/
+/*红包底部状态栏对应icon end*/
+
+.page-redpack .operat-a {text-align: center;font-size: .16rem;line-height: 100%;color: #ababab;}
+.page-redpack .operat-a a.btn {display: inline-block;padding: 0 .12rem;color: #fd9149;border-left: 1px solid #cdcdcd;}
+.page-redpack .operat-a a:first-child {border: none;}
+/*红包end*/
+
+/*红包可使用*/
+.page-redpack .redpack-list .li-usable .cashBack {display: block;}
+
+/*红包可使用 end*/
+
+/*红包生效中*/
+.page-redpack .redpack-list li .useStatus {display: none;position: absolute;right: -.15rem;top: -.15rem;z-index: 99;width: .86rem;height: .86rem;-webkit-background-size: contain;background-size: contain;}
+.page-redpack .redpack-list li.s-using .useStatus {display: block;background-image: url(redpack-sign-using.png);} /*生效中*/
+.page-redpack .redpack-list li.s-expirBack .useStatus {display: block;background-image: url(redpack-sign-expirBack.png);} /*到期已返现*/
+.page-redpack .redpack-list li.s-transferFail .useStatus {display: block;background-image: url(redpack-sign-transferFail.png);} /*转让已失效*/
+.page-redpack .redpack-list li.s-expiration .useStatus {display: block;background-image: url(redpack-sign-expiration.png);} /*已过期*/
+
+/*红包生效中 end*/
+
+/*已返现*/
+.page-redpack .redpack-list li.gray .li-box {background: #ccc;}
+/*已返现 end*/
+
+
+/*选择红包弹出层*/
+.page-redpack .overlayer {position: fixed;left: 0;top: 0;width: 100%;height: 100%;background: rgba(0,0,0,.6);}
+.page-redpack .pop-wrap {margin-top: .7rem;height: 100%;background-color: #eeeff3; overflow: hidden;}
+.page-redpack .tips-selected {padding-left: .2rem;line-height: .64rem;font-size: .18rem;background: #fff;color: #5a5a5a;z-index: 998; display: -webkit-box; position: relative;}
+.page-redpack a.btn-done {padding: 0 .2rem;}
+.page-redpack .tips-unable {position: absolute;left: 50%;top: 40%;z-index: 999;margin-left: -1.8rem;width: 3.2rem;padding: .2rem;text-align: center;font-size: .18rem;color: #fff;border-radius: 5px;background: rgba(62,60,82,.7);}
+/*已选择*/
+.page-redpack .redpack-list li.pack-selected:before {content: "";position: absolute;right: -.06rem;top: -.06rem;z-index: 9;width: .4rem;height: .4rem;border-radius: .4rem;background: url(redpack-ico-selected.png) no-repeat #5ae002;-webkit-background-size: contain;background-size: contain;}
+
+/*暂无过期红包*/
+.page-redpack .pack-none {margin-top: 1.6rem;text-align: center;font-size: .2rem;color: #ababab;}
+.page-redpack .pack-none .ico {display: block;margin: 0 auto;width: .81rem;height: .49rem;background: url(bg-pack-none.png) no-repeat;-webkit-background-size: contain;background-size: contain;}
+
+/*加载中*/
+.page-redpack .red-loading{color: #5a5a5a; width: 100%; text-align: center; font-size: 0.18rem; padding: 1rem 0;}

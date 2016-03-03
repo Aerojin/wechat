@@ -18,8 +18,8 @@ var loadingPage		= require("ui/loading_page/loading_page");
  	init: function () {
  		
  		this.ui = {};
-		this.ui.header 		= $("#header");
-		this.ui.context 	= $("#context");
+		this.ui.context 	= $("#js_context");
+		this.ui.lblAmount 	= $("#js_lbl_amount");
 
 		this.template = {};
 		this.template.context = artTemplate.compile(__inline("context.tmpl"));
@@ -41,7 +41,7 @@ var loadingPage		= require("ui/loading_page/loading_page");
 			var result = e.data;
 			var amount = moneyCny.toFixed(result, 2)
 
-			this.ui.header.find(".span-amount").text(amount);
+			this.ui.lblAmount.text(amount);
 			loadingPage.hide();
 		};
 
@@ -62,6 +62,7 @@ var loadingPage		= require("ui/loading_page/loading_page");
 		}; 
 
 		options.success = function (e) {
+
 			var result 	= e.data;
 			var data 	= this.format(result.list || []);
 
@@ -101,6 +102,7 @@ var loadingPage		= require("ui/loading_page/loading_page");
  	},
 
  	format: function (data) {
+
  		data.map(function (value, index) {
  			var date = value.transDate.parseDate();
 

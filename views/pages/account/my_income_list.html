@@ -16,22 +16,29 @@
 	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 </head>
 <body>
-	<div class="wrap">
+	<div class="wrap page-myhqb">
 		<header>
-			<ul class="hqb-tit clearfix">
-				<li><span class="note-name">累计收益(元)</span><span class="note-num" id="span-income">0.00</span></li>
-			</ul>
+			<div class="head-box bg-orange-linear">
+				<div class="bg-wave2">
+					<div class="profit-today">
+						<p>投资累计收益（元）</p>
+						<p id="js_lbl_income" class="num">0.00</p>
+					</div>
+				</div>
+			</div>
 		</header>
+
 		<article>
 			<section>
-				<div class="profit-list" id="container">
+				<div id="js_container" class="hqb-contain">
 					<div>
 						<p class="waterfall-login">数据加载中...</p>
-					</div>
+					</div>					
 				</div>
 			</section>
 		</article>
 	</div>
+
 	<script type="text/javascript">
 		require('pages/account/my_income/my_income_list');
 	</script>

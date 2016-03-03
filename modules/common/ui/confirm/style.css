@@ -1,10 +1,14 @@
-.pop-mask {position:absolute;width:3.16rem;padding-top:.3rem;text-align:center;background:#fff;border-radius: 0.05rem;z-index:9999}
-.pop-mask h3 {padding: .1rem 0 .3rem 0;font: .16rem/.26rem "Microsoft YaHei";color:#363532;}
-.ico-status {display: block;margin: 0 auto;width: .62rem;height: .62rem;background:url('ico-list.png') no-repeat; background-size: 4.14rem 5.15rem;}
-.ico-success {background-position: 0rem 0rem;background-size: 4.14rem 5.15rem;}
-.ico-warn {background-position: -.7rem 0;background-size: 4.14rem 5.15rem;}
-.ico-fail {background-position: -1.4rem 0;background-size: 4.14rem 5.15rem;}
+.confirm-pop-mask {position:absolute;width:3.16rem;padding-top:.3rem;text-align:center;background:#fff;border-radius: 0.05rem;z-index:9999}
+.confirm-pop-mask h3 {padding: .1rem 0 .3rem 0;font: .16rem/.26rem "Microsoft YaHei";color:#363532;}
+.confirm .ico-status {display: block;margin: 0 auto;width: .62rem;height: .62rem;background:url('ico-list.png') no-repeat; background-size: 4.14rem 5.15rem;}
+.confirm .ico-success {background-position: 0rem 0rem;background-size: 4.14rem 5.15rem;}
+.confirm .ico-warn {background-position: -.7rem 0;background-size: 4.14rem 5.15rem;}
+.confirm .ico-fail {background-position: -1.4rem 0;background-size: 4.14rem 5.15rem;}
 
-.exit-mask .exit-btn {width:3.16rem;text-align:center;background:#fff;border-top: 1px solid #d1d1d1;-moz-border-radius: 0 0 0.05rem 0.05rem;border-radius: 0 0 0.05rem 0.05rem;z-index:9999}
-.exit-mask .exit-btn li {float:left;width:50%;line-height:.54rem;font-size:.18rem;border-right:1px solid #ccc;cursor:pointer;box-sizing:border-box;}
-.exit-mask .exit-btn li:last-child {border-right: none;}
+.confirm .exit-btn {width:3.16rem;text-align:center;background:#fff;border-top: 1px solid #d1d1d1;-moz-border-radius: 0 0 0.05rem 0.05rem;border-radius: 0 0 0.05rem 0.05rem;z-index:9999}
+.confirm .exit-btn li {float:left;width:50%;line-height:.54rem;font-size:.18rem; background: #f57424; color:#fff;border-right:1px solid #ccc;cursor:pointer;box-sizing:border-box;}
+.confirm .exit-btn li:last-child {border-right: none;}
+.confirm .exit-btn li:nth-child(1) {border-radius: 0 0 0 0.04rem;}
+.confirm .exit-btn li:nth-child(2) {border-radius: 0 0 0.04rem 0;}
+.confirm .exit-btn li.btn-gray {background: #ccc;}
+/*#f57424*/

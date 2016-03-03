@@ -38,10 +38,10 @@ app登录web必传参数列表
     /pages/account/my_redpacket.html
     
 5.关于我们
-	/pages/agreement/about.html
+	/pages/sundry/about.html
 
 6.常见问题
-	/pages/agreement/faq.html
+	/pages/sundry/faq.html
 7.佣金
 
 8.快钱充值服务协议
@@ -58,7 +58,7 @@ app登录web必传参数列表
 	/pages/product/product_buy.html?fid=
 	
 12.picc
-	/pages/agreement/picc.html
+	/pages/sundry/picc.html
 	
 13.钱罐子用户服务协议
 	/pages/agreement/qgz_server_protocol.html

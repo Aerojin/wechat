@@ -12,55 +12,69 @@
         @require views/css/global.css
         @require views/css/style.css 
     -->
-	<script type="text/javascript" src="libs/mod.js" data-loader></script>
 	<script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
-	<style type="text/css">
-		.faq-list h4 {font-size: .14rem;}
+	<style type="text/css">		
+		.page-faq .faq-dl {margin-top: .15rem;padding-left: .25rem;border: 1px solid #e8eaed;border-width: 1px 0;background: #fff;}
+		.page-faq .faq-dl dt {position: relative;padding: .12rem .25rem .12rem .3rem;border-bottom: 1px solid #ededed;font-size: .18rem;color: #5a5a5a;}
+		.page-faq .faq-dl dt .ico,.faq-dl dd .ico {position: absolute;left: 0;top: .16rem;width: .2rem;height: .2rem;text-align: center;line-height: .2rem;font-size: .14rem;color: #fff;border-radius: 2px;text-transform: uppercase;background: #fd9149;}
+		.page-faq .faq-dl dd .ico {top: .14rem;background: #00a0e9;}
+		.page-faq .faq-dl dd {position: relative;padding: .1rem .25rem .1rem .3rem;font-size: .18rem;line-height: .26rem;color: #888;}
 	</style>
 </head>
 <body>
-	<div class="wrap bg-white">
-		<div class="agreement">
-			<section class="faq-list">
-				<h4 class="mgt4">1、为什么安装链接打不开？</h4>
-				<p>请通过手机自带的浏览器中打开链接。</p>
-				
-				<h4 class="mgt4">2、发送短信验证码后，多久可以收到信息？</h4>
-				<p>验证短信一般会在一分钟内收到，超过一分钟可点击“重新发送”验证短信，30分钟内只能尝试三次。</p>
-				<h4 class="mgt4">3、如果收不到验证码怎么办？</h4>
-				<p>可以点击“重新发送”获取验证短信。若排除信号网络及软件拦截等问题后屡次尝试仍接收不到验证短信，则可能因为此前设置过拒收此类短信，建议更换注册号码后尝试。如设置为黑名单的，需要解除黑名单并设置不再投诉。</p>
-
-				<h4 class="mgt4">4、只能绑定一张银行卡吗？绑定之后是否可以修改？</h4>
-				<p>为了严格保障您的资金安全，小牛钱罐子采用单张银行卡同卡进出的规则。首次充值成功后，您的银行卡和身份信息无法随意修改，提现资金也将只能进入该张银行卡，如需更换银行卡信息，请拨打客服电话4006695666。</p>
-
-				<h4 class="mgt4">5、登录密码和交易密码如果忘了，怎么修改新密码？</h4>
-				<p>需要点击“忘记密码”进行密码重置操作。</p>
-
-				<h4 class="mgt4">6、登录一次之后以后是不是可以自动登录？</h4>
-				<p>登陆后30 分钟之内如无操作，则登录失效，再次登陆需要重新输入密码，您也可以通过设置手势密码简化操作。</p>
-
-				<h4 class="mgt4">7、为什么绑定银行卡的时候总提示说信息不正确？</h4>
-				<p>您在绑定银行卡的时候请先确认以下几项信息是否正确统一：<br />1.手机号码是否正确；<br />2.银行预留手机号与您等待接收验证码的手机号是否一致；<br />3.您所绑定的银行卡的开户名与您所填身份证的姓名是否一致。<br />如以上信息正确无误仍然提示出错，请与我们客服人员取得联系。客服热线：400-669-5666（服务时间周一至周五 9：00-17：30），也可添加“钱罐子”微信公众号咨询。</p>
-
-				<h4 class="mgt4">8、为什么注册时显示验证码出错？</h4>
-				<p>验证码为一次性使用后失效，如果短时间内反复点击获取验证码会导致同时收到多条验证码短信，请以最后一次获取的验证码为准，如果短时间内点击获取超过三次，则需要半个小时后再重新获取。</p>
-
-				<h4 class="mgt4">9、为什么注册时获取验证码点击“重新获取”没有反应？</h4>
-				<p>同一个手机号30秒内只能获取一条信息，1分钟内不可超过两条，30分钟内不能超过三条，如果短时间内点击获取超过三次，请您半个小时后重新尝试。</p>
-
-				<h4 class="mgt4">10、为什么充值失败显示“签约失败，银行返回”的提示？</h4>
-				<p>可能是您的身份证号码、姓名或手机号输入有误。您可以和银行核实预留的相关信息。</p>
-
-				<h4 class="mgt4">11、投资后明天就能看到收益吗？</h4>
-				<p>由于产品不同，计息规则有所差别，请参考具体产品的计息规则。</p>
-				
-				<h4 class="mgt4">12、提现到账时间是多久？</h4>
-				<p>1.工作日17：00前申请提现，当天到账；<br />2.工作日17：00后申请提现，第二个工作日到账；<br />3.节假日申请提现，申请后的下一个工作日后到账。</p>
+	<div class="wrap page-faq">
+		<article>
+			<section>
+				<dl class="faq-dl">
+					<dt><span class="ico">Q</span><h3>为什么安装链接打不开？</h3></dt>
+					<dd><span class="ico">A</span><p>请通过手机自带的浏览器中打开链接。</p></dd>
+				</dl>
+				<dl class="faq-dl">
+					<dt><span class="ico">Q</span><h3>发送短信验证码后，多久可以收到信息？</h3></dt>
+					<dd><span class="ico">A</span><p>验证短信一般会在一分钟内收到，超过一分钟可点击“重新发送”验证短信，30分钟内只能尝试三次。</p></dd>
+				</dl>
+				<dl class="faq-dl">
+					<dt><span class="ico">Q</span><h3>如果收不到验证码怎么办？</h3></dt>
+					<dd><span class="ico">A</span><p>可以点击“重新发送”获取验证短信。若排除信号网络及软件拦截等问题后屡次尝试仍接收不到验证短信，则可能因为此前设置过拒收此类短信，建议更换注册号码后尝试。如设置为黑名单的，需要解除黑名单并设置不再投诉。</p></dd>
+				</dl>
+				<dl class="faq-dl">
+					<dt><span class="ico">Q</span><h3>只能绑定一张银行卡吗？绑定之后是否可以修改？</h3></dt>
+					<dd><span class="ico">A</span><p>为了严格保障您的资金安全，小牛钱罐子采用单张银行卡同卡进出的规则。首次充值成功后，您的银行卡和身份信息无法随意修改，提现资金也将只能进入该张银行卡，如需更换银行卡信息，请拨打客服电话4006695666。</p></dd>
+				</dl>
+				<dl class="faq-dl">
+					<dt><span class="ico">Q</span><h3>登录密码和交易密码如果忘了，怎么修改新密码？</h3></dt>
+					<dd><span class="ico">A</span><p>需要点击“忘记密码”进行密码重置操作。</p></dd>
+				</dl>
+				<dl class="faq-dl">
+					<dt><span class="ico">Q</span><h3>登录一次之后以后是不是可以自动登录？</h3></dt>
+					<dd><span class="ico">A</span><p>登陆后30 分钟之内如无操作，则登录失效，再次登陆需要重新输入密码，您也可以通过设置手势密码简化操作。</p></dd>
+				</dl>
+				<dl class="faq-dl">
+					<dt><span class="ico">Q</span><h3>为什么绑定银行卡的时候总提示说信息不正确？</h3></dt>
+					<dd><span class="ico">A</span><p>您在绑定银行卡的时候请先确认以下几项信息是否正确统一：<br />1.手机号码是否正确；<br />2.银行预留手机号与您等待接收验证码的手机号是否一致；<br />3.您所绑定的银行卡的开户名与您所填身份证的姓名是否一致。<br />如以上信息正确无误仍然提示出错，请与我们客服人员取得联系。客服热线：400-669-5666（服务时间周一至周五 9：00-17：30），也可添加“钱罐子”微信公众号咨询。</p></dd>
+				</dl>
+				<dl class="faq-dl">
+					<dt><span class="ico">Q</span><h3>为什么注册时显示验证码出错？</h3></dt>
+					<dd><span class="ico">A</span><p>验证码为一次性使用后失效，如果短时间内反复点击获取验证码会导致同时收到多条验证码短信，请以最后一次获取的验证码为准，如果短时间内点击获取超过三次，则需要半个小时后再重新获取。</p></dd>
+				</dl>
+				<dl class="faq-dl">
+					<dt><span class="ico">Q</span><h3>为什么注册时获取验证码点击“重新获取”没有反应？</h3></dt>
+					<dd><span class="ico">A</span><p>同一个手机号30秒内只能获取一条信息，1分钟内不可超过两条，30分钟内不能超过三条，如果短时间内点击获取超过三次，请您半个小时后重新尝试。</p></dd>
+				</dl>
+				<dl class="faq-dl">
+					<dt><span class="ico">Q</span><h3>为什么充值失败显示“签约失败，银行返回”的提示？</h3></dt>
+					<dd><span class="ico">A</span><p>可能是您的身份证号码、姓名或手机号输入有误。您可以和银行核实预留的相关信息。</p></dd>
+				</dl>
+				<dl class="faq-dl">
+					<dt><span class="ico">Q</span><h3>投资后明天就能看到收益吗？</h3></dt>
+					<dd><span class="ico">A</span><p>由于产品不同，计息规则有所差别，请参考具体产品的计息规则。</p></dd>
+				</dl>
+				<dl class="faq-dl">
+					<dt><span class="ico">Q</span><h3>提现到账时间是多久？</h3></dt>
+					<dd><span class="ico">A</span><p>1.工作日17：00前申请提现，当天到账；<br />2.工作日17：00后申请提现，第二个工作日到账；<br />3.节假日申请提现，申请后的下一个工作日后到账。</p></dd>
+				</dl>
 			</section>
-		</div>
+		</article>		
 	</div>
-	<script type="text/javascript">
-		require('pages/product/agreement/agreement');
-	</script>
 </body>
 </html>

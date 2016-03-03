@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>产品详情</title>
+	<title>我的体验金-产品详情</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
@@ -16,26 +16,60 @@
     <script type="text/javascript" src="/libs/base/system.js?__inline" data-loader></script><!--ignore-->
 
 	<style type="text/css">
-		html{background: #fff;}
-		body{font-size: .16rem;}
-
-		.setin{padding:0 .1rem;}
-       .head{text-align: center;height:.6rem;line-height: .6rem;}
-
-       .setin p{margin-bottom: .2rem;color: #9d9d9d;}
-       .setin h5{margin: .1rem 0}
-       .cp_b thead tr th{font-size: .14rem;color: #9d9d9d;font-weight: normal;height:.4rem;}
+		/*主内容区*/
+		.tab-contain-box {padding: .25rem;font-size: .19rem;line-height: .34rem;color: #5a5a5a;}
+		.tab-contain-box h3 {text-align: center;font-size: .22rem;}
+		.tab-detail {font-size: .14rem;color: #5a5a5a;}
+		.tab1 {width: 100%;}
+		.tab1 th {padding: .1rem 0;text-align: center;font-size: .15rem;font-weight: normal;color: #fff;background: #f9ce88;}
+		.tab1 tbody td {padding: .1rem 0;text-align: center;color: #5a5a5a;}
 
 	</style>
 
 </head>
 <body>
-	<div class="setin">
-		<div class="head">关于体验标</div>
-		<p>体验标是小牛钱罐子平台针对新用户开发的虚拟标种，用于让用户体验理财投资的各个环节。</p>
-		<p>体验标到期并兑付收益后将由小牛钱罐子平台将体验金本金收回，投资产生的收益归用户所有。</p>
-		<p>其他说明:</p>
-		<p>新手体验金本金不可提现，收益部分直接计入帐户余额。</p>
+	<div class="wrap page-experi">
+		<article>
+			<section>
+				<div class="tab-contain-box">
+					<h3>关于理财金特权标</h3>
+					<p class="mgt1">理财金是小牛钱罐子平台开发的虚拟投资本金，用户获得理财金后需投资理财金特权标。</p>
+					<p class="mgt1">理财金到期并兑付收益后将由小牛钱罐子平台将理财金本金收回，投资产生的收益归用户所有。</p>
+					<p class="mgt1">产品简介如下:</p>
+					<div class="tab-detail mgt1">
+						<table cellspacing="0" cellpadding="0" border="1" borderColor="#ecbe72" class="tab1">
+							<thead>
+								<tr>
+									<th width="35%">属性</th>
+									<th width="65%">说明</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>预期年化收益率</td>
+									<td>12%</td>
+								</tr>
+								<tr>
+									<td>收益时长</td>
+									<td>3天</td>
+								</tr>
+								<tr>
+									<td>收益方式</td>
+									<td>一次性还息，体验金由平台收回</td>
+								</tr>
+								<tr>
+									<td>计息开始日</td>
+									<td>购买当日</td>
+								</tr>
+								
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</section>
+		</article>
+
 	</div>
 	<script type="text/javascript">
 		require('pages/activity/tyj_detail/tyj_descr');

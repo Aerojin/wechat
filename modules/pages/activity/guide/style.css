@@ -151,8 +151,8 @@ section{background: -webkit-gradient(linear,0% 0%, 0% 100%,from(#f76362),to(#f39
 .info_box ul li{position: relative;}
 .info_box ul li:nth-child(1):before{
 	position: absolute;
-	left:.7rem;
-    top:-.5rem;
+	left:.68rem;
+	top:-.37rem;
     width: .5rem;
     height: .5rem;
 	content:"GO";
@@ -200,14 +200,14 @@ section{background: -webkit-gradient(linear,0% 0%, 0% 100%,from(#f76362),to(#f39
 .right_silde{
 	float:left;
 	width:2.98rem;
-	border-left:.02rem solid #fff;
+	border-left:2px solid #fff;
 	padding-left: .2rem;
 	position: relative;
 }
 .right_silde strong{
 	position: absolute;
-	left: -.02rem;
-	width: .02rem;
+	left: -2px;
+	width: 2px;
 	height: .2rem;
 	bottom:-.2rem;
 	background: -webkit-linear-gradient(bottom, rgba(255,255,255,0), rgba(255,255,255,1));

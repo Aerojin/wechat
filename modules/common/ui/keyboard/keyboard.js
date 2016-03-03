@@ -4,10 +4,12 @@
 var $ = require("zepto");
 
 module.exports = function (options) {
+
 	this.isShow 	= false;
-	this.value 		= options.value || [];
-	this.maxLength 	= options.maxLength || 6;
-	this.onChange 	= options.onChange || function () {};
+	this.value 		= options.value || []; 					//初始密码
+	this.maxLength 	= options.maxLength || 6;				//密码长度
+	this.container 	= options.container || $("body");		//容器
+	this.onChange 	= options.onChange || function () {};	//每次改变回调函数
 
 	this.init = function () {
 		
@@ -19,7 +21,7 @@ module.exports = function (options) {
 		this.ui.btnLi 			= this.ui.wrap.find("li");
 
 		this.regEvent();
-		this.ui.wrap.css({bottom: "-220px"}).appendTo('body');
+		this.ui.wrap.css({bottom: "-261px"}).appendTo(this.container);
 
 		return this;
 	};	
@@ -67,7 +69,7 @@ module.exports = function (options) {
 		}
 
 		this.ui.wrap.css({
-			bottom: "-220px"
+			bottom: "-261px"
 		});
 
 		this.ui.wrap.animate({
@@ -91,7 +93,7 @@ module.exports = function (options) {
 		});
 
 		this.ui.wrap.animate({
-			bottom: "-220px"
+			bottom: "-261px"
 		}, 200, function () {
 			if(callback){
 				callback();

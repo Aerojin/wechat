@@ -1,34 +1,25 @@
-<div class="header_box">
-	<span>预期年化</span>
-	<P>{{fRate}}<b>%</b></P>
-</div>
-<div class="header_tb">
-	<span>投资期限</span>
-	<p>{{horizon}}天</p>
-</div>
-<ul class="Infor">
-	<li class="clearfix">
-		<label>收益方式</label>
-		<span>到期一次性还本付息</span>
-	</li>
-	<li class="clearfix">
-		<label>起息日</label>
-		<span>{{startDate}}</span>
-	</li>
-	<li class="clearfix">
-		<label>到期日</label>
-		<span>{{endDate}}</span>
-	</li>
-</ul>
-<ul class="Infor">
-	<li class="clearfix">
-		<a href="$root$/activity/tyj_descr.html?rate={{fRate}}&days={{horizon}}">
-			<label>产品详情</label>
-			<span class="infor_d"></span>
-		</a>
-	</li>
-</ul>
+<header>
+	<div class="hd-white">
+		<div class="hd-detail">
+			<p class="p-name">预期年化</p>
+			<div class="p-num"><div class="viper">{{fRate}}%</div></div>
+			<div class="deadline"><p class="p-name">投资期限</p><p class="deadline-num">{{horizon}}天</p></div>
+		</div>
+	</div>
+</header>
+<section>
 
-<div class="infor_btn">
-	<a href="javascript:void(0)" id="btn-submit">立即购买</a>
-</div>
+	<ul class="new-invest-item mgt1">
+		<li><label>收益方式</label><div class="item-p">到期后本金回收且一次性付息</div></li>
+		<li><label>起息日</label><div class="item-p">{{startDate}}</div></li>
+		<li><label>到期日</label><div class="item-p">{{endDate}}</div></li>
+	</ul>
+	<ul class="operate-list mgt1">
+		<li class="li-tri">
+			<a class="alink" href="$root$/activity/tyj_descr.html?rate={{fRate}}&days={{horizon}}" title="">产品详情</a>
+		</li>
+	</ul>
+
+</section>
+
+<div class="ft-operate-box"><a id="js_btn_submit" class="oper-btn">立即购买</a></div>

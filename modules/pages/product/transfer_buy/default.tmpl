@@ -1,0 +1,35 @@
+<header class="bg-orange-linear">
+	<div class="bg-wave2">
+		<div class="hqb-buy">
+			<h3 class="hqb-h3">{{productName}}</h3>
+			<p>预期年化收益率：{{finalRateDesc}}%</p>
+			<p class="mgt1">投资期限：{{investPeriod}}{{dateUnit}}</p>
+			<p class="mgt1">剩余总额：{{remainMoney}}元</p>					
+		</div>
+	</div>
+</header>
+<section>
+	<div class="cash-input mgt1"><input id="txt-money" type="number" placeholder="请输入购买金额，{{minInvestLimit}}元起"></div>
+	<p class="b-tips">您的账号余额为{{balance}}元<a id="btn-recharge" href="javascript:void(0);" class="pdl1 text-blue2">充值</a></p>
+	<p class="b-tips">预期总收益 <span id="invest-num">0</span>元</p>
+	
+	<ul class="protocol clearfix">
+		{{each protocolUri}}
+			<li>
+				{{if $value.checked}}
+					<span class="pact-ico btn-pact pact-on" data-index="{{$index}}"></span>
+				{{else}}
+					<span class="pact-ico btn-pact" data-index="{{$index}}"></span>
+				{{/if}}						
+				<p>已同意<a  href="{{$value.url}}" class="text-blue2">《{{$value.title}}》</a></p>
+			</li>
+		{{/each}}
+	</ul>
+	<div class="operate mgt2">
+		{{if state == 0}}
+			<a class="oper-btn"  id="btn-submit" href="javascript:void(0);" title="">购买</a>
+		{{else}}
+			<a class="oper-btn oper-btn-gray" href="javascript:void(0);" title="">{{stateText}}</a>
+		{{/if}}	
+	</div>			
+</section>

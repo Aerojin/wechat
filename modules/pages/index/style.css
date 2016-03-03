@@ -1,24 +1,28 @@
 .ban-side {padding: 0 .05rem;}
 .ban-h3 {position:relative;line-height: .36rem;font-size: .14rem;color: #666;text-align: center;}
 .ban-h3 span {position:relative;display: inline-block;padding: 0 .05rem;background: #f2f2f2;}
-.ban-h3:before {content: "";position: absolute;left: 0;top: 50%;width: 100%;height: 1px;background: #666;overflow: hidden;}
+.ban-h3:before {content: "";position: absolute;left: 0;top: 50%;width: 100%;height: 1px;background: #B1B2BC;overflow: hidden;}
 .s-banner li img {width: 100%;display: block; border-radius: 0.05rem;}
 .s-li li {margin-bottom: .05rem;}
 .s-li li:last-child {margin-bottom: 0;}
 .picc-careful {font-size:.13rem;color:#8c8c8c;text-align:center;margin-top:.2rem;}
 .picc-careful span {display:inline-block;line-height:.18rem;padding-left:.18rem;background:url('ico-protect.png') no-repeat left;background-size:contain;}
-.index-ban {position: relative;padding: .1rem 0 ;border-radius: .05rem;background: #fff;}
-.ban-name {text-align: center;font-size: .22rem;line-height: .36rem;color: #e34545;}
-.ban-name span {display: inline-block;padding: 0 .05rem;border-radius: .05rem;border: 1px solid #e34545;}
-.ban-num {text-align: center;font-size: .38rem;line-height: .4rem;color: #e34544;font-family: "Arial";}
-.ban-num em {font-style: normal;font-size: .25rem;}
-.ban-note {text-align: center;font-size: .14rem;line-height: .2rem;color: #4a4a4a;}
+/****************/
+.index-ban {position: relative;padding: .1rem 0 ;border-radius: .05rem;background: #fff;overflow: hidden;}
+.ban-name {text-align: center;font-size: .2rem;line-height: .26rem;color: #666;}
+.ban-name span {display: inline-block;padding: 0 .05rem;}
+.ban-num {text-align: center;font-size: .18rem;color: #b3b3b3;font-family: "Arial";}
+.ban-num em {font-style: normal;font-size: .16rem;color: #ff9627;}
+.ban-note, .ban-notes {text-align: center;font-size: .14rem;line-height: .2rem;color: #b3b3b3;padding: .1rem 0;}
 .ban-note span {padding: 0 .1rem;}
-.ban-btn {padding-top: .15rem ;}
-.ban-btn a.btn-buy {text-align: center;margin: 0 auto;display:block;width: .94rem;height: .94rem;font-size: .18rem;line-height: .94rem;border-radius: .94rem;color: #fff;background: #e34544;border: .03rem solid #fff;} 
-.ban-btn a.btn-touch {border-color: #f1a2a1;}
-.cnt {position: absolute;left: 0;bottom: 0rem;z-index: 9999;text-align: center;width: 100%;height: .2rem;font-size: 0;}
-.cnt > span {display: inline-block;margin: 0 .05rem;width: .13rem;height: .13rem; border-radius: .1rem;border: solid 2px #fff;overflow: hidden;box-sizing: border-box;-webkit-box-sizing: border-box;}
+.ban-notes span{border: solid 1px #fd9149; color: #fd9149; padding: 3px; margin-left: 0.05rem; border-radius: 3px;}
+.ban-x{padding-bottom:0;}
+.ban-x span{border: 1px solid #ff9742;padding:.02rem .1rem;margin: 0 .05rem;border-radius: .06rem;color: #ff9742;}
+.ban-btn {padding-top: .06rem ;}
+
+/*****************/
+.cnt {position: absolute;left: 0;bottom: .1rem;z-index: 9999;text-align: center;width: 100%;height: .2rem;font-size: 0;}
+.cnt > span {display: inline-block;margin: 0 .05rem;width: .1rem;height: .1rem;border-radius: .1rem;border: .01rem solid #fff;overflow: hidden;box-sizing: border-box;-webkit-box-sizing: border-box;}
 .cnt > span.z-on {background: #fff;}
 
 .new-bg {width: 100%;position: relative;}
@@ -35,3 +39,123 @@
 	-webkit-perspective: 1000;
 	perspective: 1000;
 }
+
+/****新增修改****/
+.ban-btn .ban-show{
+	border: 1px solid #fd9149;
+	width: 1.3rem;
+	height:1.3rem;
+	position:relative;
+	border-radius: 50%;
+	margin: 0 auto;
+	font-size: .16rem;
+	padding:4px;
+	text-align: center;	
+}
+
+.ban-btn .ban-show, .ban-btn .ban-show a {
+	color: #fff;
+}
+
+.ban-btn .ban_bg{
+	background: #fd9149;
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+}
+.ban-btn .ban-show .ban_bg p{
+	position: absolute;
+	left: 50%;
+	top:50%;
+
+	font-size: .45rem;
+	line-height: .36rem;
+	width:1rem;
+	margin: -.26rem 0 0 -.5rem;
+	padding-bottom: .1rem;
+	border-bottom: 1px solid rgba(255,255,255,.2);
+}
+.ban-btn .ban-show .ban_bg span{
+	position:absolute;
+	width: 100%;
+	left:50%;
+	bottom: .2rem;
+	margin-left:-50%;
+}
+.ban-btn .ban-show .ban_bg i{
+	position: absolute;
+	left:-.08rem;
+	top:.2rem;
+	
+	font-size: .1rem;
+	font-style: normal;
+	
+	width: .2rem;
+	height: .2rem;
+	line-height: .2rem;
+	background:#fd9149;
+	border-radius: 50%; 
+}
+
+.ban-time{
+	background: #fd9149;
+	width: 3.9rem;
+	font-size: .2rem;
+	margin: .1rem  auto 0 auto;
+	line-height: .46rem;
+	text-align: center;
+	border-radius: .04rem;
+
+}
+.ban-time a.abtn {
+	text-align: center;
+	color: #fff;
+	display: block;
+
+}
+.ban-time a.abtn span {padding-left: .25rem;position: relative;}
+.ban-time a.abtn span:before {content: "";position: absolute;left: 0;top: 50%;margin-top: -.1rem;width: .2rem;height: .2rem;background: url(timeicon.png) no-repeat;
+-webkit-background-size: contain;background-size: contain;
+}
+.ban-hot{
+	position: absolute;
+	right: -.22rem;
+	top:.1rem;
+
+	font-size: .15rem;
+	width: .8rem;
+	background: #fd9149;
+	color: #fff;
+	height: .2rem;
+	line-height: .2rem;
+	text-align: center;
+	-webkit-transform:rotate(45deg);
+}
+
+/**背景黄色**/
+.banColor .ban-hot,.banColor .ban_bg,.banColor .ban-show .ban_bg i,.banColor .ban-time{
+	background: #ff9742;
+}
+.banColor .ban-show{
+	border: 1px solid #ff9742;
+}
+/***变灰**/
+.banColorhui .ban-time{
+	background: #b3b3b3;
+}
+.banColorhui .ban-time a{
+	background:none;
+	padding-left:0;
+}
+
+.ban-name-copy {text-align: center;font-size: .22rem;line-height: .36rem;color: #ff9627;}
+.ban-name-copy span {display: inline-block;padding: 0 .05rem;border-radius: .05rem;border: 1px solid #ff9627;}
+.ban-num-copy {text-align: center;font-size: .38rem;line-height: .4rem;color: #ff9627;font-family: "Arial";}
+.ban-num-copy em {font-style: normal;font-size: .25rem;}
+.ban-note-copy {text-align: center;font-size: .14rem;line-height: .2rem;color: #4a4a4a;}
+.ban-btn-copy {padding-top: .15rem ;}
+.ban-btn-copy a.btn-buy {text-align: center;margin: 0 auto;display:block;width: .94rem;height: .94rem;font-size: .18rem;line-height: .94rem;border-radius: .94rem;color: #fff;background: #fd9149;border: .03rem solid #fff;} 
+.ban-btn-copy a.btn-touch {border-color: #f1a2a1;}
+
+.sold-hot {position: absolute;right: .1rem;top: 0;z-index: 9;width: .48rem;height: .24rem;text-align: center;font-size: .12rem;line-height: .16rem;color:#fff;
+	background: url(ico-mark.png) no-repeat;-webkit-background-size: contain;background-size: contain;}

@@ -1,33 +1,40 @@
 
-		<article>
-			<section>
-				<div class="profit-list">
-						<div class="item-li">
-							<h3 class="tit-words">活期宝</h3>
-							<div class="line-box">
-								<h4>今日预期收益：<span class="text-red">+{{floatIncome.profit | moneyFormat}}</span></h4>
-								<div class="h-tips">（将作为本金复投，赎回时到账）</div>
-							</div>
-						</div>
-						<div class="item-li">
-							<h3 class="tit-words">定期投资</h3>
-							<div class="line-box">
-								<h4>今日预期收益：<span class="text-red">+{{fixIncome.profit | moneyFormat}}</span></h4>
-								<div class="h-tips">（根据当前持有的定期投资对应的年化收益率计算。总收益将在投资到期时回款。）</div>
-							</div>
+<header>
+	<div class="head-box bg-orange-linear">
+		<div class="bg-wave2">
+			<div class="profit-today">
+				<p>今日收益（元）</p>
+				<p class="num">+{{todayIncome}}</p>
+			</div>
+		</div>
+	</div>
+</header>
 
-						</div>
-						{{if otherList.length > 0}}
-						<div class="item-li">
-							<h3 class="tit-words">其他收益</h3>
-							{{each otherList}}
-								<div class="line-box">
-									<h4>{{$value.profitName}}<br />
-									收益金额：<span class="text-red">{{$value.profit | moneyFormat}}</span></h4>
-								</div>
-							{{/each}}
-						</div>
-						{{/if}}
-				</div>
-			</section>
-		</article>
+<article>
+	<section>
+		<div class="wrap-today mgt1">
+			<div class="today-box">
+				<h3>活期宝</h3>
+				<p class="p-name">今日预期收益：<span class="text-orange">+{{floatIncome.profit | moneyFormat}}</span></p>
+				<p class="p-tips">（将作为本金复投，赎回时到账。）</p>
+			</div>
+
+			<div class="today-box">
+				<h3>定期投资</h3>
+				<p class="p-name">今日预期收益：<span class="text-orange">+{{fixIncome.profit | moneyFormat}}</span></p>
+				<p class="p-tips">（根据当前持有的定期投资对应的年化收益率计算。总收益将在投资到期时回款。）</p>
+			</div>
+
+			{{if otherList.length > 0}}
+			<div class="today-box">
+				<h3>其他收益</h3>
+				{{each otherList}}
+					<p class="p-name">{{$value.profitName}}</p>
+					<p class="p-name">收益金额：<span class="text-orange">{{$value.profit | moneyFormat}}</span></p>
+				{{/each}}
+			</div>
+			{{/if}}
+
+		</div>
+	</section>
+</article>

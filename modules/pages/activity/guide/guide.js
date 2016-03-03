@@ -57,7 +57,7 @@
 		this.appLoginU         = appApi.getLogin();//app登录链接
 		this.wxLoginU          = window.location.origin + "/pages/user/login.html?redirect=" + encodeURIComponent(this.myURL);//微信版钱罐子登录链接
 		this.wxBindcardU       = window.location.origin + "/pages/account/accreditation.html";
-		this.investU           = window.location.origin + "/pages/product/buy.html?productId=378eeca3-81fd-48bb-a1ee-880f25c9c57e";
+		this.investU           = window.location.origin + "/pages/product/product_detail.html?fid=378eeca3-81fd-48bb-a1ee-880f25c9c57e";
 		this.buttonStatusText  = ["未完成","领奖励","已领取"];//每个button可能的状态
 		this.buttonStatus      = [0,1,2,3];//每个button可能的三种状态(未完成，可领取，已完成，已完成第四步但是不能领取红包)
 		this.stepStatus        = [];//五个阶段（注册、完善个人信息、绑卡、投资、礼包）的状态
@@ -74,6 +74,7 @@
 		//this.isAuthentication  = user.get("authentication");
 		this.isWX              = versions.isWebChat();
 		this.isDL              = this.isLogin();
+		this.tmpNow            = 0;//记录页面第一次刷新时的当前时间
 
 		this.isDL ? this.refreshPage() : loadingPage.hide();
 		this.regEvent();
@@ -188,8 +189,10 @@
 	    var userCurrentStep = 0;
  		var status = this.stepStatus;
  		var bStatus = this.buttonStatus;
+ 		var registerTime = result.userRegTime;
  		var now = new Date(result.systemNowTime.replace(/-/g,"/")).getTime();
- 		var leftTimeText = this.getLeftTime(result.userRegTime,now);//剩余时间
+ 		this.tmpNow = now;
+ 		var leftTimeText = this.getLeftTime(registerTime,now);//剩余时间
  		for(var i = 0,len = status.length; i < len; i++){
 			//该阶段不为未完成
 			(status[i] > bStatus[0]) && (userCurrentStep = i);//从0开始,即0、1、2、3、4。
@@ -203,17 +206,19 @@
             //e.已登录且五个阶段已完成：展示暗色礼包
         if(status[4] == bStatus[2]){//e,注：老用户的第五步的状态一直都是未完成
         	this.ui.lefttime.text("").addClass("no_bgimgshow").removeClass("bgimgshow");
-        }else if(status[3] == bStatus[2] && leftTimeText != "00:00:00"){//d
+        }else if(status[4] == bStatus[1]){//status[3] == bStatus[2] && leftTimeText != "00:00:00"){//d
         	this.ui.lefttime.text("").addClass("bgimgshow").removeClass("no_bgimgshow");
         }else if(leftTimeText == "00:00:00"){//b
         	this.ui.lefttime.text("00:00:00");
-        }else if(status[3] == bStatus[0] && leftTimeText != "00:00:00"){//c.
+        }else if(status[3] != bStatus[1] && leftTimeText != "00:00:00"){//c.
         	var currentT = now;
-        	setInterval(function(){
-        		var leftTimeT = guide.getLeftTime(result.userRegTime,currentT);
+        	this.intervalNum && clearInterval(this.intervalNum);
+        	var interval = setInterval(function(){
+        		var leftTimeT = guide.getLeftTime(registerTime,currentT);
         		guide.ui.lefttime.text(leftTimeT).removeClass("no_bgimgshow bgimgshow");
         		currentT = currentT + 1000;
         	},1000);
+        	this.intervalNum = interval;
         }
         var intervalTime = leftTimeText.split(":");
     	var leftTimeBar = parseInt(intervalTime[0]) * 60 + parseInt(intervalTime[1]);
@@ -306,6 +311,11 @@
 		var endTime = startTime + 24 * 3600 * 1000;
 		var now = currentTime;//new Date(currentTime.replace(/-/g,"/")).getTime();
 		var date3 = endTime - now;
+		if(startTime > this.tmpNow){//兼容注册时间迟于系统当前时间的情况
+			endTime = this.tmpNow + 24 * 3600 * 1000;
+			date3 = endTime - now - 1000;
+		}
+
 		if(date3 <= 0 ){
 			return "00:00:00";
 		}
@@ -313,17 +323,17 @@
 		//计算出小时数
 		var leave1 = date3%(24*3600*1000);    //计算天数后剩余的毫秒数
 		var hours = Math.floor(leave1/(3600*1000));
-		hours = hours > 10 ? hours : ("0" + hours);
+		hours = hours > 9 ? hours : ("0" + hours);
 		 
 		//计算相差分钟数
 		var leave2 = leave1%(3600*1000);  //计算小时数后剩余的毫秒数
 		var minutes = Math.floor(leave2/(60*1000));
-		minutes = minutes > 10 ? minutes : ("0" + minutes);
+		minutes = minutes > 9 ? minutes : ("0" + minutes);
 		
 		//计算相差秒数
 		var leave3 = leave2%(60*1000);  //计算分钟数后剩余的毫秒数
 		var seconds = Math.round(leave3/1000);
-		seconds = seconds > 10 ? seconds : ("0" + seconds);
+		seconds = seconds > 9 ? seconds : ("0" + seconds);
 
 		return hours+ ":" + minutes + ":" + seconds;
 	},

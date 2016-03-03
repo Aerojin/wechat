@@ -1,212 +1,89 @@
-html{background: #e6e6e6;}
-body{font-size: .16rem;}
 
-.nav_box{
-  height: .52rem;
-  line-height: .52rem;
-  border: 1px solid #d4d4d4;
-  border-width: 1px 0;
-  background: #fff;
-  font-size: .162rem;
-}
-.nav_box li{
-  float: left;
-  width: 33.3%;
-  position: relative;
-  text-align: center;
-}
+header{position: fixed; width: 100%; left: 0px; top: 0px; z-index: 2;}
+.ui-viewport{padding-top: .7rem;}
 
-.nav_box li:before{
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 10%;
-  width: 0;
-  height: 80%;
-  border-right: 1px dotted #d7d7d7;
-}
-
-.nav_box li.active:after{
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -1px;
-  z-index: 10;
-  width: 70%;
-  margin-left: -35%;
-  height: .04rem;
-  background: #da554e;
-}
-
-.coupons_box{
-			margin:.2rem .2rem 0 .2rem;
-			background:#da554e;
-			height: 1.3rem;
-			border-radius: .08rem;
-			color:#fff;
-
-		}
-.coupons_left{padding-left: .1rem;width: 2.4rem;float: left;}
-.coupons_left h4{font-size: .2rem;padding:.1rem 0 .02rem 0;}
-.coupons_left p{font-size: .24rem;}
-
-.coupons_left p span{font-size: .36rem;}
-
-.coupons_line{
-			width: .16rem;
-			height: 1.3rem;
-			float: right;
-			position: relative;
-		}
-		.coupons_line ul{
-			position: absolute;
-			left: 0;
-			top:8.6%
-		}
-
-.coupons_line ul:after,.coupons_line ul:before{
-	content: "";
-	position: absolute;
-	left:50%;
-	margin-left: -.09rem;
-	border-radius: 50%;
-	background: #e6e6e6;
-	width: .18rem;
-	height: .18rem;
-}
-
-.coupons_line ul:before{
-
-	top:-.2rem;
-}
-
-.coupons_line ul:after{
-	bottom: -.18rem;
-}
-
-.coupons_line a{
-	position: absolute;
-	left:-.4rem;
-	top:2%;
-	display: block;
-	width: .35rem;
-	height: .35rem;
-}
-.coupons_line a.smiocn1{
-	background:url(smiocn1.png) no-repeat center center;
-	background-size: .22rem;
-}
-.coupons_line a.smiocn2{
-	background:url(smiocn2.png) no-repeat center center;
-	background-size: .22rem;
-}
-.coupons_line ul li{
-			width: .1rem;
-			height: .1rem;
-			background: #e6e6e6;
-			border-radius:50%;
-			margin:.05rem 0;
-		}
-
-		.coupons_line span{
-			display: block;
-			height: 1.3rem;
-			width: .04rem;
-			background: #e6e6e6;
-			position:absolute;
-			left:50%;
-			top:0;
-			margin-left: -.05rem;
-		}
-
-
-		.coupons_right{
-			width: 1rem;
-			float: right;
-			height: 1.3rem;
-			position: relative;
-
-		}
-
-		.coupons_right a{
-			position: absolute;
-			left: 50%;
-			top:0;
-			width: 100%;
-			margin-left: -50%;
-			display: block;
-			color: #fff;
-			font-size: .18rem;
-			text-align: center;
-			height: 1.3rem;
-			line-height: 1.3rem;
-
-		}
-
-
-/**无记录**/
-.no_Record{text-align: center;padding-top: .5rem;}
-.no_Record img{width:1.17rem; }
-.no_Record p{padding-top:.1rem;}
-
-/**未使用也特有**/
-.coupons_left b{margin-top:.1rem;display: block;font-weight: normal;}
-/***过期页特有***/
-.coupons_right a.overdue{color: #b3b3b3}
-/*已使用的和过期**/
-.hasUsed{background: #fff;color: #b3b3b3}
-
-.hasUsed .coupons_right span{
-	text-align:center;
-	position: absolute;
-	left:50%;
-	width:100%;
-	top:35%;
-	margin-left: -50%;
-	display: block;
-	font-size:.2rem;
-}
-.hasUsed .coupons_right span em{
-	color: #da554e;
-	font-style: normal;
-	display: block;
-	font-size: .24rem;
-}
-
-.coupons_left em{display: block;font-style: normal;line-height:.2rem;}
-
-/*******/
-.mg07 {margin: 0 .07rem;position: relative;}
 .float{float: left; width:4rem;}
-.no-records {margin-top: 2rem; width: 100%;text-align: center;font: .14rem/.36rem "Microsoft YaHei";color: #c3c3c3;}
-.no-records b {display: block;width: .585rem;height: .501rem;margin: 0 auto;
-	background: url(wu_03.png) no-repeat;
-	background-size: .585rem .501rem;
+/*顶部tab*/
+.redpack-tabbar {width: 100%;line-height:.6rem;border-bottom: 1px solid #e8eaed;font-size: .18rem;background: #fff;}
+.redpack-tabbar li {width: 33.33%;position: relative; text-align: center;color: #5a5a5a;}
+.redpack-tabbar li:before {content: "";position: absolute;right: 0;top: 30%;width: 1px;height: 40%;background: #dcdcdc;}
+.redpack-tabbar li:last-child:before {display: none;}
+.redpack-tabbar li.active {color: #fd9149;}
+.redpack-tabbar li.active:after {content: "";position: absolute;left: 10%;bottom: 0;z-index: 10;width: 80%;height: .02rem;background: #fd9149;}
+
+/*红包*/
+.page-experi .redpack-list li {position: relative;margin-bottom: .12rem;padding:0 .12rem;}
+.page-experi .redpack-list .li-box {position: relative;padding: .15rem 0 .4rem 0;min-height: .9rem;border-radius: 5px;overflow: hidden;box-shadow: 0 0 .08rem rgba(0,0,0,.2);
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;   
+
+background: -webkit-gradient(linear, left top, from(#fff3c0), color-stop(0.5, #fff8df), to(#fff3c0));
+background: -webkit-linear-gradient(left top, #fff3c0 0%, #fff8df 50%, #fff3c0 100%);
+background: linear-gradient(left top, #fff3c0 0%, #fff8df 50%, #fff3c0 100%);
 }
-.bag-box {padding-left:.45rem;position:relative;}
-.bag-box .bag-block {border: 1px solid #bebebe;background: #bebebe;color: #f8f8f8;}
-.ico-select {position: absolute;left: .08rem;top: .5rem;width: .24rem;height: .25rem;background: url(ico-select.png) no-repeat;
--webkit-background-size: .24rem .49rem ;background-size: .24rem .49rem ;
--webkit-background-position: 0 -.24rem;background-position: 0 -.25rem;}
-/*.ico-zon .ico-select {background-position: 0 0;}*/
-.ico-zon .bag-block {border: 1px solid #da554e;background: #da554e;color: #fff;}
+.page-experi .redpack-list li .dl-box-left {margin-right: .1rem;padding-left: .2rem;font-size: .18rem;color: #dd9c00;width: 100%;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-ms-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.page-experi .redpack-list li .dl-box-left dd {font-size: .38rem;}
+.page-experi .redpack-list li .dl-box-right,.page-experi .redpack-list li .use-link a {padding: 0 .2rem;font-size: .16rem;text-align: center;color: #dd9c00;}
+.page-experi .redpack-list li .dl-box-right dd {margin-top: .15rem;font-size: .24rem;color: #d43b3b;}
+.page-experi .redpack-status {position: absolute;left:0;bottom:0;width: 100%;padding: 0 .2rem;height: .4rem;line-height: .4rem;font-size: .16rem;color: #fff;box-sizing: border-box;border-radius: 0 0 5px 5px;background: #d43b3b;overflow: hidden;}
+.page-experi .expaiationTime {position: relative;padding-left: .22rem;}
+.page-experi .redpack-status .use a {color: #fff;}
+.page-experi .expaiationTime .ico {position: absolute;left: 0;top: 50%;margin-top: -.1rem;width: .2rem;height: .2rem;-webkit-background-size: contain;background-size: contain;}
+/*体验金底部状态栏对应icon*/
+.page-experi .expaiationTime .ico-standby {background-image: url(redpack-ico-standby.png);}/*还剩xx天过期*/
+.page-experi .expaiationTime .ico-used {background-image: url(redpack-ico-used.png);}/*已使用*/		
+.page-experi .expaiationTime .ico-cashBack {background-image: url(redpack-ico-cashBack.png);}/*已成功返现*/
+.page-experi .expaiationTime .ico-transferFail {background-image: url(redpack-ico-transferFail.png);}/*已转让*/
+/*体验金底部状态栏对应icon end*/
 
-.bag-block {position:relative;margin:.1rem;height: 1.24rem;border-radius: .07rem;box-sizing:border-box;overflow: hidden;}
-.used {border: 1px solid #dcdcdc;background: #fff;color: #bebebe;}
-.ico-used {display:none;position: absolute;right: -.25rem;top: .15rem;z-index: 9;width: 1rem;text-align: center;font-size: .1rem;line-height: .16rem;color:#fff;background: #bebebe;
--webkit-transform: rotate(45deg);transform: rotate(45deg);}
-.used .ico-used {display: block;}
-.unused {border: 1px solid #da554e;background: #da554e;color: #fff;}
+.page-experi .operat-a {text-align: center;font-size: .16rem;line-height: 100%;color: #ababab;}
+.page-experi .operat-a a.btn {display: inline-block;padding: 0 .12rem;color: #fd9149;border-left: 1px solid #cdcdcd;}
+.page-experi .operat-a a:first-child {border: none;}
+/*红包end*/
 
-.bag-num {float: left;padding: .1rem 0 0 .15rem;width:1.3rem;font-size: .23rem;}
-.bag-num b {font-size: .62rem;font-weight: normal;}
-.bag-info {float: right;width: 1.5rem;padding: .15rem .15rem 0 0;}
-.bag-info dt {font-size: .13rem;}
-.bag-info dt h4 {font-size: .17rem;}
-.bag-info dd p {padding-top: .1rem;font-size: .12rem;line-height: .18rem;}
 
-.invest-tabbar {height: .52rem;line-height:.52rem;border:1px solid #d4d4d4;border-width: 1px 0;background: #fff;font-size: .162rem;}
-.invest-tabbar li {float: left;width: 33.3%;position: relative; text-align: center;}
-.invest-tabbar li:before {content: "";position: absolute;right: 0;top: 10%;width:0;height: 80%;border-right: 1px dotted #d7d7d7;}
-.invest-tabbar li:last-child:before {display: none;}
-.invest-tabbar li.active:after {content: "";position: absolute;left: 50%;bottom: -1px;z-index: 10;width: 70%;margin-left: -35%;height: .04rem;background: #da554e;}
+/*体验金生效中*/
+.page-experi .redpack-list li .useStatus {display: none;position: absolute;right: -.15rem;top: -.15rem;width: .86rem;height: .86rem;-webkit-background-size: contain;background-size: contain;}
+.page-experi .redpack-list li.s-using .useStatus {display: block;background-image: url(redpack-sign-using.png);} /*生效中*/
+.page-experi .redpack-list li.s-expirBack .useStatus {display: block;background-image: url(redpack-sign-expirBack.png);} /*到期已返现*/
+.page-experi .redpack-list li.s-transferFail .useStatus {display: block;background-image: url(redpack-sign-transferFail.png);} /*转让已失效*/
+.page-experi .redpack-list li.s-expiration .useStatus {display: block;background-image: url(redpack-sign-expiration.png);} /*已过期*/
+
+/*体验金生效中 end*/
+
+/*已返现*/
+.page-experi .redpack-list li.gray .li-box {background: #ccc;}
+/*已返现 end*/
+
+
+/*已收益*/
+.page-experi .redpack-list li.gray .li-box {
+	background: -webkit-gradient(linear, left top, from(#cbcbca), color-stop(0.5, #ebebeb), to(#cbcbca));
+	background: -webkit-linear-gradient(left top, #cbcbca 0%, #ebebeb 50%, #cbcbca 100%);
+	background: linear-gradient(left top, #cbcbca 0%, #ebebeb 50%, #cbcbca 100%);
+}
+.page-experi .redpack-list li.gray .dl-box-left,.page-experi .redpack-list li.gray .dl-box-right {color: #a1a1a1;}
+.page-experi .redpack-list li.gray .redpack-status {background: #bcbcbc;}
+/*已收益 end*/
+
+/*已过期*/
+.page-experi .redpack-list li.ex-expiration .dl-box-right,.page-experi .redpack-list li.ex-expiration .use {display: none;}
+
+/*已过期 end*/
+
+
+
+
+
+/*暂无过期红包*/
+.page-experi .pack-none {margin-top: 1.6rem;text-align: center;font-size: .14rem;color: #ababab;}
+.page-experi .pack-none .ico {display: block;margin: 0 auto;width: .81rem;height: .49rem;background: url(wu_03.png) no-repeat center center;-webkit-background-size: contain;background-size: contain;}

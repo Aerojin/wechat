@@ -30,6 +30,8 @@ var ransomResult = {
 
 	regEvent: function () {
 		this.ui.btnBack.on("click", function () {
+			window.location.href = "$root$/account/my_hqb.html";
+			/*
 			eventFactory.exec({
 				"wap": function () {
 					window.location.href = "$root$/account/my_hqb.html";
@@ -38,6 +40,7 @@ var ransomResult = {
 					window.location.href = appApi.getBackHqb();
 				}
 			});
+			*/
 		});
 	}
 };
