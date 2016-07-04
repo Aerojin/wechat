@@ -1,4 +1,4 @@
-#运营推广项目    
+#微信版  
 
 # 设置镜像
 npm config set registry "http://registry.npm.taobao.org/"
@@ -55,7 +55,7 @@ npm config set registry "http://registry.npm.taobao.org/"
 ``` 
 
 # 输出目录调整
-```之前输出目录太过混乱,而且包含了一些打包过的文件(冗余文件),这次升级对目录进行调整```
+```之前输出目录太过混乱,而且包含了一些打包过的文件(冗余文件),这次升级对目录进行调整```  
 ```
 	static          //静态资源
 		js		    //js资源
@@ -66,7 +66,7 @@ npm config set registry "http://registry.npm.taobao.org/"
 ```
 
 
-# 目录配置
+# 目录配置  
 ```
 wechat 				项目名  
 	libs				非模块化第三方组件  
@@ -80,7 +80,7 @@ wechat 				项目名
 		pages			页面资源
 ```
 
-# fis-conf.js配置
+# fis-conf.js配置   
 ```
     // npm install [-g] fis3-hook-module
 
