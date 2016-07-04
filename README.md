@@ -55,8 +55,7 @@ npm config set registry "http://registry.npm.taobao.org/"
 ``` 
 
 # 输出目录调整
-```之前输出目录太过混乱,而且包含了一些打包过的文件(冗余文件),这次升级对目录进行调整```  
-
+``` 之前输出目录太过混乱,而且包含了一些打包过的文件(冗余文件),这次升级对目录进行调整 ```     
 ```
 	static          //静态资源
 		js		    //js资源
@@ -66,8 +65,7 @@ npm config set registry "http://registry.npm.taobao.org/"
 	index.html 		/首页
 ```    
 
-
-# 目录配置       
+# 目录配置          
 ```
 wechat 				项目名  
 	libs				非模块化第三方组件  
