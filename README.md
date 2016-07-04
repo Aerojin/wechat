@@ -1,4 +1,4 @@
-#运营推广项目    
+# 微信版    
 
 # 设置镜像
 npm config set registry "http://registry.npm.taobao.org/"
