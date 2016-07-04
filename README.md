@@ -78,3 +78,213 @@ wechat 				项目名
 		css				样式资源  
 		pages			页面资源
 ```
+
+# fis-conf.js 配置  
+```
+// npm install [-g] fis3-hook-module
+/*
+****************基础配置****************
+{
+    mode: 模块化类型(AMD,CDM, CommandJs)
+    baseUrl: 基础路径
+    path: 配置别名或者路径
+}
+*/
+fis.hook('module', {
+    mode: 'commonJs',
+    baseUrl: "./modules/",
+    paths: {
+      api: "common/api/",
+      base: "common/base/",
+      kit: "common/kit/",
+      ui: "common/ui/",
+        zepto: "libs/zepto/zepto",
+      artTemplate: "libs/template/template"
+	}
+});
+
+
+
+/****************模块化设置***************/
+
+/*设置模块目录, 打包时自动包裹define*/
+fis.match('/modules/**.js', {
+    isMod: true
+});
+
+/*设置发布时不产出的文件*/
+fis.match('**.{tmpl,txt,md,json}', {    
+    release: false
+});
+
+/*设置发布时不产出的文件(内嵌文件,不产出)*/
+fis.match('/libs/base/system.js', {    
+    release: false
+});
+
+/*设置打包时自动处理模块化依赖关系*/
+fis.match('::package', {
+    // npm install [-g] fis3-postpackager-loader
+    // 分析 __RESOURCE_MAP__ 结构，来解决资源加载问题
+    postpackager: fis.plugin('loader', {
+        resourceType: 'commonJs',
+        useInlineMap: true // 资源映射表内嵌
+    }),
+
+    /*设置零散资源自动打包*/
+    postpackager: fis.plugin('loader', {
+      allInOne: {
+        js: function (file) {
+          return "/static/js/pages/" + file.filename + "_aio.js";
+        },
+        css: function (file) {
+          return "/static/css/" + file.filename + "_aio.css";
+        }
+      }      
+    })
+});
+
+
+/****************打包设置***************/
+
+/*指定文件添加md5戳*/
+fis.match('*.{js,css,png,jpg,gif}', {
+  useHash: true
+});
+
+/*指定文件添加md5戳*/
+fis.match('/views/images/icon/*.*', {
+  useHash: false
+});
+
+
+/*设置png图片压缩插件*/
+fis.match('*.png', {
+  // fis-optimizer-png-compressor 插件进行压缩，已内置
+  optimizer: fis.plugin('png-compressor')
+});
+
+/****************合并设置***************/
+
+/*第三方组件合并处理*/
+fis.match('modules/libs/**.js', {
+  packTo: '/static/js/libs.js'
+});
+
+/*系统资源合并处理*/
+fis.match('/libs/*.js', {
+  packTo: '/static/js/mod.js'
+});
+
+
+/*公共组件合并处理*/
+
+fis.match('modules/common/api/**.js', {
+    packTo: '/static/js/common_api.js'
+});
+
+fis.match('modules/common/kit/**.js', {
+    packTo: '/static/js/common_kit.js'
+});
+
+fis.match('modules/common/base/**.js', {
+    packTo: '/static/js/common_base.js'
+});
+
+fis.match('modules/common/ui/**.js', {
+    packTo: '/static/js/common_ui.js'
+});
+
+fis.match('modules/pages/**/(*.js)', {
+    release: 'static/js/pages/$1'
+});
+
+
+/*样式合并处理*/
+fis.match('views/css/**.css', {
+    packTo: '/static/css/style.pack.css',
+    packOrder: 1
+});
+
+fis.match('modules/common/**.css', {
+    packTo: '/static/css/common.pack.css',
+    packOrder: 0
+});
+
+fis.match('modules/pages/**/(*.css)', {
+    release: '/static/css/$1'
+});
+
+/*图片输出处理*/
+fis.match('views/**/(*.{png,jpg,gif})', {
+    release: '/static/img/$1'
+});
+
+fis.match('modules/**/(*.{png,jpg,gif})', {
+    release: '/static/img/$1'
+});
+
+/*html输出到根目录下*/
+fis.match('views/(**.html)', {
+    release: '$1'
+});
+
+/*首页输出到根目录下*/
+fis.match('views/pages/index.html', {
+    release: 'index.html'
+});
+
+/*配置domain*/
+
+// fis.match('*', {
+//     domain: '/3ad076'
+// });
+
+/*
+  多状态处理  
+  使用场景: 假设我们有如下需求，当在开发阶段资源都不压缩，但是在上线时做压缩，那么就可以使用这个配置了
+  如何使用: fis3 release <media>  
+
+  开发环境: fis3 release -wL
+  线上环境: fis3 release prod (不用带多余参数, 会自动输出压缩包)
+*/
+fis.media('prod')
+    .match('*', {
+        domain: '/3ad076'
+    })
+    .match('*.js', {
+      optimizer: fis.plugin('uglify-js')
+    })
+    .match("*.css", {
+      optimizer: fis.plugin('clean-css')    
+    })
+    .match('**', {
+      deploy: [
+        fis.plugin('replace', {
+            from: '$root$',
+            to: '/3ad076/pages',
+        }),
+        fis.plugin('skip-packed', {
+          // 配置项
+        }),
+
+        fis.plugin('zip', {
+           filename: "wap_user.zip"
+         }),
+        fis.plugin('local-deliver', {
+          to: '../'
+        }) //must add a deliver, such as http-push, local-deliver
+    ]
+});
+
+/*排除一些文件*/
+fis.set('project.ignore', [
+    "fis-conf.js",
+    "/views/pages/yy2_register.html",
+    "/views/pages/yy3_register.html",
+    "/views/pages/yy4_register.html",
+    "/views/pages/yy5_register.html",
+    "/views/pages/wy_register.html",
+    "/views/pages/gq_index.html"
+]); 
+```
