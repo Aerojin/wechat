@@ -1,4 +1,4 @@
-# 微信版    
+#运营推广项目    
 
 # 设置镜像
 npm config set registry "http://registry.npm.taobao.org/"
@@ -19,19 +19,33 @@ npm config set registry "http://registry.npm.taobao.org/"
 # 升级
 ```如果是新安装的则不需要升级, 原本就有则需要对一些插件和组件进行升级, 具体如下:```
 
-1.node升级
+* 升级内容  
+```
+ 1. 支持差异化打包
+ 2. 输出目录规范化
+ 3. 支持打包zip
+ 4. 过滤冗余打包文件  
+```
+
+* 遗留问题    
+```
+ 1. 开发时的目录依然很混乱
+ 2. 打包zip时不能指定目录
+```
+
+* node升级
 ```	
 	直接官网下载v4.4.x, 或者6.x的node安装文件进行安装(install.msi文件)
 ```
 
-2.fis3升级
+* fis3升级
 ```
 	卸载本地: npm uninstall fis3
 	卸载全局: npm uninstall -g fis3
 	安装全局: npm install -g fis3
 ```
 
-3.插件升级
+* 插件升级
 ```
 	目前只有一款插件需要升级: fis3-postpackager-loader 
 	升级的流程和上面fis3一样, 先卸载,然后安装
@@ -41,6 +55,7 @@ npm config set registry "http://registry.npm.taobao.org/"
 ``` 
 
 # 输出目录调整
+```之前输出目录太过混乱,而且包含了一些打包过的文件(冗余文件),这次升级对目录进行调整```
 ```
 	static          //静态资源
 		js		    //js资源
