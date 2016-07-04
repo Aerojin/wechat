@@ -64,10 +64,10 @@ npm config set registry "http://registry.npm.taobao.org/"
 		img 		//图片资源
 	pages			//页面资源
 	index.html 		/首页
-```
+```    
 
 
-# 目录配置      
+# 目录配置       
 ```
 wechat 				项目名  
 	libs				非模块化第三方组件  
@@ -80,5 +80,3 @@ wechat 				项目名
 		css				样式资源  
 		pages			页面资源
 ```
-
-
