@@ -1,4 +1,4 @@
-#微信版  
+# 微信版  
 
 # 设置镜像
 npm config set registry "http://registry.npm.taobao.org/"
@@ -66,7 +66,7 @@ npm config set registry "http://registry.npm.taobao.org/"
 ```
 
 
-# 目录配置  
+# 目录配置    
 ```
 wechat 				项目名  
 	libs				非模块化第三方组件  
@@ -80,9 +80,9 @@ wechat 				项目名
 		pages			页面资源
 ```
 
-# fis-conf.js配置   
+# fis-conf.js配置     
 ```
-    // npm install [-g] fis3-hook-module
+// npm install [-g] fis3-hook-module
 
 /*
 ****************基础配置****************
