@@ -44,3 +44,144 @@ window.user.isLogin();
 
 #缺点
 `主域下所有的http请求都会带上cookie, 会增加http协议的传输成本`
+
+#cookie.js
+`cookie.js没有任何依赖,直接引入在头部就可以使用`
+```javascript
+;(function (win, doc) {
+	
+	//工具类
+	var tool = {
+		//判断一个值是否为空
+		isEmpty: function (value) {
+			if(value == null || value == undefined  || value == "null"  || value == "undefined" || value.toString().trim().length <= 0){
+				return true;
+			}
+
+			return false;
+		},
+		//将url参数转换成对象, 例如: ?userId=123&token=456,  {userId: 123, token: 456};
+		query: function () {
+			var url = location.search; //获取url中"?"符后的字串
+			var obj = new Object();
+
+			if (url.indexOf("?") != -1) {
+				var str = url.substr(1);
+					str = str.split("&");
+
+				for(var i = 0; i < str.length; i ++) {
+					obj[str[i].split("=")[0]] = unescape(str[i].split("=")[1]);
+				}
+			}
+			return obj || {};
+			
+		},
+		//设置cookie
+		cookie : function (key, value, options) {
+			var days, time, result, decode
+
+			// A key and value were given. Set cookie.
+			if (arguments.length > 1 && String(value) !== "[object Object]") {
+				// Enforce object
+				options = $.extend({}, options)
+
+				if (value === null || value === undefined) options.expires = -1
+
+				if (typeof options.expires === 'number') {
+					days = (options.expires * 24 * 60 * 60 * 1000)
+					time = options.expires = new Date()
+
+					time.setTime(time.getTime() + days)
+				}
+
+				value = String(value)
+
+				return (document.cookie = [
+					encodeURIComponent(key), '=',
+					options.raw ? value : encodeURIComponent(value),
+					options.expires ? '; expires=' + options.expires.toUTCString() : '',
+					options.path ? '; path=' + options.path : '',
+					options.domain ? '; domain=' + options.domain : '',
+					options.secure ? '; secure' : ''
+				].join(''))
+			}
+
+			// Key and possibly options given, get cookie
+			options = value || {}
+
+			decode = options.raw ? function (s) { return s } : decodeURIComponent
+
+			return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? decode(result[1]) : null
+		},
+		//判断userId和token是否为空, 不为空则可以写入数据
+		isSetData: function (data) {
+			if(this.isEmpty(data.token)){
+				return false;
+			}
+			
+			if(this.isEmpty(data.userId)){
+				return false;
+			}
+			
+			return true;
+		},
+		//cookie的KEY值
+		getKey: function () {
+			return "_XN_USERS_";
+		},
+		//cookie默认配置
+		getOptions: function () {			
+			return {
+				path: "/", 
+				expires: 1,				
+				domain: "xiaoniuapp.com",
+				secure: location.protocol == "https:"
+			}
+		},
+		extend: function (target, source) {
+			for (var p in source) {
+		        if (source.hasOwnProperty(p)) {
+		            target[p] = source[p];
+		        }
+		    }
+		    
+		    return target;
+		}
+	};
+	
+	win.user = win.user || {};
+	
+	win.user.setData = function (data, options) {
+		var value = data;
+		
+		if(typeof(value) != "string"){
+			value = JSON.stringify(value);
+		}
+		
+		tool.setCookie(tool.getKey(), value, tool.extend(tool.getOptions(), options));
+	};
+	
+	win.user.getData = function () {
+		var strData = tool.cookie(KEY);
+
+		if(tool.isEmpty(strData)){
+			return {};
+		}
+
+		var data = JSON.parse(strData);		
+		
+		return data || {};
+	};
+
+	win.user.isLogin = function () {
+		var data = this.getData();
+
+		return tool.isSetData(data);
+	};
+	
+	//自动写数据	
+	if(tool.isSetData(tool.query())){
+		win.user.setData(tool.query());
+	}
+})(window, document);
+```
