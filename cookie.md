@@ -16,13 +16,13 @@
     *@param {object} data           用户数据
     *@param {object} options        cookie参数
     *@param {int} options.expires   过期时间(单位:天),默认值: 1天
-    *@param {int} options.path      cookie存储路径, 默认值:"/"
-    *@param {int} options.domain    domain, 默认值: "xiaoniuapp.com"
-    *@param {int} options.secure    是否是https, 默认值: 根据当前url判断
+    *@param {string} options.path   cookie存储路径, 默认值:"/"
+    *@param {string} options.domain domain, 默认值: "xiaoniuapp.com"
+    *@param {bool} options.secure   是否是https, 默认值: 根据当前url判断
 */
 window.user.setData({
-    userId:bb269bfd-a456-42d1-86af-54e40a7520d0,
-    token: bb269bfd-a456-42d1-86af-54e40a7520d0
+    userId: "bb269bfd-a456-42d1-86af-54e40a7520d0",
+    token: "bb269bfd-a456-42d1-86af-54e40a7520d0"
 },{
     expires: 1,
     domain: "xiaoniuapp.com"
